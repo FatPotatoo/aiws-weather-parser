@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About WeatherCast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset and Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+     body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right top, #1e3c72, #2a5298, #6dd5fa, #2980b9);
+  color: #f3f3f3;
+  overflow-x: hidden;
+  padding: 60px 20px;
+  position: relative;
+}
+
+
+    /* Back Button */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #90caf9;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(-3px);
+    }
+
+    /* Particles (fake stars/light) */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+
+    .particle:nth-child(1) {
+      width: 8px;
+      height: 8px;
+      top: 20%;
+      left: 10%;
+      animation-duration: 8s;
+    }
+
+    .particle:nth-child(2) {
+      width: 12px;
+      height: 12px;
+      top: 60%;
+      left: 25%;
+      animation-duration: 12s;
+    }
+
+    .particle:nth-child(3) {
+      width: 6px;
+      height: 6px;
+      top: 40%;
+      left: 75%;
+      animation-duration: 10s;
+    }
+
+    .particle:nth-child(4) {
+      width: 10px;
+      height: 10px;
+      top: 80%;
+      left: 50%;
+      animation-duration: 14s;
+    }
+
+    .particle:nth-child(5) {
+      width: 7px;
+      height: 7px;
+      top: 10%;
+      left: 85%;
+      animation-duration: 11s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-30px); opacity: 0.6; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      animation: floatIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    .section:nth-child(even) {
+      animation-delay: 0.5s;
+    }
+
+    h2 {
+      color: #90caf9;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      .section {
+        margin: 20px 10px;
+      }
+      .back-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Light Particles -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <!-- Back to Home -->
+  <a href="homepage.html" class="back-button">← Back to Home</a>
+
+  <!-- Page Title -->
+  <h1>About WeatherCast 🌩️</h1>
+
+  <!-- Sectioned Content -->
+  <div class="section">
+    <h2>🔍 What is WeatherCast?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In faucibus sapien vitae sem efficitur, eget porttitor metus mattis. Sed commodo tortor at sapien dapibus vulputate.</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Why We Built This</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis augue non nisi fermentum, nec convallis risus faucibus. Praesent volutpat quam sed efficitur malesuada.</p>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ How It Works</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Etiam pretium metus at quam rutrum, at varius nulla blandit. Suspendisse eu odio vel lorem malesuada malesuada.</p>
+  </div>
+
+  <div class="section">
+    <h2>🌐 Tech Stack</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt, leo a pulvinar viverra, magna urna commodo augue, ac vulputate felis purus id arcu.</p>
+  </div>
+
+  <div class="section">
+    <h2>📊 Future Enhancements</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Pellentesque et augue sit amet ante dapibus rutrum at a justo.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 WeatherCast System. All rights reserved.
+  </footer>
+
+</body>
+</html>
