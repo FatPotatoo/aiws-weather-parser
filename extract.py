@@ -4,6 +4,7 @@ import csv
 import json
 import re
 import zipfile
+from datetime import datetime
 import xml.etree.ElementTree as ET
 
 WORD_NAMESPACE = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -79,14 +80,16 @@ STATUS_PATTERNS = {
     r"lay over": "lay over",
 }
 
-
-def list_word_files(folder: Path):
-    """Return all .docx files from the specified folder."""
-    return sorted(folder.glob("*.docx"))
+SUPPORTED_SYSTEM_TYPES = ("WD", "CYCIR", "Trough")
 
 
-def read_docx_file(path: Path) -> str:
-    """Read text from a .docx Word file using the standard library."""
+def list_word_files(folder: Path, pattern: str = "*.docx"):
+    """Return all matching .docx files from the specified folder."""
+    return sorted(folder.glob(pattern))
+
+
+def read_docx_paragraphs(path: Path) -> list[str]:
+    """Read paragraphs from a .docx Word file using the standard library."""
     if not path.exists():
         raise FileNotFoundError(f"Word file not found: {path}")
     if path.suffix.lower() != ".docx":
@@ -105,7 +108,52 @@ def read_docx_file(path: Path) -> str:
         if texts:
             paragraphs.append("".join(texts))
 
-    return "\n".join(paragraphs)
+    return paragraphs
+
+
+def read_docx_file(path: Path) -> str:
+    """Read full text from a .docx Word file."""
+    return "\n".join(read_docx_paragraphs(path))
+
+
+def parse_bulletin_date(paragraphs: list[str]) -> str | None:
+    """Extract bulletin date from heading and return ISO date (YYYY-MM-DD)."""
+    # Common heading example: Sunday,08th June 2025 (...)
+    pattern = re.compile(
+        r"\b(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*,?\s*(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)\s+(\d{4})\b",
+        re.I,
+    )
+    for paragraph in paragraphs[:10]:
+        match = pattern.search(paragraph)
+        if not match:
+            continue
+        day, month_name, year = match.groups()
+        clean = f"{int(day):02d} {month_name} {year}"
+        try:
+            return datetime.strptime(clean, "%d %B %Y").strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return None
+
+
+def parse_bulletin_date_from_filename(path: Path) -> str | None:
+    """Extract bulletin date from filename like 'AIWS 20250608.docx'."""
+    match = re.search(r"(20\d{2})(\d{2})(\d{2})", path.stem)
+    if not match:
+        return None
+    year, month, day = match.groups()
+    try:
+        return datetime(int(year), int(month), int(day)).strftime("%Y-%m-%d")
+    except ValueError:
+        return None
+
+
+def get_summary_paragraph(paragraphs: list[str]) -> str:
+    """Return first weather-summary paragraph; fallback to first non-empty paragraph."""
+    for paragraph in paragraphs:
+        if "summary of observations recorded" in paragraph.lower():
+            return paragraph
+    return next((p for p in paragraphs if p.strip()), "")
 
 
 def normalize_text(text: str) -> str:
@@ -119,15 +167,26 @@ def normalize_text(text: str) -> str:
 def split_sentences(text: str) -> list[str]:
     """Split raw text into sentences using punctuation boundaries."""
     text = text.replace("\n", " ")
+    # Protect domain abbreviations from sentence splitting.
+    text = re.sub(r"\bLong\.", "Long<prd>", text, flags=re.I)
+    text = re.sub(r"\bLat\.", "Lat<prd>", text, flags=re.I)
+    # Keep sentence-ending dot while normalizing m.s.l style abbreviations.
+    text = re.sub(r"\bm\.\s*s\.\s*l\.", "msl.", text, flags=re.I)
+    text = re.sub(r"\bm\.\s*s\.\s*l\b", "msl", text, flags=re.I)
     sentences = re.split(r"(?<=[.!?])\s+", text)
-    return [sentence.strip() for sentence in sentences if sentence.strip()]
+    clean_sentences = [sentence.replace("<prd>", ".").strip() for sentence in sentences if sentence.strip()]
+    return clean_sentences
 
 
 def extract_weather_system(sentence: str) -> str | None:
-    sentence_lower = sentence.lower()
-    for pattern, label in WEATHER_SYSTEM_PATTERNS.items():
-        if re.search(rf"\b{pattern}\b", sentence_lower):
-            return label
+    sentence_lower = sentence.lower().replace("-", " ")
+    # Prioritize WD before representation words like trough/cyclonic circulation.
+    if re.search(r"\bwestern disturbance(s)?\b", sentence_lower):
+        return "WD"
+    if re.search(r"\b(?:upper air\s+)?cyclonic circulation\b", sentence_lower):
+        return "CYCIR"
+    if re.search(r"\btrough\b", sentence_lower):
+        return "Trough"
     return None
 
 
@@ -141,14 +200,55 @@ def extract_associated_system(sentence: str) -> str | None:
 
 def extract_region(sentence: str) -> str | None:
     sentence_lower = sentence.lower()
+
+    coords = extract_coordinates(sentence_lower)
+
+    # Coordinate-first handling for cases like:
+    # "ran roughly along Long. 89°E to the north of Lat. 22°N"
+    if "along long" in sentence_lower:
+        start = sentence_lower.find("along long")
+        coord_text = sentence_lower[start:]
+        coord_text = re.split(r"\s+(?:at\s+\d|persisted|became|continued|remained)\b", coord_text, maxsplit=1)[0]
+        coord_text = coord_text.strip(" ,.;")
+        if len(coord_text) > 10:
+            return coord_text[:200]
+        if coords:
+            lon = coords.get("longitude", "")
+            lat = coords.get("latitude", "")
+            if lon and lat:
+                return f"along long. {lon} to the north of lat. {lat}".lower()
+            if lon:
+                return f"along long. {lon}".lower()
+
+    if "along lat" in sentence_lower:
+        start = sentence_lower.find("along lat")
+        coord_text = sentence_lower[start:]
+        coord_text = re.split(r"\s+(?:at\s+\d|persisted|became|continued|remained)\b", coord_text, maxsplit=1)[0]
+        coord_text = coord_text.strip(" ,.;")
+        if len(coord_text) > 10:
+            return coord_text[:200]
+        if coords and coords.get("latitude"):
+            return f"along lat. {coords['latitude']}".lower()
+
     for keyword in REGION_KEYWORDS:
-        regex = rf"\b{keyword}\s+([a-z0-9&.,\-\s]+?)(?:\s+(?:persisted|was|became|at|with|and|,|\.|;|\)|\()|$)"
+        regex = rf"\b{keyword}\s+([a-z0-9&.,°:/\-\s]+?)(?:\s+(?:persisted|was|became|at|with|which|who|where|and|,|;|\)|\()|$)"
         match = re.search(regex, sentence_lower)
         if match:
             region = match.group(1).strip()[:200]
+            if region in {"long.", "long", "lat.", "lat"}:
+                continue
             if any(re.search(pattern, region) for pattern in SAME_REGION_PATTERNS):
                 return None
             return region
+
+    # For troughs written as "from X to Y across Z"
+    from_to_match = re.search(
+        r"\bfrom\s+([a-z0-9&.,°/\-\s]+?)\s+to\s+([a-z0-9&.,°/\-\s]+?)(?:\s+across\s+([a-z0-9&.,°/\-\s]+?))?(?:\s+(?:at|persisted|became|$)|[.;])",
+        sentence_lower,
+    )
+    if from_to_match:
+        parts = [p.strip() for p in from_to_match.groups() if p and p.strip()]
+        return " ; ".join(parts)[:200]
     return None
 
 
@@ -201,6 +301,17 @@ def extract_coordinates(sentence: str) -> dict | None:
     return None
 
 
+def extract_coordinate_region_fallback(sentence: str) -> str | None:
+    sentence_lower = sentence.lower()
+    if "along" not in sentence_lower or ("long" not in sentence_lower and "lat" not in sentence_lower):
+        return None
+    start = sentence_lower.find("along")
+    coord_text = sentence_lower[start:]
+    coord_text = re.split(r"\s+(?:at\s+\d|persisted|became|continued|remained)\b", coord_text, maxsplit=1)[0]
+    coord_text = coord_text.strip(" ,.;")
+    return coord_text[:200] if len(coord_text) > 10 else None
+
+
 def parse_sentence(sentence: str) -> dict:
     """Parse a single sentence into structured weather data."""
     normalized = normalize_text(sentence)
@@ -251,15 +362,125 @@ def resolve_context(parsed: list[dict], sentences: list[str]) -> list[dict]:
 
 
 def extract_from_docx(path: Path) -> list[dict]:
-    raw_text = read_docx_file(path)
+    paragraphs = read_docx_paragraphs(path)
+    raw_text = get_summary_paragraph(paragraphs)
+    bulletin_date = parse_bulletin_date(paragraphs) or parse_bulletin_date_from_filename(path)
     sentences = split_sentences(raw_text)
     parsed = [parse_sentence(sentence) for sentence in sentences if sentence]
-    parsed = resolve_context(parsed, sentences)
-    return [entry for entry in parsed if entry.get("weather_system") is not None]
+
+    entities: list[dict] = []
+    index_by_key: dict[tuple[str, str], int] = {}
+    last_key_by_system: dict[str, tuple[str, str]] = {}
+
+    for i, entry in enumerate(parsed):
+        sentence = sentences[i].lower()
+        system = entry.get("weather_system")
+        region = entry.get("region")
+        height = entry.get("height_km", 0.0) or 0.0
+        pressure = entry.get("pressure_level")
+        status = entry.get("status")
+
+        if system not in SUPPORTED_SYSTEM_TYPES:
+            # Coreference-only continuation sentence.
+            if re.search(r"\bit\b|same region|same area|the same", sentence):
+                system = next(iter(last_key_by_system.keys()), None)
+            else:
+                continue
+
+        # Representation handling: "western disturbance as/seen as X" is only WD.
+        if system != "WD" and re.search(r"\bwestern disturbance(s)?\b.*\b(as a|seen as)\b", sentence):
+            system = "WD"
+
+        # Coref region fallback.
+        if not region and (re.search(r"same region|same area|the same", sentence) or re.search(r"\bit\b", sentence)):
+            if system in last_key_by_system:
+                region = last_key_by_system[system][1]
+
+        if not region and system == "Trough":
+            region = extract_coordinate_region_fallback(sentence)
+            if not region:
+                # Last resort: keep raw trough geographic phrase rather than blank.
+                region = normalize_text(sentence)[:200]
+
+        if not region:
+            region = "unknown"
+
+        key = (system, re.sub(r"\s+", " ", region.strip().lower()))
+
+        if key in index_by_key:
+            current = entities[index_by_key[key]]
+            if (not current.get("height_km") or current.get("height_km") == 0.0) and height > 0.0:
+                current["height_km"] = height
+            if not current.get("pressure_level") and pressure:
+                current["pressure_level"] = pressure
+            if status:
+                current["status"] = status
+        else:
+            entities.append(
+                {
+                    "date": bulletin_date,
+                    "source_file": path.name,
+                    "weather_system": system,
+                    "region": region if region != "unknown" else "",
+                    "height_km": height,
+                    "pressure_level": pressure,
+                    "status": status,
+                }
+            )
+            index_by_key[key] = len(entities) - 1
+            last_key_by_system[system] = key
+
+    return entities
+
+
+def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:
+    files = list_word_files(folder, pattern)
+    if not files:
+        return []
+    all_entries: list[dict] = []
+    for file_path in files:
+        try:
+            all_entries.extend(extract_from_docx(file_path))
+        except (PermissionError, FileNotFoundError, ValueError) as exc:
+            print(f"Skipping {file_path.name}: {exc}")
+    # Final de-dup guard across all files.
+    unique: list[dict] = []
+    seen: set[tuple] = set()
+    for row in all_entries:
+        dedup_key = (
+            row.get("date"),
+            row.get("source_file"),
+            row.get("weather_system"),
+            re.sub(r"\s+", " ", str(row.get("region", "")).strip().lower()),
+        )
+        if dedup_key in seen:
+            # Merge into the existing row for same entity.
+            idx = next(
+                i
+                for i, existing in enumerate(unique)
+                if (
+                    existing.get("date"),
+                    existing.get("source_file"),
+                    existing.get("weather_system"),
+                    re.sub(r"\s+", " ", str(existing.get("region", "")).strip().lower()),
+                )
+                == dedup_key
+            )
+            existing = unique[idx]
+            if float(existing.get("height_km", 0.0) or 0.0) == 0.0 and float(row.get("height_km", 0.0) or 0.0) > 0.0:
+                existing["height_km"] = row.get("height_km", 0.0)
+            if not existing.get("pressure_level") and row.get("pressure_level"):
+                existing["pressure_level"] = row.get("pressure_level")
+            if row.get("status"):
+                existing["status"] = row.get("status")
+            continue
+        seen.add(dedup_key)
+        unique.append(row)
+    return unique
 
 
 def write_csv(data: list[dict], path: Path) -> None:
-    fieldnames = ["weather_system", "region", "height_km", "pressure_level", "status"]
+    fieldnames = ["date", "source_file", "weather_system", "region", "height_km", "pressure_level", "status"]
     with path.open("w", newline="", encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -267,7 +488,13 @@ def write_csv(data: list[dict], path: Path) -> None:
             writer.writerow({key: row.get(key, "") for key in fieldnames})
 
 
-def main(folder: Path, filename: str | None = None, json_output: bool = False, csv_output: str | None = None) -> None:
+def main(
+    folder: Path,
+    filename: str | None = None,
+    json_output: bool = False,
+    csv_output: str | None = None,
+    pattern: str = "*.docx",
+) -> None:
     aiws_folder = Path(folder)
     if not aiws_folder.exists() or not aiws_folder.is_dir():
         raise FileNotFoundError(f"Folder not found: {aiws_folder}")
@@ -276,13 +503,13 @@ def main(folder: Path, filename: str | None = None, json_output: bool = False, c
         file_path = aiws_folder / filename
         parsed = extract_from_docx(file_path)
     else:
-        files = list_word_files(aiws_folder)
+        files = list_word_files(aiws_folder, pattern)
         if not files:
-            print(f"No .docx Word files were found in {aiws_folder}")
+            print(f"No matching .docx Word files were found in {aiws_folder} using pattern '{pattern}'")
             return
-        print(f"Found {len(files)} .docx files in {aiws_folder}")
-        print(f"Parsing first file: {files[0].name}\n")
-        parsed = extract_from_docx(files[0])
+        print(f"Found {len(files)} .docx files in {aiws_folder} using pattern '{pattern}'")
+        parsed = extract_from_folder(aiws_folder, pattern)
+        print(f"Extracted {len(parsed)} weather system entries.\n")
 
     if csv_output:
         output_path = Path(csv_output)
@@ -320,5 +547,10 @@ if __name__ == "__main__":
         help="Write structured output to CSV file",
         default=None,
     )
+    parser.add_argument(
+        "--glob",
+        help="Glob pattern for selecting .docx files when --file is not provided",
+        default="*.docx",
+    )
     args = parser.parse_args()
-    main(Path(args.folder), args.file, args.json, args.csv)
+    main(Path(args.folder), args.file, args.json, args.csv, args.glob)
