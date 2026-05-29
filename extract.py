@@ -9,6 +9,9 @@ import zipfile
 from datetime import datetime
 import xml.etree.ElementTree as ET
 
+IMD_SUBDIVISIONS_PATH = Path(__file__).parent / "data" / "imd_subdivisions.json"
+IMD_SUBDIVISIONS: list[dict] = []
+
 WORD_NAMESPACE = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NAMESPACES = {"w": WORD_NAMESPACE}
 
@@ -58,6 +61,23 @@ PRESSURE_LEVEL_PATTERNS = [
     "500 hPa",
     "300 hPa",
 ]
+
+# Height (km) -> pressure (hPa) from IMD conversion chart (+ user overrides).
+PRESSURE_HEIGHT_CHART: list[tuple[int, float]] = [
+    (925, 0.9),   # override: 0.9 km -> 925 hPa
+    (925, 1.0),
+    (850, 1.5),
+    (700, 3.1),
+    (600, 4.5),   # override: 4.5 km -> 600 hPa
+    (500, 5.8),   # override: 5.8 km -> 500 hPa
+    (400, 7.6),
+    (300, 9.6),
+    (250, 10.6),
+    (200, 12.3),
+    (150, 13.5),
+    (100, 16.6),
+]
+HEIGHT_PRESSURE_TOLERANCE_KM = 0.05
 
 REGION_KEYWORDS = ["over", "across", "along", "near", "off"]
 SAME_REGION_PATTERNS = [
@@ -239,13 +259,181 @@ def split_weather_clauses(sentences: list[str]) -> list[str]:
     return result
 
 
+def load_imd_subdivisions() -> list[dict]:
+    global IMD_SUBDIVISIONS
+    if IMD_SUBDIVISIONS:
+        return IMD_SUBDIVISIONS
+    if IMD_SUBDIVISIONS_PATH.exists():
+        IMD_SUBDIVISIONS = json.loads(IMD_SUBDIVISIONS_PATH.read_text(encoding="utf-8"))
+    return IMD_SUBDIVISIONS
+
+
 def clean_region_text(region: str) -> str:
     """Strip temporal/noise suffixes from region strings."""
     region = region.strip(" ,.;")
     region = re.sub(r"\s+of today morning\.?$", "", region, flags=re.I)
     region = re.sub(r"\s+also\.?$", "", region, flags=re.I)
     region = re.sub(r"\s+then persisted.*$", "", region, flags=re.I)
+    region = re.sub(r"\s+(?:has\s+)?become(?:n)?\s+less\s+marked.*$", "", region, flags=re.I)
+    region = re.sub(r"\s+became\s+less\s+marked.*$", "", region, flags=re.I)
     return region.strip()
+
+
+def is_coordinate_region(region: str) -> bool:
+    return bool(re.search(r"\balong\s+long\.?", region.lower()))
+
+
+def parse_coordinate_constraints(region: str) -> tuple[float | None, float | None]:
+    """Parse longitude and minimum latitude (north-of) from coordinate region text."""
+    text = region.lower()
+    lon_match = re.search(r"long\.?\s*([0-9]+(?:\.[0-9]+)?)\s*°?", text)
+    lat_match = re.search(r"lat\.?\s*([0-9]+(?:\.[0-9]+)?)\s*°?", text)
+    longitude = float(lon_match.group(1)) if lon_match else None
+    min_latitude = float(lat_match.group(1)) if lat_match else None
+    return longitude, min_latitude
+
+
+def resolve_coordinate_to_subdivisions(region: str, lon_tolerance: float = 3.5) -> list[str]:
+    """
+    Map coordinate phrases (e.g. along Long. 89°E north of Lat. 22°N) to IMD subdivisions
+    using centroid proximity and latitude constraints.
+    """
+    longitude, min_latitude = parse_coordinate_constraints(region)
+    if longitude is None:
+        return []
+
+    subdivisions = load_imd_subdivisions()
+    matches: list[tuple[float, str]] = []
+    for item in subdivisions:
+        lat = float(item["lat"])
+        lon = float(item["lon"])
+        if abs(lon - longitude) > lon_tolerance:
+            continue
+        if min_latitude is not None and lat < min_latitude - 0.5:
+            continue
+        distance = abs(lon - longitude) + (max(0.0, (min_latitude or 0) - lat) if min_latitude else 0.0)
+        matches.append((distance, item["name"]))
+
+    matches.sort(key=lambda pair: pair[0])
+    return [name for _, name in matches[:5]]
+
+
+def resolve_region_parts(region_text: str) -> tuple[str, str]:
+    """
+    Resolve region field; return (resolved_region, region_original).
+    region_original is set only when coordinate text was converted.
+    """
+    if not region_text:
+        return "", ""
+
+    parts = [part.strip() for part in region_text.split(";") if part.strip()]
+    resolved_parts: list[str] = []
+    coordinate_originals: list[str] = []
+
+    for part in parts:
+        if is_coordinate_region(part):
+            mapped = resolve_coordinate_to_subdivisions(part)
+            if mapped:
+                coordinate_originals.append(part)
+                resolved_parts.extend(mapped)
+            else:
+                resolved_parts.append(part)
+        else:
+            resolved_parts.append(clean_region_text(part))
+
+    unique_resolved: list[str] = []
+    for name in resolved_parts:
+        if name and name not in unique_resolved:
+            unique_resolved.append(name)
+
+    resolved_text = format_regions(unique_resolved)
+    original_text = format_regions(coordinate_originals) if coordinate_originals else ""
+    return resolved_text, original_text
+
+
+def is_less_marked_status(status: str | None) -> bool:
+    return bool(status and "less marked" in status.lower())
+
+
+def height_to_pressure_levels(min_km: float, max_km: float | None = None) -> list[int]:
+    """Map height (or inclusive range) to pressure level(s) using the conversion chart."""
+    if min_km <= 0 and (max_km is None or max_km <= 0):
+        return []
+
+    if max_km is not None and max_km > 0 and max_km != min_km:
+        low, high = (min_km, max_km) if min_km <= max_km else (max_km, min_km)
+        levels: list[int] = []
+        for pressure, chart_height in sorted(PRESSURE_HEIGHT_CHART, key=lambda item: item[1]):
+            if low - HEIGHT_PRESSURE_TOLERANCE_KM <= chart_height <= high + HEIGHT_PRESSURE_TOLERANCE_KM:
+                if pressure not in levels:
+                    levels.append(pressure)
+        return levels
+
+    target = max_km if max_km and max_km > 0 else min_km
+    for pressure, chart_height in PRESSURE_HEIGHT_CHART:
+        if abs(chart_height - target) <= HEIGHT_PRESSURE_TOLERANCE_KM:
+            return [pressure]
+
+    closest_pressure, _ = min(PRESSURE_HEIGHT_CHART, key=lambda item: abs(item[1] - target))
+    return [closest_pressure]
+
+
+def format_pressure_levels(levels: list[int]) -> str:
+    return " ; ".join(f"{level} hPa" for level in levels)
+
+
+def format_height_km(min_km: float, max_km: float | None = None) -> str | float:
+    if max_km is not None and max_km > 0 and abs(max_km - min_km) > HEIGHT_PRESSURE_TOLERANCE_KM:
+        low, high = (min_km, max_km) if min_km <= max_km else (max_km, min_km)
+        return f"{low}-{high}"
+    if min_km > 0:
+        return min_km
+    if max_km and max_km > 0:
+        return max_km
+    return 0.0
+
+
+def apply_pressure_from_height(entity: dict) -> None:
+    min_km = float(entity.get("height_km_min", 0) or 0)
+    max_km = entity.get("height_km_max")
+    max_km = float(max_km) if max_km not in (None, "") else None
+
+    if min_km <= 0 and not max_km:
+        if isinstance(entity.get("height_km"), str) and "-" in str(entity.get("height_km")):
+            parts = str(entity["height_km"]).split("-", 1)
+            try:
+                min_km = float(parts[0])
+                max_km = float(parts[1])
+            except ValueError:
+                pass
+
+    levels = height_to_pressure_levels(min_km, max_km)
+    if levels:
+        entity["pressure_level"] = format_pressure_levels(levels)
+
+    entity["height_km"] = format_height_km(min_km, max_km)
+    entity.pop("height_km_min", None)
+    entity.pop("height_km_max", None)
+
+
+def postprocess_entities(entities: list[dict]) -> list[dict]:
+    """Drop less-marked rows, resolve coordinates, and assign pressure levels from height."""
+    processed: list[dict] = []
+    for entity in entities:
+        if is_less_marked_status(entity.get("status")):
+            continue
+
+        region = str(entity.get("region", "")).strip()
+        resolved, original = resolve_region_parts(region)
+        entity["region"] = resolved
+        if original:
+            entity["region_original"] = original
+        elif "region_original" in entity:
+            entity.pop("region_original", None)
+
+        apply_pressure_from_height(entity)
+        processed.append(entity)
+    return processed
 
 
 def normalize_region_key(region: str) -> str:
@@ -259,6 +447,11 @@ def format_regions(regions: list[str]) -> str:
 
 def is_continuation_sentence(sentence: str) -> bool:
     return bool(re.match(r"^\s*it\b", sentence.lower()))
+
+
+def is_forecast_sentence(sentence: str) -> bool:
+    """Skip forecast-only mentions (not current observed systems)."""
+    return bool(re.search(r"\b(?:is\s+)?likely\s+to\s+affect\b", sentence.lower()))
 
 
 def detect_primary_system(sentence: str) -> str | None:
@@ -289,17 +482,38 @@ def has_additional_trough(sentence: str) -> bool:
     return bool(re.search(r"\bwith a trough\b|\bassociated trough\b", sentence.lower()))
 
 
-def extract_wd_region(sentence: str) -> str | None:
+def extract_wd_regions(sentence: str) -> list[str]:
+    """Extract all named or coordinate regions associated with a Western Disturbance."""
     s = sentence.lower()
-    patterns = [
-        r"western disturbance(?:s)?(?:\s+as a|\s+seen as a)?\s+(?:cyclonic circulation|trough)?\s+over\s+([^.;]+?)(?:\s+at|\s+between|\s+with|\s+persisted|\s+lay|\s+of today|\.)",
-        r"western disturbance(?:s)?\s+over\s+([^.;]+?)(?:\s+at|\s+between|\s+with|\s+persisted|\.)",
-    ]
-    for pattern in patterns:
-        match = re.search(pattern, s)
-        if match:
-            return clean_region_text(match.group(1))
-    return None
+    if "western disturbance" not in s:
+        return []
+
+    wd_match = re.search(r"\bwestern disturbance", s)
+    chunk = s[wd_match.start() :]
+
+    regions: list[str] = []
+    for match in re.finditer(
+        r"(?:lay\s+)?(?:as\s+a\s+(?:cyclonic\s+circulation|trough)\s+)?over\s+([^.;]+?)(?=\s+lay\s+over|\s+lay\s+as|\s+between|\s+at|\s+with\s+a\s+trough|\s+persisted|\s+roughly\s+along|\s+ran\s+roughly|\.)",
+        chunk,
+    ):
+        region = clean_region_text(match.group(1))
+        if region and region not in regions:
+            regions.append(region)
+
+    if not regions:
+        coord = extract_coordinate_region_fallback(sentence)
+        if coord:
+            coord = re.sub(r"\s+at\s+\d{4}\s+hours.*$", "", coord, flags=re.I)
+            coord = clean_region_text(coord)
+            if coord:
+                regions.append(coord)
+
+    return regions
+
+
+def extract_wd_region(sentence: str) -> str | None:
+    regions = extract_wd_regions(sentence)
+    return format_regions(regions) if regions else None
 
 
 def extract_cycir_region(sentence: str) -> str | None:
@@ -421,6 +635,23 @@ def extract_region(sentence: str) -> str | None:
 
 
 def extract_height(sentence: str) -> float | None:
+    min_km, max_km = extract_height_range(sentence)
+    if max_km is not None:
+        return max_km if max_km > 0 else min_km
+    return min_km if min_km > 0 else 0.0
+
+
+def extract_height_range(sentence: str) -> tuple[float, float | None]:
+    """Return (min_km, max_km). max_km is set when bulletin gives an inclusive height range."""
+    sentence_lower = sentence.lower()
+
+    between_match = re.search(
+        r"between\s+(\d+(?:\.\d+)?)\s*(?:km\s*)?(?:&|and)\s*(\d+(?:\.\d+)?)\s*(?:km\b)?",
+        sentence_lower,
+    )
+    if between_match:
+        return float(between_match.group(1)), float(between_match.group(2))
+
     patterns = [
         r"(\d+(?:\.\d+)?)\s*km\s*(?:above\s+mean\s+sea\s+level|above\s+m\.s\.l\.|above\s+msl|am\.sl\.|am\.sl|msl|mean sea level)",
         r"at\s+(\d+(?:\.\d+)?)\s*km\s*(?:above|height)",
@@ -428,15 +659,15 @@ def extract_height(sentence: str) -> float | None:
         r"upto\s+(\d+(?:\.\d+)?)\s*km",
         r"extended\s+upto\s+(\d+(?:\.\d+)?)\s*km",
     ]
-    sentence_lower = sentence.lower()
     for pattern in patterns:
         match = re.search(pattern, sentence_lower)
         if match:
             try:
-                return float(match.group(1))
+                value = float(match.group(1))
+                return value, None
             except ValueError:
                 continue
-    return 0.0
+    return 0.0, None
 
 
 def extract_status(sentence: str) -> str | None:
@@ -552,10 +783,24 @@ class EntityTracker:
             region_key = ""
         return (system, region_key)
 
-    def _merge_fields(self, idx: int, height: float, status: str | None, pressure: str | None) -> None:
+    def _merge_fields(
+        self,
+        idx: int,
+        height: float,
+        status: str | None,
+        pressure: str | None,
+        height_max: float | None = None,
+    ) -> None:
         entity = self.entities[idx]
-        if height > 0.0 and float(entity.get("height_km", 0.0) or 0.0) == 0.0:
-            entity["height_km"] = height
+        if height > 0.0:
+            if float(entity.get("height_km_min", 0) or 0) == 0.0:
+                entity["height_km_min"] = height
+            else:
+                entity["height_km_min"] = min(float(entity["height_km_min"]), height)
+        if height_max and height_max > 0.0:
+            entity["height_km_max"] = height_max
+        elif height > 0.0 and not entity.get("height_km_max"):
+            entity["height_km_min"] = height
         if status:
             entity["status"] = status
         if pressure and not entity.get("pressure_level"):
@@ -581,20 +826,22 @@ class EntityTracker:
         height: float = 0.0,
         status: str | None = None,
         pressure: str | None = None,
+        height_max: float | None = None,
     ) -> int:
         key = self._entity_key(system, regions)
         region_str = format_regions(regions)
 
         if key in self.index:
             idx = self.index[key]
-            self._merge_fields(idx, height, status, pressure)
+            self._merge_fields(idx, height, status, pressure, height_max)
         else:
             entity = {
                 "date": self.date,
                 "source_file": self.source_file,
                 "weather_system": system,
                 "region": region_str,
-                "height_km": height or 0.0,
+                "height_km_min": height or 0.0,
+                "height_km_max": height_max,
                 "pressure_level": pressure,
                 "status": status,
             }
@@ -608,10 +855,16 @@ class EntityTracker:
         self.last_by_type[system] = idx
         return idx
 
-    def update_last(self, height: float = 0.0, status: str | None = None, pressure: str | None = None) -> None:
+    def update_last(
+        self,
+        height: float = 0.0,
+        status: str | None = None,
+        pressure: str | None = None,
+        height_max: float | None = None,
+    ) -> None:
         if self.last_idx is None:
             return
-        self._merge_fields(self.last_idx, height, status, pressure)
+        self._merge_fields(self.last_idx, height, status, pressure, height_max)
 
     def update_status_by_region(self, system: str, region: str, status: str | None, height: float = 0.0) -> bool:
         if system != "CYCIR":
@@ -660,25 +913,34 @@ def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> N
         if "northern limit of monsoon" in sentence_lower:
             continue
 
-        height = extract_height(normalized) or 0.0
+        if is_forecast_sentence(normalized):
+            continue
+
+        height_min, height_max = extract_height_range(normalized)
         status = extract_status(normalized)
-        pressure = extract_pressure_level(normalized)
+
+        if is_less_marked_status(status):
+            continue
 
         # Rule 2: "It then persisted..." refers to the last mentioned entity.
         if is_continuation_sentence(normalized):
-            tracker.update_last(height=height, status=status or "persisted", pressure=pressure)
+            tracker.update_last(
+                height=height_min,
+                status=status or "persisted",
+                height_max=height_max,
+            )
 
             # Rule 4: "with a trough aloft" introduces an additional trough system.
             aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
             if aloft_regions or aloft_height > 0.0:
-                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, height_max=None)
             continue
 
         # Standalone trough-aloft fragment (after sentence merge).
         if re.match(r"^\s*with a trough\b", normalized, re.I):
             aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
             if aloft_regions or aloft_height > 0.0:
-                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, height_max=None)
             continue
 
         primary = detect_primary_system(normalized)
@@ -688,12 +950,12 @@ def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> N
             continue
 
         if primary == "WD":
-            region = extract_wd_region(normalized)
-            tracker.upsert("WD", [region] if region else [], height, status, pressure)
+            wd_regions = extract_wd_regions(normalized)
+            tracker.upsert("WD", wd_regions, height_min, status, height_max=height_max)
 
             aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
             if aloft_regions or aloft_height > 0.0:
-                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, height_max=None)
             continue
 
         if primary == "CYCIR":
@@ -701,24 +963,17 @@ def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> N
             if not region:
                 continue
 
-            # Status-only mention of an existing CYCIR — do not create duplicate.
-            if status == "became less marked" and tracker.update_status_by_region("CYCIR", region, status, height):
-                continue
-
-            tracker.upsert("CYCIR", [region], height, status, pressure)
+            tracker.upsert("CYCIR", [region], height_min, status, height_max=height_max)
             continue
 
         if primary == "Trough":
             path_regions = extract_trough_path_regions(normalized)
             if path_regions:
-                tracker.upsert("Trough", path_regions, height, status, pressure)
+                tracker.upsert("Trough", path_regions, height_min, status, height_max=height_max)
                 continue
 
             region = extract_trough_region(normalized)
-            if status == "became less marked" and region and tracker.update_status_by_region("Trough", region, status, height):
-                continue
-
-            tracker.upsert("Trough", [region] if region else [], height, status, pressure)
+            tracker.upsert("Trough", [region] if region else [], height_min, status, height_max=height_max)
 
 
 def extract_from_docx(path: Path) -> list[dict]:
@@ -729,7 +984,21 @@ def extract_from_docx(path: Path) -> list[dict]:
 
     tracker = EntityTracker(bulletin_date, path.name)
     process_summary_sentences(sentences, tracker)
-    return tracker.entities
+    return postprocess_entities(tracker.entities)
+
+
+def _parse_height_for_compare(height_value) -> float:
+    if height_value in (None, ""):
+        return 0.0
+    if isinstance(height_value, str) and "-" in height_value:
+        try:
+            return float(height_value.split("-")[-1])
+        except ValueError:
+            return 0.0
+    try:
+        return float(height_value)
+    except (TypeError, ValueError):
+        return 0.0
 
 
 def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:
@@ -746,6 +1015,8 @@ def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:
     unique: list[dict] = []
     seen: set[tuple] = set()
     for row in all_entries:
+        if is_less_marked_status(row.get("status")):
+            continue
         dedup_key = (
             row.get("date"),
             row.get("source_file"),
@@ -766,8 +1037,9 @@ def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:
                 == dedup_key
             )
             existing = unique[idx]
-            if float(existing.get("height_km", 0.0) or 0.0) == 0.0 and float(row.get("height_km", 0.0) or 0.0) > 0.0:
+            if _parse_height_for_compare(existing.get("height_km")) == 0.0 and _parse_height_for_compare(row.get("height_km")) > 0.0:
                 existing["height_km"] = row.get("height_km", 0.0)
+                existing["pressure_level"] = row.get("pressure_level", existing.get("pressure_level"))
             if not existing.get("pressure_level") and row.get("pressure_level"):
                 existing["pressure_level"] = row.get("pressure_level")
             if row.get("status"):
@@ -779,11 +1051,22 @@ def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:
 
 
 def write_csv(data: list[dict], path: Path) -> None:
-    fieldnames = ["date", "source_file", "weather_system", "region", "height_km", "pressure_level", "status"]
+    fieldnames = [
+        "date",
+        "source_file",
+        "weather_system",
+        "region",
+        "region_original",
+        "height_km",
+        "pressure_level",
+        "status",
+    ]
     with path.open("w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         for row in data:
+            if is_less_marked_status(row.get("status")):
+                continue
             writer.writerow({key: row.get(key, "") for key in fieldnames})
 
 
