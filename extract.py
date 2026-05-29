@@ -3,6 +3,8 @@ import argparse
 import csv
 import json
 import re
+import shutil
+import tempfile
 import zipfile
 from datetime import datetime
 import xml.etree.ElementTree as ET
@@ -85,7 +87,24 @@ SUPPORTED_SYSTEM_TYPES = ("WD", "CYCIR", "Trough")
 
 def list_word_files(folder: Path, pattern: str = "*.docx"):
     """Return all matching .docx files from the specified folder."""
-    return sorted(folder.glob(pattern))
+    return sorted(
+        path
+        for path in folder.glob(pattern)
+        if not path.name.startswith("~$") and "_copy" not in path.stem
+    )
+
+
+def _parse_docx_paragraphs_from_zip(path: Path) -> list[str]:
+    with zipfile.ZipFile(path, "r") as archive:
+        with archive.open("word/document.xml") as document_xml:
+            tree = ET.parse(document_xml)
+
+    paragraphs = []
+    for paragraph in tree.iterfind(".//w:p", namespaces=NAMESPACES):
+        texts = [node.text for node in paragraph.iterfind(".//w:t", namespaces=NAMESPACES) if node.text]
+        if texts:
+            paragraphs.append("".join(texts))
+    return paragraphs
 
 
 def read_docx_paragraphs(path: Path) -> list[str]:
@@ -96,19 +115,20 @@ def read_docx_paragraphs(path: Path) -> list[str]:
         raise ValueError("Only .docx Word files are supported by this script.")
 
     try:
-        with zipfile.ZipFile(path, "r") as archive:
-            with archive.open("word/document.xml") as document_xml:
-                tree = ET.parse(document_xml)
+        return _parse_docx_paragraphs_from_zip(path)
     except zipfile.BadZipFile as exc:
         raise ValueError(f"Invalid .docx file: {path}") from exc
-
-    paragraphs = []
-    for paragraph in tree.iterfind(".//w:p", namespaces=NAMESPACES):
-        texts = [node.text for node in paragraph.iterfind(".//w:t", namespaces=NAMESPACES) if node.text]
-        if texts:
-            paragraphs.append("".join(texts))
-
-    return paragraphs
+    except PermissionError:
+        # Word often locks open files; read from a temporary copy instead.
+        with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp:
+            tmp_path = Path(tmp.name)
+        try:
+            shutil.copy2(path, tmp_path)
+            return _parse_docx_paragraphs_from_zip(tmp_path)
+        except zipfile.BadZipFile as exc:
+            raise ValueError(f"Invalid .docx file: {path}") from exc
+        finally:
+            tmp_path.unlink(missing_ok=True)
 
 
 def read_docx_file(path: Path) -> str:
@@ -170,24 +190,172 @@ def split_sentences(text: str) -> list[str]:
     # Protect domain abbreviations from sentence splitting.
     text = re.sub(r"\bLong\.", "Long<prd>", text, flags=re.I)
     text = re.sub(r"\bLat\.", "Lat<prd>", text, flags=re.I)
-    # Keep sentence-ending dot while normalizing m.s.l style abbreviations.
-    text = re.sub(r"\bm\.\s*s\.\s*l\.", "msl.", text, flags=re.I)
+    text = re.sub(r"\bm\.\s*s\.\s*l\.", "msl<prd>", text, flags=re.I)
     text = re.sub(r"\bm\.\s*s\.\s*l\b", "msl", text, flags=re.I)
     sentences = re.split(r"(?<=[.!?])\s+", text)
     clean_sentences = [sentence.replace("<prd>", ".").strip() for sentence in sentences if sentence.strip()]
-    return clean_sentences
+    return merge_sentence_fragments(clean_sentences)
+
+
+def merge_sentence_fragments(sentences: list[str]) -> list[str]:
+    """Merge fragments produced by abbreviation splits (e.g. msl. with a trough aloft)."""
+    if not sentences:
+        return sentences
+
+    merged: list[str] = []
+    buffer = sentences[0]
+    fragment_starts = (
+        r"^with a trough\b",
+        r"^roughly along\b",
+        r"^in middle\b",
+        r"^in upper\b",
+    )
+
+    for sentence in sentences[1:]:
+        if any(re.match(pattern, sentence, re.I) for pattern in fragment_starts):
+            buffer = f"{buffer} {sentence}"
+        else:
+            merged.append(buffer)
+            buffer = sentence
+
+    merged.append(buffer)
+    return split_weather_clauses(merged)
+
+
+def split_weather_clauses(sentences: list[str]) -> list[str]:
+    """Split combined clauses that share one sentence after m.s.l. protection."""
+    clause_boundary = re.compile(
+        r"(?<=\.)\s+(?=The\s+(?:upper air\s+)?cyclonic circulation|The\s+(?:north[- ]south\s+)?trough|"
+        r"A\s+(?:north[- ]south\s+)?trough|The\s+western disturbance|An?\s+(?:upper air\s+)?cyclonic circulation|It\s+then\b)",
+        re.I,
+    )
+    result: list[str] = []
+    for sentence in sentences:
+        parts = clause_boundary.split(sentence)
+        for part in parts:
+            cleaned = re.sub(r"^Summary of observations recorded[^:]*:\s*", "", part, flags=re.I).strip()
+            if cleaned:
+                result.append(cleaned)
+    return result
+
+
+def clean_region_text(region: str) -> str:
+    """Strip temporal/noise suffixes from region strings."""
+    region = region.strip(" ,.;")
+    region = re.sub(r"\s+of today morning\.?$", "", region, flags=re.I)
+    region = re.sub(r"\s+also\.?$", "", region, flags=re.I)
+    region = re.sub(r"\s+then persisted.*$", "", region, flags=re.I)
+    return region.strip()
+
+
+def normalize_region_key(region: str) -> str:
+    return re.sub(r"\s+", " ", clean_region_text(region).lower())
+
+
+def format_regions(regions: list[str]) -> str:
+    cleaned = [clean_region_text(r) for r in regions if r and clean_region_text(r)]
+    return " ; ".join(cleaned)
+
+
+def is_continuation_sentence(sentence: str) -> bool:
+    return bool(re.match(r"^\s*it\b", sentence.lower()))
+
+
+def detect_primary_system(sentence: str) -> str | None:
+    """Detect weather system from sentence subject, not embedded references."""
+    s = sentence.lower().strip()
+    if is_continuation_sentence(sentence):
+        return None
+
+    subject_patterns = [
+        (r"^the\s+(?:fresh\s+)?western disturbance\b", "WD"),
+        (r"^a\s+fresh\s+western disturbance\b", "WD"),
+        (r"^the\s+western disturbance\b", "WD"),
+        (r"^the\s+(?:north[- ]south\s+)?trough\b", "Trough"),
+        (r"^a\s+(?:north[- ]south\s+)?trough\b", "Trough"),
+        (r"^the\s+(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
+        (r"^an?\s+(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
+    ]
+    for pattern, system in subject_patterns:
+        if re.search(pattern, s):
+            return system
+
+    if re.search(r"\bwestern disturbance(s)?\s+(?:as a|seen as a)\b", s):
+        return "WD"
+    return None
+
+
+def has_additional_trough(sentence: str) -> bool:
+    return bool(re.search(r"\bwith a trough\b|\bassociated trough\b", sentence.lower()))
+
+
+def extract_wd_region(sentence: str) -> str | None:
+    s = sentence.lower()
+    patterns = [
+        r"western disturbance(?:s)?(?:\s+as a|\s+seen as a)?\s+(?:cyclonic circulation|trough)?\s+over\s+([^.;]+?)(?:\s+at|\s+between|\s+with|\s+persisted|\s+lay|\s+of today|\.)",
+        r"western disturbance(?:s)?\s+over\s+([^.;]+?)(?:\s+at|\s+between|\s+with|\s+persisted|\.)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, s)
+        if match:
+            return clean_region_text(match.group(1))
+    return None
+
+
+def extract_cycir_region(sentence: str) -> str | None:
+    s = sentence.lower()
+    patterns = [
+        r"(?:upper air\s+)?cyclonic circulation\s+over\s+([^.;]+?)(?:\s+which|\s+persisted|\s+lay|\s+became|\s+at|\s+of today|\s+and|\.)",
+        r"(?:upper air\s+)?cyclonic circulation\s+lay\s+over\s+([^.;]+?)(?:\s+of today|\s+at|\s+persisted|\s+which|\.)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, s)
+        if match:
+            return clean_region_text(match.group(1))
+    return None
+
+
+def extract_trough_path_regions(sentence: str) -> list[str]:
+    """Extract regions from trough paths like 'from X to Y across Z'."""
+    s = sentence.lower()
+    patterns = [
+        r"\btrough\b.*?\bfrom\s+(.+?)\s+to\s+(?:cyclonic circulation over\s+)?(.+?)(?:\s+across\s+(.+?))?(?:\s+of today|\s+also|\s+became|\s+at|\s+persisted|\.)",
+        r"\bfrom\s+(.+?)\s+to\s+(?:cyclonic circulation over\s+)?(.+?)(?:\s+across\s+(.+?))?(?:\s+of today|\s+also|\s+became|\s+at|\s+persisted|\.)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, s)
+        if not match:
+            continue
+        regions = [clean_region_text(match.group(i)) for i in range(1, 4) if match.group(i)]
+        if regions:
+            return regions
+    return []
+
+
+def extract_trough_aloft_info(sentence: str) -> tuple[list[str], float]:
+    """Extract separate trough introduced by 'with a trough aloft'."""
+    s = sentence.lower()
+    if not has_additional_trough(sentence):
+        return [], 0.0
+
+    height = 0.0
+    height_match = re.search(
+        r"with a trough aloft[^.]*?at\s+(\d+(?:\.\d+)?)\s*km",
+        s,
+    )
+    if height_match:
+        height = float(height_match.group(1))
+
+    regions: list[str] = []
+    if "along long" in s:
+        coord = extract_coordinate_region_fallback(sentence)
+        if coord:
+            regions = [clean_region_text(coord)]
+    return regions, height
 
 
 def extract_weather_system(sentence: str) -> str | None:
-    sentence_lower = sentence.lower().replace("-", " ")
-    # Prioritize WD before representation words like trough/cyclonic circulation.
-    if re.search(r"\bwestern disturbance(s)?\b", sentence_lower):
-        return "WD"
-    if re.search(r"\b(?:upper air\s+)?cyclonic circulation\b", sentence_lower):
-        return "CYCIR"
-    if re.search(r"\btrough\b", sentence_lower):
-        return "Trough"
-    return None
+    return detect_primary_system(sentence)
 
 
 def extract_associated_system(sentence: str) -> str | None:
@@ -254,9 +422,11 @@ def extract_region(sentence: str) -> str | None:
 
 def extract_height(sentence: str) -> float | None:
     patterns = [
-        r"(\d+(?:\.\d+)?)\s*km\s*(?:above\s+mean\s+sea\s+level|above\s+m\.s\.l\.|am\.sl\.|am\.sl|msl|mean sea level)",
+        r"(\d+(?:\.\d+)?)\s*km\s*(?:above\s+mean\s+sea\s+level|above\s+m\.s\.l\.|above\s+msl|am\.sl\.|am\.sl|msl|mean sea level)",
         r"at\s+(\d+(?:\.\d+)?)\s*km\s*(?:above|height)",
         r"height\s+of\s+(\d+(?:\.\d+)?)\s*km",
+        r"upto\s+(\d+(?:\.\d+)?)\s*km",
+        r"extended\s+upto\s+(\d+(?:\.\d+)?)\s*km",
     ]
     sentence_lower = sentence.lower()
     for pattern in patterns:
@@ -361,76 +531,205 @@ def resolve_context(parsed: list[dict], sentences: list[str]) -> list[dict]:
     return parsed
 
 
+class EntityTracker:
+    """Track weather entities with coreference resolution."""
+
+    def __init__(self, date: str | None, source_file: str):
+        self.entities: list[dict] = []
+        self.index: dict[tuple[str, str], int] = {}
+        self.cycir_by_region: dict[str, int] = {}
+        self.last_idx: int | None = None
+        self.last_by_type: dict[str, int] = {}
+        self.date = date
+        self.source_file = source_file
+
+    def _entity_key(self, system: str, regions: list[str]) -> tuple[str, str]:
+        if len(regions) > 1:
+            region_key = "|".join(sorted(normalize_region_key(r) for r in regions))
+        elif regions:
+            region_key = normalize_region_key(regions[0])
+        else:
+            region_key = ""
+        return (system, region_key)
+
+    def _merge_fields(self, idx: int, height: float, status: str | None, pressure: str | None) -> None:
+        entity = self.entities[idx]
+        if height > 0.0 and float(entity.get("height_km", 0.0) or 0.0) == 0.0:
+            entity["height_km"] = height
+        if status:
+            entity["status"] = status
+        if pressure and not entity.get("pressure_level"):
+            entity["pressure_level"] = pressure
+
+    def _register_cycir(self, idx: int, regions: list[str]) -> None:
+        for region in regions:
+            self.cycir_by_region[normalize_region_key(region)] = idx
+
+    def find_cycir(self, region_hint: str) -> int | None:
+        key = normalize_region_key(region_hint)
+        if key in self.cycir_by_region:
+            return self.cycir_by_region[key]
+        for region_key, idx in self.cycir_by_region.items():
+            if key in region_key or region_key in key:
+                return idx
+        return None
+
+    def upsert(
+        self,
+        system: str,
+        regions: list[str],
+        height: float = 0.0,
+        status: str | None = None,
+        pressure: str | None = None,
+    ) -> int:
+        key = self._entity_key(system, regions)
+        region_str = format_regions(regions)
+
+        if key in self.index:
+            idx = self.index[key]
+            self._merge_fields(idx, height, status, pressure)
+        else:
+            entity = {
+                "date": self.date,
+                "source_file": self.source_file,
+                "weather_system": system,
+                "region": region_str,
+                "height_km": height or 0.0,
+                "pressure_level": pressure,
+                "status": status,
+            }
+            self.entities.append(entity)
+            idx = len(self.entities) - 1
+            self.index[key] = idx
+            if system == "CYCIR":
+                self._register_cycir(idx, regions)
+
+        self.last_idx = idx
+        self.last_by_type[system] = idx
+        return idx
+
+    def update_last(self, height: float = 0.0, status: str | None = None, pressure: str | None = None) -> None:
+        if self.last_idx is None:
+            return
+        self._merge_fields(self.last_idx, height, status, pressure)
+
+    def update_status_by_region(self, system: str, region: str, status: str | None, height: float = 0.0) -> bool:
+        if system != "CYCIR":
+            key = self._entity_key(system, [region])
+            if key in self.index:
+                self.last_idx = self.index[key]
+                self._merge_fields(self.last_idx, height, status, None)
+                return True
+            return False
+
+        idx = self.find_cycir(region)
+        if idx is None:
+            return False
+        self.last_idx = idx
+        self._merge_fields(idx, height, status, None)
+        return True
+
+
+def extract_trough_region(sentence: str) -> str | None:
+    """Extract single-region trough description (coordinates or along phrases)."""
+    path_regions = extract_trough_path_regions(sentence)
+    if path_regions:
+        return format_regions(path_regions)
+
+    coord = extract_coordinate_region_fallback(sentence)
+    if coord:
+        return clean_region_text(coord)
+
+    sentence_lower = sentence.lower()
+    for keyword in REGION_KEYWORDS:
+        regex = rf"\b{keyword}\s+([a-z0-9&.,°:/\-\s]+?)(?:\s+(?:persisted|was|became|at|with|which|who|where|and|,|;|\)|\()|$)"
+        match = re.search(regex, sentence_lower)
+        if match:
+            region = clean_region_text(match.group(1))
+            if region and region not in {"long.", "long", "lat.", "lat"}:
+                return region
+    return None
+
+
+def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> None:
+    """Process summary sentences with entity tracking and coreference resolution."""
+    for sentence in sentences:
+        normalized = normalize_text(sentence)
+        sentence_lower = normalized.lower()
+
+        if "northern limit of monsoon" in sentence_lower:
+            continue
+
+        height = extract_height(normalized) or 0.0
+        status = extract_status(normalized)
+        pressure = extract_pressure_level(normalized)
+
+        # Rule 2: "It then persisted..." refers to the last mentioned entity.
+        if is_continuation_sentence(normalized):
+            tracker.update_last(height=height, status=status or "persisted", pressure=pressure)
+
+            # Rule 4: "with a trough aloft" introduces an additional trough system.
+            aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
+            if aloft_regions or aloft_height > 0.0:
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+            continue
+
+        # Standalone trough-aloft fragment (after sentence merge).
+        if re.match(r"^\s*with a trough\b", normalized, re.I):
+            aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
+            if aloft_regions or aloft_height > 0.0:
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+            continue
+
+        primary = detect_primary_system(normalized)
+        if not primary and re.search(r"\b(?:north[- ]south\s+)?trough\b.*\b(?:ran|run|extends?|extended)\b", sentence_lower):
+            primary = "Trough"
+        if not primary:
+            continue
+
+        if primary == "WD":
+            region = extract_wd_region(normalized)
+            tracker.upsert("WD", [region] if region else [], height, status, pressure)
+
+            aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
+            if aloft_regions or aloft_height > 0.0:
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, pressure)
+            continue
+
+        if primary == "CYCIR":
+            region = extract_cycir_region(normalized)
+            if not region:
+                continue
+
+            # Status-only mention of an existing CYCIR — do not create duplicate.
+            if status == "became less marked" and tracker.update_status_by_region("CYCIR", region, status, height):
+                continue
+
+            tracker.upsert("CYCIR", [region], height, status, pressure)
+            continue
+
+        if primary == "Trough":
+            path_regions = extract_trough_path_regions(normalized)
+            if path_regions:
+                tracker.upsert("Trough", path_regions, height, status, pressure)
+                continue
+
+            region = extract_trough_region(normalized)
+            if status == "became less marked" and region and tracker.update_status_by_region("Trough", region, status, height):
+                continue
+
+            tracker.upsert("Trough", [region] if region else [], height, status, pressure)
+
+
 def extract_from_docx(path: Path) -> list[dict]:
     paragraphs = read_docx_paragraphs(path)
     raw_text = get_summary_paragraph(paragraphs)
     bulletin_date = parse_bulletin_date(paragraphs) or parse_bulletin_date_from_filename(path)
     sentences = split_sentences(raw_text)
-    parsed = [parse_sentence(sentence) for sentence in sentences if sentence]
 
-    entities: list[dict] = []
-    index_by_key: dict[tuple[str, str], int] = {}
-    last_key_by_system: dict[str, tuple[str, str]] = {}
-
-    for i, entry in enumerate(parsed):
-        sentence = sentences[i].lower()
-        system = entry.get("weather_system")
-        region = entry.get("region")
-        height = entry.get("height_km", 0.0) or 0.0
-        pressure = entry.get("pressure_level")
-        status = entry.get("status")
-
-        if system not in SUPPORTED_SYSTEM_TYPES:
-            # Coreference-only continuation sentence.
-            if re.search(r"\bit\b|same region|same area|the same", sentence):
-                system = next(iter(last_key_by_system.keys()), None)
-            else:
-                continue
-
-        # Representation handling: "western disturbance as/seen as X" is only WD.
-        if system != "WD" and re.search(r"\bwestern disturbance(s)?\b.*\b(as a|seen as)\b", sentence):
-            system = "WD"
-
-        # Coref region fallback.
-        if not region and (re.search(r"same region|same area|the same", sentence) or re.search(r"\bit\b", sentence)):
-            if system in last_key_by_system:
-                region = last_key_by_system[system][1]
-
-        if not region and system == "Trough":
-            region = extract_coordinate_region_fallback(sentence)
-            if not region:
-                # Last resort: keep raw trough geographic phrase rather than blank.
-                region = normalize_text(sentence)[:200]
-
-        if not region:
-            region = "unknown"
-
-        key = (system, re.sub(r"\s+", " ", region.strip().lower()))
-
-        if key in index_by_key:
-            current = entities[index_by_key[key]]
-            if (not current.get("height_km") or current.get("height_km") == 0.0) and height > 0.0:
-                current["height_km"] = height
-            if not current.get("pressure_level") and pressure:
-                current["pressure_level"] = pressure
-            if status:
-                current["status"] = status
-        else:
-            entities.append(
-                {
-                    "date": bulletin_date,
-                    "source_file": path.name,
-                    "weather_system": system,
-                    "region": region if region != "unknown" else "",
-                    "height_km": height,
-                    "pressure_level": pressure,
-                    "status": status,
-                }
-            )
-            index_by_key[key] = len(entities) - 1
-            last_key_by_system[system] = key
-
-    return entities
+    tracker = EntityTracker(bulletin_date, path.name)
+    process_summary_sentences(sentences, tracker)
+    return tracker.entities
 
 
 def extract_from_folder(folder: Path, pattern: str = "*.docx") -> list[dict]:

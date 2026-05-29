@@ -6,8 +6,9 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2025-06-01,AIWS 20250601.docx,Trough,central pakistan ; haryana ; north rajasthan,0.9,,persisted
 2025-06-01,AIWS 20250601.docx,CYCIR,northeast assam,0.9,,persisted
 2025-06-01,AIWS 20250601.docx,Trough,"central parts of east uttar pradesh ; arunachal pradesh ; central parts of bihar, sub-himalayan west bengal, central parts of assam",0.0,,
+2025-06-01,AIWS 20250601.docx,Trough,along long. 90°e to the north of lat. 20°n,1.5,,
 2025-06-01,AIWS 20250601.docx,Trough,northeast uttar pradesh ; east vidarbha,0.0,,became less marked
-2025-06-01,AIWS 20250601.docx,CYCIR,northeast arunachal pradesh which extended upto 3,3.1,,became less marked
+2025-06-01,AIWS 20250601.docx,CYCIR,northeast arunachal pradesh,3.1,,became less marked
 2025-06-02,AIWS 20250602.docx,WD,north pakistan & adjoining jammu,7.6,,
 2025-06-02,AIWS 20250602.docx,CYCIR,haryana & neighbourhood,1.5,,persisted
 2025-06-02,AIWS 20250602.docx,Trough,along long. 91°e to the north of lat. 22°n,1.5,,
@@ -29,6 +30,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2025-06-04,AIWS 20250604.docx,CYCIR,north bangladesh & neighbourhood,0.9,,lay over
 2025-06-04,AIWS 20250604.docx,CYCIR,northeast assam & neighbourhood,0.9,,lay over
 2025-06-04,AIWS 20250604.docx,CYCIR,south gujarat & neighbourhood between 1,3.1,,lay over
+2025-06-04,AIWS 20250604.docx,Trough,along long. 87°e to the north of lat. 22°n,3.1,,
 2025-06-04,AIWS 20250604.docx,CYCIR,northwest uttar pradesh,0.0,,became less marked
 2025-06-04,AIWS 20250604.docx,Trough,along long. 92°e to the north of lat. 22°n,0.0,,became less marked
 2025-06-04,AIWS 20250604.docx,CYCIR,east bihar,0.0,,became less marked
@@ -48,7 +50,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2025-06-06,AIWS 20250606.docx,CYCIR,jharkhand & adjoining south bihar,0.0,,became less marked
 2025-06-07,AIWS 20250607.docx,CYCIR,northwest rajasthan & neighbourhood,0.9,,persisted
 2025-06-07,AIWS 20250607.docx,CYCIR,northwest uttar pradesh & neighbourhood,1.5,,persisted
-2025-06-07,AIWS 20250607.docx,CYCIR,northeast madhya pradesh & neighbourhood and which extended upto 1,1.5,,extended
+2025-06-07,AIWS 20250607.docx,CYCIR,northeast madhya pradesh & neighbourhood and,1.5,,extended
 2025-06-07,AIWS 20250607.docx,Trough,east vidarbha ; north interior karnataka,1.5,,
 2025-06-07,AIWS 20250607.docx,Trough,along long. 87°e to the north of lat. 22°n,0.0,,
 2025-06-07,AIWS 20250607.docx,CYCIR,northeast assam & neighbourhood,0.9,,persisted
@@ -60,7 +62,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2025-06-08,AIWS 20250608.docx,CYCIR,central pakistan & neighbourhood,1.5,,persisted
 2025-06-08,AIWS 20250608.docx,Trough,along long. 89°e to the north of lat. 22°n,0.0,,
 2025-06-08,AIWS 20250608.docx,WD,,5.8,,
-2025-06-08,AIWS 20250608.docx,CYCIR,east bangladesh & neighbourhood which extended upto 1,1.5,,extended
+2025-06-08,AIWS 20250608.docx,CYCIR,east bangladesh & neighbourhood,1.5,,extended
 2025-06-08,AIWS 20250608.docx,CYCIR,southeast & adjoining eastcentral bay of bengal,5.8,,lay over
 2025-06-08,AIWS 20250608.docx,WD,ladakh & adjoining kashmir,5.8,,
 2025-06-08,AIWS 20250608.docx,CYCIR,northeast assam & neighbourhood,0.0,,became less marked
@@ -192,17 +194,20 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2025-06-25,AIWS 20250625.docx,Trough,"central parts of pakistan ; the cyclonic circulation over northwest bay of bengal adjoining north odisha-west bengal coasts ; northern parts of rajasthan, cyclonic circulation over central parts of northeast madhya pradesh, north chhattisgarh and north odisha extending upto 1",1.5,,became less marked
 2025-06-26,AIWS 20250626.docx,Trough,"northeast arabian sea ; the cyclonic circulation over northeast madhya pradesh ran from northeast arabian sea to low pressure area over northwest bay of bengal and adjoining coastal areas of odisha and west bengal ; south gujarat, madhya pradesh, chhattisgarh & extended between 1",7.6,,extended
 2025-06-26,AIWS 20250626.docx,CYCIR,central parts of northeast madhya pradesh,0.9,,persisted
-2025-06-27,AIWS 20250627.docx,CYCIR,southwest rajasthan,5.8,,became less marked
+2025-06-27,AIWS 20250627.docx,CYCIR,southwest rajasthan,5.8,,persisted
+2025-06-27,AIWS 20250627.docx,Trough,"the cyclonic circulation over southwest rajasthan ; bangladesh ; east rajasthan, north madhya pradesh, north jharkhand, gangetic west bengal and extended upto 5",5.8,,became less marked
 2025-06-27,AIWS 20250627.docx,Trough,"southeast arabian sea ; odisha ; south gujarat, northern parts of madhya maharashtra, vidarbha, chhattisgarh between 4",5.8,,merged
 2025-06-27,AIWS 20250627.docx,CYCIR,northeast madhya pradesh,0.9,,became less marked
 2025-06-28,AIWS 20250628.docx,CYCIR,saurashtra & kutch & adjoining northeast arabian sea and extended upto middle tropospheric level tilting southwestwards with height,0.0,,extended
 2025-06-28,AIWS 20250628.docx,CYCIR,southwest bangladesh & adjoining gangetic west bengal and extended upto 4,4.5,,persisted
 2025-06-28,AIWS 20250628.docx,CYCIR,"southwest rajasthan to bangladesh now ran from the upper air cyclonic circulation over southwest bangladesh & adjoining gangetic west bengal to northeast madhya pradesh across jharkhand, north chhattisgarh between 3",1.5,,became less marked
 2025-06-28,AIWS 20250628.docx,CYCIR,northeast assam,0.9,,lay over
+2025-06-29,AIWS 20250629.docx,Trough,"the upper air cyclonic circulation over south rajasthan & adjoining north gujarat ; the cyclonic circulation associated with the low-pressure area over northwest bay of bengal and adjoining west bengal and bangladesh coasts ; madhya pradesh, north chhattisgarh and north odisha between 3",5.8,,
 2025-06-29,AIWS 20250629.docx,CYCIR,north haryana & neighbourhood and extended upto 1,1.5,,extended
 2025-06-29,AIWS 20250629.docx,CYCIR,central parts of south uttar pradesh,1.5,,became less marked
 2025-06-29,AIWS 20250629.docx,CYCIR,central parts of north arabian sea and extended upto 5,5.8,,extended
 2025-06-29,AIWS 20250629.docx,CYCIR,northeast assam,0.9,,became less marked
+2025-06-30,AIWS 20250630.docx,Trough,"southwest uttar pradesh ; the cyclonic circulation associated with the low-pressure area over coastal gangetic west bengal & neighbourhood ; southeast uttar pradesh, jharkhand, and gangetic west bengal and neighbourhood extended between 0",3.1,,extended
 2025-06-30,AIWS 20250630.docx,CYCIR,central parts of south uttar pradesh merged with the above trough,0.0,,merged
 2025-06-30,AIWS 20250630.docx,CYCIR,south rajasthan & adjoining north gujarat,3.1,,persisted
 2025-06-30,AIWS 20250630.docx,CYCIR,north haryana & neighbourhood,0.0,,became less marked
@@ -218,13 +223,15 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-02,AIWS 20260502.docx,WD,,0.0,,
 2026-05-02,AIWS 20260502.docx,CYCIR,north punjab & neighbourhood,1.5,,persisted
 2026-05-02,AIWS 20260502.docx,CYCIR,gangetic west bengal & adjoining bangladesh,3.1,,lay over
-2026-05-02,AIWS 20260502.docx,CYCIR,"west rajasthan to comorin area across east rajasthan, madhya pradesh, vidarbha, telangana, rayalaseema",0.9,,lay over
+2026-05-02,AIWS 20260502.docx,CYCIR,west rajasthan & neighbourhood,0.9,,lay over
+2026-05-02,AIWS 20260502.docx,Trough,"above the cyclonic circulation over west rajasthan ; comorin area ; east rajasthan, madhya pradesh, vidarbha, telangana, rayalaseema and interior tamil nadu",0.9,,
 2026-05-02,AIWS 20260502.docx,CYCIR,southeast bangladesh,0.0,,became less marked
 2026-05-02,AIWS 20260502.docx,WD,kashmir & neighbourhood moved away,0.0,,
 2026-05-02,AIWS 20260502.docx,Trough,"south odisha ; gulf of mannar ; telangana, andhra pradesh and tamil nadu",0.0,,became less marked
 2026-05-02,AIWS 20260502.docx,CYCIR,central pakistan & adjoining rajasthan between 1,3.1,,became less marked
 2026-05-02,AIWS 20260502.docx,CYCIR,north odisha & adjoining gangetic west bengal,0.9,,became less marked
 2026-05-03,AIWS 20260503.docx,WD,,3.1,,persisted
+2026-05-03,AIWS 20260503.docx,Trough,along long. 69°e to the north of lat. 30°n,5.8,,
 2026-05-03,AIWS 20260503.docx,CYCIR,north haryana & neighbourhood,1.5,,extended
 2026-05-03,AIWS 20260503.docx,Trough,the upper air cyclonic circulation over haryana & neighbourhood ; over southwest rajasthan,0.9,,
 2026-05-03,AIWS 20260503.docx,CYCIR,west rajasthan & neighbourhood,0.9,,merged
@@ -234,6 +241,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-03,AIWS 20260503.docx,CYCIR,central assam & neighbourhood,3.1,,lay over
 2026-05-03,AIWS 20260503.docx,CYCIR,north bangladesh & adjoining gangetic west bengal,1.5,,persisted
 2026-05-04,AIWS 20260504.docx,WD,north pakistan & neighbourhood,3.1,,persisted
+2026-05-04,AIWS 20260504.docx,Trough,along long. 72°e to the north of lat. 28°n,5.8,,
 2026-05-04,AIWS 20260504.docx,CYCIR,haryana & neighbourhood extended upto 1,1.5,,persisted
 2026-05-04,AIWS 20260504.docx,Trough,above upper air cyclonic circulation over haryana & neighbourhood ; southwest rajasthan has merged with the above system,0.0,,merged
 2026-05-04,AIWS 20260504.docx,CYCIR,east madhya pradesh & neighbourhood,1.5,,persisted
@@ -249,6 +257,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-05,AIWS 20260505.docx,CYCIR,east madhya pradesh & neighbourhood,1.5,,extended
 2026-05-05,AIWS 20260505.docx,Trough,south chhattisgarh ; manipur ran from the cyclonic circulation over central parts of madhya pradesh to bihar,0.9,,persisted
 2026-05-05,AIWS 20260505.docx,Trough,vidarbha ; comorin area ran from central parts of madhya pradesh to comorin area,1.5,,persisted
+2026-05-05,AIWS 20260505.docx,Trough,along long. 89°e to the north of lat. 21°n,3.1,,
 2026-05-05,AIWS 20260505.docx,Trough,the upper air cyclonic circulation over haryana & neighbourhood ; northeast arabian sea ran from haryana to southwest rajasthan,1.5,,became less marked
 2026-05-05,AIWS 20260505.docx,CYCIR,central assam & neighbourhood,0.9,,persisted
 2026-05-05,AIWS 20260505.docx,CYCIR,interior odisha & neighbourhood,0.0,,became less marked
@@ -309,7 +318,8 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-10,AIWS 20260510.docx,CYCIR,east rajasthan,0.9,,lay over
 2026-05-10,AIWS 20260510.docx,CYCIR,west uttar pradesh & neighbourhood,1.5,,lay over
 2026-05-10,AIWS 20260510.docx,Trough,"the upper air cyclonic circulation over east rajasthan ; east jharkhand ran from the upper air cyclonic circulation over southeast rajasthan & neighbourhood to gangetic west bengal ; madhya pradesh, chhattisgarh & jharkhand",0.9,,
-2026-05-10,AIWS 20260510.docx,CYCIR,"southeast rajasthan & neighbourhood, madhya pradesh & madhya maharashtra",1.5,,lay over
+2026-05-10,AIWS 20260510.docx,CYCIR,northeast bangladesh & neighbourhood,1.5,,lay over
+2026-05-10,AIWS 20260510.docx,Trough,"north pakistan and adjoining punjab ; marathwada ; upper air cyclonic circulation over southeast rajasthan & neighbourhood, madhya pradesh & madhya maharashtra",0.9,,
 2026-05-10,AIWS 20260510.docx,Trough,"northeast bihar ; central parts of coastal andhra pradesh ; jharkhand, odisha & chhattisgarh",7.6,,
 2026-05-10,AIWS 20260510.docx,Trough,southeast arabian sea & adjoining lakshadweep off kerala coast ; marathwada ran from north interior karnataka to the upper air cyclonic circulation over gulf of mannar and adjoining sri lanka kerala coast ; south interior karnataka and tamil nadu,0.9,,
 2026-05-10,AIWS 20260510.docx,CYCIR,comorin area & neighbourhood,5.8,,persisted
@@ -345,6 +355,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-13,AIWS 20260513.docx,CYCIR,southwest madhya pradesh & neighbourhood,0.9,,persisted
 2026-05-13,AIWS 20260513.docx,Trough,upper air cyclonic circulation over southwest madhya pradesh ; manipur trough ran from upper air cyclonic circulation over southwest madhya pradesh to north chhattisgarh,0.9,,persisted
 2026-05-13,AIWS 20260513.docx,Trough,along long. 89°e to the north of lat. 22°n,3.1,,persisted
+2026-05-13,AIWS 20260513.docx,Trough,"southwest madhya pradesh ; south interior karnataka ; madhya maharashtra, north interior karnataka upto 1",1.5,,
 2026-05-13,AIWS 20260513.docx,Trough,the centre of low-pressure area over southwest bay of bengal ran from the centre of low-pressure area over southwest adjoining westcentral bay of bengal ; comorin area,0.0,,became less marked
 2026-05-13,AIWS 20260513.docx,CYCIR,west rajasthan & neighbourhood,0.0,,became less marked
 2026-05-13,AIWS 20260513.docx,Trough,east arunachal pradesh ; north bay of bengal ran roughly along long,0.0,,
@@ -376,6 +387,7 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-17,AIWS 20260517.docx,CYCIR,comorin area & neighbourhood,3.1,,lay over
 2026-05-17,AIWS 20260517.docx,Trough,"the cyclonic circulation over west vidarbha & neighbourhood ; gulf of mannar ; marathwada, interior karnataka, and tamil nadu",0.9,,lay over
 2026-05-17,AIWS 20260517.docx,WD,jammu & adjoining north pakistan became less marked,0.0,,became less marked
+2026-05-17,AIWS 20260517.docx,Trough,along long. 92°e to the north of lat. 26°n moved away east-northeastwards,5.8,,
 2026-05-17,AIWS 20260517.docx,CYCIR,east rajasthan & neighbourhood,0.9,,merged
 2026-05-17,AIWS 20260517.docx,CYCIR,central uttar pradesh & neighbourhood,0.0,,became less marked
 2026-05-17,AIWS 20260517.docx,CYCIR,northwest uttar pradesh & adjoining uttarakhand,0.0,,became less marked
@@ -434,8 +446,10 @@ date,source_file,weather_system,region,height_km,pressure_level,status
 2026-05-22,AIWS 20260522.docx,CYCIR,north tamil nadu & neighbourhood,0.9,,became less marked
 2026-05-22,AIWS 20260522.docx,CYCIR,coastal bangladesh,0.0,,became less marked
 2026-05-23,AIWS 20260523.docx,WD,north pakistan & neighbourhood,3.1,,persisted
+2026-05-23,AIWS 20260523.docx,Trough,"along long. 75°e to the north of lat. 25°n at 1730 hrs ist of yesterday, the 22nd may 2026",5.8,,persisted
 2026-05-23,AIWS 20260523.docx,CYCIR,central assam & neighbourhood,1.5,,persisted
-2026-05-23,AIWS 20260523.docx,CYCIR,southeast bay of bengal & neighbourhood,5.8,,persisted
+2026-05-23,AIWS 20260523.docx,CYCIR,southeast bay of bengal & neighbourhood,5.8,,lay over
+2026-05-23,AIWS 20260523.docx,Trough,"the upper air cyclonic circulation over northwest uttar pradesh ; the upper air cyclonic circulation over interior odisha ran from the upper air cyclonic circulation over southwest bihar to north coastal andhra pradesh ; jharkhand, north chhattisgarh, and interior odisha",0.9,,persisted
 2026-05-23,AIWS 20260523.docx,CYCIR,south bihar & neighbourhood,0.9,,persisted
 2026-05-23,AIWS 20260523.docx,Trough,punjab ; southwest rajasthan,1.5,,
 2026-05-23,AIWS 20260523.docx,Trough,along long. 90°e to the north of lat. 23°n,5.8,,
