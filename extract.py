@@ -10,7 +10,11 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 
 IMD_SUBDIVISIONS_PATH = Path(__file__).parent / "data" / "imd_subdivisions.json"
+FORM_SUBDIVISIONS_GAZETTEER_PATH = Path(__file__).parent / "data" / "form_subdivisions_gazetteer.json"
+WEATHER_FORM_JS_PATH = Path(__file__).parent / "js" / "weather_form.js"
 IMD_SUBDIVISIONS: list[dict] = []
+FORM_SUBDIVISIONS: list[str] = []
+FORM_SUBDIVISION_GAZETTEER: list[dict] = []
 
 WORD_NAMESPACE = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 NAMESPACES = {"w": WORD_NAMESPACE}
@@ -266,6 +270,295 @@ def load_imd_subdivisions() -> list[dict]:
     if IMD_SUBDIVISIONS_PATH.exists():
         IMD_SUBDIVISIONS = json.loads(IMD_SUBDIVISIONS_PATH.read_text(encoding="utf-8"))
     return IMD_SUBDIVISIONS
+
+
+def load_form_subdivisions() -> list[str]:
+    """Load allowed meteorological subdivisions from weather_form.js."""
+    global FORM_SUBDIVISIONS
+    if FORM_SUBDIVISIONS:
+        return FORM_SUBDIVISIONS
+
+    if WEATHER_FORM_JS_PATH.exists():
+        js_text = WEATHER_FORM_JS_PATH.read_text(encoding="utf-8")
+        block_match = re.search(r"const subdivisions\s*=\s*\[(.*?)\];", js_text, re.S)
+        if block_match:
+            FORM_SUBDIVISIONS = re.findall(r'"([^"]+)"', block_match.group(1))
+
+    if not FORM_SUBDIVISIONS and FORM_SUBDIVISIONS_GAZETTEER_PATH.exists():
+        gazetteer = json.loads(FORM_SUBDIVISIONS_GAZETTEER_PATH.read_text(encoding="utf-8"))
+        FORM_SUBDIVISIONS = [item["name"] for item in gazetteer]
+
+    return FORM_SUBDIVISIONS
+
+
+def load_form_subdivisions_gazetteer() -> list[dict]:
+    global FORM_SUBDIVISION_GAZETTEER
+    if FORM_SUBDIVISION_GAZETTEER:
+        return FORM_SUBDIVISION_GAZETTEER
+    if FORM_SUBDIVISIONS_GAZETTEER_PATH.exists():
+        FORM_SUBDIVISION_GAZETTEER = json.loads(FORM_SUBDIVISIONS_GAZETTEER_PATH.read_text(encoding="utf-8"))
+    return FORM_SUBDIVISION_GAZETTEER
+
+
+def normalize_subdivision_key(text: str) -> str:
+    text = text.lower()
+    text = text.replace("&", " and ")
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+# Bulletin phrase aliases -> official form subdivisions (weather_form.js list only).
+REGION_ALIAS_TO_SUBDIVISIONS: dict[str, list[str]] = {
+    "haryana": ["Haryana, Chandigarh & Delhi"],
+    "chandigarh": ["Haryana, Chandigarh & Delhi"],
+    "delhi": ["Haryana, Chandigarh & Delhi"],
+    "ladakh": ["Jammu & Kashmir"],
+    "kashmir": ["Jammu & Kashmir"],
+    "jammu": ["Jammu & Kashmir"],
+    "punjab": ["Punjab"],
+    "himachal pradesh": ["Himachal Pradesh"],
+    "uttarakhand": ["Uttarakhand"],
+    "uttar pradesh": ["West Uttar Pradesh", "East Uttar Pradesh"],
+    "west uttar pradesh": ["West Uttar Pradesh"],
+    "east uttar pradesh": ["East Uttar Pradesh"],
+    "bihar": ["Bihar"],
+    "jharkhand": ["Jharkhand"],
+    "odisha": ["Odisha"],
+    "west bengal": ["Gangetic West Bengal", "Sub-Himalayan West Bengal & Sikkim"],
+    "gangetic west bengal": ["Gangetic West Bengal"],
+    "sub himalayan west bengal": ["Sub-Himalayan West Bengal & Sikkim"],
+    "sub-himalayan west bengal": ["Sub-Himalayan West Bengal & Sikkim"],
+    "sikkim": ["Sikkim", "Sub-Himalayan West Bengal & Sikkim"],
+    "assam": ["Assam & Meghalaya"],
+    "meghalaya": ["Assam & Meghalaya"],
+    "arunachal pradesh": ["Arunachal Pradesh"],
+    "nagaland": ["Nagaland, Manipur, Mizoram & Tripura"],
+    "manipur": ["Nagaland, Manipur, Mizoram & Tripura"],
+    "mizoram": ["Nagaland, Manipur, Mizoram & Tripura"],
+    "tripura": ["Nagaland, Manipur, Mizoram & Tripura"],
+    "rajasthan": ["West Rajasthan", "East Rajasthan"],
+    "west rajasthan": ["West Rajasthan"],
+    "east rajasthan": ["East Rajasthan"],
+    "north rajasthan": ["West Rajasthan"],
+    "south rajasthan": ["West Rajasthan"],
+    "gujarat": ["Gujarat Region"],
+    "saurashtra": ["Saurashtra & Kutch"],
+    "kutch": ["Saurashtra & Kutch"],
+    "konkan": ["Konkan & Goa"],
+    "goa": ["Konkan & Goa"],
+    "maharashtra": ["Madhya Maharashtra", "Marathwada", "Konkan & Goa"],
+    "madhya maharashtra": ["Madhya Maharashtra"],
+    "marathwada": ["Marathwada"],
+    "vidarbha": ["Vidarbha"],
+    "madhya pradesh": ["West Madhya Pradesh", "East Madhya Pradesh"],
+    "west madhya pradesh": ["West Madhya Pradesh"],
+    "east madhya pradesh": ["East Madhya Pradesh"],
+    "chhattisgarh": ["Chhattisgarh"],
+    "andhra pradesh": ["Coastal Andhra Pradesh", "Rayalaseema"],
+    "coastal andhra pradesh": ["Coastal Andhra Pradesh"],
+    "telangana": ["Telangana"],
+    "rayalaseema": ["Rayalaseema"],
+    "karnataka": ["Coastal Karnataka", "North Interior Karnataka", "South Interior Karnataka"],
+    "coastal karnataka": ["Coastal Karnataka"],
+    "north interior karnataka": ["North Interior Karnataka"],
+    "south interior karnataka": ["South Interior Karnataka"],
+    "interior karnataka": ["North Interior Karnataka", "South Interior Karnataka"],
+    "tamil nadu": ["Tamil Nadu & Puducherry"],
+    "puducherry": ["Tamil Nadu & Puducherry"],
+    "kerala": ["Kerala"],
+    "lakshadweep": ["Lakshadweep"],
+    "andaman": ["Andaman & Nicobar Islands", "N Andaman Sea", "S Andaman Sea"],
+    "nicobar": ["Andaman & Nicobar Islands"],
+    "northwest bay of bengal": ["NW Bay"],
+    "northeast bay of bengal": ["NE Bay"],
+    "north bay of bengal": ["NW Bay", "NE Bay"],
+    "westcentral bay of bengal": ["WC Bay"],
+    "eastcentral bay of bengal": ["EC Bay"],
+    "bay of bengal": ["NW Bay", "NE Bay", "WC Bay", "EC Bay", "SW Bay", "SE Bay"],
+    "arabian sea": ["NW Arabian Sea", "NE Arabian Sea", "WC Arabian Sea", "EC Arabian Sea"],
+    "north pakistan": [],
+    "north pakistan & neighbourhood": ["Punjab"],
+    "north pakistan & adjoining jammu": ["Jammu & Kashmir", "Punjab"],
+    "north pakistan & adjoining jammu and north punjab": ["Jammu & Kashmir", "Punjab"],
+    "jammu": ["Jammu & Kashmir"],
+    "north punjab": ["Punjab"],
+    "punjab": ["Punjab"],
+    "punjab & neighbourhood": ["Punjab"],
+    "central pakistan": [],
+    "west rajasthan": ["West Rajasthan"],
+    "north rajasthan": ["West Rajasthan"],
+    "south rajasthan": ["West Rajasthan"],
+    "northeast assam": ["Assam & Meghalaya"],
+    "northeast bay": ["NE Bay"],
+    "northwest bay": ["NW Bay"],
+    "westcentral bay": ["WC Bay"],
+    "eastcentral bay": ["EC Bay"],
+    "southwest bay": ["SW Bay"],
+    "southeast bay": ["SE Bay"],
+}
+
+NORMALIZED_REGION_ALIASES: dict[str, list[str]] = {
+    normalize_subdivision_key(key): value for key, value in REGION_ALIAS_TO_SUBDIVISIONS.items()
+}
+
+COORDINATE_PHRASE_RE = re.compile(
+    r"along\s+long\.?\s*[0-9]+(?:\.[0-9]+)?\s*°?\s*[ew]?"
+    r"(?:\s+to\s+the\s+north\s+of\s+lat\.?\s*[0-9]+(?:\.[0-9]+)?\s*°?\s*[ns]?)?",
+    re.I,
+)
+
+
+def _official_subdivisions_sorted() -> list[str]:
+    return sorted(load_form_subdivisions(), key=len, reverse=True)
+
+
+def resolve_coordinate_to_form_subdivisions(region: str, lon_tolerance: float = 2.5) -> list[str]:
+    """Map coordinate text to allowed subdivisions using the form gazetteer."""
+    longitude, min_latitude = parse_coordinate_constraints(region)
+    if longitude is None or min_latitude is None:
+        return []
+
+    allowed = set(load_form_subdivisions())
+    matches: list[tuple[float, str]] = []
+    for item in load_form_subdivisions_gazetteer():
+        name = item["name"]
+        if name not in allowed:
+            continue
+        lat = float(item["lat"])
+        lon = float(item["lon"])
+        if abs(lon - longitude) > lon_tolerance:
+            continue
+        if min_latitude is not None and lat < min_latitude - 0.5:
+            continue
+        distance = abs(lon - longitude) + (max(0.0, (min_latitude or 0) - lat) if min_latitude else 0.0)
+        matches.append((distance, name))
+
+    matches.sort(key=lambda pair: pair[0])
+    return [name for _, name in matches[:5]]
+
+
+def _match_fragment_to_subdivisions(fragment: str) -> list[str]:
+    fragment = clean_region_text(fragment)
+    if not fragment:
+        return []
+
+    if is_coordinate_region(fragment):
+        return resolve_coordinate_to_form_subdivisions(fragment)
+
+    fragment_key = normalize_subdivision_key(fragment)
+    if not fragment_key:
+        return []
+
+    if fragment_key in NORMALIZED_REGION_ALIASES:
+        return list(NORMALIZED_REGION_ALIASES[fragment_key])
+
+    matched: list[str] = []
+    allowed = set(load_form_subdivisions())
+
+    for official in _official_subdivisions_sorted():
+        official_key = normalize_subdivision_key(official)
+        if official_key and (official_key in fragment_key or fragment_key in official_key):
+            if official not in matched:
+                matched.append(official)
+
+    if matched:
+        return matched
+
+    fragment_tokens = set(fragment_key.split())
+    for official in load_form_subdivisions():
+        official_key = normalize_subdivision_key(official)
+        alias_hits = NORMALIZED_REGION_ALIASES.get(official_key, [])
+        if alias_hits:
+            alias_keys = {normalize_subdivision_key(x) for x in alias_hits}
+            if fragment_key in alias_keys or any(a in fragment_key for a in alias_keys):
+                for sub in alias_hits:
+                    if sub not in matched:
+                        matched.append(sub)
+            continue
+
+        core_tokens = [
+            token
+            for token in official_key.split()
+            if len(token) > 2 and token not in {"and", "the", "sea", "bay", "north", "south", "east", "west"}
+        ]
+        if core_tokens and all(token in fragment_tokens for token in core_tokens):
+            if official not in matched:
+                matched.append(official)
+
+    return matched
+
+
+def split_region_fragments(region_text: str) -> list[str]:
+    """Split semicolon-separated region lists (extraction already normalized paths)."""
+    fragments: list[str] = []
+    for part in re.split(r"\s*;\s*", region_text):
+        part = clean_region_text(part)
+        if not part:
+            continue
+        if part.lower() in {"the", "cyclonic circulation", "upper air cyclonic circulation"}:
+            continue
+        fragments.append(part)
+    return fragments
+
+
+def extract_coordinate_phrases(region_text: str) -> tuple[str, list[str]]:
+    """Pull coordinate phrases out so they are not split or token-matched incorrectly."""
+    phrases: list[str] = []
+    remaining = region_text
+    for match in COORDINATE_PHRASE_RE.finditer(region_text):
+        phrases.append(match.group(0).strip())
+    if phrases:
+        remaining = COORDINATE_PHRASE_RE.sub(" ", remaining)
+    return remaining, phrases
+
+
+def map_text_to_form_subdivisions(region_text: str) -> list[str]:
+    """Map free-text region field to allowed subdivisions from weather_form.js."""
+    if not region_text.strip():
+        return []
+
+    subdivisions: list[str] = []
+    remaining, coordinate_phrases = extract_coordinate_phrases(region_text)
+
+    for phrase in coordinate_phrases:
+        for sub in resolve_coordinate_to_form_subdivisions(phrase):
+            if sub not in subdivisions:
+                subdivisions.append(sub)
+
+    alias_keys_sorted = sorted(NORMALIZED_REGION_ALIASES, key=len, reverse=True)
+
+    for fragment in split_region_fragments(remaining):
+        fragment_key = normalize_subdivision_key(fragment)
+        alias_match = NORMALIZED_REGION_ALIASES.get(fragment_key)
+        if alias_match is None:
+            for alias_key in alias_keys_sorted:
+                if alias_key in fragment_key or fragment_key in alias_key:
+                    alias_match = NORMALIZED_REGION_ALIASES[alias_key]
+                    break
+        if alias_match is not None:
+            for sub in alias_match:
+                if sub not in subdivisions:
+                    subdivisions.append(sub)
+            continue
+
+        for sub in _match_fragment_to_subdivisions(fragment):
+            if sub not in subdivisions:
+                subdivisions.append(sub)
+    return subdivisions
+
+
+def assign_form_subdivisions(entity: dict) -> None:
+    """Assign official subdivisions to an entity (multiple allowed)."""
+    region_text = str(entity.get("region", "") or "").strip()
+    original_text = str(entity.get("region_original", "") or "").strip()
+    combined = " ; ".join(part for part in [region_text, original_text] if part)
+    entity["subdivisions"] = format_regions(map_text_to_form_subdivisions(combined))
+
+
+def apply_form_subdivisions(entities: list[dict]) -> list[dict]:
+    for entity in entities:
+        assign_form_subdivisions(entity)
+    return entities
 
 
 def clean_region_text(region: str) -> str:
@@ -1070,13 +1363,53 @@ def write_csv(data: list[dict], path: Path) -> None:
             writer.writerow({key: row.get(key, "") for key in fieldnames})
 
 
+def write_subdivision_csv(data: list[dict], path: Path) -> None:
+    """Write CSV with official weather_form.js subdivisions (semicolon-separated)."""
+    fieldnames = [
+        "date",
+        "source_file",
+        "weather_system",
+        "subdivisions",
+        "region",
+        "region_original",
+        "height_km",
+        "pressure_level",
+        "status",
+    ]
+    enriched = apply_form_subdivisions([dict(row) for row in data])
+    with path.open("w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        for row in enriched:
+            if is_less_marked_status(row.get("status")):
+                continue
+            writer.writerow({key: row.get(key, "") for key in fieldnames})
+
+
+def enrich_csv_with_subdivisions(input_path: Path, output_path: Path) -> int:
+    """Map regions in an existing extraction CSV to form subdivisions (new file)."""
+    with input_path.open(newline="", encoding="utf-8") as csvfile:
+        rows = list(csv.DictReader(csvfile))
+    write_subdivision_csv(rows, output_path)
+    return len(rows)
+
+
 def main(
     folder: Path,
     filename: str | None = None,
     json_output: bool = False,
     csv_output: str | None = None,
+    subdivision_csv_output: str | None = None,
+    enrich_csv_input: str | None = None,
     pattern: str = "*.docx",
 ) -> None:
+    if enrich_csv_input and subdivision_csv_output:
+        input_path = Path(enrich_csv_input)
+        output_path = Path(subdivision_csv_output)
+        count = enrich_csv_with_subdivisions(input_path, output_path)
+        print(f"Mapped {count} rows from {input_path} -> {output_path}")
+        return
+
     aiws_folder = Path(folder)
     if not aiws_folder.exists() or not aiws_folder.is_dir():
         raise FileNotFoundError(f"Folder not found: {aiws_folder}")
@@ -1098,9 +1431,14 @@ def main(
         write_csv(parsed, output_path)
         print(f"CSV saved to {output_path}")
 
+    if subdivision_csv_output:
+        subdivision_path = Path(subdivision_csv_output)
+        write_subdivision_csv(parsed, subdivision_path)
+        print(f"Subdivision CSV saved to {subdivision_path}")
+
     if json_output:
         print(json.dumps(parsed, indent=2))
-    elif not csv_output:
+    elif not csv_output and not subdivision_csv_output:
         for entry in parsed:
             print(entry)
 
@@ -1130,9 +1468,27 @@ if __name__ == "__main__":
         default=None,
     )
     parser.add_argument(
+        "--subdivision-csv",
+        help="Write a new CSV with official subdivisions from weather_form.js (does not update --csv file)",
+        default=None,
+    )
+    parser.add_argument(
+        "--enrich-csv",
+        help="Map subdivisions from an existing extraction CSV (use with --subdivision-csv, skips .docx parsing)",
+        default=None,
+    )
+    parser.add_argument(
         "--glob",
         help="Glob pattern for selecting .docx files when --file is not provided",
         default="*.docx",
     )
     args = parser.parse_args()
-    main(Path(args.folder), args.file, args.json, args.csv, args.glob)
+    main(
+        Path(args.folder),
+        args.file,
+        args.json,
+        args.csv,
+        args.subdivision_csv,
+        args.enrich_csv,
+        args.glob,
+    )
