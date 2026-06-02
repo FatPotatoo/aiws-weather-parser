@@ -96,8 +96,8 @@ STATUS_PATTERNS = {
     r"persisted": "persisted",
     r"continued": "continued",
     r"remained": "remained",
+    r"(?:has\s+)?become(?:n)?\s+less\s+marked": "became less marked",
     r"became less marked": "became less marked",
-    r"became less marked\b": "became less marked",
     r"merged with": "merged",
     r"extended": "extended",
     r"weakened": "weakened",
@@ -249,8 +249,9 @@ def merge_sentence_fragments(sentences: list[str]) -> list[str]:
 def split_weather_clauses(sentences: list[str]) -> list[str]:
     """Split combined clauses that share one sentence after m.s.l. protection."""
     clause_boundary = re.compile(
-        r"(?<=\.)\s+(?=The\s+(?:upper air\s+)?cyclonic circulation|The\s+(?:north[- ]south\s+)?trough|"
-        r"A\s+(?:north[- ]south\s+)?trough|The\s+western disturbance|An?\s+(?:upper air\s+)?cyclonic circulation|It\s+then\b)",
+        r"(?<=\.)\s+(?=The\s+(?:induced\s+)?(?:upper air\s+)?cyclonic circulation|The\s+(?:north[- ]south\s+)?trough|"
+        r"A\s+(?:north[- ]south\s+)?trough|A\s+fresh\s+western disturbance|The\s+western disturbance|Another\s+western disturbance|"
+        r"An?\s+(?:induced\s+)?(?:upper air\s+)?cyclonic circulation|It\s+(?:then\s+)?\b)",
         re.I,
     )
     result: list[str] = []
@@ -756,11 +757,12 @@ def detect_primary_system(sentence: str) -> str | None:
     subject_patterns = [
         (r"^the\s+(?:fresh\s+)?western disturbance\b", "WD"),
         (r"^a\s+fresh\s+western disturbance\b", "WD"),
+        (r"^another\s+western disturbance\b", "WD"),
         (r"^the\s+western disturbance\b", "WD"),
         (r"^the\s+(?:north[- ]south\s+)?trough\b", "Trough"),
         (r"^a\s+(?:north[- ]south\s+)?trough\b", "Trough"),
-        (r"^the\s+(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
-        (r"^an?\s+(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
+        (r"^the\s+(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
+        (r"^an?\s+(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\b", "CYCIR"),
     ]
     for pattern, system in subject_patterns:
         if re.search(pattern, s):
@@ -772,7 +774,7 @@ def detect_primary_system(sentence: str) -> str | None:
 
 
 def has_additional_trough(sentence: str) -> bool:
-    return bool(re.search(r"\bwith a trough\b|\bassociated trough\b", sentence.lower()))
+    return bool(re.search(r"\bwith (?:a|the) trough\b|\bassociated trough\b", sentence.lower()))
 
 
 def extract_wd_regions(sentence: str) -> list[str]:
@@ -812,8 +814,8 @@ def extract_wd_region(sentence: str) -> str | None:
 def extract_cycir_region(sentence: str) -> str | None:
     s = sentence.lower()
     patterns = [
-        r"(?:upper air\s+)?cyclonic circulation\s+over\s+([^.;]+?)(?:\s+which|\s+persisted|\s+lay|\s+became|\s+at|\s+of today|\s+and|\.)",
-        r"(?:upper air\s+)?cyclonic circulation\s+lay\s+over\s+([^.;]+?)(?:\s+of today|\s+at|\s+persisted|\s+which|\.)",
+        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+over\s+([^.;]+?)(?:\s+which|\s+persisted|\s+lay|\s+became|\s+at|\s+of today|\s+and|\.)",
+        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+lay\s+over\s+([^.;]+?)(?:\s+of today|\s+at|\s+persisted|\s+which|\.)",
     ]
     for pattern in patterns:
         match = re.search(pattern, s)
@@ -847,7 +849,7 @@ def extract_trough_aloft_info(sentence: str) -> tuple[list[str], float]:
 
     height = 0.0
     height_match = re.search(
-        r"with a trough aloft[^.]*?at\s+(\d+(?:\.\d+)?)\s*km",
+        r"with (?:a|the) trough aloft[^.]*?at\s+(\d+(?:\.\d+)?)\s*km",
         s,
     )
     if height_match:
@@ -1175,6 +1177,16 @@ class EntityTracker:
         self._merge_fields(idx, height, status, None)
         return True
 
+    def update_status_by_regions(self, system: str, regions: list[str], status: str | None, height: float = 0.0) -> bool:
+        key = self._entity_key(system, regions)
+        if key in self.index:
+            self.last_idx = self.index[key]
+            self._merge_fields(self.last_idx, height, status, None)
+            return True
+        if len(regions) == 1:
+            return self.update_status_by_region(system, regions[0], status, height)
+        return False
+
 
 def extract_trough_region(sentence: str) -> str | None:
     """Extract single-region trough description (coordinates or along phrases)."""
@@ -1213,6 +1225,30 @@ def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> N
         status = extract_status(normalized)
 
         if is_less_marked_status(status):
+            # A continuation such as "It became less marked" retires the
+            # entity introduced immediately before it.
+            if is_continuation_sentence(normalized) or re.match(r"^\s*(?:has\s+)?become(?:n)?\s+less\s+marked\b", sentence_lower):
+                tracker.update_last(status=status)
+                continue
+
+            primary = detect_primary_system(normalized)
+            if not primary and re.search(r"\b(?:north[- ]south\s+)?trough\b", sentence_lower):
+                primary = "Trough"
+
+            regions: list[str] = []
+            if primary == "WD":
+                regions = extract_wd_regions(normalized)
+            elif primary == "CYCIR":
+                region = extract_cycir_region(normalized)
+                regions = [region] if region else []
+            elif primary == "Trough":
+                regions = extract_trough_path_regions(normalized)
+                if not regions:
+                    region = extract_trough_region(normalized)
+                    regions = [region] if region else []
+
+            if primary and regions:
+                tracker.update_status_by_regions(primary, regions, status, height_min)
             continue
 
         # Rule 2: "It then persisted..." refers to the last mentioned entity.
@@ -1257,6 +1293,10 @@ def process_summary_sentences(sentences: list[str], tracker: EntityTracker) -> N
                 continue
 
             tracker.upsert("CYCIR", [region], height_min, status, height_max=height_max)
+
+            aloft_regions, aloft_height = extract_trough_aloft_info(normalized)
+            if aloft_regions or aloft_height > 0.0:
+                tracker.upsert("Trough", aloft_regions, aloft_height, None, height_max=None)
             continue
 
         if primary == "Trough":

@@ -37,4 +37,4 @@ CREATE TABLE IF NOT EXISTS subdivisions (
 );
 
 -- Insert sample data (optional)
-INSERT INTO weather_entries (entry_date) VALUES ('2024-01-15');
+-- INSERT INTO weather_entries (entry_date) VALUES ('2024-01-15');
