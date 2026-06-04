@@ -21,14 +21,22 @@ if (!$handle) {
 
 // Read header
 $header = fgetcsv($handle);
+if ($header === false) {
+    die("Unable to read CSV header\n");
+}
+$header = array_map('trim', $header);
+if (count($header) > 0) {
+    $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
+}
 
 $count = 0;
 $errors = 0;
 
 try {
-    if (!$db->inTransaction()) {
-        $db->beginTransaction();
-    }
+    // Reset table so imported rows start with ID 1
+    $db->exec("TRUNCATE TABLE Weather_System_Entries");
+
+    $db->beginTransaction();
 
     $stmt = $db->prepare(
         "INSERT INTO Weather_System_Entries (entry_date, weather_system, subdivisions, pressure_level) " .
@@ -39,18 +47,34 @@ try {
         // Map CSV columns to array
         $data = array_combine($header, $row);
 
-        // Convert date from DD-MM-YYYY to YYYY-MM-DD
-        $date_parts = explode('-', $data['date']);
-        if (count($date_parts) === 3) {
-            $entry_date = "{$date_parts[2]}-{$date_parts[1]}-{$date_parts[0]}";
-        } else {
-            echo "Skipping row with invalid date: {$data['date']}\n";
+        if (!is_array($data) || !isset($data['date'])) {
+            echo "Skipping row with missing date field" . PHP_EOL;
+            continue;
+        }
+
+        $raw_date = trim($data['date']);
+        $entry_date = null;
+        if (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $raw_date, $matches)) {
+            $entry_date = $raw_date;
+        } elseif (preg_match('/^(\d{2})-(\d{2})-(\d{4})$/', $raw_date, $matches)) {
+            $entry_date = "{$matches[3]}-{$matches[2]}-{$matches[1]}";
+        }
+
+        if (!$entry_date) {
+            echo "Skipping row with invalid date: {$raw_date}\n";
             continue;
         }
 
         $weather_system = trim($data['weather_system'] ?? '');
         $subdivisions = trim($data['subdivisions'] ?? '') ?: null;
-        $pressure_level = trim($data['pressure_level'] ?? '') ?: null;
+        $pressure_level = trim($data['pressure_level'] ?? '');
+        $height_km = trim($data['height_km'] ?? '');
+
+        if (($height_km === '0' || $height_km === '0.0') && $pressure_level === '') {
+            $pressure_level = 'Surface';
+        }
+
+        $pressure_level = $pressure_level ?: null;
 
         try {
             $stmt->execute([
