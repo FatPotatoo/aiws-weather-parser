@@ -7,17 +7,14 @@ $date_filter = $_GET['date_filter'] ?? '';
 $pairs = $_GET['pairs'] ?? [];
 
 $query = "
-SELECT we.id, we.entry_date, ws.id as system_id, ws.weather_system, pl.level_name, s.subdivision_name
-FROM weather_entries we
-JOIN weather_systems ws ON we.id = ws.entry_id
-JOIN pressure_levels pl ON ws.id = pl.system_id
-JOIN subdivisions s ON ws.id = s.system_id
+SELECT id, entry_date, weather_system, pressure_level, subdivisions
+FROM Weather_System_Entries
 WHERE 1=1";
 
 $params = [];
 
 if (!empty($date_filter)) {
-    $query .= " AND we.entry_date = :entry_date";
+    $query .= " AND entry_date = :entry_date";
     $params[':entry_date'] = $date_filter;
 }
 
@@ -29,7 +26,7 @@ foreach ($pairs as $i => $pair) {
         // SYSTEM filter
         if (!empty($pair['system'])) {
             $sysKey = ":pair_system_$i";
-            $conds[] = "ws.weather_system LIKE $sysKey";
+            $conds[] = "weather_system LIKE $sysKey";
             $params[$sysKey] = '%' . trim($pair['system']) . '%';
         }
 
@@ -40,7 +37,7 @@ foreach ($pairs as $i => $pair) {
             foreach ($subdivisions as $j => $sub) {
                 // Use only alphanumeric-safe keys
                 $subKey = ":subdiv_{$i}_{$j}";
-                $orSubConds[] = "s.subdivision_name LIKE $subKey";
+                $orSubConds[] = "subdivisions LIKE $subKey";
                 $params[$subKey] = '%' . $sub . '%';
             }
             if (!empty($orSubConds)) {
@@ -59,7 +56,7 @@ if (!empty($pairConditions)) {
 
 
 
-$query .= " ORDER BY we.entry_date DESC, ws.weather_system, pl.level_name";
+$query .= " ORDER BY entry_date DESC, weather_system, pressure_level";
 $stmt = $db->prepare($query);
 $stmt->execute($params);
 
@@ -71,13 +68,15 @@ $systemToSubdivision = [];
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $date = $row['entry_date'];
     $system = $row['weather_system'];
-    $system_id = $row['system_id'];
-    $pressure = $row['level_name'];
-    $sub = $row['subdivision_name'];
+    $system_id = $row['id'];
+    $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+    $subs = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
 
     $systemList[$system] = true;
-    $subdivisionList[$sub] = true;
-    $systemToSubdivision[$system][] = $sub;
+    foreach ($subs as $sub) {
+        $subdivisionList[$sub] = true;
+        $systemToSubdivision[$system][] = $sub;
+    }
 
     if (!isset($data[$date])) $data[$date] = [];
     if (!isset($data[$date][$system_id])) {
@@ -89,11 +88,15 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         ];
     }
 
-    if (!in_array($pressure, $data[$date][$system_id]['pressures'])) {
-        $data[$date][$system_id]['pressures'][] = $pressure;
+    foreach ($pressures as $pressure) {
+        if (!in_array($pressure, $data[$date][$system_id]['pressures'])) {
+            $data[$date][$system_id]['pressures'][] = $pressure;
+        }
     }
-    if (!in_array($sub, $data[$date][$system_id]['subdivisions'])) {
-        $data[$date][$system_id]['subdivisions'][] = $sub;
+    foreach ($subs as $sub) {
+        if (!in_array($sub, $data[$date][$system_id]['subdivisions'])) {
+            $data[$date][$system_id]['subdivisions'][] = $sub;
+        }
     }
 }
 

@@ -68,6 +68,7 @@ PRESSURE_LEVEL_PATTERNS = [
 
 # Height (km) -> pressure (hPa) from IMD conversion chart (+ user overrides).
 PRESSURE_HEIGHT_CHART: list[tuple[int, float]] = [
+    
     (925, 0.9),   # override: 0.9 km -> 925 hPa
     (925, 1.0),
     (850, 1.5),
@@ -379,6 +380,8 @@ REGION_ALIAS_TO_SUBDIVISIONS: dict[str, list[str]] = {
     "eastcentral bay of bengal": ["EC Bay"],
     "bay of bengal": ["NW Bay", "NE Bay", "WC Bay", "EC Bay", "SW Bay", "SE Bay"],
     "arabian sea": ["NW Arabian Sea", "NE Arabian Sea", "WC Arabian Sea", "EC Arabian Sea"],
+    "gulf of mannar": ["Gulf of Mannar"],
+    "comorin area": ["Comorin Area"],
     "pakistan": ["Pakistan"],
     "north pakistan": ["North pakistan"],
     "north pakistan & neighbourhood": ["North pakistan"],
@@ -678,6 +681,8 @@ def height_to_pressure_levels(min_km: float, max_km: float | None = None) -> lis
 
 
 def format_pressure_levels(levels: list[int]) -> str:
+    if not levels:
+        return "Surface"
     return " ; ".join(f"{level} hPa" for level in levels)
 
 
@@ -709,6 +714,9 @@ def apply_pressure_from_height(entity: dict) -> None:
     levels = height_to_pressure_levels(min_km, max_km)
     if levels:
         entity["pressure_level"] = format_pressure_levels(levels)
+    elif min_km == 0 and (max_km is None or max_km == 0):
+        if not entity.get("pressure_level"):
+            entity["pressure_level"] = "Surface"
 
     entity["height_km"] = format_height_km(min_km, max_km)
     entity.pop("height_km_min", None)
@@ -1405,6 +1413,8 @@ def write_csv(data: list[dict], path: Path) -> None:
         for row in data:
             if is_less_marked_status(row.get("status")):
                 continue
+            if not row.get("pressure_level") and str(row.get("height_km", "")).strip() in ("0", "0.0"):
+                row["pressure_level"] = "Surface"
             writer.writerow({key: row.get(key, "") for key in fieldnames})
 
 
@@ -1428,6 +1438,8 @@ def write_subdivision_csv(data: list[dict], path: Path) -> None:
         for row in enriched:
             if is_less_marked_status(row.get("status")):
                 continue
+            if not row.get("pressure_level") and str(row.get("height_km", "")).strip() in ("0", "0.0"):
+                row["pressure_level"] = "Surface"
             writer.writerow({key: row.get(key, "") for key in fieldnames})
 
 

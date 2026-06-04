@@ -34,6 +34,12 @@ class ExtractRegressionTests(unittest.TestCase):
         self.assertEqual("north punjab & neighbourhood", rows[1]["region"])
         self.assertEqual(1.5, rows[1]["height_km"])
 
+    def test_zero_height_sets_surface_pressure(self) -> None:
+        entity = {"height_km": 0.0}
+        extract.apply_pressure_from_height(entity)
+        self.assertEqual("Surface", entity["pressure_level"])
+        self.assertEqual(0.0, entity["height_km"])
+
     def test_named_less_marked_update_removes_existing_entity(self) -> None:
         rows = self.extract_sentences(
             "The upper air cyclonic circulation over northeast Assam & neighbourhood persisted "
@@ -74,6 +80,20 @@ class ExtractRegressionTests(unittest.TestCase):
         self.assertEqual(["CYCIR"], [row["weather_system"] for row in rows])
         self.assertEqual("south coastal andhra pradesh & neighbourhood", rows[0]["region"])
         self.assertEqual(["Coastal Andhra Pradesh"], extract.map_text_to_form_subdivisions(rows[0]["region"]))
+
+    def test_comorin_and_gulf_of_mannar_map_to_form_regions(self) -> None:
+        self.assertEqual(["Comorin Area"], extract.map_text_to_form_subdivisions("comorin area & neighbourhood"))
+        self.assertEqual(["Gulf of Mannar"], extract.map_text_to_form_subdivisions("gulf of mannar"))
+
+    def test_western_disturbance_coordinate_axes_map_to_iran(self) -> None:
+        self.assertEqual(
+            ["Iran"],
+            extract.map_text_to_form_subdivisions(f"along long. 55{DEGREE}e to the north of lat. 31{DEGREE}n"),
+        )
+        self.assertEqual(
+            ["Iran"],
+            extract.map_text_to_form_subdivisions(f"along long. 60{DEGREE}e to the north of lat. 32{DEGREE}n"),
+        )
 
 
 if __name__ == "__main__":

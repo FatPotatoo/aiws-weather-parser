@@ -9,12 +9,8 @@ $pairs = $_GET['pairs'] ?? [];
 
 // Initial query
 $query = "
-SELECT we.entry_date, ws.id AS system_id, ws.weather_system,
-       pl.level_name, s.subdivision_name, we.created_at
-FROM weather_entries we
-JOIN weather_systems ws ON we.id = ws.entry_id
-JOIN pressure_levels pl ON ws.id = pl.system_id
-JOIN subdivisions s ON ws.id = s.system_id
+SELECT id AS system_id, entry_date, weather_system, pressure_level, subdivisions, created_at
+FROM Weather_System_Entries
 WHERE 1=1
 ";
 
@@ -22,7 +18,7 @@ $params = [];
 
 // Date filter
 if (!empty($date_filter)) {
-    $query .= " AND we.entry_date = :entry_date";
+    $query .= " AND entry_date = :entry_date";
     $params[':entry_date'] = $date_filter;
 }
 
@@ -34,7 +30,7 @@ foreach ($pairs as $i => $pair) {
 
         if (!empty($pair['system'])) {
             $sysKey = ":pair_system_$i";
-            $conds[] = "ws.weather_system LIKE $sysKey";
+            $conds[] = "weather_system LIKE $sysKey";
             $params[$sysKey] = '%' . trim($pair['system']) . '%';
         }
 
@@ -43,7 +39,7 @@ foreach ($pairs as $i => $pair) {
             $orSubConds = [];
             foreach ($subdivisions as $j => $sub) {
                 $subKey = ":subdiv_{$i}_{$j}";
-                $orSubConds[] = "s.subdivision_name LIKE $subKey";
+                $orSubConds[] = "subdivisions LIKE $subKey";
                 $params[$subKey] = '%' . $sub . '%';
             }
             if (!empty($orSubConds)) {
@@ -60,7 +56,7 @@ if (!empty($pairConditions)) {
     $query .= " AND (" . implode(" OR ", $pairConditions) . ")";
 }
 
-$query .= " ORDER BY we.entry_date DESC, ws.weather_system, pl.level_name";
+$query .= " ORDER BY entry_date DESC, weather_system, pressure_level";
 
 $stmt = $db->prepare($query);
 $stmt->execute($params);
@@ -82,8 +78,8 @@ foreach ($rows as $row) {
         ];
     }
 
-    $data[$date][$sys_id]['pressures'][] = $row['level_name'];
-    $data[$date][$sys_id]['subdivisions'][] = $row['subdivision_name'];
+    $data[$date][$sys_id]['pressures'] = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+    $data[$date][$sys_id]['subdivisions'] = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
 }
 
 // Output CSV

@@ -107,7 +107,8 @@ const subdivisions = [
     "North pakistan",
     "Bangladesh",
     "Iran",
-    "Gulf of Mannar"
+    "Gulf of Mannar",
+    "Comorin Area"
 ];
 
 let systemCounter = 0;

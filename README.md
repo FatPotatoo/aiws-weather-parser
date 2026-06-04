@@ -53,6 +53,7 @@ Edit `config/database.php` and update:
 - `weather_systems`: Weather system details for each entry
 - `pressure_levels`: Pressure levels for each system
 - `subdivisions`: Geographic subdivisions for each system
+- `output_csv_entries`: Parsed rows from generated/processed output CSV files
 
 ### 7. Security Features
 - PDO prepared statements to prevent SQL injection

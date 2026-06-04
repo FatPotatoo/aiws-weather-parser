@@ -8,7 +8,7 @@ $system_id = $_GET['system_id'] ?? null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_name = $_POST['weather_system'] ?? '';
 
-    $stmt = $db->prepare("UPDATE weather_systems SET weather_system = :name WHERE id = :id");
+    $stmt = $db->prepare("UPDATE Weather_System_Entries SET weather_system = :name WHERE id = :id");
     $stmt->execute([
         ':name' => $new_name,
         ':id' => $system_id
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$stmt = $db->prepare("SELECT weather_system FROM weather_systems WHERE id = :id");
+$stmt = $db->prepare("SELECT weather_system FROM Weather_System_Entries WHERE id = :id");
 $stmt->execute([':id' => $system_id]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
