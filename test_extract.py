@@ -65,6 +65,16 @@ class ExtractRegressionTests(unittest.TestCase):
         self.assertEqual(["CYCIR", "WD"], [row["weather_system"] for row in rows])
         self.assertEqual(5.8, rows[1]["height_km"])
 
+    def test_cycir_keeps_south_coastal_andhra_region(self) -> None:
+        rows = self.extract_sentences(
+            "The upper air cyclonic circulation over south Coastal Andhra Pradesh & neighbourhood "
+            "between 3.1 & 5.8 km above m. s. l. persisted."
+        )
+
+        self.assertEqual(["CYCIR"], [row["weather_system"] for row in rows])
+        self.assertEqual("south coastal andhra pradesh & neighbourhood", rows[0]["region"])
+        self.assertEqual(["Coastal Andhra Pradesh"], extract.map_text_to_form_subdivisions(rows[0]["region"]))
+
 
 if __name__ == "__main__":
     unittest.main()

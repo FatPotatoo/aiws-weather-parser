@@ -99,7 +99,15 @@ const subdivisions = [
     "SW Bay",
     "SE Bay",
     "N Andaman Sea",
-    "S Andaman Sea"
+    "S Andaman Sea",
+
+    
+    "Central Pakistan",
+    "Pakistan",
+    "North pakistan",
+    "Bangladesh",
+    "Iran",
+    "Gulf of Mannar"
 ];
 
 let systemCounter = 0;

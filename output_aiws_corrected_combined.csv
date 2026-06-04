@@ -21,7 +21,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-04,AIWS 20250604.docx,CYCIR,south punjab & neighbourhood,,1.5,850 hPa,lay over
 2025-06-04,AIWS 20250604.docx,CYCIR,north bangladesh & neighbourhood,,0.9,925 hPa,lay over
 2025-06-04,AIWS 20250604.docx,CYCIR,northeast assam & neighbourhood,,0.9,925 hPa,lay over
-2025-06-04,AIWS 20250604.docx,CYCIR,south gujarat & neighbourhood between 1,,1.5-3.1,850 hPa ; 700 hPa,lay over
+2025-06-04,AIWS 20250604.docx,CYCIR,south gujarat & neighbourhood,,1.5-3.1,850 hPa ; 700 hPa,lay over
 2025-06-04,AIWS 20250604.docx,Trough,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bihar ; Jharkhand ; Bangladesh,along long. 87°e to the north of lat. 22°n,3.1,700 hPa,
 2025-06-05,AIWS 20250605.docx,WD,Himachal Pradesh ; Ladakh ; Delhi ; Uttarakhand ; West Uttar Pradesh,along long. 78°e to the north of lat. 24°n,5.8,500 hPa,
 2025-06-05,AIWS 20250605.docx,CYCIR,south punjab & neighbourhood,,1.5,850 hPa,lay over
@@ -52,7 +52,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-09,AIWS 20250609.docx,WD,Far West Pakistan,along long. 58°e to the north of lat. 25°n,5.8,500 hPa,
 2025-06-09,AIWS 20250609.docx,CYCIR,southeast & adjoining eastcentral bay of bengal,,5.8-7.6,500 hPa ; 400 hPa,persisted
 2025-06-09,AIWS 20250609.docx,Trough,north tamil nadu ; south maharashtra coast ; interior karnataka between 3,,3.1-4.5,700 hPa ; 600 hPa,
-2025-06-09,AIWS 20250609.docx,CYCIR,northwest bay of bengal and adjoining north coastal odisha & south gangetic west bengal between 1,,1.5-5.8,850 hPa ; 700 hPa ; 600 hPa ; 500 hPa,lay over
+2025-06-09,AIWS 20250609.docx,CYCIR,northwest bay of bengal and adjoining north coastal odisha & south gangetic west bengal,,1.5-5.8,850 hPa ; 700 hPa ; 600 hPa ; 500 hPa,lay over
 2025-06-09,AIWS 20250609.docx,Trough,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh ; Assam & Meghalaya ; Bihar,along long. 89°e to the north of lat. 22°n,0.0,,
 2025-06-10,AIWS 20250610.docx,Trough,"the cyclonic circulation over northwest uttar pradesh and neighbourhood ; telangana northwest uttar pradesh to west central bay of bengal ; north madhya pradesh, south chhattisgarh and central odisha",,0.9,925 hPa,
 2025-06-10,AIWS 20250610.docx,Trough,north tamil nadu ; south maharashtra coast ; interior karnataka lay as a shear zone roughly along lat,,3.1-4.5,700 hPa ; 600 hPa,
@@ -68,13 +68,13 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-12,AIWS 20250612.docx,CYCIR,punjab & neighbourhood,,0.9,925 hPa,lay over
 2025-06-12,AIWS 20250612.docx,Trough,"the cyclonic circulation ; southeast madhya pradesh ; haryana, west madhya pradesh",,0.9,925 hPa,
 2025-06-12,AIWS 20250612.docx,CYCIR,west uttar pradesh & neighbourhood,,1.5,850 hPa,lay over
-2025-06-12,AIWS 20250612.docx,CYCIR,west rajasthan & neighbourhood between 1,,1.5-3.1,850 hPa ; 700 hPa,lay over
-2025-06-12,AIWS 20250612.docx,CYCIR,westcentral bay of bengal off north coastal,,5.8,500 hPa,extended
+2025-06-12,AIWS 20250612.docx,CYCIR,west rajasthan & neighbourhood,,1.5-3.1,850 hPa ; 700 hPa,lay over
+2025-06-12,AIWS 20250612.docx,CYCIR,westcentral bay of bengal off north coastal andhra pradesh coast,,5.8,500 hPa,extended
 2025-06-12,AIWS 20250612.docx,Trough,"the cyclonic circulation ; coastal karnataka ; chhattisgarh, marathwada, interior karnataka between 3",,5.8,500 hPa,
 2025-06-12,AIWS 20250612.docx,WD,Southwest Pakistan,along long. 62°e to the north of lat. 28°n,5.8,500 hPa,
 2025-06-13,AIWS 20250613.docx,CYCIR,northwest rajasthan,,0.9,925 hPa,lay over
 2025-06-13,AIWS 20250613.docx,Trough,the upper air cyclonic circulation over northwest rajasthan ; marathwada ; madhya pradesh & vidarbha,,0.9,925 hPa,
-2025-06-13,AIWS 20250613.docx,CYCIR,north coastal,,5.8,500 hPa,extended
+2025-06-13,AIWS 20250613.docx,CYCIR,north coastal andhra pradesh,,5.8,500 hPa,extended
 2025-06-13,AIWS 20250613.docx,Trough,"north coastal andhra pradesh ; coastal karnataka ; cyclonic circulation over southwest telangana, interior karnataka today morning",,3.1,700 hPa,persisted
 2025-06-13,AIWS 20250613.docx,WD,West Pakistan ; South Pakistan,along long. 66°e to the north of lat. 28°n,5.8,500 hPa,
 2025-06-14,AIWS 20250614.docx,CYCIR,northwest rajasthan,,1.5,850 hPa,extended
@@ -82,13 +82,13 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-14,AIWS 20250614.docx,CYCIR,north interior karnataka,,5.8,500 hPa,extended
 2025-06-14,AIWS 20250614.docx,Trough,westcentral arabian sea ; south coastal odisha ran from the upper air cyclonic circulation over marathwada & neighbourhood to coastal andhra pradesh ; telangana between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,
 2025-06-14,AIWS 20250614.docx,WD,Central Pakistan ; West Rajasthan ; North Pakistan ; South Pakistan ; West Pakistan,along long. 70°e to the north of lat. 26°n,5.8,500 hPa,
-2025-06-14,AIWS 20250614.docx,CYCIR,north odisha & neighbourhood between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
+2025-06-14,AIWS 20250614.docx,CYCIR,north odisha & neighbourhood,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
 2025-06-14,AIWS 20250614.docx,CYCIR,westcentral bay of bengal off north coastal andhra pradesh coast,,5.8,500 hPa,lay over
 2025-06-14,AIWS 20250614.docx,CYCIR,south bangladesh & adjoining north bay of bengal,,3.1,700 hPa,lay over
 2025-06-14,AIWS 20250614.docx,Trough,the cyclonic circulation over south bangladesh & adjoining north bay of bengal ; south odisha,,3.1,700 hPa,
 2025-06-14,AIWS 20250614.docx,CYCIR,central assam & neighbourhood,,0.9,925 hPa,lay over
 2025-06-15,AIWS 20250615.docx,CYCIR,south bangladesh & adjoining north bay of bengal,,3.1-7.6,700 hPa ; 600 hPa ; 500 hPa ; 400 hPa,lay over
-2025-06-15,AIWS 20250615.docx,CYCIR,westcentral bay of bengal off north coastal,,5.8,500 hPa,merged
+2025-06-15,AIWS 20250615.docx,CYCIR,westcentral bay of bengal off north coastal andhra pradesh coast,,5.8,500 hPa,merged
 2025-06-15,AIWS 20250615.docx,CYCIR,marathwada,,7.6,400 hPa,extended
 2025-06-15,AIWS 20250615.docx,Trough,"east madhya pradesh ; bangladesh ; chhattisgarh, jharkhand & gangetic west bengal and extended upto 1",,1.5,850 hPa,extended
 2025-06-15,AIWS 20250615.docx,CYCIR,central assam & neighbourhood,,4.5,600 hPa,persisted
@@ -108,7 +108,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-17,AIWS 20250617.docx,CYCIR,northeast assam & neighbourhood extending upto 1,,1.5,850 hPa,persisted
 2025-06-18,AIWS 20250618.docx,Trough,punjab ; north gujarat region ; the cyclonic circulation over central parts of rajasthan between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,
 2025-06-18,AIWS 20250618.docx,WD,punjab & neighbourhood,,3.1-4.6,700 hPa ; 600 hPa,persisted
-2025-06-18,AIWS 20250618.docx,CYCIR,central parts of uttar pradesh & neighbourhood between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
+2025-06-18,AIWS 20250618.docx,CYCIR,central parts of uttar pradesh & neighbourhood,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
 2025-06-19,AIWS 20250619.docx,CYCIR,northeast rajasthan & neighbourhood,,4.5,600 hPa,persisted
 2025-06-19,AIWS 20250619.docx,Trough,punjab ; north gujarat region ran from northwest uttar pradesh to northeast gujarat region,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,persisted
 2025-06-19,AIWS 20250619.docx,WD,punjab & neighbourhood,,5.8,500 hPa,persisted
@@ -127,7 +127,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2025-06-24,AIWS 20250624.docx,CYCIR,central parts of south uttar pradesh extending upto 5,,5.8,500 hPa,persisted
 2025-06-24,AIWS 20250624.docx,Trough,"the cyclonic circulation over central parts of south uttar pradesh ; northwest bay of bengal ; northeast madhya pradesh, jharkhand & north odisha extending upto 1",,1.5,850 hPa,persisted
 2025-06-24,AIWS 20250624.docx,Trough,punjab ; north bangladesh ; the cyclonic circulation over central parts of south uttar pradesh,,0.9,925 hPa,
-2025-06-24,AIWS 20250624.docx,CYCIR,south jharkhand & neighbourhood between 3,,3.1-7.6,700 hPa ; 600 hPa ; 500 hPa ; 400 hPa,lay over
+2025-06-24,AIWS 20250624.docx,CYCIR,south jharkhand & neighbourhood,,3.1-7.6,700 hPa ; 600 hPa ; 500 hPa ; 400 hPa,lay over
 2025-06-24,AIWS 20250624.docx,Trough,northeast arabian sea ; the above cyclonic circulation over south jharkhand & neighbourhood,,3.1,700 hPa,
 2025-06-24,AIWS 20250624.docx,CYCIR,northeast assam & neighbourhood,,0.9,925 hPa,lay over
 2025-06-25,AIWS 20250625.docx,CYCIR,central parts of south uttar pradesh,,5.8,500 hPa,persisted
@@ -151,7 +151,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2026-05-01,AIWS 20260501.docx,CYCIR,north punjab & neighbourhood,,1.5,850 hPa,persisted
 2026-05-01,AIWS 20260501.docx,Trough,"south odisha ; gulf of mannar ; telangana, andhra pradesh and tamil nadu",,0.9,925 hPa,persisted
 2026-05-01,AIWS 20260501.docx,CYCIR,gangetic west bengal & adjoining bangladesh,,1.5,850 hPa,persisted
-2026-05-01,AIWS 20260501.docx,CYCIR,southeast bangladesh and neighbourhood between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
+2026-05-01,AIWS 20260501.docx,CYCIR,southeast bangladesh and neighbourhood,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
 2026-05-01,AIWS 20260501.docx,Trough,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh ; Assam & Meghalaya ; Bihar,along long. 89°e to the north of lat. 20°n,7.6,400 hPa,
 2026-05-01,AIWS 20260501.docx,Trough,Bangladesh ; Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya ; Nagaland-Manipur-Mizoram-Tripura,along long. 90°e to the north of lat. 22°n merged with above system,3.1-7.6,700 hPa ; 600 hPa ; 500 hPa ; 400 hPa,merged
 2026-05-01,AIWS 20260501.docx,CYCIR,northeast bangladesh & neighbourhood,,0.0,,
@@ -220,11 +220,12 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2026-05-09,AIWS 20260509.docx,CYCIR,central pakistan & adjoining punjab,,0.9,925 hPa,lay over
 2026-05-09,AIWS 20260509.docx,Trough,"the upper air cyclonic circulation over central parts of rajasthan ; east bangladesh ; madhya pradesh, jharkhand, bihar, gangetic west bengal",,0.9,925 hPa,persisted
 2026-05-09,AIWS 20260509.docx,Trough,"upper air cyclonic circulation over comorin area & neighbourhood ; southwest madhya pradesh ; lakshadweep, kerala, karnataka, interior maharashtra",,0.9,925 hPa,persisted
+2026-05-09,AIWS 20260509.docx,CYCIR,southwest uttar pradesh & neighbourhood,,1.5,850 hPa,lay over
 2026-05-09,AIWS 20260509.docx,CYCIR,comorin area & neighbourhood and extended upto 1,,5.8,500 hPa,persisted
 2026-05-09,AIWS 20260509.docx,CYCIR,southeast arabian sea & adjoining lakshadweep off kerala coast and extended upto 1,,1.5,850 hPa,extended
 2026-05-09,AIWS 20260509.docx,CYCIR,east madhya pradesh & neighbourhood,,1.5,850 hPa,lay over
 2026-05-10,AIWS 20260510.docx,WD,along long. 56°e to the north of lat. 32°n,,5.8,500 hPa,
-2026-05-10,AIWS 20260510.docx,CYCIR,sub-himalayan west bengal & neighbourhood between 1,,1.5-5.8,850 hPa ; 700 hPa ; 600 hPa ; 500 hPa,persisted
+2026-05-10,AIWS 20260510.docx,CYCIR,sub-himalayan west bengal & neighbourhood,,1.5-5.8,850 hPa ; 700 hPa ; 600 hPa ; 500 hPa,persisted
 2026-05-10,AIWS 20260510.docx,CYCIR,east rajasthan,,0.9,925 hPa,lay over
 2026-05-10,AIWS 20260510.docx,CYCIR,west uttar pradesh & neighbourhood,,1.5,850 hPa,lay over
 2026-05-10,AIWS 20260510.docx,Trough,"the upper air cyclonic circulation over east rajasthan ; east jharkhand ran from the upper air cyclonic circulation over southeast rajasthan & neighbourhood to gangetic west bengal ; madhya pradesh, chhattisgarh & jharkhand",,0.9,925 hPa,
@@ -240,7 +241,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2026-05-11,AIWS 20260511.docx,CYCIR,west rajasthan & neighbourhood,,1.5,850 hPa,persisted
 2026-05-11,AIWS 20260511.docx,CYCIR,west madhya pradesh,,1.5,850 hPa,extended
 2026-05-11,AIWS 20260511.docx,Trough,"upper air cyclonic circulation over southwest madhya pradesh ; sub himalayan west bengal ; east madhya pradesh, chhattisgarh and jharkhand and extended upto 1",,1.5,850 hPa,extended
-2026-05-11,AIWS 20260511.docx,CYCIR,sub-himalayan west bengal & neighbourhood between 1,,1.5-3.1,850 hPa ; 700 hPa,persisted
+2026-05-11,AIWS 20260511.docx,CYCIR,sub-himalayan west bengal & neighbourhood,,1.5-3.1,850 hPa ; 700 hPa,persisted
 2026-05-11,AIWS 20260511.docx,Trough,east arunachal pradesh ; north bay of bengal ; assam between 5,,5.8-7.6,500 hPa ; 400 hPa,
 2026-05-11,AIWS 20260511.docx,CYCIR,northeast bangladesh & neighbourhood,,1.5,850 hPa,extended
 2026-05-12,AIWS 20260512.docx,Trough,"the centre of low pressure area over southwest bay of bengal off north sri lanka coast ; south lakshadweep area ran from the centre of low pressure area over southwest bay of bengal to marathwada ; north tamil nadu, rayalaseema, north interior karnataka",,0.9,925 hPa,
@@ -289,7 +290,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2026-05-19,AIWS 20260519.docx,CYCIR,northeast uttar pradesh & adjoining bihar,,1.5,850 hPa,extended
 2026-05-19,AIWS 20260519.docx,Trough,the cyclonic circulation over northeast uttar pradesh & adjoining bihar ; south assam,,0.9,925 hPa,persisted
 2026-05-19,AIWS 20260519.docx,Trough,"the west madhya pradesh ; lakshadweep area ran from the east uttar pradesh to lakshadweep area ; madhya maharashtra, marathwada, interior karnataka & kerala and extends upto 1",,1.5,850 hPa,
-2026-05-19,AIWS 20260519.docx,CYCIR,south coastal,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,persisted
+2026-05-19,AIWS 20260519.docx,CYCIR,south coastal andhra pradesh & neighbourhood,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,persisted
 2026-05-19,AIWS 20260519.docx,Trough,"southeast arabian sea adjoining south lakshadweep area ; the cyclonic circulation over south coastal andhra pradesh ; kerala, south interior karnataka and rayalaseema between 3",,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,persisted
 2026-05-19,AIWS 20260519.docx,CYCIR,central assam,,1.5,850 hPa,lay over
 2026-05-20,AIWS 20260520.docx,WD,north pakistan and adjoining jammu,,3.1,700 hPa,persisted
@@ -330,7 +331,7 @@ date,source_file,weather_system,region,region_original,height_km,pressure_level,
 2026-05-23,AIWS 20260523.docx,CYCIR,south bihar & neighbourhood,,0.9,925 hPa,persisted
 2026-05-23,AIWS 20260523.docx,Trough,punjab ; southwest rajasthan,,1.5,850 hPa,
 2026-05-23,AIWS 20260523.docx,Trough,Bangladesh ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya ; Gangetic West Bengal ; Nagaland-Manipur-Mizoram-Tripura,along long. 90°e to the north of lat. 23°n,5.8,500 hPa,
-2026-05-23,AIWS 20260523.docx,CYCIR,southwest arabian sea between 3,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
+2026-05-23,AIWS 20260523.docx,CYCIR,southwest arabian sea,,3.1-5.8,700 hPa ; 600 hPa ; 500 hPa,lay over
 2026-05-24,AIWS 20260524.docx,WD,jammu & neighbourhood,,3.1,700 hPa,persisted
 2026-05-24,AIWS 20260524.docx,CYCIR,south bihar & neighbourhood,,0.9,925 hPa,persisted
 2026-05-24,AIWS 20260524.docx,CYCIR,central assam & neighbourhood,,0.9,925 hPa,persisted

@@ -357,6 +357,8 @@ REGION_ALIAS_TO_SUBDIVISIONS: dict[str, list[str]] = {
     "chhattisgarh": ["Chhattisgarh"],
     "andhra pradesh": ["Coastal Andhra Pradesh", "Rayalaseema"],
     "coastal andhra pradesh": ["Coastal Andhra Pradesh"],
+    "north coastal andhra pradesh": ["Coastal Andhra Pradesh"],
+    "south coastal andhra pradesh": ["Coastal Andhra Pradesh"],
     "telangana": ["Telangana"],
     "rayalaseema": ["Rayalaseema"],
     "karnataka": ["Coastal Karnataka", "North Interior Karnataka", "South Interior Karnataka"],
@@ -377,15 +379,18 @@ REGION_ALIAS_TO_SUBDIVISIONS: dict[str, list[str]] = {
     "eastcentral bay of bengal": ["EC Bay"],
     "bay of bengal": ["NW Bay", "NE Bay", "WC Bay", "EC Bay", "SW Bay", "SE Bay"],
     "arabian sea": ["NW Arabian Sea", "NE Arabian Sea", "WC Arabian Sea", "EC Arabian Sea"],
-    "north pakistan": [],
-    "north pakistan & neighbourhood": ["Punjab"],
-    "north pakistan & adjoining jammu": ["Jammu & Kashmir", "Punjab"],
-    "north pakistan & adjoining jammu and north punjab": ["Jammu & Kashmir", "Punjab"],
+    "pakistan": ["Pakistan"],
+    "north pakistan": ["North pakistan"],
+    "north pakistan & neighbourhood": ["North pakistan"],
+    "north pakistan & adjoining jammu": ["North pakistan", "Jammu & Kashmir", "Punjab"],
+    "north pakistan & adjoining jammu and north punjab": ["North pakistan", "Jammu & Kashmir", "Punjab"],
     "jammu": ["Jammu & Kashmir"],
     "north punjab": ["Punjab"],
     "punjab": ["Punjab"],
     "punjab & neighbourhood": ["Punjab"],
-    "central pakistan": [],
+    "central pakistan": ["Central Pakistan"],
+    "bangladesh": ["Bangladesh"],
+    "iran": ["Iran"],
     "west rajasthan": ["West Rajasthan"],
     "north rajasthan": ["West Rajasthan"],
     "south rajasthan": ["West Rajasthan"],
@@ -814,8 +819,8 @@ def extract_wd_region(sentence: str) -> str | None:
 def extract_cycir_region(sentence: str) -> str | None:
     s = sentence.lower()
     patterns = [
-        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+over\s+([^.;]+?)(?:\s+which|\s+persisted|\s+lay|\s+became|\s+at|\s+of today|\s+and|\.)",
-        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+lay\s+over\s+([^.;]+?)(?:\s+of today|\s+at|\s+persisted|\s+which|\.)",
+        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+over\s+([^.;]+?)(?:\s+which|\s+persisted|\s+lay|\s+became|\s+between|\s+at|\s+of today|\s+and\b|\.)",
+        r"(?:induced\s+)?(?:upper air\s+)?cyclonic circulation\s+lay\s+over\s+([^.;]+?)(?:\s+of today|\s+between|\s+at|\s+persisted|\s+which|\.)",
     ]
     for pattern in patterns:
         match = re.search(pattern, s)
