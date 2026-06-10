@@ -6,6 +6,15 @@ $db = $database->getConnection();
 $date_filter = $_GET['date_filter'] ?? '';
 $pairs = $_GET['pairs'] ?? [];
 
+function isEmptyFilterPair(array $pair): bool {
+    return trim($pair['system'] ?? '') === ''
+        && trim($pair['subdivision'] ?? '') === ''
+        && trim($pair['pressure_operator'] ?? '') === ''
+        && trim($pair['pressure_value'] ?? '') === '';
+}
+
+$activePairs = array_values(array_filter($pairs, fn($pair) => !isEmptyFilterPair($pair)));
+
 $query = "
 SELECT id, entry_date, weather_system, pressure_level, subdivisions
 FROM Weather_System_Entries
@@ -56,14 +65,91 @@ if (!empty($pairConditions)) {
 
 
 
+function matchesPressureFilter(array $pressures, string $operator, string $value): bool {
+    if ($operator === '' || $value === '') {
+        return true;
+    }
+
+    $normalizedValue = trim($value);
+    $numericValue = is_numeric($normalizedValue) ? floatval($normalizedValue) : null;
+
+    foreach ($pressures as $pressure) {
+        $pressure = trim($pressure);
+
+        if ($operator === '=') {
+            if ($numericValue !== null && preg_match('/-?\d+(?:\.\d+)?/', $pressure, $matches)) {
+                if (floatval($matches[0]) === $numericValue) {
+                    return true;
+                }
+            }
+            if ($normalizedValue !== '' && stripos($pressure, $normalizedValue) !== false) {
+                return true;
+            }
+        } elseif ($numericValue !== null && preg_match('/-?\d+(?:\.\d+)?/', $pressure, $matches)) {
+            $pressureNumber = floatval($matches[0]);
+            if ($operator === '<' && $pressureNumber < $numericValue) {
+                return true;
+            }
+            if ($operator === '>' && $pressureNumber > $numericValue) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function rowMatchesPair(array $row, array $pair): bool {
+    $hasSystem = trim($pair['system'] ?? '') !== '';
+    $hasSubdivision = trim($pair['subdivision'] ?? '') !== '';
+    $hasPressure = trim($pair['pressure_operator'] ?? '') !== '' && trim($pair['pressure_value'] ?? '') !== '';
+    if (!$hasSystem && !$hasSubdivision && !$hasPressure) {
+        return false;
+    }
+
+    if ($hasSystem && stripos($row['weather_system'] ?? '', trim($pair['system'])) === false) {
+        return false;
+    }
+
+    if (!empty(trim($pair['subdivision'] ?? ''))) {
+        $searchSubs = array_filter(array_map('trim', explode(',', $pair['subdivision'])));
+        $rowSubs = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
+        $found = false;
+        foreach ($searchSubs as $searchSub) {
+            foreach ($rowSubs as $rowSub) {
+                if (stripos($rowSub, $searchSub) !== false) {
+                    $found = true;
+                    break 2;
+                }
+            }
+        }
+        if (!$found) {
+            return false;
+        }
+    }
+
+    $operator = trim($pair['pressure_operator'] ?? '');
+    $value = trim($pair['pressure_value'] ?? '');
+    if ($operator !== '' && $value !== '') {
+        $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+        if (!matchesPressureFilter($pressures, $operator, $value)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 $query .= " ORDER BY entry_date DESC, weather_system, pressure_level";
 $stmt = $db->prepare($query);
 $stmt->execute($params);
 
 $data = [];
+$datePairMatch = [];
 $systemList = [];
 $subdivisionList = [];
 $systemToSubdivision = [];
+$numActivePairs = count($activePairs);
 
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $date = $row['entry_date'];
@@ -71,6 +157,21 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $system_id = $row['id'];
     $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
     $subs = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
+
+    if ($numActivePairs > 0) {
+        $matchedPairIndices = [];
+        foreach ($activePairs as $pairIndex => $pair) {
+            if (rowMatchesPair($row, $pair)) {
+                $matchedPairIndices[] = $pairIndex;
+            }
+        }
+        if (empty($matchedPairIndices)) {
+            continue;
+        }
+        foreach ($matchedPairIndices as $pairIndex) {
+            $datePairMatch[$date][$pairIndex] = true;
+        }
+    }
 
     $systemList[$system] = true;
     foreach ($subs as $sub) {
@@ -96,6 +197,14 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     foreach ($subs as $sub) {
         if (!in_array($sub, $data[$date][$system_id]['subdivisions'])) {
             $data[$date][$system_id]['subdivisions'][] = $sub;
+        }
+    }
+}
+
+if ($numActivePairs > 0) {
+    foreach ($data as $date => $systems) {
+        if (!isset($datePairMatch[$date]) || count($datePairMatch[$date]) !== $numActivePairs) {
+            unset($data[$date]);
         }
     }
 }
@@ -155,16 +264,30 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
       <div class="space-y-2" id="filter-pairs">
         <?php if (!empty($pairs)): ?>
           <?php foreach ($pairs as $i => $pair): ?>
-            <div class="flex gap-2 items-center">
-              <input name="pairs[<?= $i ?>][system]" value="<?= htmlspecialchars($pair['system']) ?>" class="border p-2 rounded w-1/2 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression">
-              <input name="pairs[<?= $i ?>][subdivision]" value="<?= htmlspecialchars($pair['subdivision']) ?>" class="border p-2 rounded w-1/2 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu" >
+            <div class="flex flex-wrap gap-2 items-center">
+              <input name="pairs[<?= $i ?>][system]" value="<?= htmlspecialchars($pair['system'] ?? '') ?>" class="border p-2 rounded w-full sm:w-1/4 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression">
+              <input name="pairs[<?= $i ?>][subdivision]" value="<?= htmlspecialchars($pair['subdivision'] ?? '') ?>" class="border p-2 rounded w-full sm:w-1/4 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu">
+              <select name="pairs[<?= $i ?>][pressure_operator]" class="border p-2 rounded w-full sm:w-1/6 text-black">
+                <option value="" <?= ($pair['pressure_operator'] ?? '') === '' ? 'selected' : '' ?>>Any</option>
+                <option value="=" <?= ($pair['pressure_operator'] ?? '') === '=' ? 'selected' : '' ?>>=</option>
+                <option value=">" <?= ($pair['pressure_operator'] ?? '') === '>' ? 'selected' : '' ?>>&gt;</option>
+                <option value="<" <?= ($pair['pressure_operator'] ?? '') === '<' ? 'selected' : '' ?>>&lt;</option>
+              </select>
+              <input name="pairs[<?= $i ?>][pressure_value]" value="<?= htmlspecialchars($pair['pressure_value'] ?? '') ?>" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Pressure e.g. 925 or Surface">
               <button type="button" onclick="removeFilterPair(this)" class="text-red-600 text-xl">−</button>
             </div>
           <?php endforeach; ?>
         <?php else: ?>
-         <div class="flex gap-2 items-center">
-  <input type="text" name="pairs[0][system]" class="border p-2 rounded w-1/2 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression" />
-  <input type="text" name="pairs[0][subdivision]" class="border p-2 rounded w-1/2 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu"  />
+         <div class="flex flex-wrap gap-2 items-center">
+  <input type="text" name="pairs[0][system]" class="border p-2 rounded w-full sm:w-1/4 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression" />
+  <input type="text" name="pairs[0][subdivision]" class="border p-2 rounded w-full sm:w-1/4 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu" />
+  <select name="pairs[0][pressure_operator]" class="border p-2 rounded w-full sm:w-1/6 text-black">
+    <option value="">Any</option>
+    <option value="=">=</option>
+    <option value=">">&gt;</option>
+    <option value="<">&lt;</option>
+  </select>
+  <input type="text" name="pairs[0][pressure_value]" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Pressure e.g. 925 or Surface" />
 </div>
 
         <?php endif; ?>
@@ -275,10 +398,17 @@ function bindSubdivisionAutocomplete(subInput) {
 function addFilterPair() {
   const index = document.querySelectorAll('#filter-pairs .flex').length;
   const pairDiv = document.createElement('div');
-  pairDiv.className = 'flex gap-2 items-center';
+  pairDiv.className = 'flex flex-wrap gap-2 items-center';
   pairDiv.innerHTML = `
-    <input name="pairs[${index}][system]" placeholder="e.g. Cyclonic Storm" class="border p-2 rounded w-1/2 filter-input system-type placeholder-gray-400 text-black" />
-    <input name="pairs[${index}][subdivision]" placeholder="e.g. Kerala, Odisha, Tamil Nadu" class="border p-2 rounded w-1/2 filter-input subdivision-type placeholder-gray-400 text-black" />
+    <input name="pairs[${index}][system]" placeholder="e.g. Cyclonic Storm" class="border p-2 rounded w-full sm:w-1/4 filter-input system-type placeholder-gray-400 text-black" />
+    <input name="pairs[${index}][subdivision]" placeholder="e.g. Kerala, Odisha, Tamil Nadu" class="border p-2 rounded w-full sm:w-1/4 filter-input subdivision-type placeholder-gray-400 text-black" />
+    <select name="pairs[${index}][pressure_operator]" class="border p-2 rounded w-full sm:w-1/6 text-black">
+      <option value="">Any</option>
+      <option value="=">=</option>
+      <option value=">">&gt;</option>
+      <option value="<">&lt;</option>
+    </select>
+    <input name="pairs[${index}][pressure_value]" placeholder="Pressure e.g. 925 or Surface" class="border p-2 rounded w-full sm:w-1/4 text-black" />
     <button type="button" onclick="removeFilterPair(this)" class="text-red-600 text-xl">&minus;</button>
   `;
   document.getElementById('filter-pairs').appendChild(pairDiv);
