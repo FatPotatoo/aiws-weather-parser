@@ -14,6 +14,7 @@ if str(REPO_ROOT) not in sys.path:
 import extract  # noqa: E402
 
 from .schema import BulletinExtraction  # noqa: E402
+from .prompt import few_shot_messages  # noqa: E402
 from .extractor import (  # noqa: E402  (reuse the deterministic helpers + filter)
     gather_summary_text,
     system_to_row,
@@ -42,15 +43,16 @@ def extract_bulletin_ollama(client, path: Path, system_prompt: str, model: str =
 
     date = _bulletin_date(paragraphs, path)
 
+    messages = [{"role": "system", "content": system_prompt}]
+    messages += few_shot_messages()  # worked example -> boosts small-model recall
+    messages.append({
+        "role": "user",
+        "content": f"Bulletin date: {date or 'unknown'}\n\nSummary text:\n{summary_text}",
+    })
+
     response = client.chat(
         model=model,
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {
-                "role": "user",
-                "content": f"Bulletin date: {date or 'unknown'}\n\nSummary text:\n{summary_text}",
-            },
-        ],
+        messages=messages,
         format=BulletinExtraction.model_json_schema(),
         options={"temperature": 0, "num_ctx": NUM_CTX},
     )

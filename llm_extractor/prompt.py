@@ -4,6 +4,7 @@ with cache_control to get prompt-cache reads after the first request.
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -27,7 +28,7 @@ high recall with correct attribution.
 
 What counts as a system to extract:
 - Western Disturbance
-- Cyclonic Circulation (any qualifier: upper-air, low-level, mid-level, induced, associated)
+- Cyclonic Circulation (any qualifier: upper air, low level, mid level, induced, associated)
 - Trough (any qualifier: east-west, north-south, off-shore, at sea level, aloft)
 - Low Pressure Area
 - Well Marked Low Pressure Area
@@ -67,9 +68,18 @@ to the immediately preceding system, not a new one.
 10. LESS MARKED: when a system has become less marked / dissipated, put that in \
 status (e.g. "became less marked"). These entries are excluded downstream — but still \
 report the system with that status so the filter can drop it.
-11. HEIGHT: report height_km exactly as stated (0 when the bulletin gives no height \
-above mean sea level for that system). Systems without a stated height are filtered \
-downstream, so getting height right matters.
+11. HEIGHT / LEVEL: report height_km as the km value above mean sea level when the \
+bulletin gives one (upper value of a range). Use height_km = 0 when the system is \
+explicitly "at surface" / "at mean sea level" / "at sea level" — that IS a stated \
+level (surface), and you MUST keep that wording in the region. If a system has NO \
+height and NO level mention at all, still report height_km = 0, but it will be \
+dropped downstream — do not invent a height.
+12. BE EXHAUSTIVE: a bulletin usually describes SEVERAL distinct systems over \
+DIFFERENT regions. Extract EACH "cyclonic circulation over <region>", EACH trough, \
+and EACH disturbance / low pressure area / depression as its own entry — work through \
+the text sentence by sentence and skip none. Two cyclonic circulations over two \
+different regions are TWO systems, not one. Only merge a sentence into a prior system \
+when it literally continues it (It / the said system / over the same region).
 
 Return your answer using the structured output schema (a list of systems). If the \
 text contains no weather systems, return an empty list.
@@ -93,4 +103,38 @@ def system_blocks() -> list[dict]:
             "text": build_system_prompt(),
             "cache_control": {"type": "ephemeral"},
         }
+    ]
+
+
+# A worked example shown to the model (few-shot) to enforce exhaustive,
+# one-per-region extraction and demonstrate the surface (height 0) case. Small
+# local models miss systems badly without it.
+_FEWSHOT_USER = (
+    "Bulletin date: 2020-01-01\n\nSummary text:\n"
+    "The upper air cyclonic circulation over south Gujarat persisted at 1.5 km above "
+    "m. s. l. The upper air cyclonic circulation lay over east Bihar at 0.9 km above "
+    "m. s. l. It then persisted over the same region. A trough at mean sea level ran "
+    "from south Gujarat to east Bihar across Madhya Pradesh."
+)
+_FEWSHOT_SYSTEMS = {
+    "systems": [
+        {"weather_system": "Cyclonic Circulation", "region": "south Gujarat",
+         "subdivisions": ["Gujarat Region"], "height_km": 1.5, "pressure_level": "",
+         "status": "persisted", "is_forecast": False},
+        {"weather_system": "Cyclonic Circulation", "region": "east Bihar",
+         "subdivisions": ["Bihar"], "height_km": 0.9, "pressure_level": "",
+         "status": "persisted", "is_forecast": False},
+        {"weather_system": "Trough",
+         "region": "at mean sea level from south Gujarat to east Bihar across Madhya Pradesh",
+         "subdivisions": ["Gujarat Region", "Bihar", "West Madhya Pradesh"],
+         "height_km": 0.0, "pressure_level": "", "status": "", "is_forecast": False},
+    ]
+}
+
+
+def few_shot_messages() -> list[dict]:
+    """User/assistant example pair demonstrating exhaustive extraction."""
+    return [
+        {"role": "user", "content": _FEWSHOT_USER},
+        {"role": "assistant", "content": json.dumps(_FEWSHOT_SYSTEMS)},
     ]

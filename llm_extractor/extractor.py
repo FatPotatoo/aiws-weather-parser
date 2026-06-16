@@ -6,6 +6,7 @@ Reuses the existing repo helpers for the deterministic parts:
 """
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -27,12 +28,36 @@ def _digit_ratio(text: str) -> float:
     return sum(ch.isdigit() for ch in text) / len(text)
 
 
-def gather_summary_text(paragraphs: list[str], max_chars: int = 12000) -> str:
-    """Collect the synoptic-summary prose, skipping numeric station/rainfall rows.
+# Markers that begin the NON-synoptic sections of a bulletin (temperatures,
+# rainfall tables, forecast tables, signatures). Once any of these appears, the
+# synoptic-systems summary is over — stop gathering, or the model drowns in noise.
+STOP_MARKERS = (
+    "day temperature",
+    "temperatures were",
+    "maximum temperature",
+    "station reported rainfall",
+    "total rainfall",
+    "realised rainfall",
+    "forecast / warning",
+    "forecast/warning",
+    "districtwise warning",
+    "rainfall distribution",
+    "weather forecasting division",
+    "issued at",
+    "fig.",
+    "fig ",
+    "scientist",
+)
 
-    Unlike the old extractor (which read only ONE paragraph), this keeps every
-    prose paragraph from the summary heading onward, so multi-paragraph
-    summaries survive. Digit-heavy lines (station tables) are dropped.
+
+def gather_summary_text(paragraphs: list[str], max_chars: int = 8000) -> str:
+    """Collect ONLY the synoptic-systems summary prose.
+
+    Starts at the 'Summary of observations recorded' heading and stops at the
+    first non-synoptic section (temperatures / rainfall / forecast tables), so
+    the model sees the weather systems and nothing else. Multi-paragraph
+    summaries are still supported (it keeps going until a STOP_MARKER), but the
+    huge rainfall/temperature/forecast tables that follow are excluded.
     """
     start = next(
         (i for i, p in enumerate(paragraphs)
@@ -45,9 +70,11 @@ def gather_summary_text(paragraphs: list[str], max_chars: int = 12000) -> str:
         text = paragraph.strip()
         if not text:
             continue
-        # Station / rainfall table rows are mostly digits — skip, don't stop.
+        low = text.lower()
+        if any(marker in low for marker in STOP_MARKERS):
+            break  # reached the non-synoptic sections — stop
         if len(text) > 15 and _digit_ratio(text) > 0.4:
-            continue
+            continue  # stray numeric table row
         collected.append(text)
         total += len(text)
         if total >= max_chars:
@@ -67,15 +94,23 @@ def _bulletin_date(paragraphs: list[str], path: Path) -> str | None:
     return extract.parse_bulletin_date(paragraphs) or extract.parse_bulletin_date_from_filename(path)
 
 
+# A system at height 0 is KEPT only if a level is explicitly stated (surface /
+# mean sea level), not when height was simply never mentioned.
+_SURFACE_RE = re.compile(r"(mean sea level|sea level|at surface|\bsurface\b|m\.?\s*s\.?\s*l\.?)", re.I)
+
+
 def keep_system(system: WeatherSystem) -> bool:
     """Apply the cross-check exclusion rules. Returns False to drop the system."""
     if system.is_forecast:
         return False
     if "less marked" in (system.status or "").lower():
         return False
-    if (system.height_km or 0.0) <= 0.0:  # exclude systems with no height above MSL
-        return False
-    return True
+    if (system.height_km or 0.0) > 0.0:
+        return True
+    # height 0: keep only if explicitly at surface / mean sea level (stated level),
+    # drop if the bulletin gave no height/level for it at all.
+    text = f"{system.region} {system.pressure_level} {system.status}".lower()
+    return bool(_SURFACE_RE.search(text))
 
 
 def system_to_row(system: WeatherSystem, date: str | None, source_file: str) -> dict:
