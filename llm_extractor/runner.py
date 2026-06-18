@@ -47,6 +47,8 @@ def main() -> None:
     parser.add_argument("--out", "-o", required=True, help="Output CSV path")
     parser.add_argument("--limit", type=int, default=0,
                         help="Process at most N files (0 = all). Useful for a test run.")
+    parser.add_argument("--verbose", "-v", action="store_true",
+                        help="Print each grounding-dropped system.")
     args = parser.parse_args()
 
     if not os.environ.get("ANTHROPIC_API_KEY"):
@@ -76,7 +78,7 @@ def main() -> None:
     print(f"Extracting {len(files)} bulletin(s) with Claude...\n")
     for path in files:
         try:
-            rows, usage = extract_bulletin(client, path, blocks)
+            rows, usage = extract_bulletin(client, path, blocks, verbose=args.verbose)
         except Exception as exc:  # keep going on a single-file failure
             print(f"  ! {path.name}: {type(exc).__name__}: {exc}")
             continue

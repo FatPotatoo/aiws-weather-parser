@@ -16,6 +16,7 @@ if str(REPO_ROOT) not in sys.path:
 
 import extract  # noqa: E402
 
+from .grounding import apply_grounding_filter
 from .schema import BulletinExtraction, WeatherSystem, db_label
 
 MODEL = "claude-opus-4-8"
@@ -127,8 +128,21 @@ def system_to_row(system: WeatherSystem, date: str | None, source_file: str) -> 
     }
 
 
-def extract_bulletin(client, path: Path, system_blocks: list[dict]) -> tuple[list[dict], object | None]:
-    """Extract one bulletin. Returns (rows, usage); forecast-only systems dropped."""
+def extract_bulletin(
+    client,
+    path: Path,
+    system_blocks: list[dict],
+    *,
+    verbose: bool = False,
+) -> tuple[list[dict], object | None]:
+    """Extract one bulletin. Returns (rows, usage).
+
+    Pipeline:
+      1. LLM extracts all candidate systems (high recall).
+      2. Grounding filter drops any system not evidenced in the text
+         (precision = 1 guarantee).
+      3. keep_system() drops forecast / dissipated systems.
+    """
     paragraphs = extract.read_docx_paragraphs(path)
     summary_text = gather_summary_text(paragraphs)
     if not summary_text.strip():
@@ -152,9 +166,21 @@ def extract_bulletin(client, path: Path, system_blocks: list[dict]) -> tuple[lis
     if extraction is None:  # refusal or truncated output
         return [], response.usage
 
+    # -- Grounding filter (precision = 1) --
+    # Drop any system the LLM invented without textual evidence.
+    grounded, ungrounded = apply_grounding_filter(
+        extraction.systems, summary_text, verbose=verbose
+    )
+    if ungrounded:
+        names = ", ".join(
+            f"{s.weather_system.value}/{s.region or '?'}"
+            for s in ungrounded
+        )
+        print(f"    [grounding] dropped {len(ungrounded)}: {names}")
+
     rows = [
         system_to_row(system, date, path.name)
-        for system in extraction.systems
+        for system in grounded
         if keep_system(system)
     ]
     return rows, response.usage
