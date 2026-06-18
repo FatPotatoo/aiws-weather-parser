@@ -15,6 +15,7 @@ import extract  # noqa: E402
 
 from .schema import BulletinExtraction  # noqa: E402
 from .prompt import few_shot_messages  # noqa: E402
+from .grounding import apply_grounding_filter  # noqa: E402
 from .extractor import (  # noqa: E402  (reuse the deterministic helpers + filter)
     gather_summary_text,
     system_to_row,
@@ -62,8 +63,13 @@ def extract_bulletin_ollama(client, path: Path, system_prompt: str, model: str =
     except Exception:
         return []  # malformed JSON from the local model — skip this bulletin
 
+    grounded, ungrounded = apply_grounding_filter(extraction.systems, summary_text)
+    if ungrounded:
+        names = ", ".join(f"{s.weather_system.value}/{s.region or '?'}" for s in ungrounded)
+        print(f"    [grounding] dropped {len(ungrounded)}: {names}")
+
     return [
         system_to_row(system, date, path.name)
-        for system in extraction.systems
+        for system in grounded
         if keep_system(system)
     ]
