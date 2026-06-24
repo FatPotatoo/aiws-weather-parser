@@ -27,8 +27,8 @@ same database loader.
 ```powershell
 pip install -r llm_extractor/requirements.txt
 $env:ANTHROPIC_API_KEY = "sk-ant-..."   # your Anthropic API key
+$env:GEMINI_API_KEY = "AIza..."        # your Gemini API key for gemini_runner
 ```
-
 ## Run
 
 `.doc` bulletins must be converted to `.docx` first (see the conversion note in the

@@ -1,0 +1,7 @@
+date,source_file,weather_system,subdivisions,region,region_original,height_km,pressure_level,status
+2025-06-01,AIWS 20250601.docx,WD,North pakistan ; Jammu & Kashmir ; Punjab,north Pakistan & adjoining Jammu and north Punjab,,3.1,700 hPa,persisted
+2025-06-01,AIWS 20250601.docx,CYCIR,Central Pakistan,central Pakistan,,1.5,850 hPa,persisted
+2025-06-01,AIWS 20250601.docx,CYCIR,"Haryana, Chandigarh & Delhi",Haryana,,0.9,925 hPa,persisted
+2025-06-01,AIWS 20250601.docx,Trough,"Central Pakistan ; Haryana, Chandigarh & Delhi ; West Rajasthan",from central Pakistan to cyclonic circulation over Haryana across north Rajasthan,,0.9,925 hPa,persisted
+2025-06-01,AIWS 20250601.docx,CYCIR,Assam & Meghalaya,northeast Assam,,0.9,925 hPa,persisted
+2025-06-01,AIWS 20250601.docx,Trough,East Uttar Pradesh ; Arunachal Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya,"at mean sea level from central parts of east Uttar Pradesh to Arunachal Pradesh across central parts of Bihar, sub-Himalayan West Bengal, central parts of Assam",,0.0,Surface,
