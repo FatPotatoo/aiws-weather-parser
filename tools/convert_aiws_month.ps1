@@ -106,8 +106,20 @@ Get-ChildItem -LiteralPath $srcMonth -Recurse -Directory | ForEach-Object {
 $sourceDocs = @(Get-ChildItem -LiteralPath $srcMonth -Recurse -File |
     Where-Object { $_.Extension -ieq '.doc' -and $_.Name -notlike '~$*' } |
     Sort-Object FullName)
+$sourceDocx = @(Get-ChildItem -LiteralPath $srcMonth -Recurse -File |
+    Where-Object { $_.Extension -ieq '.docx' } |
+    Sort-Object FullName)
 
 foreach ($source in $sourceDocs) {
+    $rel = $source.FullName.Substring($SourceRoot.Length).TrimStart('\')
+    $dest = Join-Path $DestRoot $rel
+    New-Item -ItemType Directory -Path (Split-Path -Parent $dest) -Force | Out-Null
+    if (-not (Test-Path -LiteralPath $dest)) {
+        Copy-Item -LiteralPath $source.FullName -Destination $dest
+    }
+}
+
+foreach ($source in $sourceDocx) {
     $rel = $source.FullName.Substring($SourceRoot.Length).TrimStart('\')
     $dest = Join-Path $DestRoot $rel
     New-Item -ItemType Directory -Path (Split-Path -Parent $dest) -Force | Out-Null
@@ -172,4 +184,4 @@ $remainingDoc = @(Get-ChildItem -LiteralPath $dstMonth -Recurse -File |
 $docxCount = @(Get-ChildItem -LiteralPath $dstMonth -Recurse -File |
     Where-Object { $_.Extension -ieq '.docx' }).Count
 
-"MONTH=$MonthName SOURCE_DOC=$($sourceDocs.Count) NEW_DOCX=$newDocx EXISTING_DOCX=$existingDocx FALLBACK_WORD=$($fallback.Count) DELETED_DOC=$($allDoc.Count) REMAINING_DOC=$remainingDoc DOCX=$docxCount"
+"MONTH=$MonthName SOURCE_DOC=$($sourceDocs.Count) SOURCE_DOCX=$($sourceDocx.Count) NEW_DOCX=$newDocx EXISTING_DOCX=$existingDocx FALLBACK_WORD=$($fallback.Count) DELETED_DOC=$($allDoc.Count) REMAINING_DOC=$remainingDoc DOCX=$docxCount"
