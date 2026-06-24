@@ -39,7 +39,7 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--batch-size", type=int, default=10,
-                        help="Number of bulletins to send in each Gemini call")
+                        help="Number of bulletins to send in each Gemini call; 0 means all bulletins at once")
     parser.add_argument("--delay", type=float, default=2.0,
                         help="Seconds to wait between requests")
     args = parser.parse_args()
@@ -63,12 +63,16 @@ def main() -> None:
     if not files:
         raise SystemExit(f"No bulletins matched {args.glob!r} in {folder}")
 
+    batch_size = len(files) if args.batch_size == 0 else args.batch_size
+    if batch_size < 1:
+        raise SystemExit("--batch-size must be 0 or a positive integer")
+
     system_prompt = build_system_prompt()
     all_rows: list[dict] = []
 
-    print(f"Extracting {len(files)} bulletin(s) with Gemini (preferred {args.model}) in batches of {args.batch_size}...\n")
-    for start in range(0, len(files), args.batch_size):
-        batch_paths = files[start : start + args.batch_size]
+    print(f"Extracting {len(files)} bulletin(s) with Gemini (preferred {args.model}) in batches of {batch_size}...\n")
+    for start in range(0, len(files), batch_size):
+        batch_paths = files[start : start + batch_size]
         batch_label = f"{start+1}-{start+len(batch_paths)}"
         model = args.model
         retry_count = 0
@@ -79,7 +83,7 @@ def main() -> None:
                 status_code = exc.response.status_code if exc.response is not None else None
                 retry_after = _extract_retry_after(exc)
 
-                if status_code == 503 and model.startswith("gemini-3.5") and retry_count < 3:
+                if status_code == 503 and retry_count < 3:
                     retry_count += 1
                     wait = max(args.delay, retry_after or 0)
                     print(f"  ~ batch {batch_label}: 503 unavailable on {model}, retry {retry_count}/3 after {wait}s...")
@@ -110,10 +114,69 @@ def main() -> None:
                 rows = []
             break
 
-        for row in rows:
-            row["gemini_model"] = model
+        if not rows and len(batch_paths) > 1:
+            print(f"  ! batch {batch_label}: empty batch result, falling back to single-file extraction")
+            fallback_rows: list[dict] = []
+            for path in batch_paths:
+                file_model = model
+                file_retry = 0
+                while True:
+                    try:
+                        file_rows = extract_bulletin_gemini(api_key, path, system_prompt, model=file_model)
+                        break
+                    except requests.HTTPError as exc:
+                        status_code = exc.response.status_code if exc.response is not None else None
+                        retry_after = _extract_retry_after(exc)
+
+                        if status_code == 503 and file_retry < 3:
+                            file_retry += 1
+                            wait = max(args.delay, retry_after or 0)
+                            print(f"    ~ {path.name}: 503 unavailable on {file_model}, retry {file_retry}/3 after {wait}s...")
+                            time.sleep(wait)
+                            continue
+                        if status_code == 503 and file_model.startswith("gemini-3.5"):
+                            print(f"    ~ {path.name}: switching to gemini-2.5-flash after 3 failures")
+                            file_model = "gemini-2.5-flash"
+                            file_retry = 0
+                            continue
+
+                        if status_code == 429 and file_retry < 3:
+                            file_retry += 1
+                            wait = max(args.delay, retry_after or 10)
+                            print(f"    ~ {path.name}: 429 rate limit on {file_model}, retry {file_retry}/3 after {wait}s...")
+                            time.sleep(wait)
+                            continue
+                        if status_code == 429 and file_model.startswith("gemini-3.5"):
+                            print(f"    ~ {path.name}: switching to gemini-2.5-flash after repeated 429 on {file_model}")
+                            file_model = "gemini-2.5-flash"
+                            file_retry = 0
+                            continue
+
+                        print(f"    ! {path.name}: {type(exc).__name__}: {exc}")
+                        file_rows = []
+                        break
+                    except Exception as exc:
+                        print(f"    ! {path.name}: {type(exc).__name__}: {exc}")
+                        file_rows = []
+                        break
+                for row in file_rows:
+                    row["gemini_model"] = file_model
+                fallback_rows.extend(file_rows)
+                if args.delay:
+                    time.sleep(args.delay)
+            rows = fallback_rows
+
+        if rows:
+            if not any("gemini_model" in row for row in rows):
+                for row in rows:
+                    row["gemini_model"] = model
+            models = {row.get("gemini_model", model) for row in rows}
+            model_label = ",".join(sorted(models))
+        else:
+            model_label = model
+
         all_rows.extend(rows)
-        print(f"  + batch {batch_label}: {len(batch_paths)} bulletins, {len(rows)} system(s) using {model}")
+        print(f"  + batch {batch_label}: {len(batch_paths)} bulletins, {len(rows)} system(s) using {model_label}")
         if args.delay and start + args.batch_size < len(files):
             time.sleep(args.delay)
 

@@ -132,6 +132,49 @@ def _inline_schema_refs(schema: dict) -> dict:
     return resolve(schema)
 
 
+def _systems_schema() -> dict:
+    """Return the JSON schema for the raw list under BulletinExtraction.systems."""
+    extraction_schema = _inline_schema_refs(BulletinExtraction.model_json_schema())
+    return extraction_schema["properties"]["systems"]
+
+
+def _normalize_systems_payload(systems_payload) -> list:
+    """Accept both the intended systems list and any nested Gemini wrapper.
+
+    Gemini may return `systems` as a list or as an object containing a `systems`
+    property, depending on how the schema was interpreted. Unwrap repeated
+    wrappers until the actual list remains.
+    """
+    while isinstance(systems_payload, dict) and "systems" in systems_payload:
+        systems_payload = systems_payload["systems"]
+    if systems_payload is None:
+        return []
+    if isinstance(systems_payload, list):
+        return systems_payload
+    raise ValueError(f"Unexpected systems payload shape: {type(systems_payload).__name__}")
+
+
+def _extract_json_array(text: str) -> list:
+    try:
+        return json.loads(text)
+    except ValueError:
+        start = text.find("[")
+        if start == -1:
+            raise
+        depth = 0
+        for index, char in enumerate(text[start:], start):
+            if char == "[":
+                depth += 1
+            elif char == "]":
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start : index + 1])
+                    except ValueError:
+                        break
+        raise
+
+
 def extract_bulletin_gemini(
     api_key: str,
     path: Path,
@@ -219,8 +262,7 @@ def extract_bulletins_gemini(
         return []
 
     contents = _build_batch_contents(system_prompt, bulletins)
-    item_schema = BulletinExtraction.model_json_schema()
-    item_schema = _inline_schema_refs(item_schema)
+    systems_schema = _systems_schema()
 
     batch_schema = {
         "type": "array",
@@ -229,7 +271,7 @@ def extract_bulletins_gemini(
             "properties": {
                 "source_file": {"type": "string"},
                 "date": {"type": "string"},
-                "systems": item_schema,
+                "systems": systems_schema,
             },
             "required": ["source_file", "systems"],
         },
@@ -259,7 +301,10 @@ def extract_bulletins_gemini(
     data = resp.json()
     try:
         text = data["candidates"][0]["content"]["parts"][0]["text"]
-        extraction = json.loads(text)
+        try:
+            extraction = json.loads(text)
+        except ValueError:
+            extraction = _extract_json_array(text)
     except (KeyError, IndexError, ValueError) as exc:
         print(f"    [gemini] parse error: {exc}")
         print(f"    [gemini] raw response: {json.dumps(data, indent=2)[:2000]}")
@@ -271,13 +316,14 @@ def extract_bulletins_gemini(
         return []
 
     summary_by_source = {bulletin["source_file"]: bulletin["summary_text"] for bulletin in bulletins}
+    date_by_source = {bulletin["source_file"]: bulletin["date"] for bulletin in bulletins}
 
     for item in extraction:
         if not isinstance(item, dict):
             continue
         source_file = item.get("source_file", "")
-        date = item.get("date", "")
-        systems = item.get("systems", [])
+        date = item.get("date", "") or date_by_source.get(source_file, "")
+        systems = _normalize_systems_payload(item.get("systems", []))
         summary_text = summary_by_source.get(source_file, "")
         try:
             bulletin_extraction = BulletinExtraction.model_validate({"systems": systems})
