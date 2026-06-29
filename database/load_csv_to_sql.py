@@ -1,25 +1,52 @@
 """Generate database/weather_seed.sql from the enriched extraction CSV.
 
-Reads the four final fields (date, weather_system, pressure_level, subdivisions),
-splits the multi-valued pressure/subdivision lists, and emits INSERT statements with
-explicit primary keys so the junction rows resolve deterministically.
+Reads the four final fields, splits the multi-valued pressure/subdivision lists,
+and emits INSERT statements with explicit primary keys so the junction rows resolve deterministically.
 
 Usage:
     python database/load_csv_to_sql.py [path/to/input.csv]
-
-Then load the result into MySQL:
-    mysql < database/weather_data.sql      # schema
-    mysql weather_data_system < database/weather_seed.sql   # data
 """
-from pathlib import Path
+from __future__ import annotations
+
 import csv
 import sys
+from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_CSV = REPO / "output_aiws_corrected_subdivisions_fixed.csv"
 OUT_PATH = REPO / "database" / "weather_seed.sql"
 
-VALID_SYSTEMS = {"WD", "CYCIR", "Trough"}
+VALID_SYSTEMS = {
+    # Cyclonic Circulations and Lows
+    "Cyclonic Circulation (CYCIR)",
+    "Low Pressure (L) with associated CYCIR",
+    "Well Marked Low Pressure Area (WML) with associated CYCIR",
+    "Induced Cyclonic Circulation",
+    "Induced Low",
+    "Low-Level Cyclonic Circulation",
+    "Mid-Level Cyclonic Circulation",
+    "Upper-Level Cyclonic Circulation",
+
+    # Western Disturbances & Storms
+    "Western Disturbances (WD)",
+    "Western Depression",
+    "Depression (D)",
+    "Deep Depression (DD)",
+    "Cyclonic Storm (CS) : 63 to 88 km/h",
+    "Severe Cyclonic Storm (SCS) : 89 to 117 km/h",
+    "Very Severe Cyclonic Storm (VSCS) : 118 to 165 km/h",
+    "Extremely Severe Cyclonic Storm (ESCS) : 166 to 220 km/h",
+    "Super Cyclonic Storm (SuCS) : \u2265 221 km/h",
+
+    # Troughs
+    "Trough",
+    "Easterly Trough",
+    "Westerly Trough",
+    "Offshore Trough",
+    "At Surface Trough",
+    "Mean Sea Level Trough",
+    "Monsoon Trough with Extension and Tilt",
+}
 
 
 def sql_str(value: str) -> str:
@@ -28,12 +55,15 @@ def sql_str(value: str) -> str:
 
 
 def split_list(value: str) -> list[str]:
-    return [part.strip() for part in (value or "").split(";") if part.strip()]
+    return [part.strip() for part in (value or "").replace(",", ";").split(";") if part.strip()]
 
 
 def hpa_of(label: str) -> int:
-    """'700 hPa' -> 700."""
-    return int(label.split()[0])
+    """'700 hPa' -> 700. Fallback to 0 if not matching."""
+    parts = label.split()
+    if parts and parts[0].isdigit():
+        return int(parts[0])
+    return 0
 
 
 def chunked(rows: list[str], size: int = 200):
@@ -42,26 +72,39 @@ def chunked(rows: list[str], size: int = 200):
 
 
 def build_sql(csv_path: Path) -> str:
+    parsed_rows: list[dict] = []
+    
     with csv_path.open(newline="", encoding="utf-8") as fh:
-        rows = [r for r in csv.DictReader(fh) if (r.get("weather_system") or "").strip() in VALID_SYSTEMS]
+        for r in csv.DictReader(fh):
+            sys_name = (r.get("weather_system") or r.get("weather system") or "").strip()
+            if sys_name in VALID_SYSTEMS:
+                parsed_rows.append({
+                    "date": (r.get("date") or r.get("entry_date") or "").strip(),
+                    "weather_system": sys_name,
+                    "subdivisions": (r.get("subdivisions") or r.get("Regions") or "").strip(),
+                    "pressure_level": (r.get("pressure_level") or r.get("heightAboveMSL") or "").strip(),
+                })
+
+    if not parsed_rows:
+        return "-- No valid weather systems matched for relational seeding.\n"
 
     # --- assign deterministic ids to dimension values ---
-    dates = sorted({r["date"] for r in rows})
+    dates = sorted({r["date"] for r in parsed_rows})
     date_id = {d: i + 1 for i, d in enumerate(dates)}
 
-    subs = sorted({s for r in rows for s in split_list(r["subdivisions"])})
+    subs = sorted({s for r in parsed_rows for s in split_list(r["subdivisions"])})
     sub_id = {s: i + 1 for i, s in enumerate(subs)}
 
-    labels = sorted({p for r in rows for p in split_list(r["pressure_level"])}, key=hpa_of)
+    labels = sorted({p for r in parsed_rows for p in split_list(r["pressure_level"])}, key=hpa_of)
     label_id = {p: i + 1 for i, p in enumerate(labels)}
 
-    # --- weather_systems rows (one per CSV row) with per-date sequence ---
+    # --- weather_systems rows ---
     system_rows: list[tuple[int, int, int, str]] = []  # (sys_id, entry_id, seq, type)
     sys_sub_rows: list[tuple[int, int]] = []
     sys_pl_rows: list[tuple[int, int]] = []
     seq_by_date: dict[str, int] = {}
 
-    for i, r in enumerate(rows, start=1):
+    for i, r in enumerate(parsed_rows, start=1):
         d = r["date"]
         seq_by_date[d] = seq_by_date.get(d, 0) + 1
         system_rows.append((i, date_id[d], seq_by_date[d], r["weather_system"]))
@@ -73,7 +116,7 @@ def build_sql(csv_path: Path) -> str:
     # --- emit ---
     out: list[str] = []
     out.append("-- Auto-generated by database/load_csv_to_sql.py. Do not edit by hand.")
-    out.append(f"-- Source: {csv_path.name} ({len(rows)} systems, {len(dates)} dates)")
+    out.append(f"-- Source: {csv_path.name} ({len(parsed_rows)} systems, {len(dates)} dates)")
     out.append("USE weather_data_system;")
     out.append("")
     out.append("SET FOREIGN_KEY_CHECKS = 0;")
@@ -96,42 +139,48 @@ def build_sql(csv_path: Path) -> str:
             out.append(",\n".join(batch) + ";")
         out.append("")
 
-    emit(
-        "Lookup: subdivisions",
-        "id, name",
-        "subdivisions",
-        [f"({sub_id[s]}, {sql_str(s)})" for s in subs],
-    )
-    emit(
-        "Lookup: pressure levels",
-        "id, label, hpa",
-        "pressure_levels",
-        [f"({label_id[p]}, {sql_str(p)}, {hpa_of(p)})" for p in labels],
-    )
-    emit(
-        "Bulletin dates",
-        "id, entry_date",
-        "weather_entries",
-        [f"({date_id[d]}, {sql_str(d)})" for d in dates],
-    )
-    emit(
-        "Weather systems",
-        "id, entry_id, system_seq, weather_system",
-        "weather_systems",
-        [f"({sid}, {eid}, {seq}, {sql_str(t)})" for sid, eid, seq, t in system_rows],
-    )
-    emit(
-        "Junction: system <-> subdivision",
-        "system_id, subdivision_id",
-        "system_subdivisions",
-        [f"({sid}, {did})" for sid, did in sys_sub_rows],
-    )
-    emit(
-        "Junction: system <-> pressure level",
-        "system_id, pressure_level_id",
-        "system_pressure_levels",
-        [f"({sid}, {pid})" for sid, pid in sys_pl_rows],
-    )
+    if subs:
+        emit(
+            "Lookup: subdivisions",
+            "id, name",
+            "subdivisions",
+            [f"({sub_id[s]}, {sql_str(s)})" for s in subs],
+        )
+    if labels:
+        emit(
+            "Lookup: pressure levels",
+            "id, label, hpa",
+            "pressure_levels",
+            [f"({label_id[p]}, {sql_str(p)}, {hpa_of(p)})" for p in labels],
+        )
+    if dates:
+        emit(
+            "Lookup: bulletin dates",
+            "id, entry_date",
+            "weather_entries",
+            [f"({date_id[d]}, {sql_str(d)})" for d in dates],
+        )
+    if system_rows:
+        emit(
+            "Weather systems",
+            "id, entry_id, system_seq, weather_system",
+            "weather_systems",
+            [f"({sid}, {eid}, {seq}, {sql_str(t)})" for sid, eid, seq, t in system_rows],
+        )
+    if sys_sub_rows:
+        emit(
+            "Junction: system <-> subdivision",
+            "system_id, subdivision_id",
+            "system_subdivisions",
+            [f"({sid}, {did})" for sid, did in sys_sub_rows],
+        )
+    if sys_pl_rows:
+        emit(
+            "Junction: system <-> pressure level",
+            "system_id, pressure_level_id",
+            "system_pressure_levels",
+            [f"({sid}, {pid})" for sid, pid in sys_pl_rows],
+        )
 
     return "\n".join(out).rstrip() + "\n"
 

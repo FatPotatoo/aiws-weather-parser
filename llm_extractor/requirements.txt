@@ -1,4 +1,0 @@
-anthropic>=0.92
-pydantic>=2
-ollama>=0.4
-requests>=2.28

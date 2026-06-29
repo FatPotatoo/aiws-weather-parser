@@ -1,25 +1,31 @@
-"""Load an enriched extraction CSV into the flat `weather_system_entries` table.
+"""Load enriched extraction CSV(s) into the flat `weather_system_entries` table.
 
-This is the table the PHP app reads. It TRUNCATEs the table and reloads it from
-the CSV, mapping only the four columns the table stores:
+This script generates and outputs SQL to stdout (which can be piped to MySQL),
+or directly executes the SQL script via XAMPP's mysql client if --push is provided.
 
-    date         -> entry_date     (normalized to YYYY-MM-DD)
-    weather_system
-    pressure_level
-    subdivisions
+It supports both the original CSV columns and the new Fireworks extractor columns:
+    date/entry_date     -> entry_date
+    weather system/weather_system -> weather_system
+    heightAboveMSL/pressure_level -> pressure_level
+    Regions/subdivisions -> subdivisions
 
-The CSV's region / height_km / status columns are intentionally ignored because
-the flat table does not have them.
+Usage:
+    # 1. Output SQL to stdout:
+    python database/load_csv_to_entries.py output_jan_2025.csv output_feb_2025.csv
 
-Emits SQL on stdout. Pipe it into the XAMPP MySQL client:
-
-    python database/load_csv_to_entries.py output_aiws_corrected_subdivisions_fixed.csv ^
-        | "C:/xampp/mysql/bin/mysql.exe" -u root weather_data_system
+    # 2. Push directly to XAMPP MySQL (local):
+    python database/load_csv_to_entries.py output_jan_2025.csv output_feb_2025.csv --push
 """
-from pathlib import Path
+from __future__ import annotations
+
+import argparse
 import csv
+import os
+import shutil
+import subprocess
 import sys
 from datetime import datetime
+from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_CSV = REPO / "output_aiws_corrected_subdivisions_fixed.csv"
@@ -37,6 +43,15 @@ def normalize_date(value: str) -> str:
     raise ValueError(f"Unrecognized date format: {value!r}")
 
 
+def normalize_pressure(value: str) -> str:
+    """Normalize height/pressure level. If 0, MSL, or empty, translate to 'Surface'."""
+    val = (value or "").strip()
+    val_lower = val.lower()
+    if val_lower in ("0.0 km", "0 km", "0", "0.0", "", "null", "mean sea level", "at mean sea level", "msl"):
+        return "Surface"
+    return val
+
+
 def sql_str(value: str) -> str:
     """Quote/escape a string literal for MySQL, or NULL when empty."""
     value = (value or "").strip()
@@ -50,27 +65,61 @@ def chunked(rows: list[str], size: int = 200):
         yield rows[i : i + size]
 
 
-def build_sql(csv_path: Path) -> str:
-    with csv_path.open(newline="", encoding="utf-8") as fh:
-        rows = list(csv.DictReader(fh))
+def parse_csv_files(paths: list[Path]) -> list[tuple[str, str, str, str]]:
+    """Parse multiple CSV files, automatically mapping headers, and return list of value rows."""
+    parsed_rows: list[tuple[str, str, str, str]] = []
+    
+    for path in paths:
+        if not path.exists():
+            print(f"Warning: File not found: {path}", file=sys.stderr)
+            continue
+            
+        with path.open(newline="", encoding="utf-8") as fh:
+            reader = csv.DictReader(fh)
+            for r in reader:
+                # Resolve date key
+                date_val = r.get("date") or r.get("entry_date")
+                if not date_val:
+                    continue
+                    
+                try:
+                    entry_date = normalize_date(date_val)
+                except ValueError as e:
+                    print(f"Warning: Skipping row with invalid date: {e}", file=sys.stderr)
+                    continue
+                
+                # Resolve weather system key
+                system = (r.get("weather_system") or r.get("weather system") or "").strip()
+                if not system:
+                    continue  # flat table requires a weather_system (NOT NULL)
+                
+                # Resolve subdivisions/regions key
+                subs = (r.get("subdivisions") or r.get("Regions") or "").strip()
+                
+                # Resolve pressure level/height key
+                raw_pressure = (r.get("pressure_level") or r.get("heightAboveMSL") or "").strip()
+                pressure = normalize_pressure(raw_pressure)
+                
+                parsed_rows.append((entry_date, system, pressure, subs))
+                
+    return parsed_rows
 
+
+def build_sql(parsed_rows: list[tuple[str, str, str, str]], append: bool = False) -> str:
+    """Generate MySQL commands for inserting all rows."""
     values: list[str] = []
-    for r in rows:
-        entry_date = normalize_date(r["date"])
-        system = (r.get("weather_system") or "").strip()
-        if not system:
-            continue  # the flat table requires a weather_system (NOT NULL)
-        pressure = r.get("pressure_level", "")
-        subs = r.get("subdivisions", "")
+    for entry_date, system, pressure, subs in parsed_rows:
         values.append(
-            f"('{entry_date}', {sql_str(system)}, {sql_str(pressure)}, {sql_str(subs)})"
+            f"({sql_str(entry_date)}, {sql_str(system)}, {sql_str(pressure)}, {sql_str(subs)})"
         )
 
     out: list[str] = []
-    out.append(f"-- Loaded from {csv_path.name} ({len(values)} rows) into {TABLE}.")
+    out.append(f"-- Prepared {len(values)} rows to load into table `{TABLE}`.")
     out.append("START TRANSACTION;")
-    out.append(f"DELETE FROM {TABLE};")
-    out.append(f"ALTER TABLE {TABLE} AUTO_INCREMENT = 1;")
+    if not append:
+        out.append(f"DELETE FROM {TABLE};")
+        out.append(f"ALTER TABLE {TABLE} AUTO_INCREMENT = 1;")
+        
     for batch in chunked(values):
         out.append(
             f"INSERT INTO {TABLE} (entry_date, weather_system, pressure_level, subdivisions) VALUES"
@@ -81,10 +130,49 @@ def build_sql(csv_path: Path) -> str:
 
 
 def main() -> None:
-    csv_path = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CSV
-    if not csv_path.exists():
-        raise SystemExit(f"CSV not found: {csv_path}")
-    sys.stdout.write(build_sql(csv_path))
+    parser = argparse.ArgumentParser(description="Generate SQL statements or directly load weather CSV data into database.")
+    parser.add_argument("csv_files", nargs="*", help="One or more CSV files to read and load.")
+    parser.add_argument("--push", action="store_true", help="Directly push SQL into local XAMPP MySQL database.")
+    parser.add_argument("--append", action="store_true", help="Append entries to the table without truncating it first.")
+    args = parser.parse_args()
+
+    # Resolve input files
+    paths: list[Path] = []
+    if args.csv_files:
+        for f in args.csv_files:
+            paths.append(Path(f))
+    else:
+        paths.append(DEFAULT_CSV)
+
+    parsed_rows = parse_csv_files(paths)
+    if not parsed_rows:
+        print("No valid rows found to load.", file=sys.stderr)
+        sys.exit(1)
+
+    sql_content = build_sql(parsed_rows, append=args.append)
+
+    if args.push:
+        mysql_path = "C:/xampp/mysql/bin/mysql.exe"
+        if not Path(mysql_path).exists():
+            mysql_path = shutil.which("mysql")
+        if not mysql_path:
+            print("Error: mysql.exe not found at C:/xampp/mysql/bin/mysql.exe or in system PATH.", file=sys.stderr)
+            sys.exit(1)
+            
+        print(f"Connecting to database 'weather_data_system' and running transactions...", file=sys.stderr)
+        try:
+            subprocess.run(
+                [mysql_path, "-u", "root", "weather_data_system"],
+                input=sql_content,
+                text=True,
+                check=True
+            )
+            print("Successfully loaded CSV data into the database!", file=sys.stderr)
+        except Exception as e:
+            print(f"Error running MySQL CLI: {e}", file=sys.stderr)
+            sys.exit(1)
+    else:
+        sys.stdout.write(sql_content)
 
 
 if __name__ == "__main__":
