@@ -18,6 +18,16 @@ def main():
         default="2025",
         help="Year folder to look under (default: 2025)"
     )
+    parser.add_argument(
+        "--base-dir",
+        default="C:/Users/ACER/Desktop/AIWS",
+        help="Base directory containing the year folders (default: C:/Users/ACER/Desktop/AIWS)"
+    )
+    parser.add_argument(
+        "--out",
+        default=None,
+        help="Output CSV file path. If specified, all months will append to this single file."
+    )
     args = parser.parse_args()
 
     api_key = os.environ.get("FIREWORKS_API_KEY")
@@ -27,14 +37,14 @@ def main():
         print("  $env:FIREWORKS_API_KEY = 'your_key'")
         sys.exit(1)
 
-    base_dir = Path("C:/Users/suyas/Downloads/AIWS") / args.year
+    base_dir = Path(args.base_dir) / args.year
     months_to_run = [m.strip() for m in args.months.split(",") if m.strip()]
     
     print(f"Starting Fireworks GLM 5.2 weather system extraction for: {', '.join(months_to_run)} ({args.year})...\n")
     
     for month_name in months_to_run:
         folder_path = base_dir / month_name / "AIWS"
-        out_file = f"output_{month_name.lower()[:3]}_{args.year}.csv"
+        out_file = args.out if args.out else f"output_{month_name.lower()[:3]}_{args.year}.csv"
         
         if not folder_path.exists():
             print(f"Skipping {month_name}: folder {folder_path} does not exist.")
@@ -48,7 +58,7 @@ def main():
         
         cmd = [
             sys.executable,
-            "runner.py",
+            str(Path(__file__).parent / "runner.py"),
             "--folder", str(folder_path),
             "--out", out_file,
             "--delay", "1.5"

@@ -140,12 +140,14 @@ def main() -> None:
                     rows = extract_bulletin_fireworks(api_key, path, system_prompt, few_shot, model=args.model)
                     success = True
                     break
-                except requests.HTTPError as exc:
-                    status_code = exc.response.status_code if exc.response is not None else None
-                    if status_code in (429, 503) and retry_count < 3:
+                except (requests.HTTPError, requests.exceptions.Timeout) as exc:
+                    is_timeout = isinstance(exc, requests.exceptions.Timeout)
+                    status_code = exc.response.status_code if (not is_timeout and exc.response is not None) else None
+                    if (is_timeout or status_code in (429, 503)) and retry_count < 3:
                         retry_count += 1
                         wait = max(args.delay * 2, 10.0)
-                        print(f"  ~ [{i}/{len(pending)}] {path.name}: {status_code} error, retry {retry_count}/3 after {wait}s...", flush=True)
+                        err_desc = "Timeout" if is_timeout else f"{status_code} error"
+                        print(f"  ~ [{i}/{len(pending)}] {path.name}: {err_desc}, retry {retry_count}/3 after {wait}s...", flush=True)
                         time.sleep(wait)
                         continue
                     print(f"  ! [{i}/{len(pending)}] {path.name}: {type(exc).__name__}: {exc}", flush=True)
