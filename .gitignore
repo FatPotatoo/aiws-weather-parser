@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project-specific ignored files
+*.csv
+.*.resume
+uploads/
+config/fireworks.json

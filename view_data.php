@@ -240,6 +240,7 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
     <a href="homepage.html" class="hover:underline block">🏠 Homepage</a>
     <a href="index.php" class="hover:underline block">✍️ Data Entry</a>
     <a href="view_data.php" class="hover:underline font-semibold text-yellow-300 block">📄 View Data</a>
+    <a href="similarity_query.php" class="hover:underline block">🔍 Similarity Query</a>
   </nav>
 </div>
 

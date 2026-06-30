@@ -13,5 +13,6 @@
     <a href="homepage.html" onclick="toggleSidebarIfMobile()" class="hover:underline block">🏠 Home</a>
     <a href="index.php" onclick="toggleSidebarIfMobile()" class="hover:underline block">✍️ Data Entry</a>
     <a href="view_data.php" onclick="toggleSidebarIfMobile()" class="hover:underline block">📄 View Data</a>
+    <a href="similarity_query.php" onclick="toggleSidebarIfMobile()" class="hover:underline block">🔍 Similarity Query</a>
   </nav>
 </div>

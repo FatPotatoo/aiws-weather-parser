@@ -24,6 +24,7 @@
         <li><a href="homepage.html" class="hover:underline">🏠 Home</a></li>
         <li><a href="index.php" class="hover:underline">📝 Data Entry</a></li>
         <li><a href="view_data.php" class="hover:underline">📊 View Data</a></li>
+        <li><a href="similarity_query.php" class="hover:underline">🔍 Similarity Query</a></li>
     </ul>
 </div>
 
