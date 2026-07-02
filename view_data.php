@@ -303,9 +303,12 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
 
   <?php foreach ($data as $date => $systems): ?>
     <div class="bg-white shadow-md rounded p-6 mb-8">
-      <div class="flex justify-between items-center mb-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
         <h2 class="text-lg font-bold text-purple-800">📅 Date: <?= htmlspecialchars($date) ?></h2>
-        <a href="export_csv.php?date=<?= urlencode($date) ?>" class="text-green-600 font-semibold hover:underline">Export CSV</a>
+        <div class="flex flex-wrap items-center gap-3 text-sm">
+          <a href="RainfallMapper/index.html?date=<?= urlencode($date) ?>" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">View Rainfall Map</a>
+          <a href="export_csv.php?date=<?= urlencode($date) ?>" class="text-green-600 font-semibold hover:underline">Export CSV</a>
+        </div>
       </div>
       <?php $count = 1; ?>
       <?php foreach ($systems as $sys): ?>

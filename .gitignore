@@ -26,3 +26,4 @@ dist-ssr
 # Project-specific ignored files
 uploads/
 config/fireworks.json
+config/database.json

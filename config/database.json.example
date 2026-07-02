@@ -1,0 +1,7 @@
+{
+  "DB_HOST": "your-cloud-db-host.aivencloud.com",
+  "DB_PORT": "10427",
+  "DB_USER": "avnadmin",
+  "DB_PASSWORD": "",
+  "DB_NAME": "weather_data_system"
+}

@@ -31,10 +31,23 @@ $command = "python extract_rainfall.py " . $safe_date . " 2>&1";
 $output = shell_exec($command);
 
 if ($output === null) {
-    echo json_encode(['error' => 'Failed to execute the data extraction script.']);
+    echo json_encode(['error' => 'Failed to execute the data extraction script. Ensure PHP can run shell commands and Python is available on PATH.']);
     exit;
 }
 
-// Output the JSON response from the Python script
-echo $output;
+// If the Python script printed valid JSON, forward it. Otherwise wrap the raw output as an error.
+$decoded = json_decode($output, true);
+if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+    // Forward valid JSON (already a JSON string)
+    echo $output;
+    exit;
+}
+
+// Not valid JSON — return structured error with the raw output (trimmed to reasonable length)
+$trimmed = strlen($output) > 2000 ? substr($output, 0, 2000) . "\n...[truncated]" : $output;
+echo json_encode([
+    'error' => 'Data extraction script failed or returned invalid JSON.',
+    'details' => $trimmed
+]);
+exit;
 ?>

@@ -6,9 +6,11 @@ import xarray as xr
 import pandas as pd
 
 def extract_data(date_str):
-    nc_file = 'RF25_ind2025_rfp25.nc'
+    # Resolve NetCDF path relative to this script so calls from other CWDs still work.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    nc_file = os.environ.get('NETCDF_PATH') or os.path.join(script_dir, 'RF25_ind2025_rfp25.nc')
     if not os.path.exists(nc_file):
-        return {"error": f"NetCDF file '{nc_file}' not found in the workspace."}
+        return {"error": f"NetCDF file '{nc_file}' not found. Ensure the file exists in {script_dir} or set NETCDF_PATH."}
     
     try:
         # Open dataset

@@ -36,8 +36,30 @@ def get_api_key() -> str:
             
     return ""
 
+def load_db_config() -> dict[str, str]:
+    """Load database connection credentials from config/database.json if present."""
+    config = {
+        "DB_HOST": "localhost",
+        "DB_PORT": "3306",
+        "DB_USER": "root",
+        "DB_PASSWORD": "",
+        "DB_NAME": "weather_data_system"
+    }
+    config_path = SCRIPT_DIR.parent / "config" / "database.json"
+    if config_path.exists():
+        try:
+            with config_path.open("r", encoding="utf-8") as fh:
+                data = json.load(fh)
+                for k in config:
+                    if k in data:
+                        config[k] = str(data[k])
+        except Exception:
+            pass
+    return config
+
 def fetch_historical_data() -> list[dict]:
     """Fetch all entries from the MySQL database using the mysql.exe CLI."""
+    db_config = load_db_config()
     mysql_path = "C:/xampp/mysql/bin/mysql.exe"
     if not Path(mysql_path).exists():
         mysql_path = "mysql"  # Fallback to PATH
@@ -47,11 +69,17 @@ def fetch_historical_data() -> list[dict]:
     
     cmd = [
         mysql_path,
-        "-u", "root",
-        "-D", "weather_data_system",
+        "-h", db_config["DB_HOST"],
+        "-P", db_config["DB_PORT"],
+        "-u", db_config["DB_USER"]
+    ]
+    if db_config["DB_PASSWORD"]:
+        cmd.append(f"-p{db_config['DB_PASSWORD']}")
+    cmd.extend([
+        "-D", db_config["DB_NAME"],
         "-e", query,
         "-B"  # Batch mode (tab-separated output)
-    ]
+    ])
     
     try:
         # Run command and capture output

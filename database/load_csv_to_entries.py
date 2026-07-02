@@ -129,10 +129,33 @@ def build_sql(parsed_rows: list[tuple[str, str, str, str]], append: bool = False
     return "\n".join(out) + "\n"
 
 
+def load_db_config() -> dict[str, str]:
+    """Load database connection credentials from config/database.json if present."""
+    import json
+    config = {
+        "DB_HOST": "localhost",
+        "DB_PORT": "3306",
+        "DB_USER": "root",
+        "DB_PASSWORD": "",
+        "DB_NAME": "weather_data_system"
+    }
+    config_path = Path(__file__).resolve().parent.parent / "config" / "database.json"
+    if config_path.exists():
+        try:
+            with config_path.open("r", encoding="utf-8") as fh:
+                data = json.load(fh)
+                for k in config:
+                    if k in data:
+                        config[k] = str(data[k])
+        except Exception:
+            pass
+    return config
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate SQL statements or directly load weather CSV data into database.")
     parser.add_argument("csv_files", nargs="*", help="One or more CSV files to read and load.")
-    parser.add_argument("--push", action="store_true", help="Directly push SQL into local XAMPP MySQL database.")
+    parser.add_argument("--push", action="store_true", help="Directly push SQL into MySQL database.")
     parser.add_argument("--append", action="store_true", help="Append entries to the table without truncating it first.")
     args = parser.parse_args()
 
@@ -152,6 +175,7 @@ def main() -> None:
     sql_content = build_sql(parsed_rows, append=args.append)
 
     if args.push:
+        db_config = load_db_config()
         mysql_path = "C:/xampp/mysql/bin/mysql.exe"
         if not Path(mysql_path).exists():
             mysql_path = shutil.which("mysql")
@@ -159,10 +183,21 @@ def main() -> None:
             print("Error: mysql.exe not found at C:/xampp/mysql/bin/mysql.exe or in system PATH.", file=sys.stderr)
             sys.exit(1)
             
-        print(f"Connecting to database 'weather_data_system' and running transactions...", file=sys.stderr)
+        print(f"Connecting to database '{db_config['DB_NAME']}' on '{db_config['DB_HOST']}'...", file=sys.stderr)
+        
+        cmd = [
+            mysql_path,
+            "-h", db_config["DB_HOST"],
+            "-P", db_config["DB_PORT"],
+            "-u", db_config["DB_USER"]
+        ]
+        if db_config["DB_PASSWORD"]:
+            cmd.append(f"-p{db_config['DB_PASSWORD']}")
+        cmd.append(db_config["DB_NAME"])
+
         try:
             subprocess.run(
-                [mysql_path, "-u", "root", "weather_data_system"],
+                cmd,
                 input=sql_content,
                 text=True,
                 check=True

@@ -28,27 +28,34 @@ document.addEventListener('DOMContentLoaded', () => {
     initMap();
     
     // Initialize Event Listeners
+    // Initialize Event Listeners (safe: initEventListeners checks element existence)
     initEventListeners();
-    
-    // Check for date in URL parameters
+
+    // Check for date in URL parameters — when this page is embedded we expect a date param.
     const urlParams = new URLSearchParams(window.location.search);
     const urlDate = urlParams.get('date');
     const datePicker = document.getElementById('date-picker');
     const hiddenDatePicker = document.getElementById('hidden-date-picker');
-    
+
     if (urlDate) {
         const parsed = parseCustomDate(urlDate);
         if (parsed && parsed.y === 2025) {
             const formatted = `${parsed.y}-${String(parsed.m).padStart(2, '0')}-${String(parsed.d).padStart(2, '0')}`;
-            datePicker.value = formatted;
-            hiddenDatePicker.value = formatted;
+            if (datePicker) datePicker.value = formatted;
+            if (hiddenDatePicker) hiddenDatePicker.value = formatted;
             fetchRainfallData(formatted);
             return;
         }
     }
-    
-    // Fallback to default date picker value
-    fetchRainfallData(datePicker.value);
+
+    // If no URL date provided and no date picker present, fetch a sensible default (first day of 2025)
+    if (datePicker) {
+        fetchRainfallData(datePicker.value);
+    } else if (urlDate) {
+        fetchRainfallData(urlDate);
+    } else {
+        fetchRainfallData('2025-01-01');
+    }
 });
 
 // Initialize Leaflet Map
@@ -85,57 +92,38 @@ function initEventListeners() {
     const nextBtn = document.getElementById('next-day-btn');
     const playBtn = document.getElementById('play-btn');
     const focusMaxBtn = document.getElementById('focus-max-btn');
-    
-    // When user types in date and presses Enter or blurs
-    datePicker.addEventListener('change', () => {
-        if (isPlaying) stopTimelineAnimation();
-        handleTypedDate();
-    });
-    
-    // When user presses Enter key specifically (to trigger immediate search)
-    datePicker.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            datePicker.blur(); // Triggers the change event
-        }
-    });
 
-    // When calendar button is clicked, open native picker
-    calendarBtn.addEventListener('click', () => {
-        if (isPlaying) stopTimelineAnimation();
-        try {
-            hiddenDatePicker.showPicker();
-        } catch (err) {
-            // Fallback if showPicker is not supported
-            hiddenDatePicker.click();
-        }
-    });
-    
-    // When date is selected from calendar
-    hiddenDatePicker.addEventListener('change', (e) => {
-        if (isPlaying) stopTimelineAnimation();
-        const selectedDate = e.target.value;
-        datePicker.value = selectedDate;
-        datePicker.classList.remove('input-error');
-        fetchRainfallData(selectedDate);
-    });
-    
-    // Previous Day Button
-    prevBtn.addEventListener('click', () => {
-        if (isPlaying) stopTimelineAnimation();
-        changeDate(-1);
-    });
-    
-    // Next Day Button
-    nextBtn.addEventListener('click', () => {
-        if (isPlaying) stopTimelineAnimation();
-        changeDate(1);
-    });
-    
-    // Play/Pause Timeline Button
-    playBtn.addEventListener('click', toggleTimelineAnimation);
-    
-    // Focus Max Rainfall Location Button
-    focusMaxBtn.addEventListener('click', centerOnMaxRainfall);
+    // Safely bind listeners only when elements exist (we removed the date UI for embedded use)
+    if (datePicker) {
+        datePicker.addEventListener('change', () => {
+            if (isPlaying) stopTimelineAnimation();
+            handleTypedDate();
+        });
+
+        datePicker.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') datePicker.blur();
+        });
+    }
+
+    if (calendarBtn && hiddenDatePicker) {
+        calendarBtn.addEventListener('click', () => {
+            if (isPlaying) stopTimelineAnimation();
+            try { hiddenDatePicker.showPicker(); } catch (err) { hiddenDatePicker.click(); }
+        });
+
+        hiddenDatePicker.addEventListener('change', (e) => {
+            if (isPlaying) stopTimelineAnimation();
+            const selectedDate = e.target.value;
+            if (datePicker) datePicker.value = selectedDate;
+            if (datePicker) datePicker.classList.remove('input-error');
+            fetchRainfallData(selectedDate);
+        });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { if (isPlaying) stopTimelineAnimation(); changeDate(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { if (isPlaying) stopTimelineAnimation(); changeDate(1); });
+    if (playBtn) playBtn.addEventListener('click', toggleTimelineAnimation);
+    if (focusMaxBtn) focusMaxBtn.addEventListener('click', centerOnMaxRainfall);
 }
 
 // Parse custom date formats: YYYY-MM-DD, DD-MM-YYYY, YYYY/MM/DD, DD/MM/YYYY
@@ -232,15 +220,26 @@ function fetchRainfallData(dateStr) {
     showLoading(true);
     
     fetch(`get_data.php?date=${dateStr}`)
-        .then(response => response.json())
-        .then(data => {
+        .then(response => response.text())
+        .then(text => {
             showLoading(false);
+            let data = null;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error('Invalid JSON from server:', text);
+                if (isPlaying) stopTimelineAnimation();
+                const short = text.length > 500 ? text.slice(0, 500) + '\n...[truncated]' : text;
+                alert('Server error while loading rainfall data. See console for details.\n\n' + short);
+                return;
+            }
+
             if (data.error) {
-                alert(data.error);
+                alert(data.error + (data.details ? '\n\nDetails: ' + data.details : ''));
                 if (isPlaying) stopTimelineAnimation();
                 return;
             }
-            
+
             currentRainfallData = data;
             updateUI(data);
         })
@@ -248,7 +247,7 @@ function fetchRainfallData(dateStr) {
             showLoading(false);
             console.error('Error fetching data:', err);
             if (isPlaying) stopTimelineAnimation();
-            alert('Failed to load rainfall data. Make sure your local server is running.');
+            alert('Failed to load rainfall data. Make sure your local server is running.\nSee console for network error.');
         });
 }
 
@@ -276,6 +275,35 @@ function updateUI(data) {
     
     // 3. Update Distribution Chart
     updateChart(data);
+
+    // 4. Update debug/status overlay (helps when embedded)
+    updateDebugBox(data);
+}
+
+// Small visible debug/status box on the map for quick verification
+function updateDebugBox(data) {
+    let box = document.getElementById('debug-box');
+    if (!box) {
+        box = document.createElement('div');
+        box.id = 'debug-box';
+        box.style.position = 'absolute';
+        box.style.top = '12px';
+        box.style.right = '12px';
+        box.style.zIndex = 3000;
+        box.style.background = 'rgba(0,0,0,0.6)';
+        box.style.color = 'white';
+        box.style.padding = '8px 10px';
+        box.style.borderRadius = '8px';
+        box.style.fontSize = '12px';
+        box.style.fontFamily = 'Inter, sans-serif';
+        box.style.boxShadow = '0 6px 18px rgba(0,0,0,0.6)';
+        document.querySelector('.map-container').appendChild(box);
+    }
+
+    const date = data.date || '(unknown)';
+    const mean = data.stats?.mean_rainfall ?? '--';
+    const max = data.stats?.max_rainfall ?? '--';
+    box.innerText = `Date: ${date} — Mean: ${mean} mm — Max: ${max} mm`;
 }
 
 // Render the 2D grid onto a canvas and overlay it on Leaflet

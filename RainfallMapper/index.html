@@ -24,52 +24,7 @@
     <div class="app-container">
         <!-- Sidebar Panel -->
         <aside class="sidebar">
-            <header class="app-header">
-                <div class="logo-container">
-                    <i data-lucide="cloud-rain" class="logo-icon"></i>
-                    <h1>Rainfall Mapper</h1>
-                    <span class="badge">2025</span>
-                </div>
-                <p class="subtitle">High-resolution (0.25° x 0.25°) daily rainfall visualization of India.</p>
-            </header>
-            
-            <hr class="divider">
-
-            <!-- Date Selector Section -->
-            <section class="control-section">
-                <div class="section-title">
-                    <i data-lucide="calendar"></i>
-                    <h2>Select Date</h2>
-                </div>
-                
-                <div class="date-controls">
-                    <button id="prev-day-btn" class="btn-icon" title="Previous Day">
-                        <i data-lucide="chevron-left"></i>
-                    </button>
-                    <div class="date-input-container">
-                        <input type="text" id="date-picker" placeholder="YYYY-MM-DD" value="2025-07-15" title="Type date (YYYY-MM-DD) or click calendar">
-                        <input type="date" id="hidden-date-picker" min="2025-01-01" max="2025-12-31" value="2025-07-15" style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
-                        <button id="calendar-trigger-btn" class="btn-calendar" type="button" title="Open Calendar">
-                            <i data-lucide="calendar"></i>
-                        </button>
-                    </div>
-                    <button id="next-day-btn" class="btn-icon" title="Next Day">
-                        <i data-lucide="chevron-right"></i>
-                    </button>
-                </div>
-                
-                <div class="time-lapse-controls">
-                    <button id="play-btn" class="btn-action">
-                        <i data-lucide="play"></i>
-                        <span>Animate Timeline</span>
-                    </button>
-                    <div class="animation-speed-container">
-                        <label for="speed-range">Speed:</label>
-                        <input type="range" id="speed-range" min="200" max="2000" step="100" value="800" title="Animation Speed (ms)">
-                    </div>
-                </div>
-            </section>
-            
+            <!-- Header and date controls removed — this page is embedded in the portal. -->
             <hr class="divider">
 
             <!-- Summary Stats Section -->
