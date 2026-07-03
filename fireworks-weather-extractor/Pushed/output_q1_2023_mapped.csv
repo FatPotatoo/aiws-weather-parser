@@ -1,13 +1,13 @@
 weather system,date,heightAboveMSL,Regions,subdivisions
-Western Disturbances (WD),01-01-2023,5.8 km,along Longitude 80°E to the north of Latitude 30°N,"Uttarakhand ; Himachal Pradesh ; Haryana, Chandigarh & Delhi"
-Western Disturbances (WD),02-01-2023,5.8 km,along Longitude 65°E to the north of Latitude 30°N,Pakistan ; Iran ; North pakistan ; Jammu & Kashmir ; Punjab
-Western Disturbances (WD),02-01-2023,5.8 km,along Longitude 80°E to the north of Latitude 30°N,"Uttarakhand ; Himachal Pradesh ; Haryana, Chandigarh & Delhi"
-Western Disturbances (WD),03-01-2023,5.8 km,along Longitude 74°E to the north of Latitude 32°N,Jammu & Kashmir ; North pakistan ; Himachal Pradesh
-Western Disturbances (WD),04-01-2023,5.8 km,along Longitude 78°E to the north of Latitude 28°N,"Himachal Pradesh ; Uttarakhand ; West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; Punjab"
+Western Disturbances (WD),01-01-2023,5.8 km,along Longitude 80Â°E to the north of Latitude 30Â°N,"Uttarakhand ; Himachal Pradesh ; Haryana, Chandigarh & Delhi"
+Western Disturbances (WD),02-01-2023,5.8 km,along Longitude 65Â°E to the north of Latitude 30Â°N,Pakistan ; Iran ; North pakistan ; Jammu & Kashmir ; Punjab
+Western Disturbances (WD),02-01-2023,5.8 km,along Longitude 80Â°E to the north of Latitude 30Â°N,"Uttarakhand ; Himachal Pradesh ; Haryana, Chandigarh & Delhi"
+Western Disturbances (WD),03-01-2023,5.8 km,along Longitude 74Â°E to the north of Latitude 32Â°N,Jammu & Kashmir ; North pakistan ; Himachal Pradesh
+Western Disturbances (WD),04-01-2023,5.8 km,along Longitude 78Â°E to the north of Latitude 28Â°N,"Himachal Pradesh ; Uttarakhand ; West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; Punjab"
 Easterly Trough,04-01-2023,1.5 km,East Uttar Pradesh ; Vidarbha,East Uttar Pradesh ; Vidarbha
 Western Disturbances (WD),05-01-2023,3.1 km to 5.8 km,Iran,Iran
 Trough,05-01-2023,1.5 km,East Madhya Pradesh ; Madhya Maharashtra,East Madhya Pradesh ; Madhya Maharashtra
-Western Disturbances (WD),05-01-2023,5.8 km,along Longitude 78°E to the north of Latitude 28°N,"Himachal Pradesh ; Uttarakhand ; West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; Punjab"
+Western Disturbances (WD),05-01-2023,5.8 km,along Longitude 78Â°E to the north of Latitude 28Â°N,"Himachal Pradesh ; Uttarakhand ; West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; Punjab"
 Western Disturbances (WD),06-01-2023,5.8 km,Far West Pakistan,Far West Pakistan
 Western Disturbances (WD),07-01-2023,5.8 km,Far West Pakistan,Far West Pakistan
 Cyclonic Circulation (CYCIR),07-01-2023,1.5 km to 3.1 km,Bangladesh,Bangladesh
@@ -25,10 +25,10 @@ Western Disturbances (WD),13-01-2023,5.8 km,Saurashtra & Kutch ; Central Pakista
 Induced Cyclonic Circulation,13-01-2023,1.5 km,East Rajasthan,East Rajasthan
 Western Disturbances (WD),14-01-2023,5.8 km,Jammu & Kashmir ; Punjab ; Madhya Maharashtra ; Coastal Karnataka ; Haryana,Jammu & Kashmir ; Punjab ; Madhya Maharashtra ; Coastal Karnataka ; Haryana
 Western Disturbances (WD),15-01-2023,5.8 km,Jammu & Kashmir ; Punjab ; Madhya Maharashtra ; Coastal Karnataka ; Haryana,Jammu & Kashmir ; Punjab ; Madhya Maharashtra ; Coastal Karnataka ; Haryana
-Western Disturbances (WD),17-01-2023,5.8 km,Central Pakistan,along 64°E to the north of 28°N
-Western Disturbances (WD),18-01-2023,5.8 km,Central Pakistan,along 65°E to the north of 28°N
+Western Disturbances (WD),17-01-2023,5.8 km,Central Pakistan,Central Pakistan
+Western Disturbances (WD),18-01-2023,5.8 km,Central Pakistan,Central Pakistan
 Western Disturbances (WD),18-01-2023,5.8 km to 7.6 km,Iran,Iran
-Western Disturbances (WD),19-01-2023,5.8 km,"Central Pakistan, North pakistan",along 70°E to the north of 30°N
+Western Disturbances (WD),19-01-2023,5.8 km,"Central Pakistan, North pakistan",Central Pakistan ; North pakistan
 Western Disturbances (WD),19-01-2023,5.8 km,Southwest Pakistan,Southwest Pakistan
 Western Disturbances (WD),20-01-2023,3.1 km to 4.5 km,North pakistan,North pakistan
 Western Disturbances (WD),20-01-2023,5.8 km,Southwest Pakistan,Southwest Pakistan
