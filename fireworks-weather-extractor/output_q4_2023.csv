@@ -1,0 +1,308 @@
+weather system,date,heightAboveMSL,Regions
+Trough,2023-10-01,0.9 km,Gangetic West Bengal ; East Uttar Pradesh
+Western Disturbances (WD),2023-10-01,5.8 km,West Pakistan ; Central Pakistan
+Cyclonic Circulation (CYCIR),2023-10-02,4.5 km to 7.6 km,Madhya Maharashtra
+Low Pressure (L) with associated CYCIR,2023-10-02,7.6 km,Jharkhand ; Chhattisgarh
+Trough,2023-10-02,3.1 km to 5.8 km,Chhattisgarh ; Telangana ; Marathwada ; Madhya Maharashtra
+Cyclonic Circulation (CYCIR),2023-10-02,3.1 km,Punjab ; Jammu & Kashmir
+Western Disturbances (WD),2023-10-02,5.8 km,West Pakistan ; Central Pakistan
+Low Pressure (L) with associated CYCIR,2023-10-03,7.6 km,Jharkhand
+Trough,2023-10-03,3.1 km,Jharkhand ; Odisha ; Chhattisgarh ; Telangana
+Western Disturbances (WD),2023-10-03,5.8 km,Jammu & Kashmir ; Punjab ; North Pakistan ; Haryana ; Himachal Pradesh
+Low Pressure (L) with associated CYCIR,2023-10-04,7.6 km,Gangetic West Bengal ; Jharkhand
+Trough,2023-10-04,3.1 km,Sikkim ; Sub-Himalayan West Bengal & Sikkim ; Gangetic West Bengal ; Jharkhand ; Odisha ; Chhattisgarh
+Western Disturbances (WD),2023-10-04,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
+Low Pressure (L) with associated CYCIR,2023-10-05,7.6 km,Gangetic West Bengal
+Trough,2023-10-05,1.5 km,Gangetic West Bengal ; Jharkhand ; East Uttar Pradesh
+Western Disturbances (WD),2023-10-05,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
+Low Pressure (L) with associated CYCIR,2023-10-06,3.1 km,Bangladesh
+Trough,2023-10-06,3.1 km,"Nagaland, Manipur, Mizoram & Tripura ; Bangladesh ; Bihar"
+Cyclonic Circulation (CYCIR),2023-10-07,3.1 km,Bangladesh
+Trough,2023-10-07,1.5 km,"Nagaland, Manipur, Mizoram & Tripura ; Bihar ; Bangladesh"
+Cyclonic Circulation (CYCIR),2023-10-07,3.1 km to 4.5 km,Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2023-10-07,1.5 km to 3.1 km,Lakshadweep
+Cyclonic Circulation (CYCIR),2023-10-08,3.1 km to 4.5 km,Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2023-10-08,1.5 km,Lakshadweep
+Trough,2023-10-08,3.1 km,Sikkim ; Odisha ; Bangladesh
+Trough,2023-10-08,0.9 km,Chhattisgarh ; Tamil Nadu & Puducherry ; Telangana ; South Interior Karnataka ; North Interior Karnataka
+Cyclonic Circulation (CYCIR),2023-10-08,4.5 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-10-08,4.5 km,North Pakistan
+Cyclonic Circulation (CYCIR),2023-10-09,1.5 km to 3.1 km,Telangana ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2023-10-09,1.5 km,Lakshadweep
+Trough,2023-10-09,1.5 km,Sub-Himalayan West Bengal & Sikkim ; Odisha ; Gangetic West Bengal
+Western Disturbances (WD),2023-10-09,5.8 km,North Pakistan
+Trough,2023-10-09,1.5 km,Rayalaseema ; Tamil Nadu & Puducherry ; Comorin Area
+Cyclonic Circulation (CYCIR),2023-10-10,3.1 km,Telangana ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2023-10-10,1.5 km,Lakshadweep
+Western Disturbances (WD),2023-10-10,3.1 km,Jammu & Kashmir ; Pakistan
+Westerly Trough,2023-10-10,5.8 km,North Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-10-10,3.1 km,Sub-Himalayan West Bengal & Sikkim
+Trough,2023-10-10,1.5 km,East Uttar Pradesh ; Assam & Meghalaya ; Bihar ; Sub-Himalayan West Bengal & Sikkim
+Cyclonic Circulation (CYCIR),2023-10-10,0.9 km,Rayalaseema
+Western Disturbances (WD),2023-10-11,5.8 km,Jammu & Kashmir ; Pakistan
+Cyclonic Circulation (CYCIR),2023-10-11,1.5 km,Sub-Himalayan West Bengal & Sikkim ; Bangladesh
+Trough,2023-10-11,0.9 km,South Interior Karnataka ; Comorin Area ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2023-10-11,5.8 km,EC Bay
+Cyclonic Circulation (CYCIR),2023-10-11,0.9 km,Rayalaseema ; South Interior Karnataka
+Cyclonic Circulation (CYCIR),2023-10-12,3.1 km,Bangladesh ; Sub-Himalayan West Bengal & Sikkim
+Cyclonic Circulation (CYCIR),2023-10-12,0.9 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),2023-10-12,0.9 km,Tamil Nadu & Puducherry
+Trough,2023-10-12,0.9 km,Tamil Nadu & Puducherry ; Comorin Area
+Western Disturbances (WD),2023-10-12,5.8 km,Himachal Pradesh ; Ladakh ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-10-13,3.1 km,Bangladesh ; Assam & Meghalaya
+Cyclonic Circulation (CYCIR),2023-10-13,0.9 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-10-13,5.8 km,West Pakistan ; Central Pakistan ; Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-10-14,3.1 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),2023-10-14,1.5 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-10-14,5.8 km,North Pakistan
+Induced Cyclonic Circulation,2023-10-14,2.1 km,Central Pakistan
+Cyclonic Circulation (CYCIR),2023-10-15,2.1 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-10-15,3.1 km,Jammu & Kashmir ; Pakistan
+Westerly Trough,2023-10-15,5.8 km,North Pakistan
+Induced Cyclonic Circulation,2023-10-15,0.9 km,Punjab
+Western Disturbances (WD),2023-10-15,3.1 km to 4.5 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-10-15,3.1 km,Lakshadweep ; Kerala
+Trough,2023-10-15,1.5 km,Bihar ; Bangladesh ; Gangetic West Bengal
+Western Disturbances (WD),2023-10-16,3.1 km to 5.8 km,North pakistan
+Induced Cyclonic Circulation,2023-10-16,2.1 km,"Haryana, Chandigarh & Delhi"
+Western Disturbances (WD),2023-10-16,3.1 km,Jammu & Kashmir ; Pakistan
+Westerly Trough,2023-10-16,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Cyclonic Circulation (CYCIR),2023-10-16,3.1 km,Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2023-10-16,3.1 km,SE Arabian Sea ; Lakshadweep
+Cyclonic Circulation (CYCIR),2023-10-16,3.1 km,NE Bay
+Western Disturbances (WD),2023-10-17,3.1 km,North pakistan
+Westerly Trough,2023-10-17,5.8 km,West Pakistan ; Central Pakistan
+Induced Cyclonic Circulation,2023-10-17,1.5 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),2023-10-17,0.9 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2023-10-17,4.5 km,SE Bay ; S Andaman Sea
+Trough,2023-10-17,4.5 km,SE Bay ; S Andaman Sea ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2023-10-17,3.1 km,SE Arabian Sea ; Lakshadweep
+Cyclonic Circulation (CYCIR),2023-10-17,1.5 km to 3.1 km,Bangladesh
+Western Disturbances (WD),2023-10-18,5.8 km,North pakistan
+Cyclonic Circulation (CYCIR),2023-10-18,0.9 km,East Rajasthan
+Cyclonic Circulation (CYCIR),2023-10-18,4.5 km,SE Bay
+Trough,2023-10-18,3.1 km,SE Bay ; Tamil Nadu & Puducherry ; Comorin Area
+Cyclonic Circulation (CYCIR),2023-10-18,1.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),2023-10-19,1.5 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),2023-10-19,5.8 km,Comorin Area
+Western Disturbances (WD),2023-10-19,5.8 km,North Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-10-20,5.8 km,Comorin Area
+Western Disturbances (WD),2023-10-20,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-10-21,0.9 km,Comorin Area
+Trough,2023-10-21,5.8 km,SE Bay ; EC Bay ; Comorin Area
+Cyclonic Circulation (CYCIR),2023-10-21,1.5 km,West Rajasthan
+Western Disturbances (WD),2023-10-21,5.8 km,West Pakistan ; Central Pakistan ; Far West Pakistan
+Trough,2023-10-22,3.1 km,WC Bay
+Cyclonic Circulation (CYCIR),2023-10-22,1.5 km,"Haryana, Chandigarh & Delhi"
+Western Disturbances (WD),2023-10-22,3.1 km,North pakistan
+Westerly Trough,2023-10-22,5.8 km,North Pakistan
+Trough,2023-10-23,3.1 km,WC Bay
+Western Disturbances (WD),2023-10-23,3.1 km,Himachal Pradesh
+Western Disturbances (WD),2023-10-23,3.1 km,Afghanistan and neighbourhood
+Western Disturbances (WD),2023-10-24,5.8 km,North Pakistan
+Cyclonic Circulation (CYCIR),2023-10-24,1.5 km to 3.1 km,SW Bay ; Coastal Andhra Pradesh
+Western Disturbances (WD),2023-10-25,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh
+Cyclonic Circulation (CYCIR),2023-10-25,1.5 km,WC Bay ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2023-10-25,0.9 km,Kerala
+Cyclonic Circulation (CYCIR),2023-10-26,3.1 km,north Myanmar and neighbourhood
+Western Disturbances (WD),2023-10-26,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh
+Cyclonic Circulation (CYCIR),2023-10-26,1.5 km to 3.1 km,SW Bay ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2023-10-26,0.9 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-10-27,5.8 km,Far West Pakistan
+Western Disturbances (WD),2023-10-27,5.8 km,Sub-Himalayan West Bengal & Sikkim ; Uttarakhand ; West Uttar Pradesh
+Western Disturbances (WD),2023-10-28,5.8 km,Pakistan
+Western Disturbances (WD),2023-10-29,5.8 km,Jammu & Kashmir ; Konkan & Goa ; Coastal Karnataka ; Punjab ; Madhya Maharashtra
+Cyclonic Circulation (CYCIR),2023-10-29,1.5 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),2023-10-29,3.1 km,Bangladesh
+Western Disturbances (WD),2023-10-30,5.8 km,Himachal Pradesh
+Cyclonic Circulation (CYCIR),2023-10-30,0.9 km,Comorin Area
+Upper-Level Cyclonic Circulation,2023-10-30,5.8 km,SW Arabian Sea
+Cyclonic Circulation (CYCIR),2023-10-30,3.1 km,Bangladesh
+Western Disturbances (WD),2023-10-31,5.8 km,Himachal Pradesh
+Upper-Level Cyclonic Circulation,2023-10-31,3.1 km,SW Arabian Sea
+Upper-Level Cyclonic Circulation,2023-10-31,3.1 km to 4.5 km,NE Arabian Sea ; Konkan & Goa ; Gujarat Region
+Cyclonic Circulation (CYCIR),2023-11-01,3.6 km,Sri Lanka and neighbourhood
+Western Disturbances (WD),2023-11-01,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; East Rajasthan ; Delhi
+Western Disturbances (WD),2023-11-01,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan
+Upper-Level Cyclonic Circulation,2023-11-01,3.1 km,SW Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-02,1.5 km,Sri Lanka and neighbourhood
+Western Disturbances (WD),2023-11-02,5.8 km,Jammu & Kashmir ; Punjab ; North Pakistan ; Haryana ; Himachal Pradesh
+Upper-Level Cyclonic Circulation,2023-11-02,1.5 km to 3.1 km,WC Arabian Sea
+Western Disturbances (WD),2023-11-03,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh ; North Pakistan
+Upper-Level Cyclonic Circulation,2023-11-03,1.5 km to 3.1 km,WC Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-04,5.8 km,Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-11-04,5.8 km,Himachal Pradesh ; Ladakh ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-11-05,5.8 km,Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2023-11-06,3.1 km to 5.8 km,SE Arabian Sea ; Kerala
+Trough,2023-11-06,1.5 km,SE Arabian Sea ; Lakshadweep ; SW Bay ; Coastal Andhra Pradesh ; Kerala ; South Interior Karnataka ; Rayalaseema
+Western Disturbances (WD),2023-11-06,5.8 km,Far West Pakistan
+Western Disturbances (WD),2023-11-07,5.8 km,Southwest Pakistan ; West Pakistan
+Induced Cyclonic Circulation,2023-11-07,0.9 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2023-11-07,3.1 km,SE Arabian Sea ; EC Arabian Sea
+Western Disturbances (WD),2023-11-08,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Western Disturbances (WD),2023-11-08,5.8 km,Southwest Pakistan ; Far West Pakistan ; West Pakistan ; South Pakistan
+Cyclonic Circulation (CYCIR),2023-11-08,1.5 km,Comorin Area
+Low Pressure (L) with associated CYCIR,2023-11-08,3.1 km,EC Arabian Sea
+Western Disturbances (WD),2023-11-09,5.8 km,West Pakistan ; Southwest Pakistan ; South Pakistan
+Cyclonic Circulation (CYCIR),2023-11-09,0.9 km,Comorin Area
+Low Pressure (L) with associated CYCIR,2023-11-09,3.1 km,EC Arabian Sea
+Western Disturbances (WD),2023-11-09,5.8 km,Himachal Pradesh ; Ladakh ; Jammu & Kashmir
+Western Disturbances (WD),2023-11-10,5.8 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
+Induced Cyclonic Circulation,2023-11-10,1.5 km,Central Pakistan
+Cyclonic Circulation (CYCIR),2023-11-10,3.1 km,EC Arabian Sea ; SE Arabian Sea
+Western Disturbances (WD),2023-11-11,3.1 km to 4.5 km,West Uttar Pradesh
+Westerly Trough,2023-11-11,5.8 km,Himachal Pradesh ; Ladakh ; Delhi ; Uttarakhand ; West Uttar Pradesh
+Cyclonic Circulation (CYCIR),2023-11-11,1.5 km,SW Arabian Sea ; WC Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-12,1.5 km,SW Arabian Sea ; WC Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-13,1.5 km,SW Bay
+Trough,2023-11-14,3.1 km,SW Bay ; SE Bay ; Andaman & Nicobar Islands
+Trough,2023-11-15,3.1 km,WC Bay
+Cyclonic Circulation (CYCIR),2023-11-16,3.1 km,SW Bay
+Trough,2023-11-16,3.1 km,SW Bay ; WC Bay
+Upper-Level Cyclonic Circulation,2023-11-17,3.1 km,SW Bay
+Trough,2023-11-17,1.5 km,SW Bay ; NW Bay
+Cyclonic Circulation (CYCIR),2023-11-17,5.8 km,S Andaman Sea
+Upper-Level Cyclonic Circulation,2023-11-18,1.5 km,SW Bay
+Trough,2023-11-18,1.5 km,"SW Bay ; Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),2023-11-18,5.8 km,SE Bay ; S Andaman Sea
+Western Disturbances (WD),2023-11-19,3.1 km,Central Pakistan
+Westerly Trough,2023-11-19,5.8 km,West Pakistan ; Central Pakistan
+Upper-Level Cyclonic Circulation,2023-11-19,1.5 km,Comorin Area
+Cyclonic Circulation (CYCIR),2023-11-19,3.1 km to 5.8 km,SE Bay
+Cyclonic Circulation (CYCIR),2023-11-20,3.1 km,Comorin Area
+Cyclonic Circulation (CYCIR),2023-11-20,3.1 km,SW Bay ; Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-11-20,3.1 km,Central Pakistan
+Westerly Trough,2023-11-20,5.8 km,West Rajasthan ; North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Easterly Trough,2023-11-21,3.1 km,Comorin Area ; Coastal Andhra Pradesh
+Western Disturbances (WD),2023-11-21,1.5 km to 4.5 km,"Haryana, Chandigarh & Delhi"
+Westerly Trough,2023-11-21,5.8 km,Himachal Pradesh ; Ladakh ; Punjab ; Haryana ; Uttarakhand
+Western Disturbances (WD),2023-11-22,5.8 km,Far West Pakistan ; Southwest Pakistan
+Cyclonic Circulation (CYCIR),2023-11-22,3.1 km,Tamil Nadu & Puducherry ; Kerala
+Western Disturbances (WD),2023-11-23,5.8 km,North Pakistan ; Jammu & Kashmir ; Punjab
+Easterly Trough,2023-11-23,1.5 km,Madhya Maharashtra ; Konkan & Goa
+Cyclonic Circulation (CYCIR),2023-11-24,1.5 km,SE Arabian Sea ; SW Arabian Sea
+Easterly Trough,2023-11-24,1.5 km,SE Arabian Sea ; SW Arabian Sea ; Konkan & Goa ; Madhya Maharashtra
+Cyclonic Circulation (CYCIR),2023-11-25,1.5 km,SE Arabian Sea ; SW Arabian Sea
+Easterly Trough,2023-11-25,Surface,SE Arabian Sea ; SW Arabian Sea ; Gujarat Region
+Western Disturbances (WD),2023-11-25,5.8 km,Far West Pakistan
+Western Disturbances (WD),2023-11-26,4.5 km to 12.0 km,Southwest Pakistan ; West Pakistan
+Induced Cyclonic Circulation,2023-11-26,1.5 km to 3.1 km,Central Pakistan ; West Rajasthan
+Cyclonic Circulation (CYCIR),2023-11-26,3.1 km,NE Arabian Sea ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),2023-11-26,1.5 km to 3.1 km,West Madhya Pradesh ; East Madhya Pradesh
+Cyclonic Circulation (CYCIR),2023-11-26,3.1 km to 4.5 km,NW Bay ; Odisha ; Gangetic West Bengal
+Cyclonic Circulation (CYCIR),2023-11-26,5.8 km,S Andaman Sea
+Western Disturbances (WD),2023-11-27,3.6 km to 9.4 km,Central Pakistan
+Westerly Trough,2023-11-27,12.0 km,West Rajasthan ; North Pakistan ; Gujarat ; Saurashtra & Kutch ; Central Pakistan
+Induced Cyclonic Circulation,2023-11-27,1.5 km,Gujarat Region ; West Rajasthan
+Trough,2023-11-27,1.5 km,Gujarat Region ; West Rajasthan ; NE Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-27,3.1 km,SW Arabian Sea
+Easterly Trough,2023-11-27,4.5 km,SW Arabian Sea ; WC Arabian Sea
+Cyclonic Circulation (CYCIR),2023-11-27,1.5 km to 3.1 km,West Madhya Pradesh ; East Madhya Pradesh
+Cyclonic Circulation (CYCIR),2023-11-27,0.9 km,Bangladesh ; NW Bay
+Western Disturbances (WD),2023-11-28,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; East Rajasthan ; West Madhya Pradesh
+Induced Cyclonic Circulation,2023-11-28,1.5 km,East Rajasthan ; West Madhya Pradesh
+Cyclonic Circulation (CYCIR),2023-11-28,1.5 km,south Sri Lanka & neighbourhood
+Cyclonic Circulation (CYCIR),2023-11-28,4.5 km,SW Arabian Sea
+Westerly Trough,2023-11-29,5.8 km,East Madhya Pradesh ; Uttarakhand ; West Uttar Pradesh ; Himachal Pradesh ; Ladakh
+Western Disturbances (WD),2023-11-29,5.8 km,Far West Pakistan ; Southwest Pakistan
+Cyclonic Circulation (CYCIR),2023-11-29,1.5 km,north Sri Lanka and neighbourhood
+Easterly Trough,2023-11-29,0.9 km,Kerala ; Madhya Maharashtra ; South Interior Karnataka ; North Interior Karnataka
+Cyclonic Circulation (CYCIR),2023-11-29,3.1 km,West Rajasthan ; East Rajasthan
+Cyclonic Circulation (CYCIR),2023-11-29,1.5 km to 3.1 km,Bangladesh
+Cyclonic Circulation (CYCIR),2023-11-29,1.5 km to 3.1 km,NE Arabian Sea ; Konkan & Goa ; Madhya Maharashtra
+Western Disturbances (WD),2023-11-30,5.8 km,between Lat 37°N/ Long 65°E and Lat. 30°N/ Long. 75°E
+Induced Cyclonic Circulation,2023-11-30,3.1 km,West Rajasthan
+Easterly Trough,2023-11-30,0.9 km,West Madhya Pradesh ; West Rajasthan
+Cyclonic Circulation (CYCIR),2023-11-30,5.8 km,SW Bay
+Cyclonic Circulation (CYCIR),2023-11-30,1.5 km to 3.1 km,NE Arabian Sea ; Konkan & Goa
+Westerly Trough,2023-11-30,5.8 km,East Madhya Pradesh ; Uttarakhand ; West Uttar Pradesh ; Himachal Pradesh ; Ladakh
+Western Disturbances (WD),2023-12-01,3.1 km to 4.5 km,"Haryana, Chandigarh & Delhi"
+Westerly Trough,2023-12-01,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Cyclonic Circulation (CYCIR),2023-12-01,0.9 km,West Madhya Pradesh
+Cyclonic Circulation (CYCIR),2023-12-01,1.5 km,NE Arabian Sea ; Madhya Maharashtra ; Gujarat Region ; Konkan & Goa
+Trough,2023-12-01,1.5 km,NE Arabian Sea ; Madhya Maharashtra ; Gujarat Region ; Konkan & Goa ; West Madhya Pradesh
+Western Disturbances (WD),2023-12-02,3.1 km to 4.5 km,"Haryana, Chandigarh & Delhi"
+Westerly Trough,2023-12-02,5.8 km,Himachal Pradesh ; Ladakh ; Punjab ; Haryana ; Uttarakhand
+Cyclonic Circulation (CYCIR),2023-12-02,1.5 km,NE Arabian Sea
+Trough,2023-12-02,1.5 km,NE Arabian Sea ; East Madhya Pradesh
+Western Disturbances (WD),2023-12-03,3.1 km to 4.5 km,Central Pakistan
+Westerly Trough,2023-12-03,5.8 km,West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-03,1.5 km to 3.1 km,EC Arabian Sea
+Cyclonic Circulation (CYCIR),2023-12-03,1.5 km,West Uttar Pradesh
+Cyclonic Circulation (CYCIR),2023-12-03,1.5 km,Assam & Meghalaya
+Westerly Trough,2023-12-03,5.8 km,Himachal Pradesh ; Ladakh ; Punjab ; Haryana ; Uttarakhand
+Western Disturbances (WD),2023-12-04,3.1 km to 7.6 km,West Rajasthan
+Westerly Trough,2023-12-04,5.8 km,South Pakistan ; West Pakistan ; Central Pakistan
+Induced Cyclonic Circulation,2023-12-04,1.5 km,East Rajasthan
+Cyclonic Circulation (CYCIR),2023-12-04,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),2023-12-04,3.1 km,SW Arabian Sea
+Western Disturbances (WD),2023-12-05,3.1 km to 7.6 km,"Haryana, Chandigarh & Delhi"
+Induced Cyclonic Circulation,2023-12-05,1.5 km,East Rajasthan
+Trough,2023-12-05,5.8 km,South Pakistan ; West Pakistan ; Central Pakistan
+Well Marked Low Pressure Area (WML) with associated CYCIR,2023-12-06,5.8 km,Telangana ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh
+Trough,2023-12-06,0.9 km,Telangana ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh ; Tamil Nadu & Puducherry
+Western Disturbances (WD),2023-12-06,3.1 km to 5.8 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),2023-12-07,1.5 km,Chhattisgarh ; Vidarbha
+Cyclonic Circulation (CYCIR),2023-12-07,1.5 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-07,1.5 km to 4.5 km,"Haryana, Chandigarh & Delhi"
+Westerly Trough,2023-12-07,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; Delhi ; Himachal Pradesh
+Cyclonic Circulation (CYCIR),2023-12-08,4.5 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-08,5.8 km,North Pakistan
+Cyclonic Circulation (CYCIR),2023-12-08,1.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),2023-12-09,5.8 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-09,5.8 km,North Pakistan
+Cyclonic Circulation (CYCIR),2023-12-10,5.8 km,SE Arabian Sea
+Cyclonic Circulation (CYCIR),2023-12-11,1.5 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-11,3.1 km,North Pakistan
+Cyclonic Circulation (CYCIR),2023-12-12,3.1 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-12,1.5 km to 3.1 km,West Uttar Pradesh
+Cyclonic Circulation (CYCIR),2023-12-13,1.5 km,SW Arabian Sea ; SE Arabian Sea
+Western Disturbances (WD),2023-12-13,5.8 km,Bihar ; Sub-Himalayan West Bengal & Sikkim ; East Uttar Pradesh
+Cyclonic Circulation (CYCIR),2023-12-13,1.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),2023-12-14,1.5 km,SW Arabian Sea ; SE Arabian Sea
+Westerly Trough,2023-12-14,5.8 km,Sub-Himalayan West Bengal & Sikkim ; Bihar
+Cyclonic Circulation (CYCIR),2023-12-15,1.5 km,SW Bay
+Western Disturbances (WD),2023-12-15,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-16,3.1 km,SW Bay
+Western Disturbances (WD),2023-12-16,3.1 km,North pakistan
+Westerly Trough,2023-12-16,5.8 km,West Pakistan ; Southwest Pakistan ; South Pakistan
+Induced Cyclonic Circulation,2023-12-16,0.9 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2023-12-17,5.8 km,Comorin Area
+Western Disturbances (WD),2023-12-17,3.1 km,Jammu & Kashmir
+Westerly Trough,2023-12-17,5.8 km,Jammu & Kashmir ; North Pakistan ; Himachal Pradesh ; Ladakh
+Induced Cyclonic Circulation,2023-12-17,0.9 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),2023-12-18,5.8 km,Comorin Area
+Western Disturbances (WD),2023-12-18,3.1 km,West Uttar Pradesh
+Westerly Trough,2023-12-18,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh ; North Pakistan
+Cyclonic Circulation (CYCIR),2023-12-19,3.1 km,Lakshadweep
+Westerly Trough,2023-12-19,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh ; North Pakistan
+Cyclonic Circulation (CYCIR),2023-12-20,3.1 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-20,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-21,1.5 km,SE Arabian Sea
+Western Disturbances (WD),2023-12-21,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-22,1.5 km,SE Arabian Sea ; SW Arabian Sea
+Western Disturbances (WD),2023-12-22,3.1 km to 12.1 km,between Lat. 42°N/Long. 55°E and Lat. 22°N/Long. 62°E
+Cyclonic Circulation (CYCIR),2023-12-22,3.1 km,SW Bay
+Western Disturbances (WD),2023-12-23,5.8 km,between Lat. 36°N/Lon. 67°E and Lat. 26°N/Lon. 72°E
+Induced Cyclonic Circulation,2023-12-23,1.5 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2023-12-23,3.1 km,SE Arabian Sea ; SW Arabian Sea
+Cyclonic Circulation (CYCIR),2023-12-23,3.1 km,SW Bay
+Cyclonic Circulation (CYCIR),2023-12-24,1.5 km,Bangladesh
+Western Disturbances (WD),2023-12-24,5.8 km,between Lat. 36°N/Lon. 67°E and Lat. 26°N/Lon. 72°E
+Cyclonic Circulation (CYCIR),2023-12-25,3.1 km,Bangladesh
+Cyclonic Circulation (CYCIR),2023-12-26,1.5 km to 3.1 km,Bangladesh
+Western Disturbances (WD),2023-12-26,5.8 km,Far West Pakistan ; Southwest Pakistan
+Cyclonic Circulation (CYCIR),2023-12-27,3.1 km,Bangladesh
+Western Disturbances (WD),2023-12-27,5.8 km,North Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-12-28,1.5 km,Bangladesh
+Western Disturbances (WD),2023-12-28,5.8 km,North Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),2023-12-29,1.5 km,NE Bay ; Bangladesh
+Western Disturbances (WD),2023-12-29,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-30,1.5 km,NE Bay ; Bangladesh
+Western Disturbances (WD),2023-12-30,3.1 km,North pakistan
+Westerly Trough,2023-12-30,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; Far West Pakistan ; South Pakistan
+Induced Cyclonic Circulation,2023-12-30,1.5 km,West Rajasthan
+Western Disturbances (WD),2023-12-31,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi"
+Westerly Trough,2023-12-31,5.8 km,Jammu & Kashmir ; Punjab ; North Pakistan ; Haryana ; Himachal Pradesh
+Western Disturbances (WD),2023-12-31,5.8 km,Far West Pakistan
+Cyclonic Circulation (CYCIR),2023-12-31,1.5 km,NE Bay ; Bangladesh

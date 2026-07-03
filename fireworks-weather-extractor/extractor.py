@@ -160,7 +160,8 @@ def keep_system(system) -> bool:
 
 
 def is_coordinate_region(region: str) -> bool:
-    return bool(re.search(r"\balong\s+long\.?", region.lower()))
+    text = region.lower()
+    return "long" in text or "lat" in text
 
 
 def parse_coordinate_constraints(region: str) -> tuple[float | None, float | None]:
