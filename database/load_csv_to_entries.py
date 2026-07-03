@@ -122,7 +122,7 @@ def build_sql(parsed_rows: list[tuple[str, str, str, str]], append: bool = False
         
     for batch in chunked(values):
         out.append(
-            f"INSERT INTO {TABLE} (entry_date, weather_system, pressure_level, subdivisions) VALUES"
+            f"INSERT INTO {TABLE} (entry_date, weather_system, height, subdivisions) VALUES"
         )
         out.append(",\n".join(batch) + ";")
     out.append("COMMIT;")

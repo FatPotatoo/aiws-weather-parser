@@ -1,1 +1,165 @@
 weather system,date,heightAboveMSL,Regions
+Mean Sea Level Trough,2020-07-01,Surface,West Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal
+Cyclonic Circulation (CYCIR),2020-07-01,1.5 km to 3.1 km,WC Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-01,1.5 km to 5.8 km,Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-01,0.9 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-01,0.9 km,Odisha
+Trough,2020-07-01,0.9 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha
+Cyclonic Circulation (CYCIR),2020-07-01,1.5 km to 4.5 km,East Uttar Pradesh
+Trough,2020-07-01,1.5 km to 3.1 km,East Uttar Pradesh ; East Madhya Pradesh ; Vidarbha
+Mean Sea Level Trough,2020-07-02,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya ; Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),2020-07-02,5.8 km,WC Arabian Sea ; NW Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-02,3.1 km to 7.6 km,Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-02,3.6 km to 5.8 km,Odisha
+Cyclonic Circulation (CYCIR),2020-07-02,1.5 km to 3.6 km,East Uttar Pradesh
+Trough,2020-07-02,3.1 km to 3.6 km,East Uttar Pradesh ; Vidarbha ; East Madhya Pradesh
+Cyclonic Circulation (CYCIR),2020-07-03,5.8 km,WC Arabian Sea ; NW Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-03,3.1 km,Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-03,1.5 km to 3.1 km,East Uttar Pradesh
+Trough,2020-07-03,1.5 km to 3.1 km,East Uttar Pradesh ; East Madhya Pradesh ; Vidarbha
+Cyclonic Circulation (CYCIR),2020-07-03,3.1 km,WC Bay ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),2020-07-03,0.9 km,East Rajasthan
+Monsoon Trough with Extension and Tilt,2020-07-04,0.9 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
+Cyclonic Circulation (CYCIR),2020-07-04,3.1 km,WC Arabian Sea ; NW Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-04,7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
+Cyclonic Circulation (CYCIR),2020-07-04,1.5 km to 3.6 km,Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-04,3.1 km,East Uttar Pradesh
+Cyclonic Circulation (CYCIR),2020-07-04,1.5 km,East Rajasthan
+Low Pressure (L) with associated CYCIR,2020-07-05,7.6 km,NW Bay ; Odisha ; Gangetic West Bengal
+Low Pressure (L) with associated CYCIR,2020-07-05,5.8 km,Saurashtra & Kutch
+Mean Sea Level Trough,2020-07-05,Surface,Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; EC Bay
+Cyclonic Circulation (CYCIR),2020-07-05,1.5 km,West Madhya Pradesh
+Well Marked Low Pressure Area (WML) with associated CYCIR,2020-07-06,7.6 km,Saurashtra & Kutch
+Low Pressure (L) with associated CYCIR,2020-07-06,7.6 km,Jharkhand
+Monsoon Trough with Extension and Tilt,2020-07-06,Surface,Saurashtra & Kutch ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Offshore Trough,2020-07-06,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Kerala
+Monsoon Trough with Extension and Tilt,2020-07-07,3.6 km,Saurashtra & Kutch ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal
+Well Marked Low Pressure Area (WML) with associated CYCIR,2020-07-07,7.6 km,Saurashtra & Kutch
+Offshore Trough,2020-07-07,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-07,5.8 km,Coastal Andhra Pradesh
+Well Marked Low Pressure Area (WML) with associated CYCIR,2020-07-08,7.6 km,Saurashtra & Kutch
+Trough,2020-07-08,0.9 km,Saurashtra & Kutch ; West Rajasthan ; East Rajasthan
+Monsoon Trough with Extension and Tilt,2020-07-08,0.9 km,Saurashtra & Kutch ; West Rajasthan ; East Rajasthan ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal
+Offshore Trough,2020-07-08,Surface,EC Arabian Sea ; Coastal Karnataka ; Lakshadweep
+Cyclonic Circulation (CYCIR),2020-07-08,2.1 km to 3.6 km,Bihar
+Western Disturbances (WD),2020-07-08,5.8 km,Southwest Pakistan
+Low Pressure (L) with associated CYCIR,2020-07-09,5.8 km,NE Arabian Sea ; Pakistan
+Monsoon Trough with Extension and Tilt,2020-07-09,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim"
+Offshore Trough,2020-07-09,Surface,EC Arabian Sea ; Coastal Karnataka ; Lakshadweep
+Cyclonic Circulation (CYCIR),2020-07-09,1.5 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),2020-07-09,3.1 km,Odisha
+Western Disturbances (WD),2020-07-09,5.8 km,West Pakistan ; Central Pakistan
+Low Pressure (L) with associated CYCIR,2020-07-10,3.6 km,NE Arabian Sea ; Pakistan
+Offshore Trough,2020-07-10,Surface,EC Arabian Sea ; Konkan & Goa ; Kerala
+Trough,2020-07-10,4.5 km,East Uttar Pradesh ; Odisha ; Chhattisgarh
+Cyclonic Circulation (CYCIR),2020-07-10,5.8 km,EC Arabian Sea ; Madhya Maharashtra
+Western Disturbances (WD),2020-07-10,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan
+Low Pressure (L) with associated CYCIR,2020-07-11,3.1 km,Pakistan
+Offshore Trough,2020-07-11,Surface,EC Arabian Sea ; Konkan & Goa ; Kerala
+Trough,2020-07-11,5.8 km,East Uttar Pradesh ; Chhattisgarh
+Western Disturbances (WD),2020-07-11,5.8 km,North Pakistan ; West Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Cyclonic Circulation (CYCIR),2020-07-11,5.8 km,SE Arabian Sea ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-11,5.8 km,Malacca strait & neighbourhood
+Monsoon Trough with Extension and Tilt,2020-07-12,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Sub-Himalayan West Bengal & Sikkim"
+Cyclonic Circulation (CYCIR),2020-07-12,1.5 km,Pakistan
+Offshore Trough,2020-07-12,Surface,Konkan & Goa ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-12,3.1 km to 7.6 km,Bihar
+Western Disturbances (WD),2020-07-12,5.8 km,West Pakistan ; Central Pakistan
+Cyclonic Circulation (CYCIR),2020-07-12,5.8 km,Malacca strait & neighbourhood
+Monsoon Trough with Extension and Tilt,2020-07-13,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Jharkhand ; Gangetic West Bengal ; NW Bay ; NE Bay"
+Offshore Trough,2020-07-13,Surface,Konkan & Goa ; Madhya Maharashtra ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-13,1.5 km,Pakistan
+Cyclonic Circulation (CYCIR),2020-07-13,3.1 km,Bihar
+Westerly Trough,2020-07-13,7.6 km,Bihar ; Jharkhand ; Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; East Uttar Pradesh
+Western Disturbances (WD),2020-07-13,5.8 km,West Pakistan ; Central Pakistan
+Cyclonic Circulation (CYCIR),2020-07-13,2.1 km,West Rajasthan
+Mean Sea Level Trough,2020-07-14,Surface,"Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
+Offshore Trough,2020-07-14,Surface,Konkan & Goa ; Madhya Maharashtra ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-14,1.5 km,Pakistan
+Cyclonic Circulation (CYCIR),2020-07-14,2.1 km to 5.8 km,NW Bay ; Gangetic West Bengal
+Cyclonic Circulation (CYCIR),2020-07-14,1.5 km,East Uttar Pradesh
+Cyclonic Circulation (CYCIR),2020-07-14,3.6 km to 4.5 km,North Interior Karnataka
+Western Disturbances (WD),2020-07-14,5.8 km,North Pakistan
+Cyclonic Circulation (CYCIR),2020-07-14,3.1 km,Bihar
+Monsoon Trough with Extension and Tilt,2020-07-15,0.9 km,West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NW Bay
+Offshore Trough,2020-07-15,Surface,Coastal Karnataka ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-15,1.5 km to 7.6 km,Jharkhand
+Cyclonic Circulation (CYCIR),2020-07-15,2.1 km,West Uttar Pradesh ; East Uttar Pradesh
+Western Disturbances (WD),2020-07-15,5.8 km,Jammu & Kashmir
+Monsoon Trough with Extension and Tilt,2020-07-16,0.9 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; NW Bay
+Offshore Trough,2020-07-16,Surface,Konkan & Goa ; Madhya Maharashtra ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-16,1.5 km,Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-16,2.1 km,West Madhya Pradesh ; East Madhya Pradesh
+Monsoon Trough with Extension and Tilt,2020-07-17,Surface,"West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Nagaland, Manipur, Mizoram & Tripura"
+Offshore Trough,2020-07-17,Surface,EC Arabian Sea ; Coastal Karnataka ; Lakshadweep ; Kerala ; Madhya Maharashtra
+Cyclonic Circulation (CYCIR),2020-07-17,1.5 km to 7.6 km,Gujarat Region
+Trough,2020-07-17,1.5 km to 2.1 km,Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Madhya Maharashtra
+Cyclonic Circulation (CYCIR),2020-07-17,0.9 km,West Rajasthan ; East Rajasthan
+Monsoon Trough with Extension and Tilt,2020-07-19,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; East Uttar Pradesh ; Bihar"
+Offshore Trough,2020-07-19,Surface,Konkan & Goa ; Coastal Karnataka ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-19,3.1 km to 3.6 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-19,1.5 km to 2.1 km,SW Bay
+Trough,2020-07-19,0.9 km,North Interior Karnataka ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2020-07-19,1.5 km,Central Pakistan
+Monsoon Trough with Extension and Tilt,2020-07-20,Surface,Punjab ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar
+Cyclonic Circulation (CYCIR),2020-07-20,3.6 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-20,1.5 km to 3.1 km,Comorin Area
+Trough,2020-07-20,1.5 km,Marathwada ; North Interior Karnataka ; South Interior Karnataka ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2020-07-20,5.8 km,SE Arabian Sea ; Lakshadweep ; Kerala
+Monsoon Trough with Extension and Tilt,2020-07-18,Surface,"West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; Nagaland, Manipur, Mizoram & Tripura"
+Offshore Trough,2020-07-18,Surface,EC Arabian Sea ; Coastal Karnataka ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-18,7.6 km,Saurashtra & Kutch
+Trough,2020-07-18,1.5 km,Saurashtra & Kutch ; West Rajasthan ; East Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-18,1.5 km,SW Bay
+Cyclonic Circulation (CYCIR),2020-07-21,0.9 km,West Uttar Pradesh
+Trough,2020-07-21,0.9 km,North Interior Karnataka ; South Interior Karnataka ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2020-07-21,1.5 km,North Interior Karnataka
+Cyclonic Circulation (CYCIR),2020-07-21,3.1 km to 5.8 km,Lakshadweep ; SE Arabian Sea
+Westerly Trough,2020-07-22,3.1 km to 7.6 km,West Rajasthan ; North Pakistan ; Gujarat ; Saurashtra & Kutch ; Central Pakistan
+Cyclonic Circulation (CYCIR),2020-07-22,3.1 km to 5.8 km,Comorin Area ; SE Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-22,1.5 km,Assam & Meghalaya
+Westerly Trough,2020-07-22,3.1 km to 7.6 km,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh ; Assam & Meghalaya ; Bihar
+Cyclonic Circulation (CYCIR),2020-07-23,3.1 km,Lakshadweep ; SE Arabian Sea ; Kerala
+Cyclonic Circulation (CYCIR),2020-07-23,7.6 km,Bangladesh ; Gangetic West Bengal
+Monsoon Trough with Extension and Tilt,2020-07-24,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NW Bay
+Cyclonic Circulation (CYCIR),2020-07-24,3.6 km,EC Arabian Sea ; Kerala ; Coastal Karnataka
+Cyclonic Circulation (CYCIR),2020-07-24,3.6 km,Jharkhand
+Cyclonic Circulation (CYCIR),2020-07-24,3.6 km to 5.8 km,West Uttar Pradesh
+Western Disturbances (WD),2020-07-24,3.1 km,western parts of Afghanistan and neighbourhood
+Monsoon Trough with Extension and Tilt,2020-07-25,0.9 km,"West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),2020-07-25,4.5 km,EC Arabian Sea
+Cyclonic Circulation (CYCIR),2020-07-25,1.5 km to 4.5 km,Chhattisgarh ; Odisha
+Cyclonic Circulation (CYCIR),2020-07-25,2.1 km to 3.6 km,East Rajasthan
+Western Disturbances (WD),2020-07-25,1.5 km to 3.1 km,southeastern parts of Afghanistan and neighbourhood
+Cyclonic Circulation (CYCIR),2020-07-25,0.9 km to 1.5 km,East Rajasthan ; West Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-25,1.5 km,Gujarat Region
+Trough,2020-07-25,4.5 km to 7.6 km,Saurashtra & Kutch ; Punjab
+Monsoon Trough with Extension and Tilt,2020-07-26,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; Nagaland, Manipur, Mizoram & Tripura ; Assam & Meghalaya"
+Cyclonic Circulation (CYCIR),2020-07-26,2.1 km to 4.5 km,EC Arabian Sea ; Konkan & Goa
+Trough,2020-07-26,4.5 km,EC Arabian Sea ; Konkan & Goa ; East Uttar Pradesh
+Western Disturbances (WD),2020-07-26,2.1 km,North pakistan
+Trough,2020-07-26,0.9 km to 2.1 km,North pakistan ; West Rajasthan ; Saurashtra & Kutch ; EC Arabian Sea ; Konkan & Goa
+Cyclonic Circulation (CYCIR),2020-07-26,2.1 km to 3.6 km,SE Bay ; N Andaman Sea ; S Andaman Sea
+Trough,2020-07-27,1.5 km,Bihar ; Odisha
+Cyclonic Circulation (CYCIR),2020-07-27,4.5 km to 5.8 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),2020-07-27,1.5 km to 5.8 km,SE Bay ; N Andaman Sea ; S Andaman Sea
+Western Disturbances (WD),2020-07-27,2.1 km,North pakistan
+Trough,2020-07-28,1.5 km,Bihar ; Odisha
+Cyclonic Circulation (CYCIR),2020-07-28,3.1 km to 5.8 km,Sub-Himalayan West Bengal & Sikkim ; Bangladesh
+Cyclonic Circulation (CYCIR),2020-07-28,5.8 km,SE Bay ; SW Bay
+Westerly Trough,2020-07-28,1.5 km,Jammu & Kashmir ; NE Arabian Sea ; Pakistan
+Cyclonic Circulation (CYCIR),2020-07-28,2.1 km to 3.1 km,West Rajasthan
+Cyclonic Circulation (CYCIR),2020-07-29,5.8 km,SW Bay ; WC Bay ; Coastal Andhra Pradesh ; Tamil Nadu & Puducherry
+Trough,2020-07-29,1.5 km,SW Bay ; WC Bay ; Coastal Andhra Pradesh ; Telangana ; Vidarbha
+Cyclonic Circulation (CYCIR),2020-07-29,2.1 km to 3.1 km,West Rajasthan ; Gujarat Region
+Cyclonic Circulation (CYCIR),2020-07-29,1.5 km,East Madhya Pradesh
+Cyclonic Circulation (CYCIR),2020-07-29,1.5 km,Central Pakistan
+Cyclonic Circulation (CYCIR),2020-07-29,0.9 km,Punjab
+Cyclonic Circulation (CYCIR),2020-07-30,3.1 km to 5.8 km,Coastal Andhra Pradesh ; Tamil Nadu & Puducherry
+Trough,2020-07-30,0.9 km,East Uttar Pradesh ; East Madhya Pradesh
+Trough,2020-07-30,3.1 km,Konkan & Goa ; Madhya Maharashtra ; West Madhya Pradesh
+Monsoon Trough with Extension and Tilt,2020-07-31,Surface,"West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Jharkhand ; Nagaland, Manipur, Mizoram & Tripura ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya"
+Cyclonic Circulation (CYCIR),2020-07-31,3.1 km to 5.8 km,Coastal Andhra Pradesh ; Tamil Nadu & Puducherry
+Trough,2020-07-31,1.5 km,Marathwada ; North Interior Karnataka ; South Interior Karnataka ; Tamil Nadu & Puducherry
+Cyclonic Circulation (CYCIR),2020-07-31,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),2020-07-31,0.9 km,Punjab

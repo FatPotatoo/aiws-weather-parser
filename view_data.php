@@ -16,7 +16,7 @@ function isEmptyFilterPair(array $pair): bool {
 $activePairs = array_values(array_filter($pairs, fn($pair) => !isEmptyFilterPair($pair)));
 
 $query = "
-SELECT id, entry_date, weather_system, pressure_level, subdivisions
+SELECT id, entry_date, weather_system, height, subdivisions
 FROM Weather_System_Entries
 WHERE 1=1";
 
@@ -131,7 +131,7 @@ function rowMatchesPair(array $row, array $pair): bool {
     $operator = trim($pair['pressure_operator'] ?? '');
     $value = trim($pair['pressure_value'] ?? '');
     if ($operator !== '' && $value !== '') {
-        $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+        $pressures = array_filter(array_map('trim', explode(',', $row['height'] ?? '')));
         if (!matchesPressureFilter($pressures, $operator, $value)) {
             return false;
         }
@@ -140,7 +140,7 @@ function rowMatchesPair(array $row, array $pair): bool {
     return true;
 }
 
-$query .= " ORDER BY entry_date DESC, weather_system, pressure_level";
+$query .= " ORDER BY entry_date DESC, weather_system, height";
 $stmt = $db->prepare($query);
 $stmt->execute($params);
 
@@ -155,7 +155,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $date = $row['entry_date'];
     $system = $row['weather_system'];
     $system_id = $row['id'];
-    $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+    $pressures = array_filter(array_map('trim', explode(',', $row['height'] ?? '')));
     $subs = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
 
     if ($numActivePairs > 0) {
@@ -183,15 +183,15 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     if (!isset($data[$date][$system_id])) {
         $data[$date][$system_id] = [
             'system' => $system,
-            'pressures' => [],
+            'heights' => [],
             'subdivisions' => [],
             'system_id' => $system_id
         ];
     }
 
     foreach ($pressures as $pressure) {
-        if (!in_array($pressure, $data[$date][$system_id]['pressures'])) {
-            $data[$date][$system_id]['pressures'][] = $pressure;
+        if (!in_array($pressure, $data[$date][$system_id]['heights'])) {
+            $data[$date][$system_id]['heights'][] = $pressure;
         }
     }
     foreach ($subs as $sub) {
@@ -274,7 +274,7 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
                 <option value=">" <?= ($pair['pressure_operator'] ?? '') === '>' ? 'selected' : '' ?>>&gt;</option>
                 <option value="<" <?= ($pair['pressure_operator'] ?? '') === '<' ? 'selected' : '' ?>>&lt;</option>
               </select>
-              <input name="pairs[<?= $i ?>][pressure_value]" value="<?= htmlspecialchars($pair['pressure_value'] ?? '') ?>" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Pressure e.g. 925 or Surface">
+              <input name="pairs[<?= $i ?>][pressure_value]" value="<?= htmlspecialchars($pair['pressure_value'] ?? '') ?>" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Height e.g. 1.5 km or Surface">
               <button type="button" onclick="removeFilterPair(this)" class="text-red-600 text-xl">−</button>
             </div>
           <?php endforeach; ?>
@@ -288,7 +288,7 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
     <option value=">">&gt;</option>
     <option value="<">&lt;</option>
   </select>
-  <input type="text" name="pairs[0][pressure_value]" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Pressure e.g. 925 or Surface" />
+  <input type="text" name="pairs[0][pressure_value]" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Height e.g. 1.5 km or Surface" />
 </div>
 
         <?php endif; ?>
@@ -320,7 +320,7 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
               <a href="delete.php?system_id=<?= $sys['system_id'] ?>" class="text-red-600 hover:underline" onclick="return confirm('Are you sure?')">Delete</a>
             </div>
           </div>
-          <p class="ml-6 text-gray-800"><strong>Pressure:</strong> <?= implode(', ', $sys['pressures']) ?></p>
+          <p class="ml-6 text-gray-800"><strong>Height:</strong> <?= implode(', ', $sys['heights']) ?></p>
           <p class="ml-6 text-gray-800"><strong>Subdivisions:</strong> <?= implode(', ', $sys['subdivisions']) ?></p>
         </div>
       <?php endforeach; ?>
@@ -412,7 +412,7 @@ function addFilterPair() {
       <option value=">">&gt;</option>
       <option value="<">&lt;</option>
     </select>
-    <input name="pairs[${index}][pressure_value]" placeholder="Pressure e.g. 925 or Surface" class="border p-2 rounded w-full sm:w-1/4 text-black" />
+    <input name="pairs[${index}][pressure_value]" placeholder="Height e.g. 1.5 km or Surface" class="border p-2 rounded w-full sm:w-1/4 text-black" />
     <button type="button" onclick="removeFilterPair(this)" class="text-red-600 text-xl">&minus;</button>
   `;
   document.getElementById('filter-pairs').appendChild(pairDiv);

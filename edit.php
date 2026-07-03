@@ -9,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_name = $_POST['weather_system'] ?? '';
     $entry_date = $_POST['entry_date'] ?? '';
     $subdivisions = $_POST['subdivisions'] ?? '';
-    $pressure_level = $_POST['pressure_level'] ?? '';
+    $height = $_POST['height'] ?? '';
 
-    $stmt = $db->prepare("UPDATE Weather_System_Entries SET weather_system = :name, entry_date = :date, subdivisions = :subdivisions, pressure_level = :pressure_level WHERE id = :id");
+    $stmt = $db->prepare("UPDATE Weather_System_Entries SET weather_system = :name, entry_date = :date, subdivisions = :subdivisions, height = :height WHERE id = :id");
     $stmt->execute([
         ':name' => $new_name,
         ':date' => $entry_date,
         ':subdivisions' => $subdivisions,
-        ':pressure_level' => $pressure_level,
+        ':height' => $height,
         ':id' => $system_id
     ]);
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-$stmt = $db->prepare("SELECT entry_date, weather_system, subdivisions, pressure_level FROM Weather_System_Entries WHERE id = :id");
+$stmt = $db->prepare("SELECT entry_date, weather_system, subdivisions, height FROM Weather_System_Entries WHERE id = :id");
 $stmt->execute([':id' => $system_id]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -56,8 +56,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
       </div>
 
       <div>
-        <label class="block font-medium text-gray-700 mb-2">Pressure Level (comma-separated):</label>
-        <input type="text" name="pressure_level" value="<?= htmlspecialchars($row['pressure_level'] ?? '') ?>" class="w-full border p-2 rounded text-black" placeholder="e.g. 925, 850 hPa or Surface">
+        <label class="block font-medium text-gray-700 mb-2">Height (comma-separated):</label>
+        <input type="text" name="height" value="<?= htmlspecialchars($row['height'] ?? '') ?>" class="w-full border p-2 rounded text-black" placeholder="e.g. 1.5 km, 5.8 km or Surface">
       </div>
 
       <div class="flex gap-3 mt-6">

@@ -6,28 +6,37 @@ import xarray as xr
 import pandas as pd
 
 def extract_data(date_str):
-    # Resolve NetCDF path relative to this script so calls from other CWDs still work.
+    # Parse date first to determine the year
+    try:
+        import pandas as pd
+        target_date = pd.to_datetime(date_str)
+        year = target_date.year
+    except Exception as e:
+        return {"error": f"Invalid date format: '{date_str}'. Use YYYY-MM-DD."}
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    nc_file = os.environ.get('NETCDF_PATH') or os.path.join(script_dir, 'RF25_ind2025_rfp25.nc')
+    
+    # Dynamically select NetCDF file based on target year
+    default_filename = f"RF25_ind{year}_rfp25.nc"
+    nc_file = os.environ.get('NETCDF_PATH') or os.path.join(script_dir, default_filename)
+    
+    # Fallback to 2025 if the target year's file is not found
     if not os.path.exists(nc_file):
-        return {"error": f"NetCDF file '{nc_file}' not found. Ensure the file exists in {script_dir} or set NETCDF_PATH."}
+        fallback_file = os.path.join(script_dir, 'RF25_ind2025_rfp25.nc')
+        if os.path.exists(fallback_file) and not os.environ.get('NETCDF_PATH'):
+            nc_file = fallback_file
+        else:
+            return {"error": f"NetCDF file for year {year} not found at '{nc_file}'."}
     
     try:
         # Open dataset
         ds = xr.open_dataset(nc_file)
-        
-        # Parse date
-        try:
-            target_date = pd.to_datetime(date_str)
-        except Exception as e:
-            return {"error": f"Invalid date format: '{date_str}'. Use YYYY-MM-DD."}
         
         # Check if date is in range
         time_values = ds['TIME'].values
         time_pd = pd.to_datetime(time_values)
         
         # Find closest date or exact date
-        # NetCDF dates are usually midnight, so we compare date parts
         date_match = None
         for t in time_pd:
             if t.date() == target_date.date():
@@ -35,7 +44,9 @@ def extract_data(date_str):
                 break
                 
         if date_match is None:
-            return {"error": f"Date '{date_str}' is out of range. The dataset covers 2025-01-01 to 2025-12-31."}
+            min_date = time_pd.min().strftime('%Y-%m-%d')
+            max_date = time_pd.max().strftime('%Y-%m-%d')
+            return {"error": f"Date '{date_str}' is out of range. The dataset '{default_filename}' covers {min_date} to {max_date}."}
         
         # Select data for the matching date
         day_ds = ds.sel(TIME=date_match)

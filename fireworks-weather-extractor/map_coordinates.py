@@ -152,6 +152,55 @@ def country_override(region: str) -> list[str] | None:
     return COUNTRY_OVERRIDES.get(key_clean) or COUNTRY_OVERRIDES.get(key)
 
 
+def is_coordinate_region(region: str) -> bool:
+    return bool(re.search(r"\balong\s+long\.?", region.lower()))
+
+
+def parse_coordinate_constraints(region: str) -> tuple[float | None, float | None]:
+    """Parse longitude and minimum latitude (north-of) from coordinate region text."""
+    text = region.lower()
+    lon_match = re.search(r"long(?:itude)?\.?\s*([0-9]+(?:\.[0-9]+)?)\s*°?", text)
+    lat_match = re.search(r"lat(?:itude)?\.?\s*([0-9]+(?:\.[0-9]+)?)\s*°?", text)
+    longitude = float(lon_match.group(1)) if lon_match else None
+    min_latitude = float(lat_match.group(1)) if lat_match else None
+    return longitude, min_latitude
+
+
+def resolve_coordinate_to_subdivisions(region: str, gazetteer: list[dict], lon_tolerance: float = 3.5) -> list[str]:
+    """
+    Map coordinate phrases (e.g. along Long. 89°E north of Lat. 22°N) to IMD subdivisions
+    using centroid proximity and latitude constraints.
+    """
+    longitude, min_latitude = parse_coordinate_constraints(region)
+    if longitude is None:
+        return []
+
+    # If the coordinate is far west (longitude < 68), we can widen the tolerance to match Pakistan/Iran
+    actual_tolerance = lon_tolerance
+    if longitude < 68.0:
+        actual_tolerance = 15.0  # allow matching Pakistan or Iran subdivisions if far west
+
+    matches: list[tuple[float, str]] = []
+    for item in gazetteer:
+        lat = float(item["lat"])
+        lon = float(item["lon"])
+        if abs(lon - longitude) > actual_tolerance:
+            continue
+        if min_latitude is not None and lat < min_latitude - 0.5:
+            continue
+        distance = abs(lon - longitude) + (max(0.0, min_latitude - lat) if min_latitude else 0.0)
+        matches.append((distance, item["name"]))
+
+    matches.sort(key=lambda pair: pair[0])
+    unique_names = []
+    for _, name in matches:
+        if name not in unique_names:
+            unique_names.append(name)
+        if len(unique_names) >= 5:
+            break
+    return unique_names
+
+
 # ── Main mapping ──────────────────────────────────────────────────────────────
 
 def map_region(region: str, gazetteer: list[dict]) -> list[str]:
@@ -195,12 +244,18 @@ def map_region(region: str, gazetteer: list[dict]) -> list[str]:
             return marine
         return nearest_subdivisions(lat, lon, gazetteer, n=2)
 
-    # 3. Country-name override
+    # 3. Coordinate line (e.g. along Longitude 80°E to the north of Latitude 30°N)
+    if is_coordinate_region(region):
+        mapped = resolve_coordinate_to_subdivisions(region, gazetteer)
+        if mapped:
+            return mapped
+
+    # 4. Country-name override
     override = country_override(region)
     if override:
         return override
 
-    # 4. Already a named subdivision (semicolon-separated) — pass through as-is
+    # 5. Already a named subdivision (semicolon-separated) — pass through as-is
     parts = [p.strip() for p in region.split(";") if p.strip()]
     return parts
 

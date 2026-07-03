@@ -17,7 +17,7 @@ $activePairs = array_values(array_filter($pairs, fn($pair) => !isEmptyFilterPair
 
 // Initial query
 $query = "
-SELECT id AS system_id, entry_date, weather_system, pressure_level, subdivisions, created_at
+SELECT id AS system_id, entry_date, weather_system, height, subdivisions, created_at
 FROM Weather_System_Entries
 WHERE 1=1
 ";
@@ -64,7 +64,7 @@ if (!empty($pairConditions)) {
     $query .= " AND (" . implode(" OR ", $pairConditions) . ")";
 }
 
-$query .= " ORDER BY entry_date DESC, weather_system, pressure_level";
+$query .= " ORDER BY entry_date DESC, weather_system, height";
 
 $stmt = $db->prepare($query);
 $stmt->execute($params);
@@ -136,7 +136,7 @@ function rowMatchesPair(array $row, array $pair): bool {
     $operator = trim($pair['pressure_operator'] ?? '');
     $value = trim($pair['pressure_value'] ?? '');
     if ($operator !== '' && $value !== '') {
-        $pressures = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+        $pressures = array_filter(array_map('trim', explode(',', $row['height'] ?? '')));
         if (!matchesPressureFilter($pressures, $operator, $value)) {
             return false;
         }
@@ -178,7 +178,7 @@ foreach ($rows as $row) {
         ];
     }
 
-    $data[$date][$sys_id]['pressures'] = array_filter(array_map('trim', explode(',', $row['pressure_level'] ?? '')));
+    $data[$date][$sys_id]['pressures'] = array_filter(array_map('trim', explode(',', $row['height'] ?? '')));
     $data[$date][$sys_id]['subdivisions'] = array_filter(array_map('trim', explode(',', $row['subdivisions'] ?? '')));
 }
 

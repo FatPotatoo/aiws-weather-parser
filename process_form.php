@@ -16,8 +16,8 @@ if ($_POST) {
         }
 
         $stmt = $db->prepare(
-            "INSERT INTO Weather_System_Entries (entry_date, weather_system, subdivisions, pressure_level) " .
-            "VALUES (:entry_date, :weather_system, :subdivisions, :pressure_level)"
+            "INSERT INTO Weather_System_Entries (entry_date, weather_system, subdivisions, height) " .
+            "VALUES (:entry_date, :weather_system, :subdivisions, :height)"
         );
 
         $entry_date = $_POST['entry_date'];
@@ -40,7 +40,7 @@ if ($_POST) {
                     ':entry_date' => $entry_date,
                     ':weather_system' => $weather_system,
                     ':subdivisions' => $subdivisions,
-                    ':pressure_level' => $pressure_level,
+                    ':height' => $pressure_level,
                 ]);
             }
         }

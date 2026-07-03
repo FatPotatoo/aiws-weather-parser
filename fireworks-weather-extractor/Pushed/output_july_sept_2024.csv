@@ -1,309 +1,433 @@
 weather system,date,heightAboveMSL,Regions
-Monsoon Trough with Extension and Tilt,09-07-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Chhattisgarh ; Odisha ; WC Bay ; EC Bay
+Cyclonic Circulation (CYCIR),01-07-2024,0.9 km,Sub-Himalayan West Bengal & Sikkim
+Cyclonic Circulation (CYCIR),01-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),01-07-2024,1.5 km,Central Pakistan
+Cyclonic Circulation (CYCIR),01-07-2024,1.5 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),01-07-2024,3.1 km,Gujarat Region
+Cyclonic Circulation (CYCIR),01-07-2024,3.1 km to 7.6 km,Gujarat Region
+Offshore Trough,01-07-2024,Surface,Madhya Maharashtra ; Konkan & Goa ; Kerala
+Trough,01-07-2024,0.9 km,"Punjab ; Nagaland, Manipur, Mizoram & Tripura ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya"
+Trough,01-07-2024,5.8 km,Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh
+Cyclonic Circulation (CYCIR),02-07-2024,1.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),02-07-2024,1.5 km,Pakistan
+Cyclonic Circulation (CYCIR),02-07-2024,3.1 km to 4.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),02-07-2024,4.5 km to 5.8 km,Bihar
+Cyclonic Circulation (CYCIR),02-07-2024,5.8 km,Gujarat Region ; Saurashtra & Kutch
+Mean Sea Level Trough,02-07-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Nagaland, Manipur, Mizoram & Tripura"
+Offshore Trough,02-07-2024,Surface,Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; South Interior Karnataka ; Kerala
+Trough,02-07-2024,0.9 km,Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya
+Trough,02-07-2024,3.1 km,East Madhya Pradesh ; Assam & Meghalaya
+Cyclonic Circulation (CYCIR),03-07-2024,1.5 km,Himachal Pradesh
+Cyclonic Circulation (CYCIR),03-07-2024,1.5 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),03-07-2024,1.5 km to 7.6 km,Bangladesh
+Cyclonic Circulation (CYCIR),03-07-2024,4.5 km to 5.8 km,Gujarat Region ; Saurashtra & Kutch
+Mean Sea Level Trough,03-07-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Nagaland, Manipur, Mizoram & Tripura"
+Offshore Trough,03-07-2024,Surface,Konkan & Goa ; Coastal Karnataka ; Kerala
+Trough,03-07-2024,0.9 km,"East Madhya Pradesh ; Nagaland, Manipur, Mizoram & Tripura ; Chhattisgarh ; Jharkhand"
+Trough,03-07-2024,3.1 km,Pakistan ; West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Bangladesh
+Cyclonic Circulation (CYCIR),04-07-2024,1.5 km,East Rajasthan
+Cyclonic Circulation (CYCIR),04-07-2024,1.5 km,Pakistan
+Cyclonic Circulation (CYCIR),04-07-2024,3.1 km to 4.5 km,Gujarat Region
+Cyclonic Circulation (CYCIR),04-07-2024,3.1 km to 5.8 km,Jharkhand
+Mean Sea Level Trough,04-07-2024,Surface,West Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; NE Bay
+Offshore Trough,04-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka
+Trough,04-07-2024,0.9 km,Nagaland-Manipur-Mizoram-Tripura ; Assam & Meghalaya ; Arunachal Pradesh ; Bangladesh
+Trough,04-07-2024,1.5 km,East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; Bangladesh
+Cyclonic Circulation (CYCIR),05-07-2024,0.9 km,East Uttar Pradesh
+Cyclonic Circulation (CYCIR),05-07-2024,0.9 km,West Rajasthan ; Pakistan
+Cyclonic Circulation (CYCIR),05-07-2024,3.1 km,Gujarat Region
+Cyclonic Circulation (CYCIR),05-07-2024,5.8 km,EC Bay
+Cyclonic Circulation (CYCIR),05-07-2024,7.6 km,West Uttar Pradesh
+Monsoon Trough with Extension and Tilt,05-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Offshore Trough,05-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Madhya Maharashtra ; Kerala
+Trough,05-07-2024,0.9 km,"West Rajasthan ; Pakistan ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh ; Nagaland, Manipur, Mizoram & Tripura"
+Trough,05-07-2024,1.5 km to 3.1 km,West Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya ; Bangladesh
+Cyclonic Circulation (CYCIR),06-07-2024,0.9 km to 7.6 km,West Uttar Pradesh
+Cyclonic Circulation (CYCIR),06-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),06-07-2024,5.8 km to 7.6 km,WC Bay ; Coastal Andhra Pradesh
+Monsoon Trough with Extension and Tilt,06-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Offshore Trough,06-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Trough,06-07-2024,0.9 km,West Uttar Pradesh ; Bihar ; Gangetic West Bengal ; Assam & Meghalaya
+Trough,06-07-2024,3.1 km to 5.8 km,West Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh ; NE Arabian Sea ; Gujarat Region
+Cyclonic Circulation (CYCIR),07-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),07-07-2024,4.5 km,East Rajasthan ; West Rajasthan
+Cyclonic Circulation (CYCIR),07-07-2024,5.8 km,WC Bay ; Coastal Andhra Pradesh
+Mean Sea Level Trough,07-07-2024,0.9 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Westerly Trough,07-07-2024,5.8 km,North Pakistan ; Jammu & Kashmir
+Western Disturbances (WD),07-07-2024,3.1 km,Central Pakistan
+Cyclonic Circulation (CYCIR),08-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),08-07-2024,1.5 km,East Rajasthan
+Cyclonic Circulation (CYCIR),08-07-2024,3.1 km to 7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),08-07-2024,4.5 km,Gujarat Region
+Monsoon Trough with Extension and Tilt,08-07-2024,3.1 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay ; EC Bay ; SW Bay ; SE Bay
+Offshore Trough,08-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Madhya Maharashtra ; Kerala
+Westerly Trough,08-07-2024,5.8 km,North Pakistan ; Jammu & Kashmir
+Western Disturbances (WD),08-07-2024,3.1 km,Central Pakistan
 Cyclonic Circulation (CYCIR),09-07-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),09-07-2024,1.5 km,Gujarat Region
+Monsoon Trough with Extension and Tilt,09-07-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Chhattisgarh ; Odisha ; WC Bay ; EC Bay
 Offshore Trough,09-07-2024,Surface,Konkan & Goa ; Madhya Maharashtra ; Kerala
-Mean Sea Level Trough,18-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; NE Bay ; WC Bay ; EC Bay
+Cyclonic Circulation (CYCIR),10-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),10-07-2024,1.5 km,East Rajasthan
+Cyclonic Circulation (CYCIR),10-07-2024,1.5 km,Saurashtra & Kutch
+Mean Sea Level Trough,10-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Offshore Trough,10-07-2024,Surface,Madhya Maharashtra ; Konkan & Goa ; Kerala
+Trough,10-07-2024,1.5 km,East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya
+Cyclonic Circulation (CYCIR),11-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),11-07-2024,1.5 km,Punjab
+Cyclonic Circulation (CYCIR),11-07-2024,3.1 km,Odisha
+Cyclonic Circulation (CYCIR),11-07-2024,3.1 km to 4.5 km,Madhya Maharashtra
+Cyclonic Circulation (CYCIR),12-07-2024,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),12-07-2024,0.9 km,Sub-Himalayan West Bengal & Sikkim
+Cyclonic Circulation (CYCIR),12-07-2024,3.1 km,Gujarat Region
+Cyclonic Circulation (CYCIR),12-07-2024,5.8 km,Bihar
+Mean Sea Level Trough,12-07-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Assam & Meghalaya ; Nagaland, Manipur, Mizoram & Tripura"
+Offshore Trough,12-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Trough,12-07-2024,0.9 km,Assam & Meghalaya ; NW Bay
+Trough,12-07-2024,3.1 km,Assam & Meghalaya ; NW Bay
+Cyclonic Circulation (CYCIR),13-07-2024,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),13-07-2024,3.1 km,Jharkhand
+Cyclonic Circulation (CYCIR),13-07-2024,3.1 km to 5.8 km,Gujarat Region ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),13-07-2024,5.8 km,WC Bay ; Coastal Andhra Pradesh
+Mean Sea Level Trough,13-07-2024,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
+Western Disturbances (WD),13-07-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Cyclonic Circulation (CYCIR),14-07-2024,1.5 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),14-07-2024,5.8 km,Gangetic West Bengal ; Jharkhand ; Odisha
+Cyclonic Circulation (CYCIR),14-07-2024,5.8 km,Gujarat Region ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),14-07-2024,5.8 km,WC Bay ; Coastal Andhra Pradesh
+Monsoon Trough with Extension and Tilt,14-07-2024,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; East Uttar Pradesh ; Bihar ; Jharkhand ; Odisha ; EC Bay"
+Offshore Trough,14-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Western Disturbances (WD),14-07-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Cyclonic Circulation (CYCIR),15-07-2024,0.9 km,West Rajasthan
+Cyclonic Circulation (CYCIR),15-07-2024,1.5 km,Pakistan
+Low Pressure (L) with associated CYCIR,15-07-2024,7.6 km,NW Bay ; WC Bay ; Odisha
+Mean Sea Level Trough,15-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; WC Bay
+Offshore Trough,15-07-2024,Surface,Konkan & Goa ; Coastal Karnataka ; Kerala
+Western Disturbances (WD),15-07-2024,5.8 km,North Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),16-07-2024,1.5 km,Assam & Meghalaya
+Low Pressure (L) with associated CYCIR,16-07-2024,5.8 km,Chhattisgarh ; Vidarbha
+Mean Sea Level Trough,16-07-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Chhattisgarh ; Vidarbha ; Odisha ; WC Bay ; EC Bay ; SW Bay ; SE Bay
+Offshore Trough,16-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Madhya Maharashtra ; South Interior Karnataka ; Kerala
+Western Disturbances (WD),16-07-2024,5.8 km,North Pakistan ; Jammu & Kashmir
 Cyclonic Circulation (CYCIR),18-07-2024,1.5 km,Saurashtra & Kutch ; NE Arabian Sea
 Cyclonic Circulation (CYCIR),18-07-2024,1.5 km to 3.1 km,Assam & Meghalaya
+Mean Sea Level Trough,18-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; NE Bay ; WC Bay ; EC Bay
 Offshore Trough,18-07-2024,Surface,Konkan & Goa ; Coastal Karnataka ; Kerala
 Western Disturbances (WD),18-07-2024,5.8 km,Jammu & Kashmir ; North Pakistan ; Himachal Pradesh ; Ladakh
-Monsoon Trough with Extension and Tilt,20-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay
-Cyclonic Circulation (CYCIR),20-07-2024,5.8 km,Saurashtra & Kutch
-Offshore Trough,20-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; Kerala
+Cyclonic Circulation (CYCIR),19-07-2024,0.9 km to 1.5 km,NE Arabian Sea ; Saurashtra & Kutch
+Mean Sea Level Trough,19-07-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; WC Bay ; Coastal Andhra Pradesh
+Western Disturbances (WD),19-07-2024,5.8 km,Jammu & Kashmir ; North Pakistan ; Himachal Pradesh ; Ladakh
+Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,Bihar ; Sub-Himalayan West Bengal & Sikkim
 Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,Himachal Pradesh
 Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,West Rajasthan ; East Rajasthan
-Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,Bihar ; Sub-Himalayan West Bengal & Sikkim
-Cyclonic Circulation (CYCIR),20-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),20-07-2024,5.8 km,Saurashtra & Kutch
+Monsoon Trough with Extension and Tilt,20-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay
+Offshore Trough,20-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; Kerala
 Western Disturbances (WD),20-07-2024,5.8 km,West Pakistan ; South Pakistan
-Mean Sea Level Trough,21-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay
-Cyclonic Circulation (CYCIR),21-07-2024,3.1 km,NE Arabian Sea ; Saurashtra & Kutch
-Offshore Trough,21-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
-Cyclonic Circulation (CYCIR),21-07-2024,1.5 km,Assam & Meghalaya
-Western Disturbances (WD),21-07-2024,5.8 km,West Pakistan ; South Pakistan ; Central Pakistan
 Cyclonic Circulation (CYCIR),21-07-2024,0.9 km,East Rajasthan ; West Rajasthan
+Cyclonic Circulation (CYCIR),21-07-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),21-07-2024,3.1 km,NE Arabian Sea ; Saurashtra & Kutch
+Mean Sea Level Trough,21-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay
+Offshore Trough,21-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Western Disturbances (WD),21-07-2024,5.8 km,West Pakistan ; South Pakistan ; Central Pakistan
+Cyclonic Circulation (CYCIR),22-07-2024,0.9 km,Assam & Meghalaya
 Low Pressure (L) with associated CYCIR,22-07-2024,7.6 km,East Madhya Pradesh ; Chhattisgarh
 Mean Sea Level Trough,22-07-2024,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay
-Cyclonic Circulation (CYCIR),22-07-2024,0.9 km,Assam & Meghalaya
-Western Disturbances (WD),22-07-2024,5.8 km,West Pakistan
 Western Disturbances (WD),22-07-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
-Cyclonic Circulation (CYCIR),24-07-2024,7.6 km,Jharkhand
+Western Disturbances (WD),22-07-2024,5.8 km,West Pakistan
 Cyclonic Circulation (CYCIR),24-07-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),24-07-2024,3.1 km,Gujarat Region
-Mean Sea Level Trough,25-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Cyclonic Circulation (CYCIR),25-07-2024,7.6 km,Gangetic West Bengal ; Bangladesh
-Cyclonic Circulation (CYCIR),25-07-2024,1.5 km to 3.1 km,Assam & Meghalaya
-Offshore Trough,25-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Cyclonic Circulation (CYCIR),24-07-2024,7.6 km,Jharkhand
 Cyclonic Circulation (CYCIR),25-07-2024,1.5 km,West Uttar Pradesh
+Cyclonic Circulation (CYCIR),25-07-2024,1.5 km to 3.1 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),25-07-2024,7.6 km,Gangetic West Bengal ; Bangladesh
+Mean Sea Level Trough,25-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Offshore Trough,25-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
 Low Pressure (L) with associated CYCIR,26-07-2024,7.6 km,NW Bay ; NE Bay ; Bangladesh ; Gangetic West Bengal
 Mean Sea Level Trough,26-07-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal"
 Offshore Trough,26-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Cyclonic Circulation (CYCIR),27-07-2024,1.5 km,West Uttar Pradesh
 Low Pressure (L) with associated CYCIR,27-07-2024,7.6 km,Gangetic West Bengal ; Odisha
 Mean Sea Level Trough,27-07-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NW Bay ; NE Bay
 Offshore Trough,27-07-2024,Surface,Konkan & Goa ; North Interior Karnataka ; South Interior Karnataka
-Cyclonic Circulation (CYCIR),27-07-2024,1.5 km,West Uttar Pradesh
 Cyclonic Circulation (CYCIR),28-07-2024,7.6 km,Chhattisgarh
+Cyclonic Circulation (CYCIR),29-07-2024,1.5 km,NE Arabian Sea ; Saurashtra & Kutch
 Cyclonic Circulation (CYCIR),29-07-2024,7.6 km,East Madhya Pradesh
 Monsoon Trough with Extension and Tilt,29-07-2024,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; EC Bay
 Offshore Trough,29-07-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
-Cyclonic Circulation (CYCIR),29-07-2024,1.5 km,NE Arabian Sea ; Saurashtra & Kutch
-Monsoon Trough with Extension and Tilt,01-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
-Cyclonic Circulation (CYCIR),01-08-2024,7.6 km,Gangetic West Bengal ; Bangladesh
-Trough,01-08-2024,0.9 km,Gangetic West Bengal ; Bangladesh ; Bihar
-Cyclonic Circulation (CYCIR),01-08-2024,4.5 km,NE Arabian Sea ; Saurashtra & Kutch
 Cyclonic Circulation (CYCIR),01-08-2024,0.9 km,East Rajasthan
-Trough,01-08-2024,1.5 km to 3.1 km,West Uttar Pradesh ; Gangetic West Bengal
 Cyclonic Circulation (CYCIR),01-08-2024,3.1 km to 5.8 km,Punjab
+Cyclonic Circulation (CYCIR),01-08-2024,4.5 km,NE Arabian Sea ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),01-08-2024,7.6 km,Gangetic West Bengal ; Bangladesh
+Monsoon Trough with Extension and Tilt,01-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
 Offshore Trough,01-08-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
+Trough,01-08-2024,0.9 km,Gangetic West Bengal ; Bangladesh ; Bihar
+Trough,01-08-2024,1.5 km to 3.1 km,West Uttar Pradesh ; Gangetic West Bengal
+Cyclonic Circulation (CYCIR),02-08-2024,0.9 km,"Nagaland, Manipur, Mizoram & Tripura"
 Low Pressure (L) with associated CYCIR,02-08-2024,7.6 km,Gangetic West Bengal ; Jharkhand
 Trough,02-08-2024,0.9 km to 4.5 km,West Rajasthan ; East Rajasthan ; Assam & Meghalaya ; West Madhya Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; Jharkhand ; Sub-Himalayan West Bengal & Sikkim
-Cyclonic Circulation (CYCIR),02-08-2024,0.9 km,"Nagaland, Manipur, Mizoram & Tripura"
 Low Pressure (L) with associated CYCIR,03-08-2024,7.6 km,West Rajasthan
 Trough,03-08-2024,0.9 km to 4.5 km,Bihar ; Jharkhand ; Assam & Meghalaya
+Cyclonic Circulation (CYCIR),04-08-2024,0.9 km,Assam & Meghalaya
 Low Pressure (L) with associated CYCIR,04-08-2024,5.8 km,West Rajasthan ; Pakistan
 Trough,04-08-2024,0.9 km to 4.5 km,East Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh ; Assam & Meghalaya
-Cyclonic Circulation (CYCIR),04-08-2024,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),05-08-2024,1.5 km to 4.5 km,Assam & Meghalaya
 Mean Sea Level Trough,05-08-2024,Surface,"West Rajasthan, East Rajasthan, East Uttar Pradesh, Gangetic West Bengal, EC Bay"
 Trough,05-08-2024,0.9 km to 5.8 km,East Rajasthan ; Odisha
-Cyclonic Circulation (CYCIR),05-08-2024,1.5 km to 4.5 km,Assam & Meghalaya
-Low Pressure (L) with associated CYCIR,06-08-2024,5.8 km,Central Pakistan
-Monsoon Trough with Extension and Tilt,06-08-2024,Surface,Central Pakistan ; West Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; EC Bay
-Trough,06-08-2024,0.9 km to 3.1 km,Central Pakistan ; Bihar ; West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh
 Cyclonic Circulation (CYCIR),06-08-2024,1.5 km to 4.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),06-08-2024,1.5 km to 7.6 km,Gangetic West Bengal ; Bangladesh
+Low Pressure (L) with associated CYCIR,06-08-2024,5.8 km,Central Pakistan
+Monsoon Trough with Extension and Tilt,06-08-2024,Surface,Central Pakistan ; West Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; EC Bay
 Offshore Trough,06-08-2024,Surface,Gujarat Region ; Kerala
-Cyclonic Circulation (CYCIR),07-08-2024,5.8 km,Gangetic West Bengal ; Jharkhand ; Odisha
+Trough,06-08-2024,0.9 km to 3.1 km,Central Pakistan ; Bihar ; West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh
 Cyclonic Circulation (CYCIR),07-08-2024,1.5 km to 3.1 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),07-08-2024,1.5 km to 4.5 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),07-08-2024,5.8 km,Gangetic West Bengal ; Jharkhand ; Odisha
 Trough,07-08-2024,0.9 km,Rayalaseema ; Tamil Nadu & Puducherry ; Comorin Area
-Mean Sea Level Trough,08-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Odisha ; EC Bay"
-Cyclonic Circulation (CYCIR),08-08-2024,7.6 km,Jharkhand
-Cyclonic Circulation (CYCIR),08-08-2024,0.9 km to 3.1 km,"Haryana, Chandigarh & Delhi"
 Cyclonic Circulation (CYCIR),08-08-2024,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),08-08-2024,0.9 km to 3.1 km,"Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),08-08-2024,7.6 km,Jharkhand
+Mean Sea Level Trough,08-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Odisha ; EC Bay"
 Offshore Trough,08-08-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
-Cyclonic Circulation (CYCIR),09-08-2024,5.8 km,East Rajasthan
-Cyclonic Circulation (CYCIR),09-08-2024,4.5 km,East Uttar Pradesh
-Monsoon Trough with Extension and Tilt,09-08-2024,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
 Cyclonic Circulation (CYCIR),09-08-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),09-08-2024,4.5 km,East Uttar Pradesh
+Cyclonic Circulation (CYCIR),09-08-2024,5.8 km,East Rajasthan
 Cyclonic Circulation (CYCIR),09-08-2024,5.8 km to 7.6 km,Jharkhand
-Monsoon Trough with Extension and Tilt,10-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; NE Bay"
+Monsoon Trough with Extension and Tilt,09-08-2024,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
+Cyclonic Circulation (CYCIR),10-08-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),10-08-2024,5.8 km,East Rajasthan
 Cyclonic Circulation (CYCIR),10-08-2024,7.6 km,East Uttar Pradesh
-Cyclonic Circulation (CYCIR),10-08-2024,1.5 km,Assam & Meghalaya
-Trough,10-08-2024,0.9 km,South Interior Karnataka ; Comorin Area
+Monsoon Trough with Extension and Tilt,10-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; NE Bay"
 Offshore Trough,10-08-2024,Surface,Konkan & Goa ; Coastal Karnataka
-Monsoon Trough with Extension and Tilt,11-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay"
-Cyclonic Circulation (CYCIR),11-08-2024,7.6 km,East Rajasthan
-Trough,11-08-2024,3.1 km,East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh
+Trough,10-08-2024,0.9 km,South Interior Karnataka ; Comorin Area
 Cyclonic Circulation (CYCIR),11-08-2024,5.8 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),11-08-2024,7.6 km,East Rajasthan
+Monsoon Trough with Extension and Tilt,11-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay"
 Trough,11-08-2024,0.9 km,South Interior Karnataka ; Comorin Area
-Monsoon Trough with Extension and Tilt,12-08-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Cyclonic Circulation (CYCIR),12-08-2024,4.5 km,West Madhya Pradesh
-Trough,12-08-2024,1.5 km,West Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh
-Trough,12-08-2024,3.1 km to 4.5 km,NE Arabian Sea ; West Madhya Pradesh
+Trough,11-08-2024,3.1 km,East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh
 Cyclonic Circulation (CYCIR),12-08-2024,1.5 km,Assam & Meghalaya
-Trough,12-08-2024,0.9 km,Rayalaseema ; Comorin Area
 Cyclonic Circulation (CYCIR),12-08-2024,1.5 km,Pakistan ; West Rajasthan
 Cyclonic Circulation (CYCIR),12-08-2024,3.1 km to 4.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),12-08-2024,4.5 km,West Madhya Pradesh
 Cyclonic Circulation (CYCIR),12-08-2024,5.8 km,Jharkhand
+Monsoon Trough with Extension and Tilt,12-08-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
+Trough,12-08-2024,0.9 km,Rayalaseema ; Comorin Area
+Trough,12-08-2024,1.5 km,West Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Bangladesh
+Trough,12-08-2024,3.1 km to 4.5 km,NE Arabian Sea ; West Madhya Pradesh
+Cyclonic Circulation (CYCIR),13-08-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),13-08-2024,1.5 km,Pakistan ; West Rajasthan
+Cyclonic Circulation (CYCIR),13-08-2024,1.5 km to 4.5 km,Bangladesh
+Cyclonic Circulation (CYCIR),13-08-2024,3.1 km,Gujarat Region ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),13-08-2024,4.5 km,south Sri Lanka & neighbourhood
 Cyclonic Circulation (CYCIR),13-08-2024,7.6 km,East Rajasthan
 Trough,13-08-2024,0.9 km,East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; Bangladesh
-Cyclonic Circulation (CYCIR),13-08-2024,1.5 km,Assam & Meghalaya
 Trough,13-08-2024,0.9 km,Rayalaseema ; Comorin Area
-Cyclonic Circulation (CYCIR),13-08-2024,1.5 km,Pakistan ; West Rajasthan
-Cyclonic Circulation (CYCIR),13-08-2024,3.1 km,Gujarat Region ; Saurashtra & Kutch
-Cyclonic Circulation (CYCIR),13-08-2024,1.5 km to 4.5 km,Bangladesh
-Cyclonic Circulation (CYCIR),13-08-2024,4.5 km,south Sri Lanka & neighbourhood
-Cyclonic Circulation (CYCIR),14-08-2024,5.8 km,East Rajasthan
-Trough,14-08-2024,1.5 km,Telangana ; SE Arabian Sea ; Kerala
 Cyclonic Circulation (CYCIR),14-08-2024,1.5 km,West Rajasthan
 Cyclonic Circulation (CYCIR),14-08-2024,3.1 km to 4.5 km,Gujarat Region
-Cyclonic Circulation (CYCIR),14-08-2024,5.8 km,SE Arabian Sea ; Kerala
 Cyclonic Circulation (CYCIR),14-08-2024,4.5 km,Bangladesh ; Gangetic West Bengal
-Cyclonic Circulation (CYCIR),15-08-2024,4.5 km,East Rajasthan
-Trough,15-08-2024,1.5 km,Konkan & Goa ; SE Arabian Sea ; Kerala
+Cyclonic Circulation (CYCIR),14-08-2024,5.8 km,East Rajasthan
+Cyclonic Circulation (CYCIR),14-08-2024,5.8 km,SE Arabian Sea ; Kerala
+Trough,14-08-2024,1.5 km,Telangana ; SE Arabian Sea ; Kerala
 Cyclonic Circulation (CYCIR),15-08-2024,3.1 km to 4.5 km,Jharkhand
-Cyclonic Circulation (CYCIR),15-08-2024,4.5 km,SE Arabian Sea ; Kerala
 Cyclonic Circulation (CYCIR),15-08-2024,4.5 km,Bangladesh ; Gangetic West Bengal
-Monsoon Trough with Extension and Tilt,16-08-2024,0.9 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; NW Bay ; Gangetic West Bengal ; Bangladesh
-Low Pressure (L) with associated CYCIR,16-08-2024,4.5 km,NW Bay ; Gangetic West Bengal ; Bangladesh
+Cyclonic Circulation (CYCIR),15-08-2024,4.5 km,East Rajasthan
+Cyclonic Circulation (CYCIR),15-08-2024,4.5 km,SE Arabian Sea ; Kerala
+Trough,15-08-2024,1.5 km,Konkan & Goa ; SE Arabian Sea ; Kerala
 Cyclonic Circulation (CYCIR),16-08-2024,1.5 km to 5.8 km,West Rajasthan
 Cyclonic Circulation (CYCIR),16-08-2024,5.8 km,South Interior Karnataka
+Low Pressure (L) with associated CYCIR,16-08-2024,4.5 km,NW Bay ; Gangetic West Bengal ; Bangladesh
+Monsoon Trough with Extension and Tilt,16-08-2024,0.9 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; NW Bay ; Gangetic West Bengal ; Bangladesh
 Trough,16-08-2024,1.5 km,North Interior Karnataka ; South Interior Karnataka ; Comorin Area
-Low Pressure (L) with associated CYCIR,17-08-2024,7.6 km,Bangladesh
-Cyclonic Circulation (CYCIR),17-08-2024,5.8 km,West Rajasthan
 Cyclonic Circulation (CYCIR),17-08-2024,5.8 km,North Interior Karnataka ; Telangana
+Cyclonic Circulation (CYCIR),17-08-2024,5.8 km,West Rajasthan
+Low Pressure (L) with associated CYCIR,17-08-2024,7.6 km,Bangladesh
 Trough,17-08-2024,1.5 km,North Interior Karnataka ; Telangana ; Kerala ; Tamil Nadu & Puducherry ; Comorin Area
 Trough,17-08-2024,3.1 km,West Rajasthan ; WC Arabian Sea
 Trough,17-08-2024,9.6 km to 12.6 km,Assam & Meghalaya ; Odisha
-Low Pressure (L) with associated CYCIR,18-08-2024,5.8 km,Bangladesh
-Mean Sea Level Trough,18-08-2024,Surface,West Rajasthan ; West Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Bangladesh
 Cyclonic Circulation (CYCIR),18-08-2024,3.1 km,Pakistan
 Cyclonic Circulation (CYCIR),18-08-2024,4.5 km,North Interior Karnataka ; Telangana
+Low Pressure (L) with associated CYCIR,18-08-2024,5.8 km,Bangladesh
+Mean Sea Level Trough,18-08-2024,Surface,West Rajasthan ; West Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Bangladesh
 Trough,18-08-2024,1.5 km,North Interior Karnataka ; Telangana ; SE Arabian Sea ; Kerala
-Low Pressure (L) with associated CYCIR,19-08-2024,5.8 km,Bangladesh
-Cyclonic Circulation (CYCIR),19-08-2024,3.1 km,Pakistan
 Cyclonic Circulation (CYCIR),19-08-2024,0.9 km,Rayalaseema
+Cyclonic Circulation (CYCIR),19-08-2024,3.1 km,Pakistan
+Low Pressure (L) with associated CYCIR,19-08-2024,5.8 km,Bangladesh
 Trough,19-08-2024,0.9 km,Rayalaseema ; Tamil Nadu & Puducherry ; Comorin Area
 Trough,19-08-2024,1.5 km to 5.8 km,EC Arabian Sea ; Coastal Karnataka
-Low Pressure (L) with associated CYCIR,20-08-2024,7.6 km,Bangladesh
-Mean Sea Level Trough,20-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; Bangladesh"
-Cyclonic Circulation (CYCIR),20-08-2024,3.1 km,Pakistan
-Trough,20-08-2024,0.9 km,EC Arabian Sea ; Coastal Karnataka ; South Interior Karnataka ; Comorin Area
 Cyclonic Circulation (CYCIR),20-08-2024,0.9 km,Jharkhand
 Cyclonic Circulation (CYCIR),20-08-2024,0.9 km,West Uttar Pradesh
 Cyclonic Circulation (CYCIR),20-08-2024,1.5 km,Tamil Nadu & Puducherry ; Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),20-08-2024,3.1 km,Pakistan
 Cyclonic Circulation (CYCIR),20-08-2024,3.1 km to 5.8 km,SE Arabian Sea ; Lakshadweep
+Low Pressure (L) with associated CYCIR,20-08-2024,7.6 km,Bangladesh
+Mean Sea Level Trough,20-08-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Gangetic West Bengal ; Bangladesh"
+Trough,20-08-2024,0.9 km,EC Arabian Sea ; Coastal Karnataka ; South Interior Karnataka ; Comorin Area
 Western Disturbances (WD),20-08-2024,5.8 km,North Pakistan
-Low Pressure (L) with associated CYCIR,21-08-2024,9.6 km,Bangladesh
 Cyclonic Circulation (CYCIR),21-08-2024,0.9 km,Jharkhand
-Cyclonic Circulation (CYCIR),21-08-2024,5.8 km,Lakshadweep ; SE Arabian Sea
-Western Disturbances (WD),21-08-2024,3.1 km,Jammu & Kashmir
 Cyclonic Circulation (CYCIR),21-08-2024,4.5 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch
+Cyclonic Circulation (CYCIR),21-08-2024,5.8 km,Lakshadweep ; SE Arabian Sea
+Low Pressure (L) with associated CYCIR,21-08-2024,9.6 km,Bangladesh
+Western Disturbances (WD),21-08-2024,3.1 km,Jammu & Kashmir
+Cyclonic Circulation (CYCIR),22-08-2024,0.9 km,Jharkhand
+Cyclonic Circulation (CYCIR),22-08-2024,0.9 km,West Uttar Pradesh
 Low Pressure (L) with associated CYCIR,22-08-2024,5.8 km,EC Arabian Sea ; Konkan & Goa
 Low Pressure (L) with associated CYCIR,22-08-2024,9.4 km,Bangladesh
 Monsoon Trough with Extension and Tilt,22-08-2024,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; Bihar ; Gangetic West Bengal ; Bangladesh ; NE Bay"
-Cyclonic Circulation (CYCIR),22-08-2024,0.9 km,West Uttar Pradesh
-Cyclonic Circulation (CYCIR),22-08-2024,0.9 km,Jharkhand
 Western Disturbances (WD),22-08-2024,5.8 km,West Pakistan
+Cyclonic Circulation (CYCIR),23-08-2024,5.8 km,NW Bay ; NE Bay
 Low Pressure (L) with associated CYCIR,23-08-2024,3.1 km,EC Arabian Sea
 Low Pressure (L) with associated CYCIR,23-08-2024,7.6 km,Sub-Himalayan West Bengal & Sikkim ; Gangetic West Bengal ; Jharkhand
 Mean Sea Level Trough,23-08-2024,0.9 km,West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Gangetic West Bengal ; Jharkhand ; NE Bay
-Cyclonic Circulation (CYCIR),23-08-2024,5.8 km,NW Bay ; NE Bay
 Western Disturbances (WD),23-08-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
-Well Marked Low Pressure Area (WML) with associated CYCIR,24-08-2024,7.6 km,East Uttar Pradesh ; West Madhya Pradesh
+Cyclonic Circulation (CYCIR),24-08-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),24-08-2024,3.1 km to 5.8 km,NW Bay ; NE Bay
 Monsoon Trough with Extension and Tilt,24-08-2024,Surface,West Rajasthan ; East Rajasthan ; East Madhya Pradesh ; East Uttar Pradesh ; West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
 Trough,24-08-2024,1.5 km,East Uttar Pradesh ; West Madhya Pradesh ; NE Bay
+Well Marked Low Pressure Area (WML) with associated CYCIR,24-08-2024,7.6 km,East Uttar Pradesh ; West Madhya Pradesh
 Western Disturbances (WD),24-08-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Cyclonic Circulation (CYCIR),24-08-2024,1.5 km,Assam & Meghalaya
 Mean Sea Level Trough,25-08-2024,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
 Western Disturbances (WD),25-08-2024,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
 Mean Sea Level Trough,26-08-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
 Western Disturbances (WD),26-08-2024,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Western Disturbances (WD),27-08-2024,3.1 km,North pakistan
-Westerly Trough,27-08-2024,7.6 km,North Pakistan ; Jammu & Kashmir
 Cyclonic Circulation (CYCIR),27-08-2024,0.9 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,28-08-2024,Surface,Saurashtra & Kutch ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Cyclonic Circulation (CYCIR),28-08-2024,5.8 km,EC Bay
+Westerly Trough,27-08-2024,7.6 km,North Pakistan ; Jammu & Kashmir
+Western Disturbances (WD),27-08-2024,3.1 km,North pakistan
 Cyclonic Circulation (CYCIR),28-08-2024,3.1 km,East Uttar Pradesh
+Cyclonic Circulation (CYCIR),28-08-2024,5.8 km,EC Bay
+Monsoon Trough with Extension and Tilt,28-08-2024,Surface,Saurashtra & Kutch ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
 Trough,28-08-2024,3.1 km,East Uttar Pradesh ; EC Bay
-Western Disturbances (WD),28-08-2024,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan ; Jammu & Kashmir
-Western Disturbances (WD),28-08-2024,3.1 km,North pakistan
 Westerly Trough,28-08-2024,7.6 km,North Pakistan ; Jammu & Kashmir
+Western Disturbances (WD),28-08-2024,3.1 km,North pakistan
+Western Disturbances (WD),28-08-2024,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan ; Jammu & Kashmir
 Mean Sea Level Trough,29-08-2024,Surface,Saurashtra & Kutch ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; WC Bay ; NW Bay
 Offshore Trough,29-08-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; Kerala
 Western Disturbances (WD),29-08-2024,5.8 km,West Pakistan ; Central Pakistan
 Monsoon Trough with Extension and Tilt,30-08-2024,Surface,Saurashtra & Kutch ; NE Arabian Sea ; Pakistan ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay ; NW Bay
 Offshore Trough,30-08-2024,Surface,Gujarat Region ; Konkan & Goa ; Kerala
 Western Disturbances (WD),30-08-2024,5.8 km,West Pakistan ; Central Pakistan
-Mean Sea Level Trough,31-08-2024,Surface,NE Arabian Sea ; NW Arabian Sea ; Saurashtra & Kutch ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay ; NW Bay
 Cyclonic Circulation (CYCIR),31-08-2024,1.5 km,Assam & Meghalaya
+Mean Sea Level Trough,31-08-2024,Surface,NE Arabian Sea ; NW Arabian Sea ; Saurashtra & Kutch ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay ; NW Bay
 Western Disturbances (WD),31-08-2024,5.8 km,Far West Pakistan ; Southwest Pakistan
 Western Disturbances (WD),31-08-2024,5.8 km,West Pakistan ; Central Pakistan
-Cyclonic Circulation (CYCIR),04-09-2024,3.1 km,WC Arabian Sea
-Cyclonic Circulation (CYCIR),04-09-2024,5.8 km,East Rajasthan
-Monsoon Trough with Extension and Tilt,04-09-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Telangana ; Coastal Andhra Pradesh ; EC Bay
-Cyclonic Circulation (CYCIR),04-09-2024,3.1 km to 7.6 km,Coastal Andhra Pradesh
-Western Disturbances (WD),04-09-2024,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),01-09-2024,0.9 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),01-09-2024,1.5 km,"Haryana, Chandigarh & Delhi"
+Mean Sea Level Trough,01-09-2024,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Odisha ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay
+Western Disturbances (WD),01-09-2024,5.8 km,Southwest Pakistan ; Far West Pakistan ; West Pakistan ; South Pakistan
+Cyclonic Circulation (CYCIR),02-09-2024,1.5 km to 3.1 km,Central Pakistan ; West Rajasthan
+Mean Sea Level Trough,02-09-2024,Surface,West Rajasthan ; West Madhya Pradesh ; Vidarbha ; Coastal Andhra Pradesh ; EC Bay
+Offshore Trough,02-09-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; Kerala
+Western Disturbances (WD),02-09-2024,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; South Pakistan ; Far West Pakistan
+Cyclonic Circulation (CYCIR),03-09-2024,0.9 km,Bangladesh
+Cyclonic Circulation (CYCIR),03-09-2024,3.1 km to 5.8 km,Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),03-09-2024,4.5 km to 7.6 km,Saurashtra & Kutch
+Low Pressure (L) with associated CYCIR,03-09-2024,3.1 km,Vidarbha
+Low Pressure (L) with associated CYCIR,03-09-2024,5.8 km,WC Arabian Sea ; NW Arabian Sea
+Mean Sea Level Trough,03-09-2024,Surface,West Rajasthan ; East Rajasthan ; Vidarbha ; Telangana ; Coastal Andhra Pradesh ; EC Bay
+Western Disturbances (WD),03-09-2024,5.8 km,West Pakistan ; Central Pakistan ; Southwest Pakistan ; South Pakistan ; North Pakistan
 Cyclonic Circulation (CYCIR),04-09-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),04-09-2024,1.5 km,"Haryana, Chandigarh & Delhi"
-Cyclonic Circulation (CYCIR),04-09-2024,4.5 km to 5.8 km,N Andaman Sea
+Cyclonic Circulation (CYCIR),04-09-2024,3.1 km,WC Arabian Sea
 Cyclonic Circulation (CYCIR),04-09-2024,3.1 km to 7.6 km,Bangladesh
+Cyclonic Circulation (CYCIR),04-09-2024,3.1 km to 7.6 km,Coastal Andhra Pradesh
+Cyclonic Circulation (CYCIR),04-09-2024,4.5 km to 5.8 km,N Andaman Sea
+Cyclonic Circulation (CYCIR),04-09-2024,5.8 km,East Rajasthan
+Monsoon Trough with Extension and Tilt,04-09-2024,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Telangana ; Coastal Andhra Pradesh ; EC Bay
+Western Disturbances (WD),04-09-2024,5.8 km,West Pakistan ; North Pakistan ; Central Pakistan ; Jammu & Kashmir
+Cyclonic Circulation (CYCIR),05-09-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),05-09-2024,3.1 km,N Andaman Sea
+Cyclonic Circulation (CYCIR),05-09-2024,3.1 km,WC Arabian Sea
+Cyclonic Circulation (CYCIR),05-09-2024,5.8 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi"
 Low Pressure (L) with associated CYCIR,05-09-2024,7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
 Mean Sea Level Trough,05-09-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; WC Bay ; NW Bay ; EC Bay"
-Cyclonic Circulation (CYCIR),05-09-2024,5.8 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi"
-Western Disturbances (WD),05-09-2024,3.1 km,Jammu & Kashmir ; Pakistan
-Westerly Trough,05-09-2024,5.8 km,Jammu & Kashmir ; Pakistan
 Trough,05-09-2024,0.9 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; East Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Nagaland, Manipur, Mizoram & Tripura"
-Cyclonic Circulation (CYCIR),05-09-2024,1.5 km,Assam & Meghalaya
-Cyclonic Circulation (CYCIR),05-09-2024,3.1 km,WC Arabian Sea
-Cyclonic Circulation (CYCIR),05-09-2024,3.1 km,N Andaman Sea
-Low Pressure (L) with associated CYCIR,06-09-2024,7.6 km,WC Bay ; NW Bay
-Cyclonic Circulation (CYCIR),06-09-2024,5.8 km,East Rajasthan
-Trough,06-09-2024,1.5 km to 3.1 km,East Uttar Pradesh ; Chhattisgarh ; Odisha ; WC Bay ; NW Bay
+Westerly Trough,05-09-2024,5.8 km,Jammu & Kashmir ; Pakistan
+Western Disturbances (WD),05-09-2024,3.1 km,Jammu & Kashmir ; Pakistan
 Cyclonic Circulation (CYCIR),06-09-2024,0.9 km,Bangladesh
-Western Disturbances (WD),06-09-2024,3.1 km to 5.8 km,Jammu & Kashmir
-Westerly Trough,06-09-2024,7.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
 Cyclonic Circulation (CYCIR),06-09-2024,3.1 km,WC Arabian Sea
-Well Marked Low Pressure Area (WML) with associated CYCIR,07-09-2024,7.6 km,NW Bay ; WC Bay
+Cyclonic Circulation (CYCIR),06-09-2024,5.8 km,East Rajasthan
+Low Pressure (L) with associated CYCIR,06-09-2024,7.6 km,WC Bay ; NW Bay
+Trough,06-09-2024,1.5 km to 3.1 km,East Uttar Pradesh ; Chhattisgarh ; Odisha ; WC Bay ; NW Bay
+Westerly Trough,06-09-2024,7.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
+Western Disturbances (WD),06-09-2024,3.1 km to 5.8 km,Jammu & Kashmir
 Cyclonic Circulation (CYCIR),07-09-2024,1.5 km,Central Pakistan
+Cyclonic Circulation (CYCIR),07-09-2024,3.1 km,WC Arabian Sea
 Cyclonic Circulation (CYCIR),07-09-2024,5.8 km,West Rajasthan ; East Rajasthan
 Trough,07-09-2024,0.9 km,West Rajasthan ; East Rajasthan ; Chhattisgarh ; West Madhya Pradesh ; East Madhya Pradesh
-Cyclonic Circulation (CYCIR),07-09-2024,3.1 km,WC Arabian Sea
+Well Marked Low Pressure Area (WML) with associated CYCIR,07-09-2024,7.6 km,NW Bay ; WC Bay
+Cyclonic Circulation (CYCIR),08-09-2024,1.5 km,WC Arabian Sea
+Cyclonic Circulation (CYCIR),08-09-2024,5.8 km,West Rajasthan ; East Rajasthan
 Mean Sea Level Trough,08-09-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; Uttarakhand ; Odisha ; WC Bay ; NW Bay"
 Western Disturbances (WD),08-09-2024,5.8 km,North Pakistan ; Jammu & Kashmir
-Cyclonic Circulation (CYCIR),08-09-2024,5.8 km,West Rajasthan ; East Rajasthan
-Cyclonic Circulation (CYCIR),08-09-2024,1.5 km,WC Arabian Sea
 Monsoon Trough with Extension and Tilt,09-09-2024,Surface,West Rajasthan ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay ; EC Bay
 Trough,09-09-2024,3.1 km,West Uttar Pradesh ; West Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay
 Western Disturbances (WD),09-09-2024,5.8 km,North Pakistan ; Jammu & Kashmir
-Monsoon Trough with Extension and Tilt,10-09-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; WC Bay
-Western Disturbances (WD),10-09-2024,5.8 km,North Pakistan ; Jammu & Kashmir
-Offshore Trough,10-09-2024,Surface,Gujarat Region ; Kerala
-Cyclonic Circulation (CYCIR),10-09-2024,3.1 km,Gujarat Region
 Cyclonic Circulation (CYCIR),10-09-2024,3.1 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,11-09-2024,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; Gangetic West Bengal ; WC Bay ; EC Bay
-Western Disturbances (WD),11-09-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Offshore Trough,11-09-2024,Surface,Gujarat Region ; Kerala
-Cyclonic Circulation (CYCIR),11-09-2024,3.1 km to 5.8 km,Gujarat Region
+Cyclonic Circulation (CYCIR),10-09-2024,3.1 km,Gujarat Region
+Monsoon Trough with Extension and Tilt,10-09-2024,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; WC Bay
+Offshore Trough,10-09-2024,Surface,Gujarat Region ; Kerala
+Western Disturbances (WD),10-09-2024,5.8 km,North Pakistan ; Jammu & Kashmir
 Cyclonic Circulation (CYCIR),11-09-2024,0.9 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),11-09-2024,3.1 km to 5.8 km,Gujarat Region
+Monsoon Trough with Extension and Tilt,11-09-2024,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; Gangetic West Bengal ; WC Bay ; EC Bay
+Offshore Trough,11-09-2024,Surface,Gujarat Region ; Kerala
+Western Disturbances (WD),11-09-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Cyclonic Circulation (CYCIR),12-09-2024,3.1 km,"Punjab ; Haryana, Chandigarh & Delhi"
+Cyclonic Circulation (CYCIR),12-09-2024,3.1 km to 4.5 km,Saurashtra & Kutch
 Monsoon Trough with Extension and Tilt,12-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Madhya Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
 Offshore Trough,12-09-2024,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka
 Upper-Level Cyclonic Circulation,12-09-2024,7.6 km,Bangladesh
-Cyclonic Circulation (CYCIR),12-09-2024,3.1 km to 4.5 km,Saurashtra & Kutch
-Cyclonic Circulation (CYCIR),12-09-2024,3.1 km,"Punjab ; Haryana, Chandigarh & Delhi"
 Western Disturbances (WD),12-09-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Cyclonic Circulation (CYCIR),13-09-2024,7.6 km,West Uttar Pradesh ; East Uttar Pradesh
-Cyclonic Circulation (CYCIR),13-09-2024,7.6 km,Bangladesh
-Mean Sea Level Trough,13-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; NE Bay ; Bangladesh"
 Cyclonic Circulation (CYCIR),13-09-2024,3.1 km,Saurashtra & Kutch
-Western Disturbances (WD),13-09-2024,5.8 km,West Pakistan ; Central Pakistan ; Far West Pakistan
+Cyclonic Circulation (CYCIR),13-09-2024,7.6 km,Bangladesh
+Cyclonic Circulation (CYCIR),13-09-2024,7.6 km,West Uttar Pradesh ; East Uttar Pradesh
+Mean Sea Level Trough,13-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; NE Bay ; Bangladesh"
 Western Disturbances (WD),13-09-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Mean Sea Level Trough,14-09-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
+Western Disturbances (WD),13-09-2024,5.8 km,West Pakistan ; Central Pakistan ; Far West Pakistan
 Cyclonic Circulation (CYCIR),14-09-2024,3.1 km to 4.5 km,Gujarat Region ; West Rajasthan
 Cyclonic Circulation (CYCIR),14-09-2024,3.1 km to 5.8 km,West Uttar Pradesh ; Uttarakhand
+Mean Sea Level Trough,14-09-2024,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
 Western Disturbances (WD),14-09-2024,5.8 km,South Pakistan ; West Pakistan ; Central Pakistan
 Mean Sea Level Trough,16-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Western Disturbances (WD),16-09-2024,5.8 km,Southwest Pakistan
 Western Disturbances (WD),16-09-2024,3.1 km to 5.8 km,Himachal Pradesh
+Western Disturbances (WD),16-09-2024,5.8 km,Southwest Pakistan
+Cyclonic Circulation (CYCIR),17-09-2024,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi"
 Mean Sea Level Trough,17-09-2024,Surface,West Uttar Pradesh ; Chhattisgarh ; Jharkhand ; Odisha ; WC Bay
 Western Disturbances (WD),17-09-2024,5.8 km,West Pakistan ; South Pakistan ; Central Pakistan
-Cyclonic Circulation (CYCIR),17-09-2024,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi"
-Well Marked Low Pressure Area (WML) with associated CYCIR,18-09-2024,5.8 km,West Madhya Pradesh ; East Madhya Pradesh
-Mean Sea Level Trough,18-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay"
-Western Disturbances (WD),18-09-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
 Cyclonic Circulation (CYCIR),18-09-2024,1.5 km,Punjab
+Mean Sea Level Trough,18-09-2024,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay"
+Well Marked Low Pressure Area (WML) with associated CYCIR,18-09-2024,5.8 km,West Madhya Pradesh ; East Madhya Pradesh
+Western Disturbances (WD),18-09-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
 Cyclonic Circulation (CYCIR),19-09-2024,5.8 km,East Rajasthan
 Western Disturbances (WD),19-09-2024,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Cyclonic Circulation (CYCIR),20-09-2024,0.9 km,Punjab ; Pakistan
 Cyclonic Circulation (CYCIR),20-09-2024,3.1 km,East Rajasthan
 Cyclonic Circulation (CYCIR),20-09-2024,3.1 km to 5.8 km,WC Bay ; SW Bay
-Cyclonic Circulation (CYCIR),20-09-2024,0.9 km,Punjab ; Pakistan
 Cyclonic Circulation (CYCIR),20-09-2024,4.5 km,Gujarat Region ; Saurashtra & Kutch
-Cyclonic Circulation (CYCIR),21-09-2024,1.5 km,West Rajasthan ; East Rajasthan
 Cyclonic Circulation (CYCIR),21-09-2024,0.9 km,"Nagaland, Manipur, Mizoram & Tripura"
+Cyclonic Circulation (CYCIR),21-09-2024,1.5 km,West Rajasthan ; East Rajasthan
 Trough,22-09-2024,5.8 km,Coastal Andhra Pradesh ; WC Bay ; SW Bay ; EC Bay
 Upper-Level Cyclonic Circulation,22-09-2024,5.8 km,WC Bay
 Upper-Level Cyclonic Circulation,22-09-2024,5.8 km,south coastal Myanmar & neighbourhood
-Upper-Level Cyclonic Circulation,23-09-2024,5.8 km,WC Bay ; EC Bay ; SW Bay ; SE Bay
 Cyclonic Circulation (CYCIR),23-09-2024,1.5 km,Assam & Meghalaya
+Upper-Level Cyclonic Circulation,23-09-2024,5.8 km,WC Bay ; EC Bay ; SW Bay ; SE Bay
 Low Pressure (L) with associated CYCIR,24-09-2024,7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
 Cyclonic Circulation (CYCIR),25-09-2024,5.8 km,Chhattisgarh
 Trough,25-09-2024,5.8 km,Konkan & Goa ; Chhattisgarh ; Bangladesh
+Cyclonic Circulation (CYCIR),26-09-2024,1.5 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),26-09-2024,5.8 km,Madhya Maharashtra
 Trough,26-09-2024,5.8 km,Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; Bangladesh
-Cyclonic Circulation (CYCIR),26-09-2024,1.5 km,Assam & Meghalaya
+Cyclonic Circulation (CYCIR),27-09-2024,5.8 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),27-09-2024,5.8 km,West Madhya Pradesh
 Trough,27-09-2024,1.5 km to 5.8 km,Gujarat Region ; Bihar ; West Madhya Pradesh
-Cyclonic Circulation (CYCIR),27-09-2024,5.8 km,Assam & Meghalaya
 Cyclonic Circulation (CYCIR),28-09-2024,5.8 km,West Uttar Pradesh
+Trough,28-09-2024,0.9 km,South Interior Karnataka ; Gulf of Mannar ; Tamil Nadu & Puducherry
 Trough,28-09-2024,5.8 km,NE Arabian Sea ; Bihar ; West Uttar Pradesh
 Western Disturbances (WD),28-09-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
-Trough,28-09-2024,0.9 km,South Interior Karnataka ; Gulf of Mannar ; Tamil Nadu & Puducherry
 Cyclonic Circulation (CYCIR),29-09-2024,4.5 km,West Madhya Pradesh
 Cyclonic Circulation (CYCIR),29-09-2024,5.8 km,Gujarat Region
 Trough,29-09-2024,0.9 km,Comorin Area ; Rayalaseema ; Tamil Nadu & Puducherry
 Western Disturbances (WD),29-09-2024,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Cyclonic Circulation (CYCIR),30-09-2024,1.5 km,Assam & Meghalaya
 Trough,30-09-2024,1.5 km,Comorin Area ; Coastal Karnataka
 Trough,30-09-2024,1.5 km to 3.1 km,Konkan & Goa ; East Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh
-Cyclonic Circulation (CYCIR),30-09-2024,1.5 km,Assam & Meghalaya
