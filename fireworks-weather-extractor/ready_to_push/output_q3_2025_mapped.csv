@@ -1,511 +1,516 @@
-weather system,date,heightAboveMSL,Regions
-Cyclonic Circulation (CYCIR),02-07-2025,5.8 km,Jharkhand
-Trough,02-07-2025,0.9 km to 5.8 km,East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; NW Bay
-Upper-Level Cyclonic Circulation,02-07-2025,1.5 km,Assam & Meghalaya
-Cyclonic Circulation (CYCIR),03-07-2025,0.9 km,West Rajasthan
-Cyclonic Circulation (CYCIR),03-07-2025,1.5 km,East Madhya Pradesh
-Upper-Level Cyclonic Circulation,03-07-2025,1.5 km to 5.8 km,Odisha ; Gangetic West Bengal
-Trough,03-07-2025,3.1 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay
-Upper-Level Cyclonic Circulation,03-07-2025,0.9 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,04-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay
-Cyclonic Circulation (CYCIR),04-07-2025,1.5 km,East Madhya Pradesh
-Upper-Level Cyclonic Circulation,04-07-2025,5.8 km,Gangetic West Bengal
-Trough,04-07-2025,3.1 km,Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,04-07-2025,1.5 km,Assam & Meghalaya
-Offshore Trough,04-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; South Interior Karnataka ; Coastal Karnataka
-Mean Sea Level Trough,06-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Upper-Level Cyclonic Circulation,06-07-2025,1.5 km,Himachal Pradesh ; Punjab
-Low Pressure (L) with associated CYCIR,06-07-2025,7.6 km,Gangetic West Bengal
-Trough,06-07-2025,3.1 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,06-07-2025,1.5 km,"Nagaland, Manipur, Mizoram & Tripura"
-Offshore Trough,06-07-2025,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka
-Low Pressure (L) with associated CYCIR,09-07-2025,7.6 km,Gangetic West Bengal ; Jharkhand
-Cyclonic Circulation (CYCIR),09-07-2025,1.5 km,"Haryana, Chandigarh & Delhi"
-Upper-Level Cyclonic Circulation,09-07-2025,0.9 km,West Uttar Pradesh
-Trough,09-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Odisha
-Trough,09-07-2025,3.1 km,Assam & Meghalaya ; Telangana ; Gangetic West Bengal ; Odisha ; Chhattisgarh
-Cyclonic Circulation (CYCIR),10-07-2025,5.8 km,Jharkhand
-Cyclonic Circulation (CYCIR),10-07-2025,1.5 km to 5.8 km,Punjab
-Trough,10-07-2025,0.9 km to 1.5 km,West Uttar Pradesh ; Jharkhand ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh
-Trough,10-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Jharkhand ; Gujarat Region ; Madhya Maharashtra ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh
-Trough,10-07-2025,3.1 km,Assam & Meghalaya ; Vidarbha ; Gangetic West Bengal ; Jharkhand ; Chhattisgarh
-Upper-Level Cyclonic Circulation,10-07-2025,3.1 km,Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,10-07-2025,0.9 km,Assam & Meghalaya
-Cyclonic Circulation (CYCIR),11-07-2025,5.8 km,Chhattisgarh
-Cyclonic Circulation (CYCIR),11-07-2025,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi"
-Trough,11-07-2025,0.9 km to 1.5 km,West Uttar Pradesh ; NW Bay ; Chhattisgarh ; Odisha
-Trough,11-07-2025,5.8 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh
-Upper-Level Cyclonic Circulation,11-07-2025,1.5 km,Assam & Meghalaya
-Western Disturbances (WD),11-07-2025,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh ; North Pakistan
-Mean Sea Level Trough,12-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Cyclonic Circulation (CYCIR),12-07-2025,1.5 km to 5.8 km,"Haryana, Chandigarh & Delhi"
-Cyclonic Circulation (CYCIR),12-07-2025,5.8 km,East Madhya Pradesh
-Trough,12-07-2025,0.9 km,"Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NW Bay"
-Upper-Level Cyclonic Circulation,12-07-2025,0.9 km,Assam & Meghalaya
-Western Disturbances (WD),12-07-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; Himachal Pradesh ; Ladakh
-Monsoon Trough with Extension and Tilt,13-07-2025,3.1 km,West Rajasthan ; West Madhya Pradesh ; West Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Upper-Level Cyclonic Circulation,13-07-2025,5.8 km,NW Bay ; NE Bay
-Cyclonic Circulation (CYCIR),13-07-2025,7.6 km,West Madhya Pradesh ; East Madhya Pradesh
-Western Disturbances (WD),13-07-2025,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; Far West Pakistan ; South Pakistan
-Trough,13-07-2025,0.9 km to 3.1 km,East Rajasthan ; NW Bay ; Odisha ; Gangetic West Bengal
-Western Disturbances (WD),13-07-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; Himachal Pradesh ; Ladakh
-Mean Sea Level Trough,14-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh
-Well Marked Low Pressure Area (WML) with associated CYCIR,14-07-2025,7.6 km,Gangetic West Bengal ; Bangladesh
-Well Marked Low Pressure Area (WML) with associated CYCIR,14-07-2025,7.6 km,East Rajasthan ; West Madhya Pradesh
-Western Disturbances (WD),14-07-2025,5.8 km,West Pakistan ; South Pakistan
-Mean Sea Level Trough,15-07-2025,Surface,West Rajasthan ; East Rajasthan ; Jharkhand ; Bihar ; Gangetic West Bengal ; NE Bay
-Western Disturbances (WD),15-07-2025,5.8 km,West Pakistan ; South Pakistan
-Well Marked Low Pressure Area (WML) with associated CYCIR,16-07-2025,5.8 km,West Rajasthan
-Well Marked Low Pressure Area (WML) with associated CYCIR,16-07-2025,7.6 km,Bihar ; East Uttar Pradesh
-Mean Sea Level Trough,16-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; Bihar ; East Uttar Pradesh ; Gangetic West Bengal ; NE Bay
-Western Disturbances (WD),16-07-2025,5.8 km,South Pakistan ; West Pakistan ; Central Pakistan
-Cyclonic Circulation (CYCIR),17-07-2025,3.1 km,Central Pakistan
-Mean Sea Level Trough,17-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay
-Western Disturbances (WD),17-07-2025,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
-Upper-Level Cyclonic Circulation,17-07-2025,3.1 km,North Interior Karnataka
-Mean Sea Level Trough,18-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Upper-Level Cyclonic Circulation,18-07-2025,1.5 km,Central Pakistan
-Western Disturbances (WD),18-07-2025,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; Far West Pakistan ; South Pakistan
-Upper-Level Cyclonic Circulation,18-07-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,18-07-2025,5.8 km,Coastal Andhra Pradesh
-Trough,18-07-2025,4.5 km to 5.8 km,Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,18-07-2025,3.1 km,Madhya Maharashtra
-Western Disturbances (WD),18-07-2025,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
-Mean Sea Level Trough,19-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay
-Western Disturbances (WD),19-07-2025,5.8 km,North Pakistan
-Trough,19-07-2025,0.9 km,Bihar ; Jharkhand ; Odisha
-Trough,19-07-2025,5.8 km,South Interior Karnataka ; Coastal Andhra Pradesh
-Monsoon Trough with Extension and Tilt,21-07-2025,Surface,"Jammu & Kashmir ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Cyclonic Circulation (CYCIR),21-07-2025,3.1 km,West Rajasthan ; Pakistan
-Upper-Level Cyclonic Circulation,21-07-2025,5.8 km,Odisha
-Trough,21-07-2025,5.8 km,North Interior Karnataka ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,21-07-2025,1.5 km,Assam & Meghalaya
-Mean Sea Level Trough,22-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Upper-Level Cyclonic Circulation,22-07-2025,5.8 km,Coastal Andhra Pradesh
-Trough,22-07-2025,5.8 km,North Interior Karnataka ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,22-07-2025,1.5 km,Chhattisgarh
-Upper-Level Cyclonic Circulation,22-07-2025,1.5 km,Jharkhand
-Trough,22-07-2025,1.5 km,Arunachal Pradesh ; Nagaland-Manipur-Mizoram-Tripura ; Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,23-07-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay"
-Upper-Level Cyclonic Circulation,23-07-2025,3.1 km to 5.8 km,WC Bay ; NW Bay
-Trough,23-07-2025,5.8 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Telangana ; Coastal Andhra Pradesh ; WC Bay ; NW Bay
-Upper-Level Cyclonic Circulation,23-07-2025,1.5 km,Assam & Meghalaya
-Western Disturbances (WD),23-07-2025,3.1 km to 5.8 km,Jammu & Kashmir ; Himachal Pradesh
-Upper-Level Cyclonic Circulation,23-07-2025,3.1 km,West Rajasthan
-Mean Sea Level Trough,25-07-2025,Surface,"Jammu & Kashmir ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NW Bay ; Bangladesh"
-Trough,25-07-2025,4.5 km to 5.8 km,NE Arabian Sea ; Madhya Maharashtra ; Chhattisgarh
-Western Disturbances (WD),25-07-2025,3.1 km to 5.8 km,Jammu & Kashmir
-Trough,25-07-2025,3.1 km,"Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Odisha"
-Upper-Level Cyclonic Circulation,25-07-2025,4.5 km to 5.8 km,Chhattisgarh
-Upper-Level Cyclonic Circulation,25-07-2025,3.1 km,"Haryana, Chandigarh & Delhi"
-Mean Sea Level Trough,26-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Upper-Level Cyclonic Circulation,26-07-2025,1.5 km,"Punjab ; Haryana, Chandigarh & Delhi"
-Offshore Trough,26-07-2025,Surface,Saurashtra & Kutch ; Gujarat Region ; Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; Kerala
-Upper-Level Cyclonic Circulation,26-07-2025,3.1 km to 5.8 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,26-07-2025,3.1 km,Gujarat Region
-Western Disturbances (WD),26-07-2025,3.1 km to 5.8 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,26-07-2025,1.5 km,Assam & Meghalaya
-Mean Sea Level Trough,27-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Well Marked Low Pressure Area (WML) with associated CYCIR,27-07-2025,7.6 km,West Madhya Pradesh
-Trough,27-07-2025,0.9 km to 5.8 km,West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh
-Upper-Level Cyclonic Circulation,27-07-2025,0.9 km,Punjab
-Offshore Trough,27-07-2025,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Kerala
-Western Disturbances (WD),27-07-2025,3.1 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,27-07-2025,1.5 km to 3.1 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,31-07-2025,5.8 km,West Uttar Pradesh
-Upper-Level Cyclonic Circulation,31-07-2025,9.6 km,Gangetic West Bengal
-Western Disturbances (WD),31-07-2025,5.8 km,Punjab ; Pakistan ; Jammu & Kashmir
-Upper-Level Cyclonic Circulation,31-07-2025,1.5 km,East Rajasthan
-Low Pressure (L) with associated CYCIR,01-07-2025,5.8 km,Jharkhand
-Mean Sea Level Trough,01-07-2025,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay"
-Trough,01-07-2025,1.5 km to 3.1 km,West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand
-Upper-Level Cyclonic Circulation,01-07-2025,0.9 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,07-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Low Pressure (L) with associated CYCIR,07-07-2025,7.6 km,Gangetic West Bengal
-Trough,07-07-2025,3.1 km to 7.6 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,07-07-2025,1.5 km,"Haryana, Chandigarh & Delhi ; Himachal Pradesh"
-Offshore Trough,07-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra
-Low Pressure (L) with associated CYCIR,08-07-2025,7.6 km,Gangetic West Bengal
-Monsoon Trough with Extension and Tilt,08-07-2025,0.9 km,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay"
-Cyclonic Circulation (CYCIR),08-07-2025,3.1 km,Gujarat Region
-Trough,08-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Odisha
-Well Marked Low Pressure Area (WML) with associated CYCIR,20-07-2025,4.5 km,West Rajasthan ; Pakistan ; Central Pakistan
-Mean Sea Level Trough,20-07-2025,Surface,"West Rajasthan ; Pakistan ; Central Pakistan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
-Trough,20-07-2025,0.9 km to 1.5 km,Bihar ; Odisha ; Jharkhand
-Upper-Level Cyclonic Circulation,20-07-2025,0.9 km,Bangladesh
-Upper-Level Cyclonic Circulation,20-07-2025,3.1 km,WC Bay ; NW Bay ; Odisha ; Coastal Andhra Pradesh
-Trough,20-07-2025,5.8 km,South Interior Karnataka ; Coastal Andhra Pradesh
-Western Disturbances (WD),20-07-2025,5.8 km,North Pakistan ; Jammu & Kashmir
-Monsoon Trough with Extension and Tilt,24-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Bihar ; Jharkhand ; Gangetic West Bengal ; NW Bay ; NE Bay"
-Low Pressure (L) with associated CYCIR,24-07-2025,7.6 km,NW Bay ; NE Bay
-Trough,24-07-2025,5.8 km,Vidarbha ; Chhattisgarh ; NW Bay ; NE Bay
-Upper-Level Cyclonic Circulation,24-07-2025,0.9 km,Bangladesh
-Western Disturbances (WD),24-07-2025,3.1 km to 5.8 km,Jammu & Kashmir ; Himachal Pradesh
-Upper-Level Cyclonic Circulation,24-07-2025,3.1 km,West Rajasthan
-Upper-Level Cyclonic Circulation,24-07-2025,1.5 km,East Uttar Pradesh
-Offshore Trough,24-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; South Interior Karnataka ; Kerala
-Low Pressure (L) with associated CYCIR,28-07-2025,5.8 km,West Madhya Pradesh ; East Rajasthan
-Trough,28-07-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh
-Upper-Level Cyclonic Circulation,28-07-2025,0.9 km,Punjab
-Western Disturbances (WD),28-07-2025,5.8 km,West Pakistan
-Upper-Level Cyclonic Circulation,28-07-2025,5.8 km,Bangladesh
-Trough,28-07-2025,0.9 km to 3.1 km,"Bihar ; Nagaland, Manipur, Mizoram & Tripura ; Bangladesh ; Assam & Meghalaya"
-Western Disturbances (WD),28-07-2025,3.1 km,Jammu & Kashmir
-Trough,29-07-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; Jharkhand ; Chhattisgarh ; Gangetic West Bengal ; Bangladesh
-Upper-Level Cyclonic Circulation,29-07-2025,1.5 km,Punjab ; Pakistan
-Western Disturbances (WD),29-07-2025,5.8 km,North Pakistan
-Upper-Level Cyclonic Circulation,29-07-2025,5.8 km to 7.6 km,Gangetic West Bengal
-Upper-Level Cyclonic Circulation,29-07-2025,1.5 km,West Uttar Pradesh
-Cyclonic Circulation (CYCIR),30-07-2025,7.6 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,30-07-2025,1.5 km to 5.8 km,NW Bay ; Gangetic West Bengal ; Odisha
-Western Disturbances (WD),30-07-2025,3.1 km to 5.8 km,Punjab ; Pakistan
-Upper-Level Cyclonic Circulation,30-07-2025,1.5 km,West Rajasthan
-Trough,30-07-2025,0.9 km,West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh ; NE Bay
-Mean Sea Level Trough,01-08-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
-Upper-Level Cyclonic Circulation,01-08-2025,1.5 km,East Uttar Pradesh
-Upper-Level Cyclonic Circulation,01-08-2025,9.4 km,Sub-Himalayan West Bengal & Sikkim
-Western Disturbances (WD),01-08-2025,5.8 km,North Pakistan ; Jammu & Kashmir
-Upper-Level Cyclonic Circulation,01-08-2025,3.1 km,"Haryana, Chandigarh & Delhi"
-Upper-Level Cyclonic Circulation,02-08-2025,5.8 km,Bihar ; Sub-Himalayan West Bengal & Sikkim
-Upper-Level Cyclonic Circulation,02-08-2025,3.1 km,Punjab
-Western Disturbances (WD),02-08-2025,5.8 km,North Pakistan ; Jammu & Kashmir
-Upper-Level Cyclonic Circulation,02-08-2025,5.8 km,Gulf of Mannar ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,02-08-2025,1.5 km,East Uttar Pradesh
-Upper-Level Cyclonic Circulation,03-08-2025,4.5 km,Bihar ; East Uttar Pradesh
-Upper-Level Cyclonic Circulation,03-08-2025,4.5 km,Punjab
-Upper-Level Cyclonic Circulation,03-08-2025,1.5 km to 4.5 km,SW Bay ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,03-08-2025,5.8 km,NE Arabian Sea
-Upper-Level Cyclonic Circulation,03-08-2025,3.1 km,Gujarat Region ; West Rajasthan
-Western Disturbances (WD),03-08-2025,5.8 km,Jammu & Kashmir ; North Pakistan ; Himachal Pradesh ; Ladakh
-Monsoon Trough with Extension and Tilt,04-08-2025,Surface,Punjab ; Uttarakhand ; West Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh
-Upper-Level Cyclonic Circulation,04-08-2025,3.1 km to 5.8 km,SW Bay ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,04-08-2025,4.5 km,Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,04-08-2025,3.1 km,West Rajasthan
-Western Disturbances (WD),04-08-2025,5.8 km,Himachal Pradesh ; Jammu & Kashmir
-Trough,04-08-2025,0.9 km,West Uttar Pradesh ; East Uttar Pradesh ; Bihar
-Upper-Level Cyclonic Circulation,04-08-2025,1.5 km,Himachal Pradesh
-Upper-Level Cyclonic Circulation,04-08-2025,3.1 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,05-08-2025,Surface,Punjab ; West Uttar Pradesh ; Bihar ; Arunachal Pradesh
-Upper-Level Cyclonic Circulation,05-08-2025,1.5 km to 7.6 km,SW Bay ; Tamil Nadu & Puducherry
-Trough,05-08-2025,3.1 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; East Rajasthan ; Gujarat Region ; NE Arabian Sea"
-Upper-Level Cyclonic Circulation,05-08-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,05-08-2025,1.5 km,Rayalaseema
-Western Disturbances (WD),05-08-2025,5.8 km,West Rajasthan ; North Pakistan ; Gujarat ; Konkan & Goa ; Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,05-08-2025,4.5 km to 7.6 km,Bangladesh
-Upper-Level Cyclonic Circulation,05-08-2025,3.1 km,Kerala
-Upper-Level Cyclonic Circulation,06-08-2025,5.8 km to 7.6 km,Bangladesh
-Trough,06-08-2025,3.1 km to 4.5 km,Bihar ; Bangladesh ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Bihar
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Madhya Maharashtra
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Rayalaseema
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,SW Bay ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,South Interior Karnataka
-Trough,06-08-2025,3.1 km,EC Arabian Sea ; SW Bay ; SE Bay ; Kerala ; South Interior Karnataka ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh
-Trough,06-08-2025,3.1 km to 4.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Saurashtra & Kutch ; East Rajasthan ; Gujarat Region
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand
-Western Disturbances (WD),06-08-2025,5.8 km,Punjab
-Westerly Trough,06-08-2025,7.6 km,Konkan & Goa ; West Rajasthan ; North Pakistan ; Jammu & Kashmir ; Coastal Karnataka
-Monsoon Trough with Extension and Tilt,06-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh"
-Upper-Level Cyclonic Circulation,06-08-2025,5.8 km to 7.6 km,Bangladesh
-Trough,06-08-2025,3.1 km to 4.5 km,Bihar ; Bangladesh ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Bihar
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Madhya Maharashtra
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Rayalaseema
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,SW Bay ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,South Interior Karnataka
-Trough,06-08-2025,3.1 km,EC Arabian Sea ; SW Bay ; Kerala ; South Interior Karnataka ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh
-Trough,06-08-2025,3.1 km to 4.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Saurashtra & Kutch ; East Rajasthan ; Gujarat Region
-Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand
-Western Disturbances (WD),06-08-2025,5.8 km,Punjab
-Westerly Trough,06-08-2025,7.6 km,Konkan & Goa ; West Rajasthan ; North Pakistan ; Jammu & Kashmir ; Coastal Karnataka
-Upper-Level Cyclonic Circulation,07-08-2025,3.1 km to 5.8 km,Bangladesh
-Upper-Level Cyclonic Circulation,07-08-2025,1.5 km to 3.1 km,SW Bay ; Tamil Nadu & Puducherry
-Trough,07-08-2025,1.5 km to 3.1 km,Coastal Karnataka ; South Interior Karnataka ; Rayalaseema ; Tamil Nadu & Puducherry ; SW Bay ; SE Bay
-Upper-Level Cyclonic Circulation,07-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh
-Upper-Level Cyclonic Circulation,07-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand
-Western Disturbances (WD),07-08-2025,5.8 km,Punjab
-Westerly Trough,07-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
-Mean Sea Level Trough,09-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay"
-Upper-Level Cyclonic Circulation,09-08-2025,3.1 km,West Uttar Pradesh
-Trough,09-08-2025,1.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand
-Upper-Level Cyclonic Circulation,09-08-2025,5.8 km,North Interior Karnataka
-Upper-Level Cyclonic Circulation,09-08-2025,1.5 km to 3.1 km,Coastal Andhra Pradesh
-Trough,09-08-2025,3.1 km,Gujarat Region ; West Madhya Pradesh ; West Uttar Pradesh
-Upper-Level Cyclonic Circulation,09-08-2025,3.1 km,Bihar ; Jharkhand
-Upper-Level Cyclonic Circulation,09-08-2025,1.5 km,Assam & Meghalaya
-Western Disturbances (WD),09-08-2025,3.1 km,Jammu & Kashmir
-Westerly Trough,09-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
-Mean Sea Level Trough,10-08-2025,Surface,Punjab ; West Uttar Pradesh ; East Uttar Pradesh ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh
-Upper-Level Cyclonic Circulation,10-08-2025,4.5 km,West Uttar Pradesh ; East Uttar Pradesh
-Upper-Level Cyclonic Circulation,10-08-2025,4.5 km to 5.8 km,North Interior Karnataka
-Upper-Level Cyclonic Circulation,10-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,10-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch
-Western Disturbances (WD),10-08-2025,3.1 km to 5.8 km,North pakistan
-Upper-Level Cyclonic Circulation,11-08-2025,3.1 km,West Uttar Pradesh
-Upper-Level Cyclonic Circulation,11-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,11-08-2025,3.1 km,Saurashtra & Kutch
-Western Disturbances (WD),11-08-2025,3.1 km to 5.8 km,North pakistan
-Upper-Level Cyclonic Circulation,11-08-2025,3.1 km to 5.8 km,Coastal Andhra Pradesh ; Telangana
-Mean Sea Level Trough,15-08-2025,Surface,West Rajasthan ; East Rajasthan ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh
-Low Pressure (L) with associated CYCIR,15-08-2025,7.6 km,Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,15-08-2025,3.1 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,15-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa
-Trough,15-08-2025,3.1 km to 4.5 km,Gangetic West Bengal ; Odisha ; Coastal Andhra Pradesh ; Telangana ; Madhya Maharashtra ; Marathwada ; EC Arabian Sea
-Upper-Level Cyclonic Circulation,15-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,16-08-2025,3.1 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,16-08-2025,1.5 km to 3.1 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa
-Trough,16-08-2025,1.5 km to 4.5 km,NE Arabian Sea ; Madhya Maharashtra ; Chhattisgarh
-Upper-Level Cyclonic Circulation,12-08-2025,0.9 km,West Uttar Pradesh
-Upper-Level Cyclonic Circulation,12-08-2025,3.1 km,Assam & Meghalaya
-Western Disturbances (WD),12-08-2025,3.1 km to 5.8 km,North pakistan ; Jammu & Kashmir
-Trough,12-08-2025,1.5 km,Bihar ; Odisha
-Upper-Level Cyclonic Circulation,12-08-2025,3.1 km to 5.8 km,WC Bay ; EC Bay
-Upper-Level Cyclonic Circulation,12-08-2025,5.8 km,North Interior Karnataka
-Trough,12-08-2025,5.8 km,WC Bay ; EC Bay ; North Interior Karnataka
-Monsoon Trough with Extension and Tilt,13-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Odisha ; WC Bay ; NW Bay ; Coastal Andhra Pradesh"
-Low Pressure (L) with associated CYCIR,13-08-2025,7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Trough,13-08-2025,3.1 km to 5.8 km,WC Bay ; EC Bay ; NE Arabian Sea ; Saurashtra & Kutch ; Telangana ; Madhya Maharashtra ; North Interior Karnataka ; Gujarat Region
-Upper-Level Cyclonic Circulation,13-08-2025,3.1 km,Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,13-08-2025,3.1 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,13-08-2025,0.9 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi"
-Upper-Level Cyclonic Circulation,13-08-2025,1.5 km,East Uttar Pradesh
-Trough,13-08-2025,1.5 km,East Uttar Pradesh ; Chhattisgarh ; WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Low Pressure (L) with associated CYCIR,14-08-2025,7.6 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,14-08-2025,1.5 km,Punjab
-Upper-Level Cyclonic Circulation,14-08-2025,0.9 km,West Uttar Pradesh
-Trough,14-08-2025,1.5 km to 3.1 km,WC Bay ; EC Bay ; SW Bay ; SE Bay ; NE Arabian Sea ; Saurashtra & Kutch ; Telangana ; Madhya Maharashtra ; North Interior Karnataka ; Gujarat Region
-Upper-Level Cyclonic Circulation,14-08-2025,1.5 km to 3.1 km,NE Arabian Sea ; Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,14-08-2025,1.5 km,Assam & Meghalaya
-Low Pressure (L) with associated CYCIR,17-08-2025,9.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Low Pressure (L) with associated CYCIR,17-08-2025,5.8 km,Vidarbha
-Upper-Level Cyclonic Circulation,17-08-2025,1.5 km,Central Pakistan ; Punjab
-Upper-Level Cyclonic Circulation,17-08-2025,1.5 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa
-Monsoon Trough with Extension and Tilt,18-08-2025,1.5 km,Saurashtra & Kutch ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; WC Bay ; NW Bay ; EC Bay ; Coastal Andhra Pradesh ; Odisha
-Well Marked Low Pressure Area (WML) with associated CYCIR,18-08-2025,9.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Upper-Level Cyclonic Circulation,18-08-2025,1.5 km,Vidarbha
-Upper-Level Cyclonic Circulation,18-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch
-Trough,18-08-2025,0.9 km to 3.1 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; NE Arabian Sea ; Gujarat Region ; Vidarbha ; Marathwada
-Western Disturbances (WD),18-08-2025,3.1 km,Pakistan ; North pakistan
-Monsoon Trough with Extension and Tilt,19-08-2025,1.5 km,Saurashtra & Kutch ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Odisha ; EC Bay
-Upper-Level Cyclonic Circulation,19-08-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region
-Western Disturbances (WD),19-08-2025,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir
-Monsoon Trough with Extension and Tilt,20-08-2025,1.5 km,Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay
-Cyclonic Circulation (CYCIR),20-08-2025,4.5 km,East Madhya Pradesh
-Western Disturbances (WD),20-08-2025,3.1 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,20-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,20-08-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region
-Monsoon Trough with Extension and Tilt,21-08-2025,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Upper-Level Cyclonic Circulation,21-08-2025,7.6 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,21-08-2025,5.8 km,Odisha ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,21-08-2025,5.8 km,Saurashtra & Kutch
-Western Disturbances (WD),21-08-2025,3.1 km,Jammu & Kashmir
-Upper-Level Cyclonic Circulation,21-08-2025,0.9 km to 1.5 km,Assam & Meghalaya
-Offshore Trough,21-08-2025,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Madhya Maharashtra
-Upper-Level Cyclonic Circulation,22-08-2025,7.6 km,Gangetic West Bengal ; Bangladesh
-Upper-Level Cyclonic Circulation,22-08-2025,7.6 km,West Uttar Pradesh
-Upper-Level Cyclonic Circulation,22-08-2025,0.9 km,West Rajasthan
-Western Disturbances (WD),22-08-2025,3.1 km,Himachal Pradesh ; Ladakh ; Jammu & Kashmir
-Low Pressure (L) with associated CYCIR,23-08-2025,7.6 km,Gangetic West Bengal
-Upper-Level Cyclonic Circulation,23-08-2025,5.8 km,West Madhya Pradesh ; East Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh
-Upper-Level Cyclonic Circulation,23-08-2025,1.5 km,Punjab
-Upper-Level Cyclonic Circulation,23-08-2025,3.1 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,24-08-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay
-Low Pressure (L) with associated CYCIR,24-08-2025,7.6 km,East Madhya Pradesh ; West Madhya Pradesh
-Western Disturbances (WD),24-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
-Upper-Level Cyclonic Circulation,24-08-2025,5.8 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,24-08-2025,1.5 km,Punjab
-Upper-Level Cyclonic Circulation,25-08-2025,5.8 km,"Haryana, Chandigarh & Delhi ; East Rajasthan"
-Upper-Level Cyclonic Circulation,25-08-2025,1.5 km to 5.8 km,NW Bay ; Odisha ; Gangetic West Bengal
-Trough,25-08-2025,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; NW Bay ; Odisha"
-Western Disturbances (WD),25-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
-Low Pressure (L) with associated CYCIR,26-08-2025,7.6 km,NW Bay ; Odisha
-Upper-Level Cyclonic Circulation,26-08-2025,5.8 km,"Haryana, Chandigarh & Delhi ; East Rajasthan"
-Trough,26-08-2025,1.5 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay"
-Western Disturbances (WD),26-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan
-Well Marked Low Pressure Area (WML) with associated CYCIR,27-08-2025,7.6 km,NW Bay ; Odisha
-Upper-Level Cyclonic Circulation,27-08-2025,1.5 km,Punjab
-Western Disturbances (WD),27-08-2025,3.1 km to 5.8 km,North pakistan
-Trough,27-08-2025,1.5 km,"West Madhya Pradesh ; East Madhya Pradesh ; Punjab ; East Rajasthan ; Haryana, Chandigarh & Delhi"
-Low Pressure (L) with associated CYCIR,28-08-2025,5.8 km,Chhattisgarh
-Western Disturbances (WD),28-08-2025,5.8 km,North pakistan ; Punjab
-Upper-Level Cyclonic Circulation,28-08-2025,1.5 km,Punjab
-Upper-Level Cyclonic Circulation,28-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,29-08-2025,7.6 km,Vidarbha
-Western Disturbances (WD),29-08-2025,5.8 km,North pakistan ; Punjab
-Trough,29-08-2025,5.8 km to 7.6 km,Chhattisgarh ; Kerala ; Vidarbha ; North Interior Karnataka ; South Interior Karnataka
-Upper-Level Cyclonic Circulation,29-08-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,30-08-2025,3.1 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,30-08-2025,0.9 km,Assam & Meghalaya
-Western Disturbances (WD),30-08-2025,5.8 km to 9.6 km,North pakistan ; Punjab
-Upper-Level Cyclonic Circulation,31-08-2025,0.9 km,West Madhya Pradesh
-Upper-Level Cyclonic Circulation,31-08-2025,1.5 km,West Rajasthan ; East Rajasthan
-Western Disturbances (WD),31-08-2025,1.5 km to 5.8 km,North pakistan ; Punjab
-Upper-Level Cyclonic Circulation,31-08-2025,1.5 km to 5.8 km,NW Bay ; Odisha
-Upper-Level Cyclonic Circulation,08-08-2025,1.5 km to 3.1 km,Coastal Andhra Pradesh
-Western Disturbances (WD),08-08-2025,5.8 km,Punjab
-Westerly Trough,08-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
-Trough,08-08-2025,3.1 km,East Uttar Pradesh ; Bangladesh ; Bihar ; Jharkhand ; Gangetic West Bengal
-Upper-Level Cyclonic Circulation,08-08-2025,5.8 km,North Interior Karnataka
-Upper-Level Cyclonic Circulation,08-08-2025,3.1 km to 5.8 km,Bangladesh ; Gangetic West Bengal ; NW Bay
-Trough,08-08-2025,1.5 km,Coastal Andhra Pradesh ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,01-09-2025,5.8 km,NE Bay
-Trough,01-09-2025,1.5 km,NE Bay ; Odisha
-Upper-Level Cyclonic Circulation,01-09-2025,1.5 km,NW Bay ; Odisha
-Upper-Level Cyclonic Circulation,01-09-2025,5.8 km,West Rajasthan
-Trough,01-09-2025,3.1 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand
-Upper-Level Cyclonic Circulation,01-09-2025,0.9 km,West Madhya Pradesh
-Western Disturbances (WD),01-09-2025,5.8 km,North Pakistan ; Jammu & Kashmir
-Low Pressure (L) with associated CYCIR,02-09-2025,7.6 km,NW Bay
-Upper-Level Cyclonic Circulation,02-09-2025,1.5 km,"Haryana, Chandigarh & Delhi"
-Trough,02-09-2025,3.1 km to 5.8 km,"Jammu & Kashmir ; West Madhya Pradesh ; Punjab ; Haryana, Chandigarh & Delhi ; East Rajasthan"
-Western Disturbances (WD),02-09-2025,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Well Marked Low Pressure Area (WML) with associated CYCIR,03-09-2025,7.6 km,NW Bay ; Odisha
-Upper-Level Cyclonic Circulation,03-09-2025,1.5 km,"Haryana, Chandigarh & Delhi"
-Upper-Level Cyclonic Circulation,03-09-2025,5.8 km to 7.6 km,Vidarbha
-Western Disturbances (WD),03-09-2025,3.1 km to 4.5 km,North pakistan ; Punjab
-Westerly Trough,03-09-2025,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
-Monsoon Trough with Extension and Tilt,04-09-2025,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay
-Low Pressure (L) with associated CYCIR,04-09-2025,5.8 km,Chhattisgarh ; East Madhya Pradesh
-Upper-Level Cyclonic Circulation,04-09-2025,5.8 km,West Madhya Pradesh
-Trough,04-09-2025,3.1 km to 5.8 km,NE Arabian Sea ; Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; Chhattisgarh ; East Madhya Pradesh ; Odisha ; NW Bay
-Western Disturbances (WD),04-09-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; North Pakistan ; Delhi
-Upper-Level Cyclonic Circulation,04-09-2025,1.5 km,Assam & Meghalaya
-Monsoon Trough with Extension and Tilt,05-09-2025,0.9 km,West Rajasthan ; West Madhya Pradesh ; East Rajasthan ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Upper-Level Cyclonic Circulation,05-09-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch
-Trough,05-09-2025,1.5 km to 5.8 km,NE Arabian Sea ; Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; East Rajasthan ; NW Bay
-Well Marked Low Pressure Area (WML) with associated CYCIR,05-09-2025,7.6 km,West Madhya Pradesh ; East Rajasthan
-Western Disturbances (WD),05-09-2025,5.8 km,West Pakistan ; South Pakistan ; Central Pakistan
-Western Disturbances (WD),05-09-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; North Pakistan ; Himachal Pradesh
-Well Marked Low Pressure Area (WML) with associated CYCIR,06-09-2025,9.6 km,West Rajasthan ; East Rajasthan
-Trough,06-09-2025,0.9 km to 1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand
-Western Disturbances (WD),06-09-2025,5.8 km,Central Pakistan ; South Pakistan ; West Pakistan ; North Pakistan
-Trough,06-09-2025,3.1 km to 7.6 km,Punjab ; West Rajasthan ; East Rajasthan ; Gujarat Region ; Konkan & Goa ; EC Arabian Sea
-Upper-Level Cyclonic Circulation,06-09-2025,3.1 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh
-Trough,07-09-2025,3.1 km to 7.6 km,Gujarat Region ; West Rajasthan ; Chhattisgarh ; West Madhya Pradesh ; East Madhya Pradesh
-Upper-Level Cyclonic Circulation,07-09-2025,1.5 km,East Uttar Pradesh
-Upper-Level Cyclonic Circulation,07-09-2025,3.1 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,07-09-2025,3.1 km to 5.8 km,Assam & Meghalaya
-Western Disturbances (WD),07-09-2025,5.8 km,Central Pakistan ; South Pakistan ; West Pakistan ; North Pakistan
-Monsoon Trough with Extension and Tilt,08-09-2025,Surface,Pakistan ; West Rajasthan ; Saurashtra & Kutch ; East Rajasthan ; East Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay
-Upper-Level Cyclonic Circulation,08-09-2025,0.9 km,Punjab
-Trough,08-09-2025,1.5 km,Pakistan ; West Rajasthan ; Saurashtra & Kutch ; Punjab
-Upper-Level Cyclonic Circulation,08-09-2025,1.5 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh
-Western Disturbances (WD),08-09-2025,5.8 km,North Pakistan ; Jammu & Kashmir
-Monsoon Trough with Extension and Tilt,09-09-2025,Surface,Pakistan ; West Rajasthan ; Odisha ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay
-Trough,09-09-2025,3.1 km,Pakistan ; West Rajasthan
-Upper-Level Cyclonic Circulation,09-09-2025,4.5 km,Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,09-09-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,09-09-2025,3.1 km,Bihar
-Upper-Level Cyclonic Circulation,09-09-2025,1.5 km,Gulf of Mannar ; Tamil Nadu & Puducherry
-Trough,09-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Gulf of Mannar
-Westerly Trough,09-09-2025,1.5 km,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bihar ; Jharkhand ; Bangladesh
-Monsoon Trough with Extension and Tilt,10-09-2025,Surface,NE Arabian Sea ; Pakistan ; Saurashtra & Kutch ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay
-Upper-Level Cyclonic Circulation,10-09-2025,3.1 km,Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,10-09-2025,3.1 km,Sikkim ; Sub-Himalayan West Bengal & Sikkim
-Trough,10-09-2025,1.5 km,South Interior Karnataka ; Gulf of Mannar
-Westerly Trough,10-09-2025,0.9 km,Bihar ; Jharkhand ; Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; East Uttar Pradesh
-Well Marked Low Pressure Area (WML) with associated CYCIR,11-09-2025,5.8 km,NW Arabian Sea ; Pakistan
-Monsoon Trough with Extension and Tilt,11-09-2025,Surface,West Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay
-Upper-Level Cyclonic Circulation,11-09-2025,4.5 km,Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,11-09-2025,3.1 km,Sikkim ; Sub-Himalayan West Bengal & Sikkim
-Trough,11-09-2025,0.9 km,Sub-Himalayan West Bengal & Sikkim ; Jharkhand ; Odisha ; Coastal Andhra Pradesh ; WC Bay
-Upper-Level Cyclonic Circulation,11-09-2025,0.9 km,Assam & Meghalaya
-Western Disturbances (WD),11-09-2025,5.8 km,Himachal Pradesh
-Mean Sea Level Trough,12-09-2025,Surface,Punjab ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Low Pressure (L) with associated CYCIR,12-09-2025,5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha
-Western Disturbances (WD),12-09-2025,5.8 km,Himachal Pradesh
-Upper-Level Cyclonic Circulation,12-09-2025,0.9 km,"Haryana, Chandigarh & Delhi"
-Upper-Level Cyclonic Circulation,12-09-2025,0.9 km,Jharkhand
-Trough,12-09-2025,3.1 km to 5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; Chhattisgarh ; Vidarbha ; Madhya Maharashtra
-Upper-Level Cyclonic Circulation,12-09-2025,1.5 km,"Nagaland, Manipur, Mizoram & Tripura"
-Low Pressure (L) with associated CYCIR,13-09-2025,5.8 km,WC Bay ; NW Bay ; Odisha ; Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,13-09-2025,0.9 km,Bihar ; Jharkhand
-Trough,13-09-2025,3.1 km to 5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; Chhattisgarh ; Vidarbha ; Madhya Maharashtra
-Cyclonic Circulation (CYCIR),13-09-2025,5.8 km,NW Arabian Sea
-Upper-Level Cyclonic Circulation,13-09-2025,3.1 km to 4.5 km,East Rajasthan
-Upper-Level Cyclonic Circulation,13-09-2025,3.1 km,Assam & Meghalaya
-Trough,13-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Gulf of Mannar
-Low Pressure (L) with associated CYCIR,14-09-2025,4.5 km,Telangana ; Vidarbha
-Trough,14-09-2025,3.1 km to 4.5 km,Telangana ; Vidarbha ; North Interior Karnataka ; Madhya Maharashtra ; Konkan & Goa
-Upper-Level Cyclonic Circulation,14-09-2025,3.1 km to 5.8 km,Bangladesh
-Upper-Level Cyclonic Circulation,14-09-2025,3.1 km,Assam & Meghalaya
-Westerly Trough,14-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Jharkhand
-Upper-Level Cyclonic Circulation,14-09-2025,3.1 km to 5.8 km,SE Bay
-Cyclonic Circulation (CYCIR),14-09-2025,1.5 km to 5.8 km,WC Arabian Sea ; NW Arabian Sea
-Upper-Level Cyclonic Circulation,15-09-2025,3.1 km,Vidarbha
-Upper-Level Cyclonic Circulation,15-09-2025,3.1 km to 5.8 km,Bihar
-Upper-Level Cyclonic Circulation,15-09-2025,1.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,15-09-2025,3.1 km to 4.5 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,15-09-2025,3.1 km,SE Bay
-Westerly Trough,15-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Jharkhand
-Upper-Level Cyclonic Circulation,16-09-2025,5.8 km,Vidarbha
-Upper-Level Cyclonic Circulation,16-09-2025,1.5 km to 3.1 km,Jharkhand
-Upper-Level Cyclonic Circulation,16-09-2025,5.8 km,SE Bay
-Upper-Level Cyclonic Circulation,16-09-2025,0.9 km,West Uttar Pradesh ; East Uttar Pradesh
-Trough,16-09-2025,1.5 km to 3.1 km,Jharkhand ; Bangladesh
-Trough,16-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Comorin Area
-Upper-Level Cyclonic Circulation,16-09-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,17-09-2025,3.1 km to 5.8 km,Marathwada
-Upper-Level Cyclonic Circulation,17-09-2025,3.1 km,East Uttar Pradesh ; Bihar
-Trough,17-09-2025,0.9 km,West Madhya Pradesh ; East Madhya Pradesh ; Vidarbha ; Telangana ; Coastal Andhra Pradesh ; WC Bay ; SW Bay
-Trough,17-09-2025,0.9 km,South Interior Karnataka ; Comorin Area ; Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,17-09-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,18-09-2025,1.5 km to 3.1 km,Marathwada
-Upper-Level Cyclonic Circulation,18-09-2025,1.5 km,Bihar
-Trough,18-09-2025,0.9 km,West Madhya Pradesh ; East Madhya Pradesh ; WC Bay ; SW Bay ; Vidarbha ; Telangana ; Coastal Andhra Pradesh
-Trough,18-09-2025,3.1 km,Madhya Maharashtra ; Marathwada ; WC Bay ; SW Bay ; Telangana ; Rayalaseema
-Trough,18-09-2025,3.1 km,West Uttar Pradesh ; East Uttar Pradesh ; Marathwada
-Upper-Level Cyclonic Circulation,18-09-2025,5.8 km,South Interior Karnataka
-Upper-Level Cyclonic Circulation,18-09-2025,0.9 km,Assam & Meghalaya
-Upper-Level Cyclonic Circulation,19-09-2025,3.1 km,N Andaman Sea
-Trough,19-09-2025,0.9 km,West Uttar Pradesh ; Bangladesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim
-Upper-Level Cyclonic Circulation,19-09-2025,1.5 km,West Uttar Pradesh
-Upper-Level Cyclonic Circulation,19-09-2025,1.5 km,Marathwada
-Trough,19-09-2025,1.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Marathwada ; West Madhya Pradesh ; East Madhya Pradesh ; Vidarbha
-Trough,19-09-2025,3.1 km,N Andaman Sea ; WC Bay ; Coastal Andhra Pradesh ; Rayalaseema ; North Interior Karnataka ; Madhya Maharashtra
-Western Disturbances (WD),19-09-2025,5.8 km,North Pakistan
-Upper-Level Cyclonic Circulation,20-09-2025,3.1 km,N Andaman Sea
-Upper-Level Cyclonic Circulation,20-09-2025,1.5 km,East Uttar Pradesh ; Bihar
-Trough,20-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Vidarbha ; West Madhya Pradesh ; East Madhya Pradesh
-Upper-Level Cyclonic Circulation,20-09-2025,1.5 km,Assam & Meghalaya
-Trough,20-09-2025,3.1 km,N Andaman Sea ; WC Bay ; Coastal Andhra Pradesh ; Rayalaseema ; North Interior Karnataka ; Madhya Maharashtra
-Western Disturbances (WD),20-09-2025,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh
-Upper-Level Cyclonic Circulation,21-09-2025,5.8 km,NE Bay ; Bangladesh
-Upper-Level Cyclonic Circulation,21-09-2025,3.1 km,Bihar ; Sikkim
-Upper-Level Cyclonic Circulation,21-09-2025,1.5 km,Assam & Meghalaya
-Trough,21-09-2025,3.1 km to 5.8 km,NE Bay ; Bangladesh ; WC Bay ; EC Bay ; Tamil Nadu & Puducherry ; Coastal Andhra Pradesh ; Rayalaseema
-Western Disturbances (WD),21-09-2025,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh
-Low Pressure (L) with associated CYCIR,22-09-2025,5.8 km,NE Bay
-Trough,22-09-2025,3.1 km to 4.5 km,NE Bay ; WC Bay ; Coastal Andhra Pradesh ; Telangana ; North Interior Karnataka
-Upper-Level Cyclonic Circulation,22-09-2025,5.8 km,Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,22-09-2025,5.8 km,Tamil Nadu & Puducherry
-Upper-Level Cyclonic Circulation,22-09-2025,1.5 km,East Uttar Pradesh
-Western Disturbances (WD),22-09-2025,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh
-Low Pressure (L) with associated CYCIR,23-09-2025,7.6 km,Gangetic West Bengal ; Odisha ; NW Bay
-Trough,23-09-2025,1.5 km to 3.1 km,Gangetic West Bengal ; Odisha ; NW Bay ; Telangana
-Upper-Level Cyclonic Circulation,23-09-2025,5.8 km,Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,23-09-2025,1.5 km,East Uttar Pradesh ; West Uttar Pradesh
-Trough,23-09-2025,4.5 km to 5.8 km,Gangetic West Bengal ; Odisha ; NW Bay ; Chhattisgarh ; Telangana ; North Interior Karnataka ; Madhya Maharashtra
-Upper-Level Cyclonic Circulation,23-09-2025,3.1 km,Madhya Maharashtra
-Upper-Level Cyclonic Circulation,23-09-2025,0.9 km,Assam & Meghalaya
-Trough,24-09-2025,4.5 km to 5.8 km,Odisha ; NW Bay ; Gangetic West Bengal ; South Interior Karnataka ; Chhattisgarh ; Telangana ; North Interior Karnataka
-Upper-Level Cyclonic Circulation,24-09-2025,1.5 km to 4.5 km,Madhya Maharashtra
-Upper-Level Cyclonic Circulation,24-09-2025,0.9 km,Assam & Meghalaya
-Cyclonic Circulation (CYCIR),25-09-2025,5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh
-Trough,25-09-2025,4.5 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh ; Konkan & Goa ; Madhya Maharashtra ; Telangana ; North Interior Karnataka
-Upper-Level Cyclonic Circulation,25-09-2025,3.1 km,Saurashtra & Kutch
-Trough,26-09-2025,3.1 km to 7.6 km,NW Bay ; WC Bay ; Telangana ; North Interior Karnataka ; Konkan & Goa ; Madhya Maharashtra
-Trough,27-09-2025,3.1 km to 4.5 km,Odisha ; Telangana ; North Interior Karnataka ; Konkan & Goa
-Well Marked Low Pressure Area (WML) with associated CYCIR,28-09-2025,7.6 km,Vidarbha ; Madhya Maharashtra
-Trough,28-09-2025,3.1 km,Vidarbha ; Madhya Maharashtra ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay
-Upper-Level Cyclonic Circulation,28-09-2025,1.5 km to 3.1 km,Punjab
-Well Marked Low Pressure Area (WML) with associated CYCIR,29-09-2025,7.6 km,Gujarat Region
-Trough,29-09-2025,0.9 km,Gujarat Region ; Vidarbha ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh ; WC Bay
-Upper-Level Cyclonic Circulation,29-09-2025,1.5 km to 5.8 km,Coastal Andhra Pradesh
-Upper-Level Cyclonic Circulation,29-09-2025,3.1 km,"Haryana, Chandigarh & Delhi"
-Well Marked Low Pressure Area (WML) with associated CYCIR,30-09-2025,7.6 km,Saurashtra & Kutch
-Upper-Level Cyclonic Circulation,30-09-2025,3.1 km to 7.6 km,WC Bay ; Coastal Andhra Pradesh
-Trough,30-09-2025,1.5 km,Saurashtra & Kutch ; East Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh
-Trough,30-09-2025,0.9 km,Saurashtra & Kutch ; West Rajasthan
+weather system,date,heightAboveMSL,Regions,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),02-07-2025,5.8 km,Jharkhand,,,,,,,,,,,,
+Trough,02-07-2025,0.9 km to 5.8 km,East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; NW Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),03-07-2025,0.9 km,West Rajasthan,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),03-07-2025,1.5 km,East Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-07-2025,1.5 km to 5.8 km,Odisha ; Gangetic West Bengal,,,,,,,,,,,,
+Trough,03-07-2025,3.1 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-07-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,04-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),04-07-2025,1.5 km,East Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-07-2025,5.8 km,Gangetic West Bengal,,,,,,,,,,,,
+Trough,04-07-2025,3.1 km,Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Offshore Trough,04-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; South Interior Karnataka ; Coastal Karnataka,,,,,,,,,,,,
+Mean Sea Level Trough,06-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-07-2025,1.5 km,Himachal Pradesh ; Punjab,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,06-07-2025,7.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Trough,06-07-2025,3.1 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-07-2025,1.5 km,"Nagaland, Manipur, Mizoram & Tripura",,,,,,,,,,,,
+Offshore Trough,06-07-2025,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,09-07-2025,7.6 km,Gangetic West Bengal ; Jharkhand,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),09-07-2025,1.5 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-07-2025,0.9 km,West Uttar Pradesh,,,,,,,,,,,,
+Trough,09-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Odisha,,,,,,,,,,,,
+Trough,09-07-2025,3.1 km,Assam & Meghalaya ; Telangana ; Gangetic West Bengal ; Odisha ; Chhattisgarh,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),10-07-2025,5.8 km,Jharkhand,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),10-07-2025,1.5 km to 5.8 km,Punjab,,,,,,,,,,,,
+Trough,10-07-2025,0.9 km to 1.5 km,West Uttar Pradesh ; Jharkhand ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh,,,,,,,,,,,,
+Trough,10-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Jharkhand ; Gujarat Region ; Madhya Maharashtra ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh,,,,,,,,,,,,
+Trough,10-07-2025,3.1 km,Assam & Meghalaya ; Vidarbha ; Gangetic West Bengal ; Jharkhand ; Chhattisgarh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-07-2025,3.1 km,Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-07-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),11-07-2025,5.8 km,Chhattisgarh,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),11-07-2025,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Trough,11-07-2025,0.9 km to 1.5 km,West Uttar Pradesh ; NW Bay ; Chhattisgarh ; Odisha,,,,,,,,,,,,
+Trough,11-07-2025,5.8 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),11-07-2025,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh ; North Pakistan,,,,,,,,,,,,
+Mean Sea Level Trough,12-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),12-07-2025,1.5 km to 5.8 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),12-07-2025,5.8 km,East Madhya Pradesh,,,,,,,,,,,,
+Trough,12-07-2025,0.9 km,"Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NW Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-07-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),12-07-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,13-07-2025,3.1 km,West Rajasthan ; West Madhya Pradesh ; West Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-07-2025,5.8 km,NW Bay ; NE Bay,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),13-07-2025,7.6 km,West Madhya Pradesh ; East Madhya Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),13-07-2025,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; Far West Pakistan ; South Pakistan,,,,,,,,,,,,
+Trough,13-07-2025,0.9 km to 3.1 km,East Rajasthan ; NW Bay ; Odisha ; Gangetic West Bengal,,,,,,,,,,,,
+Western Disturbances (WD),13-07-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Mean Sea Level Trough,14-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,14-07-2025,7.6 km,Gangetic West Bengal ; Bangladesh,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,14-07-2025,7.6 km,East Rajasthan ; West Madhya Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),14-07-2025,5.8 km,West Pakistan ; South Pakistan,,,,,,,,,,,,
+Mean Sea Level Trough,15-07-2025,Surface,West Rajasthan ; East Rajasthan ; Jharkhand ; Bihar ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Western Disturbances (WD),15-07-2025,5.8 km,West Pakistan ; South Pakistan,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,16-07-2025,5.8 km,West Rajasthan,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,16-07-2025,7.6 km,Bihar ; East Uttar Pradesh,,,,,,,,,,,,
+Mean Sea Level Trough,16-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; Bihar ; East Uttar Pradesh ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Western Disturbances (WD),16-07-2025,5.8 km,South Pakistan ; West Pakistan ; Central Pakistan,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),17-07-2025,3.1 km,Central Pakistan,,,,,,,,,,,,
+Mean Sea Level Trough,17-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Western Disturbances (WD),17-07-2025,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-07-2025,3.1 km,North Interior Karnataka,,,,,,,,,,,,
+Mean Sea Level Trough,18-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-07-2025,1.5 km,Central Pakistan,,,,,,,,,,,,
+Western Disturbances (WD),18-07-2025,5.8 km,Southwest Pakistan ; West Pakistan ; Central Pakistan ; Far West Pakistan ; South Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-07-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-07-2025,5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,18-07-2025,4.5 km to 5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-07-2025,3.1 km,Madhya Maharashtra,,,,,,,,,,,,
+Western Disturbances (WD),18-07-2025,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan,,,,,,,,,,,,
+Mean Sea Level Trough,19-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Western Disturbances (WD),19-07-2025,5.8 km,North Pakistan,,,,,,,,,,,,
+Trough,19-07-2025,0.9 km,Bihar ; Jharkhand ; Odisha,,,,,,,,,,,,
+Trough,19-07-2025,5.8 km,South Interior Karnataka ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,21-07-2025,Surface,"Jammu & Kashmir ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),21-07-2025,3.1 km,West Rajasthan ; Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-07-2025,5.8 km,Odisha,,,,,,,,,,,,
+Trough,21-07-2025,5.8 km,North Interior Karnataka ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Mean Sea Level Trough,22-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-07-2025,5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,22-07-2025,5.8 km,North Interior Karnataka ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-07-2025,1.5 km,Chhattisgarh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-07-2025,1.5 km,Jharkhand,,,,,,,,,,,,
+Trough,22-07-2025,1.5 km,Arunachal Pradesh ; Nagaland-Manipur-Mizoram-Tripura ; Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,23-07-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-07-2025,3.1 km to 5.8 km,WC Bay ; NW Bay,,,,,,,,,,,,
+Trough,23-07-2025,5.8 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Telangana ; Coastal Andhra Pradesh ; WC Bay ; NW Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),23-07-2025,3.1 km to 5.8 km,Jammu & Kashmir ; Himachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-07-2025,3.1 km,West Rajasthan,,,,,,,,,,,,
+Mean Sea Level Trough,25-07-2025,Surface,"Jammu & Kashmir ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NW Bay ; Bangladesh",,,,,,,,,,,,
+Trough,25-07-2025,4.5 km to 5.8 km,NE Arabian Sea ; Madhya Maharashtra ; Chhattisgarh,,,,,,,,,,,,
+Western Disturbances (WD),25-07-2025,3.1 km to 5.8 km,Jammu & Kashmir,,,,,,,,,,,,
+Trough,25-07-2025,3.1 km,"Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Odisha",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,25-07-2025,4.5 km to 5.8 km,Chhattisgarh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,25-07-2025,3.1 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Mean Sea Level Trough,26-07-2025,Surface,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,26-07-2025,1.5 km,"Punjab ; Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Offshore Trough,26-07-2025,Surface,Saurashtra & Kutch ; Gujarat Region ; Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; Kerala,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,26-07-2025,3.1 km to 5.8 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,26-07-2025,3.1 km,Gujarat Region,,,,,,,,,,,,
+Western Disturbances (WD),26-07-2025,3.1 km to 5.8 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,26-07-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Mean Sea Level Trough,27-07-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,27-07-2025,7.6 km,West Madhya Pradesh,,,,,,,,,,,,
+Trough,27-07-2025,0.9 km to 5.8 km,West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,27-07-2025,0.9 km,Punjab,,,,,,,,,,,,
+Offshore Trough,27-07-2025,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Kerala,,,,,,,,,,,,
+Western Disturbances (WD),27-07-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,27-07-2025,1.5 km to 3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-07-2025,5.8 km,West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-07-2025,9.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Western Disturbances (WD),31-07-2025,5.8 km,Punjab ; Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-07-2025,1.5 km,East Rajasthan,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,01-07-2025,5.8 km,Jharkhand,,,,,,,,,,,,
+Mean Sea Level Trough,01-07-2025,0.9 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay",,,,,,,,,,,,
+Trough,01-07-2025,1.5 km to 3.1 km,West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-07-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,07-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,07-07-2025,7.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Trough,07-07-2025,3.1 km to 7.6 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-07-2025,1.5 km,"Haryana, Chandigarh & Delhi ; Himachal Pradesh",,,,,,,,,,,,
+Offshore Trough,07-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,08-07-2025,7.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,08-07-2025,0.9 km,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),08-07-2025,3.1 km,Gujarat Region,,,,,,,,,,,,
+Trough,08-07-2025,4.5 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; Odisha,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,20-07-2025,4.5 km,West Rajasthan ; Pakistan ; Central Pakistan,,,,,,,,,,,,
+Mean Sea Level Trough,20-07-2025,Surface,"West Rajasthan ; Pakistan ; Central Pakistan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Trough,20-07-2025,0.9 km to 1.5 km,Bihar ; Odisha ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-07-2025,0.9 km,Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-07-2025,3.1 km,WC Bay ; NW Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,20-07-2025,5.8 km,South Interior Karnataka ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),20-07-2025,5.8 km,North Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,24-07-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Bihar ; Jharkhand ; Gangetic West Bengal ; NW Bay ; NE Bay",,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,24-07-2025,7.6 km,NW Bay ; NE Bay,,,,,,,,,,,,
+Trough,24-07-2025,5.8 km,Vidarbha ; Chhattisgarh ; NW Bay ; NE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-07-2025,0.9 km,Bangladesh,,,,,,,,,,,,
+Western Disturbances (WD),24-07-2025,3.1 km to 5.8 km,Jammu & Kashmir ; Himachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-07-2025,3.1 km,West Rajasthan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-07-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Offshore Trough,24-07-2025,Surface,Konkan & Goa ; Madhya Maharashtra ; North Interior Karnataka ; South Interior Karnataka ; Kerala,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,28-07-2025,5.8 km,West Madhya Pradesh ; East Rajasthan,,,,,,,,,,,,
+Trough,28-07-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,28-07-2025,0.9 km,Punjab,,,,,,,,,,,,
+Western Disturbances (WD),28-07-2025,5.8 km,West Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,28-07-2025,5.8 km,Bangladesh,,,,,,,,,,,,
+Trough,28-07-2025,0.9 km to 3.1 km,"Bihar ; Nagaland, Manipur, Mizoram & Tripura ; Bangladesh ; Assam & Meghalaya",,,,,,,,,,,,
+Western Disturbances (WD),28-07-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Trough,29-07-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; West Madhya Pradesh ; Jharkhand ; Chhattisgarh ; Gangetic West Bengal ; Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-07-2025,1.5 km,Punjab ; Pakistan,,,,,,,,,,,,
+Western Disturbances (WD),29-07-2025,5.8 km,North Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-07-2025,5.8 km to 7.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-07-2025,1.5 km,West Uttar Pradesh,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),30-07-2025,7.6 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,30-07-2025,1.5 km to 5.8 km,NW Bay ; Gangetic West Bengal ; Odisha,,,,,,,,,,,,
+Western Disturbances (WD),30-07-2025,3.1 km to 5.8 km,Punjab ; Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,30-07-2025,1.5 km,West Rajasthan,,,,,,,,,,,,
+Trough,30-07-2025,0.9 km,West Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; Bangladesh ; NE Bay,,,,,,,,,,,,
+Mean Sea Level Trough,01-08-2025,Surface,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-08-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-08-2025,9.4 km,Sub-Himalayan West Bengal & Sikkim,,,,,,,,,,,,
+Western Disturbances (WD),01-08-2025,5.8 km,North Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-08-2025,3.1 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-08-2025,5.8 km,Bihar ; Sub-Himalayan West Bengal & Sikkim,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-08-2025,3.1 km,Punjab,,,,,,,,,,,,
+Western Disturbances (WD),02-08-2025,5.8 km,North Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-08-2025,5.8 km,Gulf of Mannar ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-08-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-08-2025,4.5 km,Bihar ; East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-08-2025,4.5 km,Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-08-2025,1.5 km to 4.5 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-08-2025,5.8 km,NE Arabian Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-08-2025,3.1 km,Gujarat Region ; West Rajasthan,,,,,,,,,,,,
+Western Disturbances (WD),03-08-2025,5.8 km,Jammu & Kashmir ; North Pakistan ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,04-08-2025,Surface,Punjab ; Uttarakhand ; West Uttar Pradesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-08-2025,3.1 km to 5.8 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-08-2025,4.5 km,Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-08-2025,3.1 km,West Rajasthan,,,,,,,,,,,,
+Western Disturbances (WD),04-08-2025,5.8 km,Himachal Pradesh ; Jammu & Kashmir,,,,,,,,,,,,
+Trough,04-08-2025,0.9 km,West Uttar Pradesh ; East Uttar Pradesh ; Bihar,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-08-2025,1.5 km,Himachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-08-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,05-08-2025,Surface,Punjab ; West Uttar Pradesh ; Bihar ; Arunachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-08-2025,1.5 km to 7.6 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Trough,05-08-2025,3.1 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi ; East Rajasthan ; Gujarat Region ; NE Arabian Sea",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-08-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-08-2025,1.5 km,Rayalaseema,,,,,,,,,,,,
+Western Disturbances (WD),05-08-2025,5.8 km,West Rajasthan ; North Pakistan ; Gujarat ; Konkan & Goa ; Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-08-2025,4.5 km to 7.6 km,Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-08-2025,3.1 km,Kerala,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,5.8 km to 7.6 km,Bangladesh,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km to 4.5 km,Bihar ; Bangladesh ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Bihar,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Rayalaseema,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,South Interior Karnataka,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km,EC Arabian Sea ; SW Bay ; SE Bay ; Kerala ; South Interior Karnataka ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km to 4.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Saurashtra & Kutch ; East Rajasthan ; Gujarat Region,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand,,,,,,,,,,,,
+Western Disturbances (WD),06-08-2025,5.8 km,Punjab,,,,,,,,,,,,
+Westerly Trough,06-08-2025,7.6 km,Konkan & Goa ; West Rajasthan ; North Pakistan ; Jammu & Kashmir ; Coastal Karnataka,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,06-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,5.8 km to 7.6 km,Bangladesh,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km to 4.5 km,Bihar ; Bangladesh ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Bihar,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Rayalaseema,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,South Interior Karnataka,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km,EC Arabian Sea ; SW Bay ; Kerala ; South Interior Karnataka ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh,,,,,,,,,,,,
+Trough,06-08-2025,3.1 km to 4.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Saurashtra & Kutch ; East Rajasthan ; Gujarat Region,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand,,,,,,,,,,,,
+Western Disturbances (WD),06-08-2025,5.8 km,Punjab,,,,,,,,,,,,
+Westerly Trough,06-08-2025,7.6 km,Konkan & Goa ; West Rajasthan ; North Pakistan ; Jammu & Kashmir ; Coastal Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-08-2025,3.1 km to 5.8 km,Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-08-2025,1.5 km to 3.1 km,SW Bay ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Trough,07-08-2025,1.5 km to 3.1 km,Coastal Karnataka ; South Interior Karnataka ; Rayalaseema ; Tamil Nadu & Puducherry ; SW Bay ; SE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-08-2025,3.1 km,Assam & Meghalaya ; Arunachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-08-2025,1.5 km,Himachal Pradesh ; Uttarakhand,,,,,,,,,,,,
+Western Disturbances (WD),07-08-2025,5.8 km,Punjab,,,,,,,,,,,,
+Westerly Trough,07-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Mean Sea Level Trough,09-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-08-2025,3.1 km,West Uttar Pradesh,,,,,,,,,,,,
+Trough,09-08-2025,1.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-08-2025,5.8 km,North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-08-2025,1.5 km to 3.1 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,09-08-2025,3.1 km,Gujarat Region ; West Madhya Pradesh ; West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-08-2025,3.1 km,Bihar ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),09-08-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Westerly Trough,09-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Mean Sea Level Trough,10-08-2025,Surface,Punjab ; West Uttar Pradesh ; East Uttar Pradesh ; Sub-Himalayan West Bengal & Sikkim ; Arunachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-08-2025,4.5 km,West Uttar Pradesh ; East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-08-2025,4.5 km to 5.8 km,North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch,,,,,,,,,,,,
+Western Disturbances (WD),10-08-2025,3.1 km to 5.8 km,North pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-08-2025,3.1 km,West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-08-2025,3.1 km,Saurashtra & Kutch,,,,,,,,,,,,
+Western Disturbances (WD),11-08-2025,3.1 km to 5.8 km,North pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-08-2025,3.1 km to 5.8 km,Coastal Andhra Pradesh ; Telangana,,,,,,,,,,,,
+Mean Sea Level Trough,15-08-2025,Surface,West Rajasthan ; East Rajasthan ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,15-08-2025,7.6 km,Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-08-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa,,,,,,,,,,,,
+Trough,15-08-2025,3.1 km to 4.5 km,Gangetic West Bengal ; Odisha ; Coastal Andhra Pradesh ; Telangana ; Madhya Maharashtra ; Marathwada ; EC Arabian Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-08-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-08-2025,1.5 km to 3.1 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa,,,,,,,,,,,,
+Trough,16-08-2025,1.5 km to 4.5 km,NE Arabian Sea ; Madhya Maharashtra ; Chhattisgarh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-08-2025,0.9 km,West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-08-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),12-08-2025,3.1 km to 5.8 km,North pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Trough,12-08-2025,1.5 km,Bihar ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-08-2025,3.1 km to 5.8 km,WC Bay ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-08-2025,5.8 km,North Interior Karnataka,,,,,,,,,,,,
+Trough,12-08-2025,5.8 km,WC Bay ; EC Bay ; North Interior Karnataka,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,13-08-2025,Surface,"Punjab ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Odisha ; WC Bay ; NW Bay ; Coastal Andhra Pradesh",,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,13-08-2025,7.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Trough,13-08-2025,3.1 km to 5.8 km,WC Bay ; EC Bay ; NE Arabian Sea ; Saurashtra & Kutch ; Telangana ; Madhya Maharashtra ; North Interior Karnataka ; Gujarat Region,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-08-2025,3.1 km,Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-08-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-08-2025,0.9 km,"West Uttar Pradesh ; Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-08-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Trough,13-08-2025,1.5 km,East Uttar Pradesh ; Chhattisgarh ; WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,14-08-2025,7.6 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-08-2025,1.5 km,Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-08-2025,0.9 km,West Uttar Pradesh,,,,,,,,,,,,
+Trough,14-08-2025,1.5 km to 3.1 km,WC Bay ; EC Bay ; SW Bay ; SE Bay ; NE Arabian Sea ; Saurashtra & Kutch ; Telangana ; Madhya Maharashtra ; North Interior Karnataka ; Gujarat Region,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-08-2025,1.5 km to 3.1 km,NE Arabian Sea ; Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,17-08-2025,9.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,17-08-2025,5.8 km,Vidarbha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-08-2025,1.5 km,Central Pakistan ; Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-08-2025,1.5 km to 5.8 km,NE Arabian Sea ; Gujarat Region ; Konkan & Goa,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,18-08-2025,1.5 km,Saurashtra & Kutch ; Madhya Maharashtra ; Vidarbha ; Chhattisgarh ; WC Bay ; NW Bay ; EC Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,18-08-2025,9.6 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-08-2025,1.5 km,Vidarbha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-08-2025,3.1 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch,,,,,,,,,,,,
+Trough,18-08-2025,0.9 km to 3.1 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; NE Arabian Sea ; Gujarat Region ; Vidarbha ; Marathwada,,,,,,,,,,,,
+Western Disturbances (WD),18-08-2025,3.1 km,Pakistan ; North pakistan,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,19-08-2025,1.5 km,Saurashtra & Kutch ; Gujarat Region ; Madhya Maharashtra ; Vidarbha ; Odisha ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,19-08-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region,,,,,,,,,,,,
+Western Disturbances (WD),19-08-2025,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,20-08-2025,1.5 km,Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),20-08-2025,4.5 km,East Madhya Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),20-08-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-08-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,21-08-2025,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-08-2025,7.6 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-08-2025,5.8 km,Odisha ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-08-2025,5.8 km,Saurashtra & Kutch,,,,,,,,,,,,
+Western Disturbances (WD),21-08-2025,3.1 km,Jammu & Kashmir,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-08-2025,0.9 km to 1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Offshore Trough,21-08-2025,Surface,Gujarat Region ; Saurashtra & Kutch ; Konkan & Goa ; Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-08-2025,7.6 km,Gangetic West Bengal ; Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-08-2025,7.6 km,West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-08-2025,0.9 km,West Rajasthan,,,,,,,,,,,,
+Western Disturbances (WD),22-08-2025,3.1 km,Himachal Pradesh ; Ladakh ; Jammu & Kashmir,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,23-08-2025,7.6 km,Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-08-2025,5.8 km,West Madhya Pradesh ; East Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-08-2025,1.5 km,Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-08-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,24-08-2025,Surface,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,24-08-2025,7.6 km,East Madhya Pradesh ; West Madhya Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),24-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-08-2025,5.8 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-08-2025,1.5 km,Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,25-08-2025,5.8 km,"Haryana, Chandigarh & Delhi ; East Rajasthan",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,25-08-2025,1.5 km to 5.8 km,NW Bay ; Odisha ; Gangetic West Bengal,,,,,,,,,,,,
+Trough,25-08-2025,1.5 km to 3.1 km,"Haryana, Chandigarh & Delhi ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; NW Bay ; Odisha",,,,,,,,,,,,
+Western Disturbances (WD),25-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,26-08-2025,7.6 km,NW Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,26-08-2025,5.8 km,"Haryana, Chandigarh & Delhi ; East Rajasthan",,,,,,,,,,,,
+Trough,26-08-2025,1.5 km,"West Rajasthan ; Haryana, Chandigarh & Delhi ; West Uttar Pradesh ; East Uttar Pradesh ; East Madhya Pradesh ; Odisha ; EC Bay",,,,,,,,,,,,
+Western Disturbances (WD),26-08-2025,3.1 km to 9.6 km,Central Pakistan ; North Pakistan ; South Pakistan ; West Pakistan,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,27-08-2025,7.6 km,NW Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,27-08-2025,1.5 km,Punjab,,,,,,,,,,,,
+Western Disturbances (WD),27-08-2025,3.1 km to 5.8 km,North pakistan,,,,,,,,,,,,
+Trough,27-08-2025,1.5 km,"West Madhya Pradesh ; East Madhya Pradesh ; Punjab ; East Rajasthan ; Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,28-08-2025,5.8 km,Chhattisgarh,,,,,,,,,,,,
+Western Disturbances (WD),28-08-2025,5.8 km,North pakistan ; Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,28-08-2025,1.5 km,Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,28-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-08-2025,7.6 km,Vidarbha,,,,,,,,,,,,
+Western Disturbances (WD),29-08-2025,5.8 km,North pakistan ; Punjab,,,,,,,,,,,,
+Trough,29-08-2025,5.8 km to 7.6 km,Chhattisgarh ; Kerala ; Vidarbha ; North Interior Karnataka ; South Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-08-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,30-08-2025,3.1 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,30-08-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),30-08-2025,5.8 km to 9.6 km,North pakistan ; Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-08-2025,0.9 km,West Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-08-2025,1.5 km,West Rajasthan ; East Rajasthan,,,,,,,,,,,,
+Western Disturbances (WD),31-08-2025,1.5 km to 5.8 km,North pakistan ; Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,31-08-2025,1.5 km to 5.8 km,NW Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,08-08-2025,1.5 km to 3.1 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),08-08-2025,5.8 km,Punjab,,,,,,,,,,,,
+Westerly Trough,08-08-2025,7.6 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Trough,08-08-2025,3.1 km,East Uttar Pradesh ; Bangladesh ; Bihar ; Jharkhand ; Gangetic West Bengal,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,08-08-2025,5.8 km,North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,08-08-2025,3.1 km to 5.8 km,Bangladesh ; Gangetic West Bengal ; NW Bay,,,,,,,,,,,,
+Trough,08-08-2025,1.5 km,Coastal Andhra Pradesh ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-09-2025,5.8 km,NE Bay,,,,,,,,,,,,
+Trough,01-09-2025,1.5 km,NE Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-09-2025,1.5 km,NW Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-09-2025,5.8 km,West Rajasthan,,,,,,,,,,,,
+Trough,01-09-2025,3.1 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,01-09-2025,0.9 km,West Madhya Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),01-09-2025,5.8 km,North Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,02-09-2025,7.6 km,NW Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,02-09-2025,1.5 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Trough,02-09-2025,3.1 km to 5.8 km,"Jammu & Kashmir ; West Madhya Pradesh ; Punjab ; Haryana, Chandigarh & Delhi ; East Rajasthan",,,,,,,,,,,,
+Western Disturbances (WD),02-09-2025,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,03-09-2025,7.6 km,NW Bay ; Odisha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-09-2025,1.5 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,03-09-2025,5.8 km to 7.6 km,Vidarbha,,,,,,,,,,,,
+Western Disturbances (WD),03-09-2025,3.1 km to 4.5 km,North pakistan ; Punjab,,,,,,,,,,,,
+Westerly Trough,03-09-2025,7.6 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,04-09-2025,1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,04-09-2025,5.8 km,Chhattisgarh ; East Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-09-2025,5.8 km,West Madhya Pradesh,,,,,,,,,,,,
+Trough,04-09-2025,3.1 km to 5.8 km,NE Arabian Sea ; Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; Chhattisgarh ; East Madhya Pradesh ; Odisha ; NW Bay,,,,,,,,,,,,
+Western Disturbances (WD),04-09-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; North Pakistan ; Delhi,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,04-09-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,05-09-2025,0.9 km,West Rajasthan ; West Madhya Pradesh ; East Rajasthan ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,05-09-2025,5.8 km to 7.6 km,NE Arabian Sea ; Gujarat Region ; Saurashtra & Kutch,,,,,,,,,,,,
+Trough,05-09-2025,1.5 km to 5.8 km,NE Arabian Sea ; Saurashtra & Kutch ; Gujarat Region ; West Madhya Pradesh ; East Rajasthan ; NW Bay,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,05-09-2025,7.6 km,West Madhya Pradesh ; East Rajasthan,,,,,,,,,,,,
+Western Disturbances (WD),05-09-2025,5.8 km,West Pakistan ; South Pakistan ; Central Pakistan,,,,,,,,,,,,
+Western Disturbances (WD),05-09-2025,5.8 km,Jammu & Kashmir ; Punjab ; Haryana ; North Pakistan ; Himachal Pradesh,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,06-09-2025,9.6 km,West Rajasthan ; East Rajasthan,,,,,,,,,,,,
+Trough,06-09-2025,0.9 km to 1.5 km,West Rajasthan ; East Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Jharkhand,,,,,,,,,,,,
+Western Disturbances (WD),06-09-2025,5.8 km,Central Pakistan ; South Pakistan ; West Pakistan ; North Pakistan,,,,,,,,,,,,
+Trough,06-09-2025,3.1 km to 7.6 km,Punjab ; West Rajasthan ; East Rajasthan ; Gujarat Region ; Konkan & Goa ; EC Arabian Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,06-09-2025,3.1 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,07-09-2025,3.1 km to 7.6 km,Gujarat Region ; West Rajasthan ; Chhattisgarh ; West Madhya Pradesh ; East Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-09-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-09-2025,3.1 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,07-09-2025,3.1 km to 5.8 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),07-09-2025,5.8 km,Central Pakistan ; South Pakistan ; West Pakistan ; North Pakistan,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,08-09-2025,Surface,Pakistan ; West Rajasthan ; Saurashtra & Kutch ; East Rajasthan ; East Uttar Pradesh ; East Madhya Pradesh ; Jharkhand ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,08-09-2025,0.9 km,Punjab,,,,,,,,,,,,
+Trough,08-09-2025,1.5 km,Pakistan ; West Rajasthan ; Saurashtra & Kutch ; Punjab,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,08-09-2025,1.5 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),08-09-2025,5.8 km,North Pakistan ; Jammu & Kashmir,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,09-09-2025,Surface,Pakistan ; West Rajasthan ; Odisha ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Trough,09-09-2025,3.1 km,Pakistan ; West Rajasthan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-09-2025,4.5 km,Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-09-2025,3.1 km,Bihar,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,09-09-2025,1.5 km,Gulf of Mannar ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Trough,09-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Gulf of Mannar,,,,,,,,,,,,
+Westerly Trough,09-09-2025,1.5 km,Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; Bihar ; Jharkhand ; Bangladesh,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,10-09-2025,Surface,NE Arabian Sea ; Pakistan ; Saurashtra & Kutch ; East Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; Gangetic West Bengal ; EC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-09-2025,3.1 km,Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,10-09-2025,3.1 km,Sikkim ; Sub-Himalayan West Bengal & Sikkim,,,,,,,,,,,,
+Trough,10-09-2025,1.5 km,South Interior Karnataka ; Gulf of Mannar,,,,,,,,,,,,
+Westerly Trough,10-09-2025,0.9 km,Bihar ; Jharkhand ; Gangetic West Bengal ; Sub-Himalayan West Bengal & Sikkim ; East Uttar Pradesh,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,11-09-2025,5.8 km,NW Arabian Sea ; Pakistan,,,,,,,,,,,,
+Monsoon Trough with Extension and Tilt,11-09-2025,Surface,West Rajasthan ; West Uttar Pradesh ; East Uttar Pradesh ; Bihar ; Gangetic West Bengal ; NE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-09-2025,4.5 km,Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-09-2025,3.1 km,Sikkim ; Sub-Himalayan West Bengal & Sikkim,,,,,,,,,,,,
+Trough,11-09-2025,0.9 km,Sub-Himalayan West Bengal & Sikkim ; Jharkhand ; Odisha ; Coastal Andhra Pradesh ; WC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,11-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Western Disturbances (WD),11-09-2025,5.8 km,Himachal Pradesh,,,,,,,,,,,,
+Mean Sea Level Trough,12-09-2025,Surface,Punjab ; West Uttar Pradesh ; East Uttar Pradesh ; Jharkhand ; WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,12-09-2025,5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha,,,,,,,,,,,,
+Western Disturbances (WD),12-09-2025,5.8 km,Himachal Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-09-2025,0.9 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-09-2025,0.9 km,Jharkhand,,,,,,,,,,,,
+Trough,12-09-2025,3.1 km to 5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; Chhattisgarh ; Vidarbha ; Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,12-09-2025,1.5 km,"Nagaland, Manipur, Mizoram & Tripura",,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,13-09-2025,5.8 km,WC Bay ; NW Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-09-2025,0.9 km,Bihar ; Jharkhand,,,,,,,,,,,,
+Trough,13-09-2025,3.1 km to 5.8 km,WC Bay ; NW Bay ; Coastal Andhra Pradesh ; Odisha ; Chhattisgarh ; Vidarbha ; Madhya Maharashtra,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),13-09-2025,5.8 km,NW Arabian Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-09-2025,3.1 km to 4.5 km,East Rajasthan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,13-09-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Trough,13-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Gulf of Mannar,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,14-09-2025,4.5 km,Telangana ; Vidarbha,,,,,,,,,,,,
+Trough,14-09-2025,3.1 km to 4.5 km,Telangana ; Vidarbha ; North Interior Karnataka ; Madhya Maharashtra ; Konkan & Goa,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-09-2025,3.1 km to 5.8 km,Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-09-2025,3.1 km,Assam & Meghalaya,,,,,,,,,,,,
+Westerly Trough,14-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,14-09-2025,3.1 km to 5.8 km,SE Bay,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),14-09-2025,1.5 km to 5.8 km,WC Arabian Sea ; NW Arabian Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-09-2025,3.1 km,Vidarbha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-09-2025,3.1 km to 5.8 km,Bihar,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-09-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-09-2025,3.1 km to 4.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,15-09-2025,3.1 km,SE Bay,,,,,,,,,,,,
+Westerly Trough,15-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-09-2025,5.8 km,Vidarbha,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-09-2025,1.5 km to 3.1 km,Jharkhand,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-09-2025,5.8 km,SE Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-09-2025,0.9 km,West Uttar Pradesh ; East Uttar Pradesh,,,,,,,,,,,,
+Trough,16-09-2025,1.5 km to 3.1 km,Jharkhand ; Bangladesh,,,,,,,,,,,,
+Trough,16-09-2025,0.9 km,South Interior Karnataka ; Tamil Nadu & Puducherry ; Comorin Area,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,16-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-09-2025,3.1 km to 5.8 km,Marathwada,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-09-2025,3.1 km,East Uttar Pradesh ; Bihar,,,,,,,,,,,,
+Trough,17-09-2025,0.9 km,West Madhya Pradesh ; East Madhya Pradesh ; Vidarbha ; Telangana ; Coastal Andhra Pradesh ; WC Bay ; SW Bay,,,,,,,,,,,,
+Trough,17-09-2025,0.9 km,South Interior Karnataka ; Comorin Area ; Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,17-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-09-2025,1.5 km to 3.1 km,Marathwada,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-09-2025,1.5 km,Bihar,,,,,,,,,,,,
+Trough,18-09-2025,0.9 km,West Madhya Pradesh ; East Madhya Pradesh ; WC Bay ; SW Bay ; Vidarbha ; Telangana ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,18-09-2025,3.1 km,Madhya Maharashtra ; Marathwada ; WC Bay ; SW Bay ; Telangana ; Rayalaseema,,,,,,,,,,,,
+Trough,18-09-2025,3.1 km,West Uttar Pradesh ; East Uttar Pradesh ; Marathwada,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-09-2025,5.8 km,South Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,18-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,19-09-2025,3.1 km,N Andaman Sea,,,,,,,,,,,,
+Trough,19-09-2025,0.9 km,West Uttar Pradesh ; Bangladesh ; Bihar ; Sub-Himalayan West Bengal & Sikkim,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,19-09-2025,1.5 km,West Uttar Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,19-09-2025,1.5 km,Marathwada,,,,,,,,,,,,
+Trough,19-09-2025,1.5 km,West Uttar Pradesh ; East Uttar Pradesh ; Marathwada ; West Madhya Pradesh ; East Madhya Pradesh ; Vidarbha,,,,,,,,,,,,
+Trough,19-09-2025,3.1 km,N Andaman Sea ; WC Bay ; Coastal Andhra Pradesh ; Rayalaseema ; North Interior Karnataka ; Madhya Maharashtra,,,,,,,,,,,,
+Western Disturbances (WD),19-09-2025,5.8 km,North Pakistan,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-09-2025,3.1 km,N Andaman Sea,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-09-2025,1.5 km,East Uttar Pradesh ; Bihar,,,,,,,,,,,,
+Trough,20-09-2025,1.5 km,East Uttar Pradesh ; Bihar ; Vidarbha ; West Madhya Pradesh ; East Madhya Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,20-09-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Trough,20-09-2025,3.1 km,N Andaman Sea ; WC Bay ; Coastal Andhra Pradesh ; Rayalaseema ; North Interior Karnataka ; Madhya Maharashtra,,,,,,,,,,,,
+Western Disturbances (WD),20-09-2025,5.8 km,Jammu & Kashmir ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-09-2025,5.8 km,NE Bay ; Bangladesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-09-2025,3.1 km,Bihar ; Sikkim,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,21-09-2025,1.5 km,Assam & Meghalaya,,,,,,,,,,,,
+Trough,21-09-2025,3.1 km to 5.8 km,NE Bay ; Bangladesh ; WC Bay ; EC Bay ; Tamil Nadu & Puducherry ; Coastal Andhra Pradesh ; Rayalaseema,,,,,,,,,,,,
+Western Disturbances (WD),21-09-2025,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,22-09-2025,5.8 km,NE Bay,,,,,,,,,,,,
+Trough,22-09-2025,3.1 km to 4.5 km,NE Bay ; WC Bay ; Coastal Andhra Pradesh ; Telangana ; North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-09-2025,5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-09-2025,5.8 km,Tamil Nadu & Puducherry,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,22-09-2025,1.5 km,East Uttar Pradesh,,,,,,,,,,,,
+Western Disturbances (WD),22-09-2025,5.8 km,Uttarakhand ; Himachal Pradesh ; Ladakh,,,,,,,,,,,,
+Low Pressure (L) with associated CYCIR,23-09-2025,7.6 km,Gangetic West Bengal ; Odisha ; NW Bay,,,,,,,,,,,,
+Trough,23-09-2025,1.5 km to 3.1 km,Gangetic West Bengal ; Odisha ; NW Bay ; Telangana,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-09-2025,5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-09-2025,1.5 km,East Uttar Pradesh ; West Uttar Pradesh,,,,,,,,,,,,
+Trough,23-09-2025,4.5 km to 5.8 km,Gangetic West Bengal ; Odisha ; NW Bay ; Chhattisgarh ; Telangana ; North Interior Karnataka ; Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-09-2025,3.1 km,Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,23-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Trough,24-09-2025,4.5 km to 5.8 km,Odisha ; NW Bay ; Gangetic West Bengal ; South Interior Karnataka ; Chhattisgarh ; Telangana ; North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-09-2025,1.5 km to 4.5 km,Madhya Maharashtra,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,24-09-2025,0.9 km,Assam & Meghalaya,,,,,,,,,,,,
+Cyclonic Circulation (CYCIR),25-09-2025,5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,25-09-2025,4.5 km to 5.8 km,NW Bay ; WC Bay ; Odisha ; Coastal Andhra Pradesh ; Konkan & Goa ; Madhya Maharashtra ; Telangana ; North Interior Karnataka,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,25-09-2025,3.1 km,Saurashtra & Kutch,,,,,,,,,,,,
+Trough,26-09-2025,3.1 km to 7.6 km,NW Bay ; WC Bay ; Telangana ; North Interior Karnataka ; Konkan & Goa ; Madhya Maharashtra,,,,,,,,,,,,
+Trough,27-09-2025,3.1 km to 4.5 km,Odisha ; Telangana ; North Interior Karnataka ; Konkan & Goa,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,28-09-2025,7.6 km,Vidarbha ; Madhya Maharashtra,,,,,,,,,,,,
+Trough,28-09-2025,3.1 km,Vidarbha ; Madhya Maharashtra ; Chhattisgarh ; Coastal Andhra Pradesh ; WC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,28-09-2025,1.5 km to 3.1 km,Punjab,,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,29-09-2025,7.6 km,Gujarat Region,,,,,,,,,,,,
+Trough,29-09-2025,0.9 km,Gujarat Region ; Vidarbha ; Chhattisgarh ; Odisha ; Coastal Andhra Pradesh ; WC Bay,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-09-2025,1.5 km to 5.8 km,Coastal Andhra Pradesh,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,29-09-2025,3.1 km,"Haryana, Chandigarh & Delhi",,,,,,,,,,,,
+Well Marked Low Pressure Area (WML) with associated CYCIR,30-09-2025,7.6 km,Saurashtra & Kutch,,,,,,,,,,,,
+Upper-Level Cyclonic Circulation,30-09-2025,3.1 km to 7.6 km,WC Bay ; Coastal Andhra Pradesh,,,,,,,,,,,,
+Trough,30-09-2025,1.5 km,Saurashtra & Kutch ; East Uttar Pradesh ; West Madhya Pradesh ; East Madhya Pradesh,,,,,,,,,,,,
+Trough,30-09-2025,0.9 km,Saurashtra & Kutch ; West Rajasthan,,,,,,,,,,,,
+cyclonic circulation ,05-07-2025,1.5 km,northeast Madhya Pradesh & neighbourhood ,,,,,,,,,,,,
+upper-level cyclonic circulation ,05-07-2025,7.6 km,northern parts of Gangetic West Bengal & neighbourhood,,,,,,,,,,,,
+trough,05-07-2025,3.1 km to 5.8 m,"Northeast Arabian Sea, Gujarat, Madhya Pradesh, Uttar Pradesh, Jharkhand, Northern Gangetic West Bengal.",,,,,,,,,,,,
+upper air cyclonic circulation ,05-07-2025,0.9 km ,central Assam lay over northeast Assam ,,,,,,,,,,,,
+offsore trough,05-07-2025,Surface,south Gujarat to Karnataka ,,,,,,,,,,,,
