@@ -130,26 +130,14 @@ def build_sql(parsed_rows: list[tuple[str, str, str, str]], append: bool = False
 
 
 def load_db_config() -> dict[str, str]:
-    """Load database connection credentials from config/database.json if present."""
-    import json
-    config = {
+    """Return local database connection credentials."""
+    return {
         "DB_HOST": "localhost",
         "DB_PORT": "3306",
         "DB_USER": "root",
         "DB_PASSWORD": "",
         "DB_NAME": "weather_data_system"
     }
-    config_path = Path(__file__).resolve().parent.parent / "config" / "database.json"
-    if config_path.exists():
-        try:
-            with config_path.open("r", encoding="utf-8") as fh:
-                data = json.load(fh)
-                for k in config:
-                    if k in data:
-                        config[k] = str(data[k])
-        except Exception:
-            pass
-    return config
 
 
 def main() -> None:

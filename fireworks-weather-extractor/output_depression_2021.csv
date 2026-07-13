@@ -1,0 +1,32 @@
+weather system,date,heightAboveMSL,Regions
+Depression (D),2021-04-02,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,N Andaman Sea
+Depression (D),2021-04-03,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,N Andaman Sea
+Depression (D),2021-05-14,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Lakshadweep ; SE Arabian Sea
+Cyclonic Storm (CS) : 63 to 88 km/h,2021-05-15,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Arabian Sea ; SE Arabian Sea
+Very Severe Cyclonic Storm (VSCS) : 118 to 165 km/h,2021-05-16,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Arabian Sea
+Extremely Severe Cyclonic Storm (ESCS) : 166 to 220 km/h,2021-05-17,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Arabian Sea
+Severe Cyclonic Storm (SCS) : 89 to 117 km/h,2021-05-18,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Saurashtra & Kutch
+Depression (D),2021-05-19,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,East Rajasthan
+Cyclonic Storm (CS) : 63 to 88 km/h,2021-05-24,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Bay
+Severe Cyclonic Storm (SCS) : 89 to 117 km/h,2021-05-25,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,WC Bay ; EC Bay ; NW Bay
+Very Severe Cyclonic Storm (VSCS) : 118 to 165 km/h,2021-05-26,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Bay ; Odisha
+Deep Depression (DD),2021-05-27,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Jharkhand
+Deep Depression (DD),2021-09-13,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Odisha
+Depression (D),2021-09-14,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Chhattisgarh ; Odisha
+Deep Depression (DD),2021-09-25,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Bay ; WC Bay
+Cyclonic Storm (CS) : 63 to 88 km/h,2021-09-26,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Bay ; WC Bay
+Deep Depression (DD),2021-09-27,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Odisha ; Chhattisgarh
+Depression (D),2021-09-28,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Vidarbha ; Marathwada
+Depression (D),2021-09-30,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NE Arabian Sea ; Saurashtra & Kutch
+Cyclonic Storm (CS) : 63 to 88 km/h,2021-10-01,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Arabian Sea ; NE Arabian Sea
+Severe Cyclonic Storm (SCS) : 89 to 117 km/h,2021-10-02,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Arabian Sea
+Severe Cyclonic Storm (SCS) : 89 to 117 km/h,2021-10-03,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Arabian Sea
+Deep Depression (DD),2021-10-04,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,north Oman and adjoining United Arab Emirates (UAE)
+Depression (D),2021-11-07,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Arabian Sea
+Depression (D),2021-11-08,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,EC Arabian Sea
+Depression (D),2021-11-11,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,SW Bay ; WC Bay
+Depression (D),2021-11-18,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,SW Bay ; Tamil Nadu & Puducherry
+Depression (D),2021-11-19,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,Tamil Nadu & Puducherry
+Deep Depression (DD),2021-12-03,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,WC Bay
+Cyclonic Storm (CS) : 63 to 88 km/h,2021-12-04,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,WC Bay
+Deep Depression (DD),2021-12-05,Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa,NW Bay ; WC Bay

@@ -301,6 +301,18 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
     </div>
   </form>
 
+  <?php if (empty($data) && !empty($date_filter)): ?>
+    <div class="bg-white shadow-md rounded p-6 mb-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
+        <h2 class="text-lg font-bold text-purple-800">📅 Date: <?= htmlspecialchars($date_filter) ?></h2>
+        <div class="flex flex-wrap items-center gap-3 text-sm">
+          <a href="RainfallMapper/index.html?date=<?= urlencode($date_filter) ?>" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">View Rainfall Map</a>
+        </div>
+      </div>
+      <p class="text-gray-500 italic">No weather system records found for this date.</p>
+    </div>
+  <?php endif; ?>
+
   <?php foreach ($data as $date => $systems): ?>
     <div class="bg-white shadow-md rounded p-6 mb-8">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">

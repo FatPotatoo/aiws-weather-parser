@@ -1,0 +1,39 @@
+weather system,date,heightAboveMSL,Regions
+Mean Sea Level Trough,2026-07-01,0.9 km,Punjab ; NW Bay ; NE Bay
+Western Disturbances (WD),2026-07-01,5.8 km,Far West Pakistan
+Upper-Level Cyclonic Circulation,2026-07-01,1.5 km,West Uttar Pradesh ; East Uttar Pradesh
+Upper-Level Cyclonic Circulation,2026-07-01,1.5 km,Punjab
+Upper-Level Cyclonic Circulation,2026-07-01,1.5 km to 7.6 km,NW Bay ; NE Bay ; Bangladesh
+Trough,2026-07-01,4.5 km to 7.6 km,NW Bay ; NE Bay ; Bangladesh ; Gangetic West Bengal ; Odisha ; Chhattisgarh ; Madhya Maharashtra ; Gujarat Region ; NE Arabian Sea
+Upper-Level Cyclonic Circulation,2026-07-01,1.5 km,Chhattisgarh
+Upper-Level Cyclonic Circulation,2026-07-01,3.1 km to 5.8 km,Saurashtra & Kutch
+Mean Sea Level Trough,2026-07-02,1.5 km,West Rajasthan ; NW Bay ; Odisha ; Gangetic West Bengal ; West Uttar Pradesh ; West Madhya Pradesh ; Chhattisgarh
+Cyclonic Circulation (CYCIR),2026-07-02,1.5 km,West Uttar Pradesh ; West Madhya Pradesh ; Chhattisgarh
+Upper-Level Cyclonic Circulation,2026-07-02,7.6 km,NW Bay ; Odisha
+Low Pressure (L) with associated CYCIR,2026-07-02,7.6 km,NW Bay ; Odisha ; Gangetic West Bengal
+Upper-Level Cyclonic Circulation,2026-07-02,1.5 km,West Uttar Pradesh
+Upper-Level Cyclonic Circulation,2026-07-02,1.5 km,Central Pakistan ; West Rajasthan
+Western Disturbances (WD),2026-07-02,5.8 km,West Pakistan ; Central Pakistan ; Far West Pakistan
+Upper-Level Cyclonic Circulation,2026-07-02,3.1 km to 5.8 km,Saurashtra & Kutch
+Low Pressure (L) with associated CYCIR,2026-07-03,7.6 km,NW Bay ; Odisha ; Gangetic West Bengal
+Mean Sea Level Trough,2026-07-03,1.5 km,West Rajasthan ; NW Bay ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha
+Upper-Level Cyclonic Circulation,2026-07-03,1.5 km,West Uttar Pradesh
+Upper-Level Cyclonic Circulation,2026-07-03,1.5 km,Central Pakistan ; West Rajasthan
+Western Disturbances (WD),2026-07-03,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Upper-Level Cyclonic Circulation,2026-07-03,5.8 km,West Rajasthan
+Well Marked Low Pressure Area (WML) with associated CYCIR,2026-07-04,9.4 km,NW Bay ; Odisha ; Gangetic West Bengal
+Mean Sea Level Trough,2026-07-04,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; NW Bay
+Western Disturbances (WD),2026-07-04,5.8 km,Central Pakistan ; North Pakistan ; West Pakistan
+Mean Sea Level Trough,2026-07-05,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Odisha ; EC Bay ; NW Bay
+Trough,2026-07-05,3.1 km to 7.6 km,roughly along latitude 21°N
+Offshore Trough,2026-07-05,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; South Interior Karnataka ; Kerala
+Western Disturbances (WD),2026-07-05,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Mean Sea Level Trough,2026-07-06,1.5 km,West Rajasthan ; West Madhya Pradesh ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Odisha ; EC Bay
+Upper-Level Cyclonic Circulation,2026-07-06,5.8 km,EC Arabian Sea ; Konkan & Goa ; Madhya Maharashtra
+Offshore Trough,2026-07-06,Surface,Gujarat Region ; Konkan & Goa ; Coastal Karnataka ; Kerala
+Western Disturbances (WD),2026-07-06,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab
+Well Marked Low Pressure Area (WML) with associated CYCIR,2026-07-07,9.6 km,East Madhya Pradesh
+Mean Sea Level Trough,2026-07-07,1.5 km,West Rajasthan ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; Bangladesh
+Upper-Level Cyclonic Circulation,2026-07-07,1.5 km,West Rajasthan
+Trough,2026-07-07,0.9 km to 7.6 km,NE Arabian Sea ; East Madhya Pradesh ; Chhattisgarh ; Jharkhand ; Gangetic West Bengal ; Bangladesh
+Western Disturbances (WD),2026-07-07,5.8 km,North Pakistan ; Central Pakistan ; Jammu & Kashmir ; Punjab

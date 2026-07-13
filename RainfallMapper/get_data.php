@@ -16,10 +16,11 @@ if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
     exit;
 }
 
-// Verify the date is in supported years (2020-2025)
+// Verify the date is in supported years (2020 to current year)
 $year = intval(explode('-', $date)[0]);
-if ($year < 2020 || $year > 2025) {
-    echo json_encode(['error' => 'Only dates in years 2020 to 2025 are supported.']);
+$current_year = intval(date('Y'));
+if ($year < 2020 || $year > $current_year + 1) {
+    echo json_encode(['error' => 'Only dates in years 2020 to ' . ($current_year + 1) . ' are supported.']);
     exit;
 }
 

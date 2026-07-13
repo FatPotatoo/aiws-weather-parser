@@ -70,10 +70,10 @@ def nearest_subdivisions(
 
 # ── Coordinate parsers ────────────────────────────────────────────────────────
 
-# "centered at Lat 2.8°N and Long 82.2°E"  (must NOT start with "between")
+# "centered at Lat 2.8°N and Long 82.2°E" / "near latitude 5.4°N and longitude 99.7°E"
 _POINT_RE = re.compile(
     r"(?<!between\s)"          # negative lookbehind guard — handled by range check first
-    r"centered\s+at\s+"
+    r"(?:centered\s+at\s+|near\s+|close\s+to\s+)?"
     r"lat(?:itude)?\.?\s*([0-9]+(?:\.[0-9]+)?)[^0-9]{0,6}[Nn]"
     r".*?"
     r"long(?:itude)?\.?\s*([0-9]+(?:\.[0-9]+)?)[^0-9]{0,6}[Ee]",
@@ -138,6 +138,10 @@ COUNTRY_OVERRIDES: dict[str, list[str]] = {
     "sri lanka": ["SW Bay", "Comorin Area"],
     "south sri lanka": ["SW Bay", "Comorin Area"],
     "north sri lanka": ["SW Bay", "Comorin Area"],
+    # Strait of Malacca and Sumatra overrides
+    "strait of malacca": ["S Andaman Sea", "SE Bay"],
+    "malacca strait": ["S Andaman Sea", "SE Bay"],
+    "sumatra": ["S Andaman Sea", "SE Bay"],
 }
 
 # "Far West Pakistan" is in IMD bulletins but not in the form-subdivision allowed
@@ -153,7 +157,8 @@ def country_override(region: str) -> list[str] | None:
 
 
 def is_coordinate_region(region: str) -> bool:
-    return bool(re.search(r"\balong\s+long\.?", region.lower()))
+    text = region.lower()
+    return "long" in text or "lat" in text
 
 
 def parse_coordinate_constraints(region: str) -> tuple[float | None, float | None]:
@@ -175,10 +180,12 @@ def resolve_coordinate_to_subdivisions(region: str, gazetteer: list[dict], lon_t
     if longitude is None:
         return []
 
-    # If the coordinate is far west (longitude < 68), we can widen the tolerance to match Pakistan/Iran
+    # If the coordinate is far west or far east, we widen the tolerance
     actual_tolerance = lon_tolerance
     if longitude < 68.0:
         actual_tolerance = 15.0  # allow matching Pakistan or Iran subdivisions if far west
+    elif longitude > 95.0:
+        actual_tolerance = 8.0   # allow matching Andaman Sea / Islands if far east
 
     matches: list[tuple[float, str]] = []
     for item in gazetteer:

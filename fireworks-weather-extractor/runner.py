@@ -22,33 +22,15 @@ FIELDNAMES = [
 
 
 def list_word_files(folder: Path, pattern: str = "*.docx") -> list[Path]:
-    """Return all matching .docx files from the specified folder."""
+    """Return all matching .docx files recursively from the specified folder."""
     return sorted(
         path
-        for path in folder.glob(pattern)
+        for path in folder.rglob(pattern)
         if not path.name.startswith("~$") and "_copy" not in path.stem
     )
 
 
 def _already_done(out_path: Path) -> set[str]:
-    """Source filenames that are already fully processed (if the output CSV exists).
-
-    To track this in our custom format, we will read the CSV and we will need to know
-    which files are done. But wait! Since our output format doesn't have a 'source_file'
-    column, how do we know which files are done?
-    Ah! The original CSV has a 'source_file' column, but the user's requested format:
-    {weather system:"", date:"", heightAboveMSL:"", Regions:""} does not.
-    Wait! We can include 'source_file' as an optional/extra column in the CSV if needed,
-    or we can add a log file / checkpoint file, or we can just add a 'source_file' column
-    at the end of the CSV to support resume, or just skip resume tracking by filename if not
-    needed.
-    Wait, adding 'source_file' as an extra column (or just keeping it at the end of each row
-    written to the CSV, and ignoring it if necessary, or keeping a separate .resume_checkpoint
-    file) is a very clean way to keep resume functioning!
-    Let's use a simple checkpoint file `.{out_path.name}.resume` that lists completed filenames.
-    That is extremely elegant, doesn't pollute the CSV, and keeps the CSV format exactly
-    conformant to what the user requested!
-    """
     checkpoint_path = out_path.parent / f".{out_path.name}.resume"
     if not checkpoint_path.exists():
         return set()
@@ -67,7 +49,7 @@ def main() -> None:
                         help="Folder of .docx bulletins (defaults to check locally or standard location)")
     parser.add_argument("--glob", default="*.docx")
     parser.add_argument("--out", "-o", required=True, help="Output CSV path")
-    parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--model", default="accounts/fireworks/models/glm-5p2")
     parser.add_argument(
         "--api-key",
         default=None,
@@ -75,7 +57,17 @@ def main() -> None:
     )
     parser.add_argument("--limit", type=int, default=0, help="Process at most N pending files (0 = all)")
     parser.add_argument("--delay", type=float, default=1.0, help="Seconds to wait between requests")
+    parser.add_argument("--mode", choices=["standard", "depression"], default="depression",
+                        help="Extraction mode: standard (extract all systems) or depression (extract depression/cyclonic storms only)")
     args = parser.parse_args()
+
+    # Import modules dynamically based on mode
+    if args.mode == "standard":
+        from extractor_standard import extract_bulletin_fireworks
+        from prompt_standard import build_system_prompt, few_shot_messages
+    else:
+        from extractor import extract_bulletin_fireworks
+        from prompt import build_system_prompt, few_shot_messages
 
     api_key = args.api_key or os.environ.get("FIREWORKS_API_KEY", "")
     if not api_key:
@@ -118,6 +110,7 @@ def main() -> None:
 
     system_prompt = build_system_prompt()
     few_shot = few_shot_messages()
+
 
     new_file = not out_path.exists() or out_path.stat().st_size == 0
     fh = out_path.open("a", newline="", encoding="utf-8")

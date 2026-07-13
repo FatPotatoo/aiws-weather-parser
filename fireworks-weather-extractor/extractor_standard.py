@@ -149,19 +149,14 @@ _SURFACE_RE = re.compile(r"(mean sea level|sea level|at surface|\bsurface\b|m\.?
 
 def keep_system(system) -> bool:
     """Apply the cross-check exclusion rules. Returns False to drop the system."""
-    val = system.weather_system.value
-    is_depression_entry = (
-        "depression" in val.lower() or 
-        "cyclonic storm" in val.lower()
-    )
-    if not is_depression_entry:
-        return False
-
     if system.is_forecast:
         return False
     if "less marked" in (system.status or "").lower():
         return False
-    return True
+    if (system.height_km_min or 0.0) > 0.0 or (system.height_km_max or 0.0) > 0.0:
+        return True
+    text = f"{system.region} {system.pressure_level} {system.status}".lower()
+    return bool(_SURFACE_RE.search(text))
 
 
 def is_coordinate_region(region: str) -> bool:
@@ -256,28 +251,20 @@ def resolve_regions(region_text: str) -> str:
 def system_to_row(system, date: str | None) -> dict:
     """Map the structured Pydantic object to the requested final dictionary format."""
     # Determine heightAboveMSL
-    val = system.weather_system.value
-    is_depression_entry = (
-        "depression" in val.lower() or 
-        "cyclonic storm" in val.lower()
-    )
-    if is_depression_entry:
-        height_above_msl = "Surface ; 925 hPa ; 850 hPa ; 700 hPa ; 600 hPa ; 500 hPa ; 400 hpa ; 300 hpa ; 200 hPa ; 100 hPa"
+    if (system.height_km_min or 0.0) > 0.0 and (system.height_km_max or 0.0) > 0.0:
+        height_above_msl = f"{system.height_km_min} km to {system.height_km_max} km"
+    elif (system.height_km_min or 0.0) > 0.0:
+        height_above_msl = f"{system.height_km_min} km"
+    elif (system.height_km_max or 0.0) > 0.0:
+        height_above_msl = f"{system.height_km_max} km"
+    elif system.pressure_level.strip():
+        height_above_msl = system.pressure_level.strip()
     else:
-        if (system.height_km_min or 0.0) > 0.0 and (system.height_km_max or 0.0) > 0.0:
-            height_above_msl = f"{system.height_km_min} km to {system.height_km_max} km"
-        elif (system.height_km_min or 0.0) > 0.0:
-            height_above_msl = f"{system.height_km_min} km"
-        elif (system.height_km_max or 0.0) > 0.0:
-            height_above_msl = f"{system.height_km_max} km"
-        elif system.pressure_level.strip():
-            height_above_msl = system.pressure_level.strip()
+        text = f"{system.region} {system.status}".lower()
+        if bool(_SURFACE_RE.search(text)):
+            height_above_msl = "Surface"
         else:
-            text = f"{system.region} {system.status}".lower()
-            if bool(_SURFACE_RE.search(text)):
-                height_above_msl = "Surface"
-            else:
-                height_above_msl = "Not specified"
+            height_above_msl = "Not specified"
 
     # Determine Regions
     if system.subdivisions:

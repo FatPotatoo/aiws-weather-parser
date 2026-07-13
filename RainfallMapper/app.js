@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (urlDate) {
         const parsed = parseCustomDate(urlDate);
-        if (parsed && parsed.y === 2025) {
+        const currentYear = new Date().getFullYear();
+        if (parsed && parsed.y >= 2020 && parsed.y <= currentYear) {
             const formatted = `${parsed.y}-${String(parsed.m).padStart(2, '0')}-${String(parsed.d).padStart(2, '0')}`;
             if (datePicker) datePicker.value = formatted;
             if (hiddenDatePicker) hiddenDatePicker.value = formatted;
@@ -48,13 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // If no URL date provided and no date picker present, fetch a sensible default (first day of 2025)
+    // If no URL date provided and no date picker present, fetch a sensible default (first day of 2025 or current date)
     if (datePicker) {
         fetchRainfallData(datePicker.value);
     } else if (urlDate) {
         fetchRainfallData(urlDate);
     } else {
-        fetchRainfallData('2025-01-01');
+        const currentYear = new Date().getFullYear();
+        const defaultDate = currentYear <= 2025 ? '2025-01-01' : '2026-06-01';
+        fetchRainfallData(defaultDate);
     }
 });
 
@@ -153,9 +156,10 @@ function handleTypedDate() {
     
     const parsed = parseCustomDate(val);
     if (parsed) {
-        // Validate year is 2025
-        if (parsed.y !== 2025) {
-            alert('Only dates in the year 2025 are supported.');
+        // Validate year is between 2020 and current year
+        const currentYear = new Date().getFullYear();
+        if (parsed.y < 2020 || parsed.y > currentYear) {
+            alert(`Only dates between 2020 and ${currentYear} are supported.`);
             datePicker.classList.add('input-error');
             return;
         }
@@ -177,7 +181,7 @@ function handleTypedDate() {
     
     // Invalid date
     datePicker.classList.add('input-error');
-    alert('Invalid date. Please use YYYY-MM-DD or DD-MM-YYYY format (e.g. 2025-07-15).');
+    alert('Invalid date. Please use YYYY-MM-DD or DD-MM-YYYY format.');
 }
 
 // Change Date by offset (in days)
@@ -190,9 +194,9 @@ function changeDate(daysOffset) {
     // Add offset
     currentDate.setDate(currentDate.getDate() + daysOffset);
     
-    // Clamp between 2025-01-01 and 2025-12-31
-    const minDate = new Date('2025-01-01');
-    const maxDate = new Date('2025-12-31');
+    // Clamp between 2020-01-01 and today
+    const minDate = new Date('2020-01-01');
+    const maxDate = new Date();
     
     if (currentDate < minDate) {
         currentDate = minDate;
