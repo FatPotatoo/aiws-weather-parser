@@ -188,6 +188,7 @@ def main() -> None:
                 cmd,
                 input=sql_content,
                 text=True,
+                encoding="utf-8",
                 check=True
             )
             print("Successfully loaded CSV data into the database!", file=sys.stderr)
