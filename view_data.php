@@ -1,7 +1,7 @@
 <?php
 require_once 'config/database.php';
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->getConnection(); // Returns a mysqli connection
 
 $date_filter = $_GET['date_filter'] ?? '';
 $pairs = $_GET['pairs'] ?? [];
@@ -15,16 +15,15 @@ function isEmptyFilterPair(array $pair): bool {
 
 $activePairs = array_values(array_filter($pairs, fn($pair) => !isEmptyFilterPair($pair)));
 
-$query = "
-SELECT id, entry_date, weather_system, height, subdivisions
-FROM Weather_System_Entries
-WHERE 1=1";
-
-$params = [];
+// Subquery to find dates matching the criteria
+$subquery = "SELECT DISTINCT entry_date FROM weather_system_entries WHERE 1=1";
+$subparams = [];
+$subtypes = "";
 
 if (!empty($date_filter)) {
-    $query .= " AND entry_date = :entry_date";
-    $params[':entry_date'] = $date_filter;
+    $subquery .= " AND entry_date = ?";
+    $subparams[] = $date_filter;
+    $subtypes .= "s";
 }
 
 $pairConditions = [];
@@ -34,9 +33,9 @@ foreach ($pairs as $i => $pair) {
 
         // SYSTEM filter
         if (!empty($pair['system'])) {
-            $sysKey = ":pair_system_$i";
-            $conds[] = "weather_system LIKE $sysKey";
-            $params[$sysKey] = '%' . trim($pair['system']) . '%';
+            $conds[] = "weather_system LIKE ?";
+            $subparams[] = '%' . trim($pair['system']) . '%';
+            $subtypes .= "s";
         }
 
         // MULTIPLE SUBDIVISIONS filter (comma-separated)
@@ -44,10 +43,9 @@ foreach ($pairs as $i => $pair) {
             $subdivisions = array_map('trim', explode(',', $pair['subdivision']));
             $orSubConds = [];
             foreach ($subdivisions as $j => $sub) {
-                // Use only alphanumeric-safe keys
-                $subKey = ":subdiv_{$i}_{$j}";
-                $orSubConds[] = "subdivisions LIKE $subKey";
-                $params[$subKey] = '%' . $sub . '%';
+                $orSubConds[] = "subdivisions LIKE ?";
+                $subparams[] = '%' . $sub . '%';
+                $subtypes .= "s";
             }
             if (!empty($orSubConds)) {
                 $conds[] = '(' . implode(' OR ', $orSubConds) . ')';
@@ -60,10 +58,23 @@ foreach ($pairs as $i => $pair) {
     }
 }
 if (!empty($pairConditions)) {
-    $query .= " AND (" . implode(" OR ", $pairConditions) . ")";
+    $subquery .= " AND (" . implode(" OR ", $pairConditions) . ")";
 }
 
+// Main query selects ALL systems for those dates
+$query = "
+SELECT id, entry_date, weather_system, height, subdivisions
+FROM weather_system_entries
+WHERE entry_date IN ($subquery)
+ORDER BY entry_date DESC, weather_system, height
+";
 
+$stmt = $db->prepare($query);
+if (!empty($subparams)) {
+    $stmt->bind_param($subtypes, ...$subparams);
+}
+$stmt->execute();
+$stmt_result = $stmt->get_result();
 
 function matchesPressureFilter(array $pressures, string $operator, string $value): bool {
     if ($operator === '' || $value === '') {
@@ -140,10 +151,6 @@ function rowMatchesPair(array $row, array $pair): bool {
     return true;
 }
 
-$query .= " ORDER BY entry_date DESC, weather_system, height";
-$stmt = $db->prepare($query);
-$stmt->execute($params);
-
 $data = [];
 $datePairMatch = [];
 $systemList = [];
@@ -151,7 +158,7 @@ $subdivisionList = [];
 $systemToSubdivision = [];
 $numActivePairs = count($activePairs);
 
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $stmt_result->fetch_assoc()) {
     $date = $row['entry_date'];
     $system = $row['weather_system'];
     $system_id = $row['id'];
@@ -165,9 +172,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $matchedPairIndices[] = $pairIndex;
             }
         }
-        if (empty($matchedPairIndices)) {
-            continue;
-        }
+        // Removed the continue check so all systems are fetched
         foreach ($matchedPairIndices as $pairIndex) {
             $datePairMatch[$date][$pairIndex] = true;
         }
@@ -246,15 +251,13 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
 
 <main class="flex-1 p-8 md:ml-64">
   <div class="mb-6 flex justify-end">
-<a id="exportLink"
-   href="#"
-   class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800 transition"
-   onclick="downloadCSV(event)">
-   Export Filtered as CSV
-</a>
-
-</div>
-
+    <a id="exportLink"
+       href="#"
+       class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+       onclick="downloadCSV(event)">
+       Export Filtered as CSV
+    </a>
+  </div>
 
   <h1 class="text-3xl font-bold text-blue-900 mb-6">Weather Data Records</h1>
 
@@ -279,18 +282,17 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
             </div>
           <?php endforeach; ?>
         <?php else: ?>
-         <div class="flex flex-wrap gap-2 items-center">
-  <input type="text" name="pairs[0][system]" class="border p-2 rounded w-full sm:w-1/4 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression" />
-  <input type="text" name="pairs[0][subdivision]" class="border p-2 rounded w-full sm:w-1/4 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu" />
-  <select name="pairs[0][pressure_operator]" class="border p-2 rounded w-full sm:w-1/6 text-black">
-    <option value="">Any</option>
-    <option value="=">=</option>
-    <option value=">">&gt;</option>
-    <option value="<">&lt;</option>
-  </select>
-  <input type="text" name="pairs[0][pressure_value]" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Height e.g. 1.5 km or Surface" />
-</div>
-
+          <div class="flex flex-wrap gap-2 items-center">
+            <input type="text" name="pairs[0][system]" class="border p-2 rounded w-full sm:w-1/4 filter-input system-type text-black placeholder-gray-400" placeholder="e.g. Depression" />
+            <input type="text" name="pairs[0][subdivision]" class="border p-2 rounded w-full sm:w-1/4 filter-input subdivision-type text-black placeholder-gray-400" placeholder="e.g. Kerala, Odisha, Tamil Nadu" />
+            <select name="pairs[0][pressure_operator]" class="border p-2 rounded w-full sm:w-1/6 text-black">
+              <option value="">Any</option>
+              <option value="=">=</option>
+              <option value=">">&gt;</option>
+              <option value="<">&lt;</option>
+            </select>
+            <input type="text" name="pairs[0][pressure_value]" class="border p-2 rounded w-full sm:w-1/4 text-black" placeholder="Height e.g. 1.5 km or Surface" />
+          </div>
         <?php endif; ?>
       </div>
       <button type="button" onclick="addFilterPair()" class="mt-2 text-blue-600 hover:underline text-sm">+ Add More Filters</button>
@@ -332,8 +334,8 @@ $systemToSubdivisionJson = json_encode($systemToSubdivision);
               <a href="delete.php?system_id=<?= $sys['system_id'] ?>" class="text-red-600 hover:underline" onclick="return confirm('Are you sure?')">Delete</a>
             </div>
           </div>
-          <p class="ml-6 text-gray-800"><strong>Height:</strong> <?= implode(', ', $sys['heights']) ?></p>
-          <p class="ml-6 text-gray-800"><strong>Subdivisions:</strong> <?= implode(', ', $sys['subdivisions']) ?></p>
+          <p class="ml-6 text-gray-800"><strong>Height:</strong> <?= htmlspecialchars(implode(', ', $sys['heights'])) ?></p>
+          <p class="ml-6 text-gray-800"><strong>Subdivisions:</strong> <?= htmlspecialchars(implode(', ', $sys['subdivisions'])) ?></p>
         </div>
       <?php endforeach; ?>
     </div>
@@ -364,7 +366,7 @@ function initAutocomplete() {
         const subInput = systemInput.closest('.flex').querySelector('.subdivision-type');
         if (subInput) {
           subInput.value = '';
-          bindSubdivisionAutocomplete(subInput); // Rebind with updated system
+          bindSubdivisionAutocomplete(subInput);
         }
 
         const inputs = Array.from(document.querySelectorAll('.filter-input'));
@@ -410,7 +412,6 @@ function bindSubdivisionAutocomplete(subInput) {
   });
 }
 
-
 function addFilterPair() {
   const index = document.querySelectorAll('#filter-pairs .flex').length;
   const pairDiv = document.createElement('div');
@@ -428,19 +429,22 @@ function addFilterPair() {
     <button type="button" onclick="removeFilterPair(this)" class="text-red-600 text-xl">&minus;</button>
   `;
   document.getElementById('filter-pairs').appendChild(pairDiv);
-  initAutocomplete(); // Re-bind autocompletes
+  initAutocomplete();
 }
-
 
 function removeFilterPair(btn) {
   const parent = btn.closest('.flex');
   if (parent) parent.remove();
 }
 
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('-translate-x-full');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initAutocomplete();
 
-  // Generate export link based on filters
   const exportBtn = document.getElementById('exportLink');
   const filterForm = document.getElementById('filterForm');
   
@@ -454,16 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     exportBtn.href = `export_csv.php?${params.toString()}`;
   }
- // Call it once initially
   updateExportLink();
-
-  // Then update when form changes
   filterForm.addEventListener('input', updateExportLink);
-  
 });
 
-</script>
-<script>
 function downloadCSV(e) {
   e.preventDefault();
 
@@ -475,17 +473,13 @@ function downloadCSV(e) {
     params.append(key, value);
   }
 
-  // Trigger download using a hidden link
   const a = document.createElement('a');
   a.href = `export_csv.php?${params.toString()}`;
-  a.download = ''; // Let browser handle file
+  a.download = '';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 }
-
 </script>
-
-
 </body>
 </html>

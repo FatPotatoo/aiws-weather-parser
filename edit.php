@@ -1,7 +1,12 @@
 <?php
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'config/database.php';
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->getConnection(); // Returns a mysqli connection
 
 $system_id = $_GET['system_id'] ?? null;
 
@@ -11,22 +16,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subdivisions = $_POST['subdivisions'] ?? '';
     $height = $_POST['height'] ?? '';
 
-    $stmt = $db->prepare("UPDATE Weather_System_Entries SET weather_system = :name, entry_date = :date, subdivisions = :subdivisions, height = :height WHERE id = :id");
-    $stmt->execute([
-        ':name' => $new_name,
-        ':date' => $entry_date,
-        ':subdivisions' => $subdivisions,
-        ':height' => $height,
-        ':id' => $system_id
-    ]);
+    // MySQLi uses '?' placeholders
+    $stmt = $db->prepare("UPDATE weather_system_entries SET weather_system = ?, entry_date = ?, subdivisions = ?, height = ? WHERE id = ?");
+    $stmt->bind_param("ssssi", $new_name, $entry_date, $subdivisions, $height, $system_id);
+    $stmt->execute();
 
     header("Location: view_data.php");
     exit;
 }
 
-$stmt = $db->prepare("SELECT entry_date, weather_system, subdivisions, height FROM Weather_System_Entries WHERE id = :id");
-$stmt->execute([':id' => $system_id]);
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+// MySQLi query using '?' placeholder
+$stmt = $db->prepare("SELECT entry_date, weather_system, subdivisions, height FROM weather_system_entries WHERE id = ?");
+$stmt->bind_param("i", $system_id);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -68,4 +73,3 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
   </div>
 </body>
 </html>
-

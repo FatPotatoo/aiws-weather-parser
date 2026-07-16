@@ -1,7 +1,12 @@
 <?php
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'config/database.php';
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->getConnection(); // Returns mysqli connection
 
 $date_filter = $_GET['date'] ?? ($_GET['date_filter'] ?? '');
 $pairs = $_GET['pairs'] ?? [];
@@ -18,16 +23,18 @@ $activePairs = array_values(array_filter($pairs, fn($pair) => !isEmptyFilterPair
 // Initial query
 $query = "
 SELECT id AS system_id, entry_date, weather_system, height, subdivisions, created_at
-FROM Weather_System_Entries
+FROM weather_system_entries
 WHERE 1=1
 ";
 
 $params = [];
+$types = "";
 
 // Date filter
 if (!empty($date_filter)) {
-    $query .= " AND entry_date = :entry_date";
-    $params[':entry_date'] = $date_filter;
+    $query .= " AND entry_date = ?";
+    $params[] = $date_filter;
+    $types .= "s";
 }
 
 // Pairs filter
@@ -37,18 +44,18 @@ foreach ($pairs as $i => $pair) {
         $conds = [];
 
         if (!empty($pair['system'])) {
-            $sysKey = ":pair_system_$i";
-            $conds[] = "weather_system LIKE $sysKey";
-            $params[$sysKey] = '%' . trim($pair['system']) . '%';
+            $conds[] = "weather_system LIKE ?";
+            $params[] = '%' . trim($pair['system']) . '%';
+            $types .= "s";
         }
 
         if (!empty($pair['subdivision'])) {
             $subdivisions = array_map('trim', explode(',', $pair['subdivision']));
             $orSubConds = [];
             foreach ($subdivisions as $j => $sub) {
-                $subKey = ":subdiv_{$i}_{$j}";
-                $orSubConds[] = "subdivisions LIKE $subKey";
-                $params[$subKey] = '%' . $sub . '%';
+                $orSubConds[] = "subdivisions LIKE ?";
+                $params[] = '%' . $sub . '%';
+                $types .= "s";
             }
             if (!empty($orSubConds)) {
                 $conds[] = '(' . implode(' OR ', $orSubConds) . ')';
@@ -67,8 +74,12 @@ if (!empty($pairConditions)) {
 $query .= " ORDER BY entry_date DESC, weather_system, height";
 
 $stmt = $db->prepare($query);
-$stmt->execute($params);
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$result = $stmt->get_result();
+$rows = $result->fetch_all(MYSQLI_ASSOC);
 
 function matchesPressureFilter(array $pressures, string $operator, string $value): bool {
     if ($operator === '' || $value === '') {
@@ -157,9 +168,7 @@ foreach ($rows as $row) {
                 $matchedPairIndices[] = $pairIndex;
             }
         }
-        if (empty($matchedPairIndices)) {
-            continue;
-        }
+        // Removed the continue/skip check
         foreach ($matchedPairIndices as $pairIndex) {
             $datePairMatch[$row['entry_date']][$pairIndex] = true;
         }

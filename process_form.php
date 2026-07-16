@@ -1,9 +1,14 @@
 <?php
+// Enable error reporting for troubleshooting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'config/database.php';
 
 if ($_POST) {
     $database = new Database();
-    $db = $database->getConnection();
+    $db = $database->getConnection(); // Returns a mysqli connection
 
     if (!$db) {
         header("Location: index.php?error=connection");
@@ -11,13 +16,12 @@ if ($_POST) {
     }
 
     try {
-        if (!$db->inTransaction()) {
-            $db->beginTransaction();
-        }
+        // Start transaction in MySQLi
+        $db->begin_transaction();
 
+        // MySQLi uses '?' placeholders
         $stmt = $db->prepare(
-            "INSERT INTO Weather_System_Entries (entry_date, weather_system, subdivisions, height) " .
-            "VALUES (:entry_date, :weather_system, :subdivisions, :height)"
+            "INSERT INTO weather_system_entries (entry_date, weather_system, subdivisions, height) VALUES (?, ?, ?, ?)"
         );
 
         $entry_date = $_POST['entry_date'];
@@ -36,12 +40,9 @@ if ($_POST) {
                     ? implode(', ', $system_data['levels'])
                     : null;
 
-                $stmt->execute([
-                    ':entry_date' => $entry_date,
-                    ':weather_system' => $weather_system,
-                    ':subdivisions' => $subdivisions,
-                    ':height' => $pressure_level,
-                ]);
+                // Bind parameters and execute
+                $stmt->bind_param("ssss", $entry_date, $weather_system, $subdivisions, $pressure_level);
+                $stmt->execute();
             }
         }
 
@@ -51,9 +52,7 @@ if ($_POST) {
         exit();
 
     } catch (Exception $e) {
-        if ($db && $db->inTransaction()) {
-            $db->rollBack();
-        }
+        $db->rollback();
         echo "Error: " . $e->getMessage();
     }
 } else {

@@ -1,4 +1,25 @@
 <?php
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once 'config/database.php';
+$database = new Database();
+$db = $database->getConnection(); // Returns mysqli connection
+
+// Fetch all distinct dates that actually have records in the database
+$allowed_dates = [];
+if ($db) {
+    $stmt = $db->prepare("SELECT DISTINCT entry_date FROM Weather_System_Entries ORDER BY entry_date");
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while ($row = $res->fetch_assoc()) {
+        $allowed_dates[] = $row['entry_date'];
+    }
+}
+$allowed_dates_json = json_encode($allowed_dates);
+
 $result = null;
 $error = null;
 $query_date = '';
@@ -17,8 +38,19 @@ if (isset($_POST['query_date'])) {
         $escaped_script = escapeshellarg($py_script);
         $escaped_date = escapeshellarg($query_date);
         
-        $command = "python $escaped_script --date $escaped_date 2>&1";
-        exec($command, $output, $return_var);
+        // Try python3 first, then python
+        $python_execs = ['python3', 'python'];
+        $output = [];
+        $return_var = 1;
+        
+        foreach ($python_execs as $py) {
+            $command = "$py $escaped_script --date $escaped_date 2>&1";
+            exec($command, $output, $return_var);
+            if ($return_var === 0) {
+                break;
+            }
+            $output = [];
+        }
         
         $output_str = implode("\n", $output);
         if ($return_var !== 0) {
@@ -45,8 +77,11 @@ if (isset($_POST['query_date'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Flatpickr CSS for custom date picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  
   <style>
-    /* Custom loader styling */
     .loader {
       border-top-color: #3b82f6;
       -webkit-animation: spinner 1.5s linear infinite;
@@ -60,9 +95,54 @@ if (isset($_POST['query_date'])) {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+    /* Custom Flatpickr light styling to match the site's original design */
+    .flatpickr-calendar {
+      background: #ffffff !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 0.5rem !important;
+      font-family: inherit !important;
+    }
+    .flatpickr-day.selected, .flatpickr-day.selected:focus, .flatpickr-day.selected:hover {
+      background: #2563eb !important; /* Royal Blue */
+      border-color: #2563eb !important;
+      color: #ffffff !important;
+    }
+    .flatpickr-day.today {
+      border-color: #2563eb !important;
+    }
+    .flatpickr-day.today:hover {
+      background: #eff6ff !important;
+    }
+    .flatpickr-day:hover {
+      background: #f1f5f9 !important;
+    }
+    .flatpickr-day.disabled, .flatpickr-day.disabled:hover {
+      color: #cbd5e1 !important; /* Grayed out */
+      background: transparent !important;
+      cursor: not-allowed !important;
+    }
+    .flatpickr-months .flatpickr-month {
+      color: #1e293b !important;
+    }
+    .flatpickr-current-month .numInputWrapper span.arrowUp:after {
+      border-bottom-color: #1e293b !important;
+    }
+    .flatpickr-current-month .numInputWrapper span.arrowDown:after {
+      border-top-color: #1e293b !important;
+    }
+    .flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month {
+      color: #1e293b !important;
+      fill: #1e293b !important;
+    }
+    .flatpickr-weekday {
+      color: #64748b !important;
+      font-weight: 600 !important;
+    }
   </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex">
+<body class="bg-gray-100 min-h-screen flex text-black">
 
 <!-- Sidebar -->
 <button onclick="toggleSidebar()" class="text-3xl m-4 z-50 fixed top-4 left-4 md:hidden">☰</button>
@@ -99,7 +179,7 @@ if (isset($_POST['query_date'])) {
     <?php endif; ?>
 
     <!-- Query Panel -->
-    <div class="bg-white rounded-lg shadow-lg p-6 mb-6 text-black">
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-6 text-black border">
       <h2 class="text-xl font-bold text-gray-800 mb-4">
         <i class="fas fa-calendar-alt mr-2 text-blue-600"></i>
         Select Weather Pattern Date
@@ -107,10 +187,11 @@ if (isset($_POST['query_date'])) {
       <form method="POST" id="queryForm" onsubmit="showLoading()" class="space-y-4">
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-2">Target Query Date</label>
-          <input type="date" name="query_date" required min="2020-01-01" max="2025-12-31"
+          <input type="text" id="query_date" name="query_date" required readonly
                  value="<?php echo htmlspecialchars($query_date); ?>"
-                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-black">
-          <p class="mt-1 text-xs text-gray-400">Select any day between 2020 and 2025. The system will look up this day's weather system layout and compare it with the rest of the database.</p>
+                 placeholder="Select a date with weather records..."
+                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-black bg-white cursor-pointer">
+          <p class="mt-1 text-xs text-gray-400">Only dates with recorded weather systems in the database are clickable.</p>
         </div>
         <div class="flex justify-end">
           <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium flex items-center">
@@ -121,7 +202,7 @@ if (isset($_POST['query_date'])) {
     </div>
 
     <!-- Loading Animation -->
-    <div id="loadingOverlay" class="hidden bg-white rounded-lg shadow-lg p-12 text-center flex flex-col items-center">
+    <div id="loadingOverlay" class="hidden bg-white rounded-lg shadow-lg p-12 text-center flex flex-col items-center border">
       <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-16 w-16 mb-4"></div>
       <h3 class="text-lg font-bold text-gray-800">Analyzing Weather Similarity Profile...</h3>
       <p class="text-sm text-gray-500 mt-2 max-w-md">Our backend engine is retrieving the weather layout for the selected date and executing a mathematical similarity lookup across the rest of the database. This takes only 1-2 seconds.</p>
@@ -132,7 +213,7 @@ if (isset($_POST['query_date'])) {
       <div id="resultsArea" class="space-y-6 text-black">
         
         <!-- Source Extracted Data -->
-        <div class="bg-blue-50 border-l-4 border-blue-600 rounded-lg shadow p-6">
+        <div class="bg-blue-50 border-l-4 border-blue-600 rounded-lg shadow p-6 border">
           <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-bold text-blue-900">
               <i class="fas fa-clipboard-check mr-2"></i>
@@ -178,7 +259,7 @@ if (isset($_POST['query_date'])) {
                     </a>
                   </div>
                   
-                  <!-- Similarity Score / Confidence Meter -->
+                  <!-- Similarity Score -->
                   <div class="flex items-center gap-2">
                     <span class="text-sm font-semibold text-gray-500">Similarity Match:</span>
                     <span class="text-lg font-extrabold text-blue-700"><?php echo $match['score']; ?>%</span>
@@ -216,6 +297,8 @@ if (isset($_POST['query_date'])) {
   </div>
 </main>
 
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -223,15 +306,20 @@ if (isset($_POST['query_date'])) {
   }
 
   function showLoading() {
-    // Hide results if visible
     const resultsArea = document.getElementById('resultsArea');
     if (resultsArea) {
       resultsArea.classList.add('hidden');
     }
-    // Show loader
     const loader = document.getElementById('loadingOverlay');
     loader.classList.remove('hidden');
   }
+
+  // Initialize Flatpickr with allowed dates (Default Light Theme)
+  const allowedDates = <?php echo $allowed_dates_json; ?>;
+  flatpickr("#query_date", {
+      dateFormat: "Y-m-d",
+      enable: allowedDates
+  });
 </script>
 </body>
 </html>
